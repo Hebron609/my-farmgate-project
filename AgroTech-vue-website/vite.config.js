@@ -12,6 +12,9 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         about: path.resolve(__dirname, 'about.html'),
+        solutions: path.resolve(__dirname, 'solutions.html'),
+        marketplace: path.resolve(__dirname, 'marketplace.html'),
+        pricing: path.resolve(__dirname, 'pricing.html'),
         // Add more pages here
       }
     }
