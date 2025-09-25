@@ -11,23 +11,27 @@
       />
 
       <!-- Hero-section-content -->
-      <div
-        class="absolute z-10 flex flex-col items-center justify-center w-full h-full text-center top-[10px]"
-      >
-        <h1
-          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-sm px-5 flex items-center gap-2"
-        >
-          <font-awesome-icon icon="leaf" class="text-xs" />
-          <span>About Us</span>
-        </h1>
-        <p class="max-w-[700px] text-5xl font-semibold text-white mb-8">
-          We are committed to advancing agriculture.
-        </p>
+<div
+  class="absolute z-10 flex flex-col items-center justify-center w-full h-full text-center top-[10px] px-4 sm:px-6 lg:px-8"
+>
+  <h1
+    class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-lg px-4 sm:px-5 md:px-6 flex items-center gap-2"
+  >
+    <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs md:text-sm" />
+    <span>About Us</span>
+  </h1>
+  <p
+    class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8"
+  >
+    We are committed to advancing agriculture.
+  </p>
 
-        <p class="text-white max-w-[500px]">
-          FarmGate is more than a company — we're a movement toward smarter, more sustainable farming.
-        </p>
-      </div>
+  <p
+    class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg"
+  >
+    FarmGate is more than a company — we're a movement toward smarter, more sustainable farming.
+  </p>
+</div>
     </div>
 
     <!-- Our Track Record Section -->
@@ -247,48 +251,51 @@
       <Timeline />
     </section>
 
-    <!--Grow-with-us-section-->
-    <section class="max-w-[1440px] mx-auto py-20 font-montserrat px-6">
-      <div class="mx-2">
-        <div class="relative">
-          <img
-            src="/src/assets/img/farm-pic9.jpg"
-            class="w-full h-[480px] object-cover rounded-xl brightness-60 relative"
-            alt=""
-          />
+<!--Grow-with-us-section-->
+<section class="max-w-[1440px] mx-auto py-20 font-montserrat px-4 sm:px-6 lg:px-8">
+  <div class="mx-2">
+    <div class="relative">
+      <img
+        src="/src/assets/img/farm-pic9.jpg"
+        class="w-full h-[300px] sm:h-[400px] md:h-[480px] object-cover rounded-xl brightness-60"
+        alt=""
+      />
 
-       
-          <div
-            class="absolute z-10 flex flex-col items-center justify-center w-full h-full text-center top-[10px]"
+      <div
+        class="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center sm:px-6"
+      >
+        <p
+          class="max-w-[90%] sm:max-w-[500px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 leading-tight"
+        >
+          Grow something great together.
+        </p>
+
+        <p
+          class="text-white max-w-[90%] sm:max-w-[490px] text-xs sm:text-sm md:text-base mb-6 sm:mb-8 mt-2"
+        >
+          Whether you’re a farmer, distributor, or partner, we’re here to support your goals with sustainable solutions and global expertise.
+        </p>
+
+        <button
+          class="md:flex group relative overflow-hidden p-3 sm:p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm"
+        >
+          <span
+            class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
           >
-            <p class="max-w-[500px] text-5xl font-semibold text-white mb-4 leading-tighter">
-              Grow something great together.
-            </p>
-
-            <p class="text-white max-w-[490px] text-sm mb-15 mt-2">
-              Whether you’re a farmer, distributor, or partner, we’re here to support your goals with sustainable solutions and global expertise. 
-            </p>
-
-            <button
-              class="md:flex group relative overflow-hidden p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-sm"
-            >
-              <span
-                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-              >
-                <font-awesome-icon icon="leaf" class="text-xs" />
-                <span class="text-md">Let's work together</span>
-              </span>
-              <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
-              >
-                <font-awesome-icon icon="leaf" class="text-xs" />
-                <span class="font-semibold text-md">Let's work together</span>
-              </span>
-            </button>
-          </div>
-        </div>
+            <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs" />
+            <span class="text-xs sm:text-sm">Let's work together</span>
+          </span>
+          <span
+            class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+          >
+            <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs" />
+            <span class="text-xs font-semibold sm:text-sm">Let's work together</span>
+          </span>
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!--Footer-component-->
     <Footer />

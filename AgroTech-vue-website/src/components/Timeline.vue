@@ -48,26 +48,32 @@ import { ref, computed } from "vue";
 const years = [2010, 2014, 2018, 2023];
 const activeYear = ref(2010);
 
+
+import farmPic2 from "@/assets/img/farm-pic2.jpg"
+import farmPic6 from "@/assets/img/farm-pic6.jpg"
+import farmPic3 from "@/assets/img/farm-pic3.jpg"
+import farmPic1 from "@/assets/img/farm-pic1.jpg"
+
 const content = {
   2010: {
     title: "Agricultural Group is founded with a mission to support sustainable farming.",
     text: "Agricultural Group was founded with a clear purpose: to make farming more sustainable, efficient, and accessible. What began as a local initiative focused on soil restoration and water conservation quickly gained traction among forward-thinking growers.",
-    image: "/src/assets/img/farm-pic2.jpg"
+    image: farmPic2
   },
   2014: {
     title: "Expansion into regional farming projects.",
     text: "By 2014, the group expanded operations, introducing innovative irrigation systems and farmer training programs that transformed local communities.",
-    image: "/src/assets/img/farm-pic6.jpg"
+    image: farmPic6
   },
   2018: {
     title: "Technology-driven solutions introduced.",
     text: "2018 marked the integration of precision farming tools, data-driven insights, and partnerships with agri-tech companies to boost productivity.",
-    image: "/src/assets/img/farm-pic3.jpg"
+    image: farmPic3
   },
   2023: {
     title: "Global recognition in sustainable agriculture.",
     text: "Today, Agricultural Group is recognized internationally for advancing eco-friendly farming practices, driving food security, and empowering smallholder farmers worldwide.",
-    image: "/src/assets/img/farm-pic1.jpg"
+    image: farmPic1
   }
 };
 

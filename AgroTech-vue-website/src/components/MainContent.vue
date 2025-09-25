@@ -477,13 +477,13 @@
   </h1>
 
   <!-- Section Heading + Controls -->
-  <div class="flex items-center justify-between mx-8 mb-12">
+  <div class="flex flex-col mx-8 mb-12 lg:flex-row lg:items-center lg:justify-between">
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight max-w-[500px]">
       Trusted by farmers & businesses worldwide.
     </h2>
 
-    <!-- Controls -->
-    <div class="flex gap-3">
+    <!-- Controls (default for large screens) -->
+    <div class="hidden gap-3 lg:flex">
       <button 
         @click="prevSlide" 
         class="flex items-center justify-center w-10 h-10 transition border rounded-full hover:bg-gray-100"
@@ -522,6 +522,22 @@
       </div>
     </div>
   </div>
+
+  <!-- Controls (for smaller screens) -->
+  <div class="flex justify-center gap-3 mt-6 lg:hidden sm:mt-12">
+    <button 
+      @click="prevSlide" 
+      class="flex items-center justify-center w-10 h-10 transition border rounded-full hover:bg-gray-100"
+    >
+      <font-awesome-icon icon="chevron-left" />
+    </button>
+    <button 
+      @click="nextSlide" 
+      class="flex items-center justify-center w-10 h-10 transition border rounded-full hover:bg-gray-100"
+    >
+      <font-awesome-icon icon="chevron-right" />
+    </button>
+  </div>
 </section>
 
 
@@ -531,35 +547,38 @@
 <script setup>
 import { ref } from "vue";
 
+import ceoDp from "@/assets/img/farm-ceo.jpg"
+
 const activeIndex = ref(0);
 
 const testimonials = [
   {
     text: "Working with James has transformed the way we operate. Their sustainable approach and reliable delivery have made them an essential part of our supply chain.",
-    name: "Mark Linberg",
+    name: "Mark Adu",
     role: "CEO of Artana",
-    img: "/src/assets/img/farm-ceo.jpg",
+    img: ceoDp,
     bg: "bg-gray-50",
     textColor: "text-gray-700"
   },
   {
     text: "Their team brings not only expertise but real care for the land and the farmers.",
-    name: "Lisa Rhouthier",
-    img: "/src/assets/img/farm-ceo.jpg",
+    name: "Lisa Quaye",
+    img: ceoDp,
     bg: "bg-black",
     textColor: "text-white"
   },
   {
     text: "We’ve seen measurable improvements in both crop quality and operational efficiency since partnering with them.",
-    name: "Rebecca Truj",
-    img: "/src/assets/img/farm-ceo.jpg",
+    name: "Rebecca Gamor",
+    img: ceoDp,
     bg: "bg-white border",
     textColor: "text-gray-700"
   },
   {
     text: "Their consistency, quality, and eco-friendly practices are unmatched in the farming industry.",
-    name: "Fred Anderson",
-    img: "/src/assets/img/farm-ceo.jpg",
+    name: "Fred Boateng",
+    role: "Founder of AgroTech",
+    img: ceoDp,
     bg: "bg-green-900",
     textColor: "text-white"
   }
