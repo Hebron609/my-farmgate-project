@@ -25,8 +25,7 @@
         </p>
 
         <p class="text-white max-w-[500px]">
-          Our goal is simple: to empower growers, strengthen supply chains, and
-          regenerate the land we depend on.
+          FarmGate is more than a company — we're a movement toward smarter, more sustainable farming.
         </p>
       </div>
     </div>
@@ -223,29 +222,73 @@
       </div>
     </section>
 
-   <!-- Our-history-section -->
-<section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-  <!-- Section Label -->
-  <div class="flex justify-center">
-    <h1
-      class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
-    >
-      <font-awesome-icon icon="leaf" class="text-xs text-green-900" />
-      <span class="text-xs font-semibold">Our history</span>
-    </h1>
-  </div>
+    <!-- Our-history-section -->
+    <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
+      <!-- Section Label -->
+      <div class="flex justify-center">
+        <h1
+          class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
+        >
+          <font-awesome-icon icon="leaf" class="text-xs text-green-900" />
+          <span class="text-xs font-semibold">Our history</span>
+        </h1>
+      </div>
 
-  <!-- Heading -->
-  <div class="flex justify-center mb-12">
-    <h1 class="text-3xl font-semibold text-center leading-tighter max-w-[380px]">
-      From humble roots to a global vision.
-    </h1>
-  </div>
+      <!-- Heading -->
+      <div class="flex justify-center mb-12">
+        <h1
+          class="text-3xl font-semibold text-center leading-tighter max-w-[380px]"
+        >
+          From humble roots to a global vision.
+        </h1>
+      </div>
 
-  <!-- Timeline Component (placed below heading, full width) -->
-  <Timeline />
-</section>
+      <!-- Timeline Component (placed below heading, full width) -->
+      <Timeline />
+    </section>
 
+    <!--Grow-with-us-section-->
+    <section class="max-w-[1440px] mx-auto py-20 font-montserrat px-6">
+      <div class="mx-2">
+        <div class="relative">
+          <img
+            src="/src/assets/img/farm-pic9.jpg"
+            class="w-full h-[480px] object-cover rounded-xl brightness-60 relative"
+            alt=""
+          />
+
+       
+          <div
+            class="absolute z-10 flex flex-col items-center justify-center w-full h-full text-center top-[10px]"
+          >
+            <p class="max-w-[500px] text-5xl font-semibold text-white mb-4 leading-tighter">
+              Grow something great together.
+            </p>
+
+            <p class="text-white max-w-[490px] text-sm mb-15 mt-2">
+              Whether you’re a farmer, distributor, or partner, we’re here to support your goals with sustainable solutions and global expertise. 
+            </p>
+
+            <button
+              class="md:flex group relative overflow-hidden p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-sm"
+            >
+              <span
+                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
+                <font-awesome-icon icon="leaf" class="text-xs" />
+                <span class="text-md">Let's work together</span>
+              </span>
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+              >
+                <font-awesome-icon icon="leaf" class="text-xs" />
+                <span class="font-semibold text-md">Let's work together</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!--Footer-component-->
     <Footer />
