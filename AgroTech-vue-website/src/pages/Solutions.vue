@@ -5,7 +5,7 @@
       <Header />
 
       <img
-        src="/src/assets/img/our-solutions-banner.jpg"
+        src="/src/assets/img/about-us-banner.jpg"
         class="absolute top-0 left-0 w-full h-[580px] object-cover brightness-[0.56] z-0"
         alt=""
       />
