@@ -77,56 +77,57 @@
       </div>
     </section>
 
-    <section class="max-w-[1440px] mx-auto py-20 font-montserrat px-6">
-      <div class="mx-2">
-        <div class="relative">
-          <img
-            src="/src/assets/img/farm-pic7.jpg"
-            class="w-full h-[480px] object-cover rounded-xl brightness-60 relative"
-            alt=""
-          />
+    <section class="max-w-[1440px] mx-auto py-10 sm:py-20 font-montserrat px-4 sm:px-6 lg:px-8">
+  <div class="mx-2">
+    <div class="relative">
+      <img
+        src="/src/assets/img/farm-pic7.jpg"
+        class="w-full h-[300px] sm:h-[400px] md:h-[480px] object-cover rounded-xl brightness-60"
+        alt=""
+      />
 
-          <!-- Hero-section-content -->
-          <div
-            class="absolute z-10 flex flex-col items-center justify-center w-full h-full text-center top-[10px]"
+      <!-- Hero-section-content -->
+      <div
+        class="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center sm:px-6"
+      >
+        <h1
+          class="flex items-center gap-2 px-4 py-2 mb-4 text-xs font-semibold bg-white sm:px-5 sm:text-sm text-green-950 rounded-4xl"
+        >
+          <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs" />
+          <span>Who We Are</span>
+        </h1>
+        <p
+          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4"
+        >
+          We are a team of agronomists, technologists, sustainability experts.
+        </p>
+
+        <p
+          class="text-white max-w-[90%] sm:max-w-[700px] text-sm sm:text-base mb-6 sm:mb-8"
+        >
+          We partner with farmers and communities in over 15 countries to enhance productivity, protect the planet, and empower those behind each harvest.
+        </p>
+
+        <button
+          class="md:flex group relative overflow-hidden p-3 sm:p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm"
+        >
+          <span
+            class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
           >
-            <h1
-              class="flex items-center gap-2 px-5 py-2 mb-4 text-sm font-semibold bg-white text-green-950 rounded-4xl"
-            >
-              <font-awesome-icon icon="leaf" class="text-xs" />
-              <span>Who We Are</span>
-            </h1>
-            <p class="max-w-[700px] text-4xl font-semibold text-white mb-4">
-              We are a team of agronomists, technologists, sustainability
-              experts.
-            </p>
-
-            <p class="text-white max-w-[700px] text-sm mb-15">
-              We partner with farmers and communities in over 15 countries to
-              enhance productivity, protect the planet, and empower those behind
-              each harvest.
-            </p>
-
-            <button
-              class="md:flex group relative overflow-hidden p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-sm"
-            >
-              <span
-                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-              >
-                <font-awesome-icon icon="leaf" class="text-xs" />
-                <span class="text-md">Let's work together</span>
-              </span>
-              <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
-              >
-                <font-awesome-icon icon="leaf" class="text-xs" />
-                <span class="font-semibold text-md">Let's work together</span>
-              </span>
-            </button>
-          </div>
-        </div>
+            <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs" />
+            <span class="text-xs sm:text-sm">Let's work together</span>
+          </span>
+          <span
+            class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+          >
+            <font-awesome-icon icon="leaf" class="text-[10px] sm:text-xs" />
+            <span class="text-xs font-semibold sm:text-sm">Let's work together</span>
+          </span>
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
       <!-- Tag -->
