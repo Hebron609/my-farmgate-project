@@ -45,7 +45,7 @@
 <script setup>
 import { ref, computed } from "vue";
 
-const years = [2010, 2014, 2018, 2023];
+const years = [2010, 2014, 2018, 2025];
 const activeYear = ref(2010);
 
 
