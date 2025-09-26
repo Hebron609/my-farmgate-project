@@ -60,7 +60,7 @@
     class="absolute inset-0 flex flex-wrap items-center text-white font-normal text-sm max-w-[1440px] mx-auto px-4 sm:px-8 justify-center sm:justify-between gap-y-2"
   >
     <p class="text-center whitespace-nowrap sm:text-left">
-      © 2024 FarmGate. All rights reserved.
+      © 2025 FarmGate. All rights reserved.
     </p>
     <p class="text-center whitespace-nowrap sm:text-right">
       Powered by: <span class="ml-1 text-yellow-300">Butterfly Technologies</span>
