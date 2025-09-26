@@ -70,7 +70,7 @@ const content = {
     text: "2018 marked the integration of precision farming tools, data-driven insights, and partnerships with agri-tech companies to boost productivity.",
     image: farmPic3
   },
-  2023: {
+  2025: {
     title: "Global recognition in sustainable agriculture.",
     text: "Today, Agricultural Group is recognized internationally for advancing eco-friendly farming practices, driving food security, and empowering smallholder farmers worldwide.",
     image: farmPic1
