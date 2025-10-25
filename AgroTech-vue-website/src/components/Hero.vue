@@ -3,11 +3,17 @@
     <!-- Hero Video -->
     <video
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.9] z-0"
-      src="/src/assets/video/farmgate-original-video.mp4"
       autoplay
       muted
       loop
-    ></video>
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="/src/assets/video/farmgate-original-video.mp4"
+        type="video/mp4"
+      />
+    </video>
 
     <!-- Scroll Indicator -->
     <div class="absolute mt-12 transform -translate-x-1/2 bottom-6 left-1/2">
