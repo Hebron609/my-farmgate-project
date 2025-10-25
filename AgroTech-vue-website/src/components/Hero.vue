@@ -2,8 +2,8 @@
   <div class="relative h-screen overflow-hidden">
     <!-- Hero Video -->
     <video
-      class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.5] z-0"
-      src="/src/assets/video/farm-hero-video.mp4"
+      class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.9] z-0"
+      src="/src/assets/video/farmgate-original-video.mp4"
       autoplay
       muted
       loop
