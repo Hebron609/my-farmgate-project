@@ -9,7 +9,7 @@
       />
     </div>
 
-    <section class="max-w-[1440px] mx-auto py-5 lg:py-30 font-montserrat">
+    <section class="max-w-[1440px] mx-auto pt-10 lg:py-30 font-montserrat">
       <!--About-flex-container-->
       <div
         class="flex flex-col gap-10 mx-8 mt-10 sm:flex-row sm:items-start sm:justify-between"
