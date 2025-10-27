@@ -20,69 +20,73 @@
       <ScrollDown />
     </div>
 
-    <!-- Hero Content -->
-    <div
-      class="absolute top-[20%] lg:top-[25%] left-1/2 -translate-x-1/2 w-full px-8 text-white z-10 pb-5 max-w-[1440px] mx-auto text-center"
-    >
-      <h1
-        class="font-montserrat font-semibold max-w-[1000px] text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-tighter"
-      >
-        Impacting lives through sustainable agriculture...
-      </h1>
+   <!-- Hero Content -->
+<div
+  :class="[
+    'absolute left-1/2 -translate-x-1/2 w-full px-8 text-white z-10 pb-5 max-w-[1440px] mx-auto text-center transition-all duration-700 ease-in-out hero-content',
+    showOptions ? 'top-[25%]' : 'top-1/2 -translate-y-1/2'
+  ]"
+>
+  <h1
+    class="font-montserrat font-semibold max-w-[1000px] text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight"
+  >
+    Impacting lives through sustainable agriculture...
+  </h1>
 
-      <!-- CTA Button -->
-      <div v-if="!showOptions" class="flex justify-center">
-        <p
-          @click="toggleOptions"
-          class="relative pb-2 mt-8 cursor-pointer group w-fit hover:text-yellow-400"
+  <!-- CTA Button -->
+  <div v-if="!showOptions" class="flex justify-center">
+    <p
+      @click="toggleOptions"
+      class="relative pb-2 mt-8 cursor-pointer group w-fit hover:text-yellow-400"
+    >
+      <span class="text-md">Start growing with us</span>
+      <font-awesome-icon
+        :icon="['far', 'arrow-right']"
+        class="ml-10 transition-transform duration-300 text-md group-hover:translate-x-5"
+      />
+      <span
+        class="absolute left-0 bottom-0 h-[1px] w-full bg-white origin-left transition-transform duration-450 group-hover:scale-x-0"
+      ></span>
+    </p>
+  </div>
+
+  <!-- Features Section -->
+  <transition name="fade-up">
+    <div
+      v-if="showOptions"
+      class="flex flex-wrap items-center justify-center gap-8 max-w-[1000px] mx-auto mt-14 sm:mt-20 transition-all duration-700 ease-in-out"
+    >
+      <div
+        v-for="option in options"
+        :key="option.title"
+        @click="openModal(option)"
+        class="flex flex-col items-center text-center text-white cursor-pointer group w-full sm:w-[45%] lg:w-[30%]"
+      >
+        <!-- Icon Box -->
+        <div
+          class="px-2 py-3 mb-4 transition-all duration-300 rounded-lg bg-white/15 backdrop-blur-xs group-hover:bg-black/40"
         >
-          <span class="text-md">Start growing with us</span>
           <font-awesome-icon
-            :icon="['far', 'arrow-right']"
-            class="ml-10 transition-transform duration-300 text-md group-hover:translate-x-5"
+            :icon="['fas', option.icon]"
+            class="text-4xl"
           />
-          <span
-            class="absolute left-0 bottom-0 h-[1px] w-full bg-white origin-left transition-transform duration-450 group-hover:scale-x-0"
-          ></span>
+        </div>
+
+        <!-- Title + hover underline -->
+        <h3
+          class="font-medium text-lg sm:text-xl relative inline-block after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+        >
+          {{ option.title }}
+        </h3>
+
+        <p class="text-sm sm:text-md text-white mt-2 max-w-[300px]">
+          {{ option.subtitle }}
         </p>
       </div>
-
-      <!-- Features Section -->
-      <transition name="fade-up">
-        <div
-          v-if="showOptions"
-          class="flex flex-wrap items-center justify-center mt-10 gap-8 max-w-[1000px] mx-auto transition-all duration-700 ease-in-out lg:mt-14"
-        >
-          <div
-            v-for="option in options"
-            :key="option.title"
-            @click="openModal(option)"
-            class="flex flex-col items-center text-center text-white cursor-pointer group w-full sm:w-[45%] lg:w-[30%]"
-          >
-            <!-- Icon Box -->
-            <div
-              class="px-2 py-3 mb-4 transition-all duration-300 rounded-lg bg-white/15 backdrop-blur-xs group-hover:bg-black/40"
-            >
-              <font-awesome-icon
-                :icon="['fas', option.icon]"
-                class="text-4xl"
-              />
-            </div>
-
-            <!-- Title + hover underline -->
-            <h3
-              class="font-medium text-lg sm:text-xl relative inline-block after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
-            >
-              {{ option.title }}
-            </h3>
-
-            <p class="text-sm sm:text-md text-white mt-2 max-w-[300px]">
-              {{ option.subtitle }}
-            </p>
-          </div>
-        </div>
-      </transition>
     </div>
+  </transition>
+</div>
+
 
     <!-- Modal -->
     <div
@@ -296,5 +300,36 @@ function closeModal() {
   }
 }
 
+.hero-content {
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-up-enter-active {
+  transition: all 0.6s ease;
+}
+.fade-up-enter-from {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.fade-up-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive fine-tuning */
+@media (max-width: 1024px) {
+  .hero-content {
+    transition: all 0.8s ease;
+  }
+  .hero-content.top-\[25\%\] {
+    top: 28% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-content.top-\[25\%\] {
+    top: 12% !important;
+  }
+}
 
 </style>
