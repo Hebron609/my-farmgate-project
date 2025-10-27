@@ -2,7 +2,7 @@
   <div class="relative h-screen overflow-hidden">
     <!-- Hero Background Video -->
     <video
-      class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.9] z-0"
+      class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
       autoplay
       muted
       loop
