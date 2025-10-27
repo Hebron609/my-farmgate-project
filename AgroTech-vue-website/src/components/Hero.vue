@@ -54,7 +54,7 @@
   <transition name="fade-up">
     <div
       v-if="showOptions"
-      class="flex flex-wrap items-center justify-center gap-8 max-w-[1000px] mx-auto mt-14 sm:mt-20 transition-all duration-700 ease-in-out"
+      class="flex flex-wrap items-center justify-center gap-6 max-w-[1000px] mx-auto mt-8 sm:mt-20 transition-all duration-700 ease-in-out"
     >
       <div
         v-for="option in options"
@@ -88,66 +88,74 @@
 </div>
 
 
-    <!-- Modal -->
-    <div
-      v-if="showModal"
-      class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60"
-      @click.self="closeModal"
+<!-- Modal -->
+<div
+  v-if="showModal"
+  class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+  @click.self="closeModal"
+>
+  <div
+    class="relative flex flex-col w-full max-w-3xl overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
+  >
+    <!-- Close Button -->
+    <button
+      @click="closeModal"
+      class="absolute text-3xl text-gray-600 top-2 right-3 hover:text-gray-900 sm:text-4xl"
     >
-      <div
-        class="relative flex flex-col w-full max-w-3xl overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
-      >
-        <!-- Close Button -->
-        <button
-          @click="closeModal"
-          class="absolute text-4xl text-gray-600 top-3 right-3 hover:text-gray-900"
+      &times;
+    </button>
+
+    <!-- Left Image -->
+    <img
+      :src="selectedOption.image"
+      alt="option image"
+      class="object-cover w-full h-52 sm:h-auto sm:w-1/2"
+    />
+
+    <!-- Right Text Box -->
+    <div
+      class="flex flex-col justify-between w-full p-5 text-gray-800 sm:w-1/2 sm:p-6"
+    >
+      <div class="overflow-y-auto max-h-[65vh] sm:max-h-full">
+        <!-- Shared Icon Box -->
+        <div
+          class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-green-50"
         >
-          &times;
-        </button>
-
-        <!-- Left Image -->
-        <img
-          :src="selectedOption.image"
-          alt="option image"
-          class="object-cover w-full h-64 sm:w-1/2 sm:h-auto"
-        />
-
-        <!-- Right Text Box -->
-        <div class="flex flex-col justify-between p-6 text-gray-800 sm:w-1/2">
-          <div>
-            <!-- Shared Icon Box -->
-            <div
-              class="flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-green-50"
-            >
-              <font-awesome-icon
-                :icon="['fas', selectedOption.icon]"
-                class="text-2xl text-green-700"
-              />
-            </div>
-
-            <h2 class="mb-2 text-2xl font-bold text-green-600">
-              {{ selectedOption.title }}
-            </h2>
-            <p class="mb-6 leading-relaxed text-gray-600">
-              {{ selectedOption.description }}
-            </p>
-          </div>
-
-          <button
-            @click="closeModal"
-            class="py-2 mt-2 text-white transition bg-green-600 rounded-lg hover:bg-green-700"
-          >
-            Got it
-          </button>
+          <font-awesome-icon
+            :icon="['fas', selectedOption.icon]"
+            class="text-2xl text-green-700"
+          />
         </div>
+
+        <h2 class="mb-2 text-xl font-bold text-green-600 sm:text-2xl">
+          {{ selectedOption.title }}
+        </h2>
+
+        <p class="mb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
+          {{ selectedOption.description }}
+        </p>
       </div>
+
+      <button
+        @click="closeModal"
+        class="py-2 mt-2 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base"
+      >
+        Got it
+      </button>
     </div>
+  </div>
+</div>
+
   </div>
 </template>
 
 <script setup>
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref } from "vue";
+
+import investImg from "@/assets/img/invest.webp";
+import farmerImg from "@/assets/img/farmer.webp";
+import trackImg from "@/assets/img/track.webp";
 
 const showOptions = ref(false);
 const showModal = ref(false);
@@ -158,7 +166,7 @@ const options = [
     title: "Invest with us",
     subtitle: "For Guaranteed Crop Returns (GCR)",
     icon: "chart-line", // <- FontAwesome icon name
-    image: "/src/assets/img/invest.webp",
+    image: investImg,
     description:
       "This works on a grow-for-me model where potential investors have an opportunity to invest in a crop production portfolio cycle for an ROI either as an individual, a group or a corporate body.",
   },
@@ -166,7 +174,7 @@ const options = [
     title: "Farm with us",
     subtitle: "For Managed Farm Services (MFS)",
     icon: "briefcase",
-    image: "/src/assets/img/farmer.webp",
+    image: farmerImg,
     description:
       "This model is perfectly designed to suit absentee investor farmers who are interested in alternate investment options for good medium-long term returns: where you can lease an area of our arable serviced farm estate, facilities and labour resources for all your crop farming venture needs and we provide agronomist advice to help improve crop yields. This works on a farm-for-me model without your physical presence on the farm, where potential investors have the opportunity to invest in a farm set-up",
   },
@@ -175,7 +183,7 @@ const options = [
     subtitle:
       "For day-to-day farm monitoring and real-time decision-making processes.",
     icon: "chart-bar",
-    image: "/src/assets/img/track.webp",
+    image: trackImg,
     description:
       "We offer a seamless one-stop-shop opportunity to track, monitor and decide on farm operational activities, i.e. from planting, harvesting to sales, as well as crop investment cycles at the click of a button. This operates on everywhere-you-go model with ERP solution. Now you can easily farm from your phone everywhere you are. With this model farming is borderless.",
   },
