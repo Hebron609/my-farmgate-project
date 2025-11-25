@@ -35,22 +35,31 @@
           </p>
 
           <!--About-Btn-->
-          <button
-            class="md:flex group relative overflow-hidden p-4 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-sm"
+          <a
+            href="/marketplace.html"
+            class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-5 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
           >
             <span
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <font-awesome-icon icon="leaf" class="text-xs" />
-              <span class="text-md">Let's work together</span>
+              <font-awesome-icon
+                icon="leaf"
+                class="text-[10px] sm:text-xs md:text-sm"
+              />
+              <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
             </span>
             <span
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
             >
-              <font-awesome-icon icon="leaf" class="text-xs" />
-              <span class="font-semibold text-md">Let's work together</span>
+              <font-awesome-icon
+                icon="leaf"
+                class="text-[10px] sm:text-xs md:text-sm"
+              />
+              <span class="text-xs font-semibold sm:text-sm md:text-base"
+                >Marketplace</span
+              >
             </span>
-          </button>
+          </a>
         </div>
 
         <!--Right-section-->
@@ -213,203 +222,223 @@
       </div>
     </section>
 
-     <!-- Sustainable Agriculture Section -->
-<section class="max-w-[1440px] mx-auto py-16 font-montserrat bg-gray-50 rounded-xl">
-  <div class="grid items-center grid-cols-1 gap-12 mx-6 md:grid-cols-2 lg:grid-cols-12">
-    
-    <!-- Image -->
-    <div class="md:col-span-1 lg:col-span-6">
-      <img
-        src="/src/assets/img/faso-farm.jpg"
-        alt="Sustainable Agriculture"
-        class="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[580px] object-cover rounded-2xl brightness-90"
-      />
-    </div>
-
-    <!-- Content -->
-    <div class="flex flex-col justify-center md:col-span-1 lg:col-span-6">
-      <h2 class="mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-[500px] tracking-tight">
-        Sustainability at our core.
-      </h2>
-
-      <p class="mb-10 text-gray-700 max-w-[500px] text-sm sm:text-base mt-4">
-        We are dedicated to promoting sustainable farming practices that
-        protect the environment and ensure food security for future
-        generations.
-      </p>
-
-      <div class="pb-4 mb-4 border-b border-gray-300 max-w-[480px]">
-        <h3 class="font-semibold">Composting</h3>
-        <p class="text-sm sm:text-base">Reducing waste and returning nutrients to the soil</p>
-      </div>
-
-      <div class="pb-4 border-b border-gray-300 max-w-[480px]">
-        <h3 class="font-semibold">Water-saving systems</h3>
-        <p class="text-sm sm:text-base">Smart irrigation that conserves every drop</p>
-      </div>
-
-      <button
-        class="group relative overflow-hidden p-4 rounded-4xl items-center gap-2 cursor-pointer 
-               bg-[rgb(3,89,37)] text-white font-semibold text-sm sm:text-base inline-block 
-               max-w-[220px] mx-auto md:mx-0 mt-12"
+    <!-- Sustainable Agriculture Section -->
+    <section
+      class="max-w-[1440px] mx-auto py-16 font-montserrat bg-gray-50 rounded-xl"
+    >
+      <div
+        class="grid items-center grid-cols-1 gap-12 mx-6 md:grid-cols-2 lg:grid-cols-12"
       >
-        <!-- Default -->
-        <span
-          class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+        <!-- Image -->
+        <div class="md:col-span-1 lg:col-span-6">
+          <img
+            src="/src/assets/img/faso-farm.jpg"
+            alt="Sustainable Agriculture"
+            class="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[580px] object-cover rounded-2xl brightness-90"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="flex flex-col justify-center md:col-span-1 lg:col-span-6">
+          <h2
+            class="mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold max-w-[500px] tracking-tight"
+          >
+            Sustainability at our core.
+          </h2>
+
+          <p
+            class="mb-10 text-gray-700 max-w-[500px] text-sm sm:text-base mt-4"
+          >
+            We are dedicated to promoting sustainable farming practices that
+            protect the environment and ensure food security for future
+            generations.
+          </p>
+
+          <div class="pb-4 mb-4 border-b border-gray-300 max-w-[480px]">
+            <h3 class="font-semibold">Composting</h3>
+            <p class="text-sm sm:text-base">
+              Reducing waste and returning nutrients to the soil
+            </p>
+          </div>
+
+          <div class="pb-4 border-b border-gray-300 max-w-[480px]">
+            <h3 class="font-semibold">Water-saving systems</h3>
+            <p class="text-sm sm:text-base">
+              Smart irrigation that conserves every drop
+            </p>
+          </div>
+
+          <a
+            href="/marketplace.html"
+            class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-5 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
+          >
+            <span
+              class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+            >
+              <font-awesome-icon
+                icon="leaf"
+                class="text-[10px] sm:text-xs md:text-sm"
+              />
+              <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
+            </span>
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+            >
+              <font-awesome-icon
+                icon="leaf"
+                class="text-[10px] sm:text-xs md:text-sm"
+              />
+              <span class="text-xs font-semibold sm:text-sm md:text-base"
+                >Marketplace</span
+              >
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Track Record Section -->
+    <section class="max-w-[1440px] mx-auto py-20 font-montserrat px-6">
+      <div
+        class="flex flex-col items-center gap-10 lg:items-start lg:flex-row lg:justify-between"
+      >
+        <!-- Heading -->
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-semibold max-w-[350px] text-center lg:text-left"
         >
-          <font-awesome-icon icon="leaf" class="text-xs" />
-          <span>Let's work together</span>
-        </span>
-        <!-- Hover -->
-        <span
-          class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
-        >
-          <font-awesome-icon icon="leaf" class="text-xs" />
-          <span class="font-semibold">Let's work together</span>
-        </span>
-      </button>
-    </div>
-  </div>
-</section>
-
-
-   <!-- Our Track Record Section -->
-<section class="max-w-[1440px] mx-auto py-20 font-montserrat px-6">
-  <div
-    class="flex flex-col items-center gap-10 lg:items-start lg:flex-row lg:justify-between"
-  >
-    <!-- Heading -->
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold max-w-[350px] text-center lg:text-left">
-      Our track record speaks for itself
-    </h1>
-
-    <!-- Stats Container -->
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Card 1 -->
-      <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-        <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">20+</h2>
-        <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-          Years in Business
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-        <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">1000+</h2>
-        <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-          Farmers Supported
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-        <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">98%</h2>
-        <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-          Satisfaction Rate
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Why-choose-us-section -->
- 
-<div class="relative">
-   
-   <div class="sticky top-32">
-    <!--About-pattern-section-->
-   <div class="  w-full h-[300px] z-[-1] absolute top-70 bottom-80 right-30">
-      <img
-        class="h-auto w-[480px] opacity-6"
-        src="/src/assets/img/FarmGate Africa 1 1.png"
-        alt=""
-      />
-    </div>
-   </div>
-<!-- Why Choose Us Section -->
-<section class="relative max-w-[1440px] mx-auto py-20 font-montserrat px-6 lg:px-8">
-  <div class="flex flex-col lg:flex-row lg:gap-12">
-    
-    <!-- Left Sticky Text -->
-    <div class="w-full mb-10 lg:w-1/2 lg:pr-8 lg:mb-0">
-      <div class="sticky top-32">
-        <h1 class="flex items-center gap-1 px-2 py-1 mb-4 border border-gray-200 rounded-2xl w-fit">
-          <font-awesome-icon icon="leaf" class="text-xs text-green-900" />
-          <span class="text-xs font-semibold">Why choose us</span>
+          Our track record speaks for itself
         </h1>
-        <h2 class="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight max-w-[500px]">
-          Your partner in modern farming
-        </h2>
-        <p class="text-gray-600 text-sm sm:text-base max-w-[500px]">
-          We help farmers and agribusinesses embrace smart, sustainable
-          practices. Whether you’re beginning your journey or improving
-          existing methods, we’ll support you every step of the way.
-        </p>
+
+        <!-- Stats Container -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card 1 -->
+          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
+            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">20+</h2>
+            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
+              Years in Business
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
+            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">1000+</h2>
+            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
+              Farmers Supported
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
+            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">98%</h2>
+            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
+              Satisfaction Rate
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- Why-choose-us-section -->
+
+    <div class="relative">
+      <div class="sticky top-32">
+        <!--About-pattern-section-->
+        <div class="w-full h-[300px] z-[-1] absolute top-70 bottom-80 right-30">
+          <img
+            class="h-auto w-[480px] opacity-6"
+            src="/src/assets/img/FarmGate Africa 1 1.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- Why Choose Us Section -->
+      <section
+        class="relative max-w-[1440px] mx-auto py-20 font-montserrat px-6 lg:px-8"
+      >
+        <div class="flex flex-col lg:flex-row lg:gap-12">
+          <!-- Left Sticky Text -->
+          <div class="w-full mb-10 lg:w-1/2 lg:pr-8 lg:mb-0">
+            <div class="sticky top-32">
+              <h1
+                class="flex items-center gap-1 px-2 py-1 mb-4 border border-gray-200 rounded-2xl w-fit"
+              >
+                <font-awesome-icon icon="leaf" class="text-xs text-green-900" />
+                <span class="text-xs font-semibold">Why choose us</span>
+              </h1>
+              <h2
+                class="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight max-w-[500px]"
+              >
+                Your partner in modern farming
+              </h2>
+              <p class="text-gray-600 text-sm sm:text-base max-w-[500px]">
+                We help farmers and agribusinesses embrace smart, sustainable
+                practices. Whether you’re beginning your journey or improving
+                existing methods, we’ll support you every step of the way.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Scrollable Images -->
+          <div class="w-full space-y-12 lg:w-1/2">
+            <!-- Card -->
+            <div>
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  src="/src/assets/img/farm-pic5.jpg"
+                  alt="Smart Irrigation"
+                  class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
+                />
+              </div>
+              <h3 class="text-lg font-semibold sm:text-xl">
+                Smart Irrigation & Water Management
+              </h3>
+              <p class="text-sm text-gray-500 sm:text-base">
+                Use water efficiently with precision systems for healthier crops
+                and less waste.
+              </p>
+            </div>
+
+            <!-- Card -->
+            <div>
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  src="/src/assets/img/farm-pic3.jpg"
+                  alt="Soil Health"
+                  class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
+                />
+              </div>
+              <h3 class="text-lg font-semibold sm:text-xl">
+                Soil Health & Crop Monitoring
+              </h3>
+              <p class="text-sm text-gray-500 sm:text-base">
+                Boost soil fertility and track crop growth with smart,
+                data-driven insights.
+              </p>
+            </div>
+
+            <!-- Card -->
+            <div>
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  src="/src/assets/img/farm-pic4.jpg"
+                  alt="Sustainable Farm Planning"
+                  class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
+                />
+              </div>
+              <h3 class="text-lg font-semibold sm:text-xl">
+                Sustainable Farm Planning
+              </h3>
+              <p class="text-sm text-gray-500 sm:text-base">
+                Plan for long-term success with strategies that balance yield
+                and sustainability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- Right Scrollable Images -->
-    <div class="w-full space-y-12 lg:w-1/2">
-      <!-- Card -->
-      <div>
-        <div class="overflow-hidden rounded-xl">
-          <img
-            src="/src/assets/img/farm-pic5.jpg"
-            alt="Smart Irrigation"
-            class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl 
-                   transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
-          />
-        </div>
-        <h3 class="text-lg font-semibold sm:text-xl">
-          Smart Irrigation & Water Management
-        </h3>
-        <p class="text-sm text-gray-500 sm:text-base">
-          Use water efficiently with precision systems for healthier crops and less waste.
-        </p>
-      </div>
-
-      <!-- Card -->
-      <div>
-        <div class="overflow-hidden rounded-xl">
-          <img
-            src="/src/assets/img/farm-pic3.jpg"
-            alt="Soil Health"
-            class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl 
-                   transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
-          />
-        </div>
-        <h3 class="text-lg font-semibold sm:text-xl">Soil Health & Crop Monitoring</h3>
-        <p class="text-sm text-gray-500 sm:text-base">
-          Boost soil fertility and track crop growth with smart, data-driven insights.
-        </p>
-      </div>
-
-      <!-- Card -->
-      <div>
-        <div class="overflow-hidden rounded-xl">
-          <img
-            src="/src/assets/img/farm-pic4.jpg"
-            alt="Sustainable Farm Planning"
-            class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl 
-                   transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
-          />
-        </div>
-        <h3 class="text-lg font-semibold sm:text-xl">
-          Sustainable Farm Planning
-        </h3>
-        <p class="text-sm text-gray-500 sm:text-base">
-          Plan for long-term success with strategies that balance yield and sustainability.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</div>
-
-  <!-- Testimonials & Founder Section -->
+    <!-- Testimonials & Founder Section -->
 
     <!-- Founder-team-section -->
     <section class="max-w-[1440px] mx-auto py-16 px-4 font-montserrat">

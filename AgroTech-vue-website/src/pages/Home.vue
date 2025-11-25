@@ -2,23 +2,32 @@
 import Header from "../components/Header.vue";
 import Hero from "../components/Hero.vue";
 import Footer from "../components/Footer.vue";
-import MainContent from "../components/MainContent.vue";
+
+
+import { ref } from 'vue';
+
+const currentPage = ref('home');
 </script>
 
 <template>
   <div class="relative">
     <!--Header-component-->
-    <Header />
+    <Header @pageChange="currentPage = $event" />
+    <Hero v-if="currentPage === 'home'" />
+
+    <!--Main-content---->
+   <!-- <MainContent v-else />-->
 
     <!--Main-content-->
-    <Hero />
 
-    <!--Main-content-->
-   
-    <MainContent />
+   <!-- <MainContent />-->
     <!--Footer-component-->
-    <Footer />
+   <!-- <Footer />-->
   </div>
 </template>
+
+
+
+
 
 <style scoped></style>
