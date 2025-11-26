@@ -34,21 +34,31 @@
       <div v-if="!showOptions" class="flex justify-center mt-10">
         <button
           @click="activateOptions"
-          class="relative flex items-center gap-2 px-6 py-3 overflow-hidden text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer group bg-gradient-to-r from-green-600 to-yellow-500 hover:shadow-xl animate-bounce-button"
+          class="relative flex items-center gap-2 px-6 py-3 overflow-hidden text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer group bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl animate-bounce-button"
         >
-          <!-- Leaf Icon -->
-          <svg
-            class="w-5 h-5 animate-bounce-smooth transition-transform duration-300 group-hover:rotate-[-10deg]"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M10.5 2C6 2 2 6 2 10.5S6 19 10.5 19 19 15 19 10.5 15 2 10.5 2zm0 15C7.47 17 5 14.53 5 11.5S7.47 6 10.5 6 16 8.47 16 11.5 13.53 17 10.5 17z"
-            />
-            <path
-              d="M11.646 6.646a.5.5 0 00-.707 0l-3 3a.5.5 0 00.708.708l2.646-2.647V14.5a.5.5 0 001 0V6.707l2.646 2.647a.5.5 0 00.708-.708l-3-3z"
-            />
-          </svg>
+          <!-- Icon Circle -->
+<div
+  class="flex items-center justify-center bg-white rounded-full shadow-sm w-7 h-7"
+>
+  <svg
+    width="14"
+    height="18"
+    viewBox="0 0 5 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-3.5 h-4.5"
+  >
+    <path
+      d="M4.85 2.41003C4.53 3.81003 3.78 4.59003 2.61 4.75003V6.13003C2.49 6.19003 2.36 6.26003 2.24 6.33003V4.75003C1.07 4.59003 0.32 3.81003 0 2.41003C1.42 2.73003 2.21 3.49003 2.36 4.68003H2.49C2.65 3.48003 3.43 2.73003 4.85 2.41003Z"
+      fill="#129C48"
+    />
+    <path
+      d="M2.42987 0C1.62987 1.26 1.62987 2.37 2.41987 3.34C3.20987 2.37 3.21987 1.26 2.42987 0Z"
+      fill="#129C48"
+    />
+  </svg>
+</div>
+
 
           <span class="relative z-10"> Start Growing With Us </span>
 
@@ -159,7 +169,7 @@
             @click="closeModal"
             class="py-2 mt-2 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base"
           >
-            Got it
+            How It Works
           </button>
         </div>
       </div>
@@ -167,46 +177,52 @@
 
     <!-- Social Icons Section -->
     <transition name="fade-up">
-      <div
-        v-if="showOptions"
-        class="absolute z-20 flex flex-col items-end gap-4 -translate-y-1/2 right-16 top-1/2"
+      <div class="absolute z-20 flex flex-col items-end gap-4 -translate-y-1/2 right-16 top-1/2 social-icons-hero">
+
+    <div
+      v-for="(social, index) in socials"
+      :key="social.name"
+      class="flex items-center gap-3 group"
+      :style="{ transitionDelay: index * 0.1 + 's' }"
+    >
+      <!-- Label -->
+      <span
+        class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0"
       >
+        {{ social.name }}
+      </span>
+
+      <!-- Icon -->
+      <a
+  :href="social.link"
+  target="_blank"
+  class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300 
+         bg-white/80 border border-transparent rounded-full 
+        group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+>
+
+        <!-- SVG version -->
         <div
-          v-for="(social, index) in socials"
-          :key="social.name"
-          class="flex items-center gap-3 group"
-          :style="{ transitionDelay: index * 0.1 + 's' }"
-        >
-          <!-- Label -->
-          <span
-            class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0"
-          >
-            {{ social.name }}
-          </span>
+          v-if="social.svg"
+          v-html="social.svg"
+          class="w-6 h-6 text-current"
+        ></div>
 
-          <!-- Icon -->
-          <a
-            :href="social.link"
-            target="_blank"
-            class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-green-600 border border-transparent transition-all duration-300 group-hover:bg-transparent group-hover:text-yellow-400 group-hover:border-yellow-400 opacity-[0.6]"
-          >
-            <!-- SVG version -->
-            <div
-              v-if="social.svg"
-              v-html="social.svg"
-              class="w-6 h-6 text-current"
-            ></div>
+        
 
-            <!-- Keep WhatsApp default font-awesome -->
-            <font-awesome-icon
-              v-else
-              :icon="['fab', social.icon]"
-              class="text-lg"
-            />
-          </a>
-        </div>
-      </div>
-    </transition>
+        <!-- Keep WhatsApp default font-awesome -->
+        <font-awesome-icon
+          v-else
+          :icon="['fab', social.icon]"
+          class="text-lg"
+        />
+      </a>
+    </div>
+  </div>
+</transition>
+
+
+
   </div>
 </template>
 
@@ -379,7 +395,6 @@ function activateOptions() {
   videoKey.value++;
 }
 
-
 function openModal(option) {
   selectedOption.value = option;
   showModal.value = true;
@@ -499,4 +514,11 @@ function closeModal() {
 .modal-svg svg [stroke] {
   stroke: currentColor;
 }
+
+@media (max-width: 640px) {
+  .social-icons-hero {
+    display: none;
+  }
+}
+
 </style>

@@ -1,21 +1,32 @@
-import { createApp } from 'vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faUser, faBars, faLeaf, faTimes, faArrowRight, faArrowDown,faChevronLeft, faChevronRight,  faChartLine, faBriefcase, faChartBar
-} from '@fortawesome/free-solid-svg-icons'
-import {
-  faGithub, faInstagram, faYoutube, faFacebookF,faWhatsapp, faLinkedinIn, faTiktok, faXTwitter
-} from '@fortawesome/free-brands-svg-icons'
+import { createApp } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
+// Solid icons
+import { 
+  faUser, faBars, faLeaf, faTimes, faArrowRight, faArrowDown,
+  faChevronLeft, faChevronRight, faChartLine, faBriefcase, faChartBar,
+  faPhone, faEnvelope
+} from '@fortawesome/free-solid-svg-icons';
+
+// Brand icons
+import { 
+  faGithub, faInstagram, faYoutube, faFacebookF, faWhatsapp,
+  faLinkedinIn, faTiktok, faXTwitter
+} from '@fortawesome/free-brands-svg-icons';
+
+// Add icons to the library
 library.add(
-  faUser, faBars, faLeaf, faTimes,faChevronLeft, faChevronRight,
-  faArrowRight, faArrowDown,
-  faGithub, faInstagram, faYoutube, faFacebookF, faChartLine, faBriefcase, faChartBar,faWhatsapp, faLinkedinIn, faYoutube, faTiktok, faInstagram, faXTwitter
-)
+  faUser, faBars, faLeaf, faTimes, faArrowRight, faArrowDown,
+  faChevronLeft, faChevronRight, faChartLine, faBriefcase, faChartBar,
+  faPhone, faEnvelope,
+  faGithub, faInstagram, faYoutube, faFacebookF, faWhatsapp,
+  faLinkedinIn, faTiktok, faXTwitter
+);
 
+// Setup app function
 export function setupApp(RootComponent, selector) {
-  const app = createApp(RootComponent)
-  app.component('font-awesome-icon', FontAwesomeIcon)
-  app.mount(selector)
+  const app = createApp(RootComponent);
+  app.component('font-awesome-icon', FontAwesomeIcon);
+  app.mount(selector);
 }

@@ -17,10 +17,7 @@
         <h1
           class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"
         >
-          <font-awesome-icon
-            icon="leaf"
-            class="text-[10px] sm:text-xs md:text-sm"
-          />
+        <LeafIcon class="text-white" />
           <span>Our solutions</span>
         </h1>
         <p
@@ -49,10 +46,7 @@
           <h1
             class="flex items-center gap-1 px-2 py-1 mb-4 border border-gray-200 rounded-2xl"
           >
-            <font-awesome-icon
-              icon="leaf"
-              class="text-[10px] sm:text-xs text-green-900"
-            />
+          <LeafIcon class="text-green-700" />
             <span class="text-[10px] sm:text-xs font-semibold"
               >Delivering impact at every level</span
             >
@@ -242,24 +236,18 @@
 
             <a
               href="/marketplace.html"
-              class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-5 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
+              class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-3 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
             >
               <span
                 class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
-                <font-awesome-icon
-                  icon="leaf"
-                  class="text-[10px] sm:text-xs md:text-sm"
-                />
+              <LeafIcon class="text-white" />
                 <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
               </span>
               <span
                 class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
               >
-                <font-awesome-icon
-                  icon="leaf"
-                  class="text-[10px] sm:text-xs md:text-sm"
-                />
+              <LeafIcon class="text-black" />
                 <span class="text-xs font-semibold sm:text-sm md:text-base"
                   >Marketplace</span
                 >
@@ -277,6 +265,7 @@
 <script setup>
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
+import LeafIcon from "../components/icons/LeafIcon.vue";
 </script>
 
 <style></style>

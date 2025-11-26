@@ -14,28 +14,30 @@
         <a href="/">
           <img
             class="max-w-[160px] h-auto"
-            src="/src/assets/img/fg logo.png"
+            src="/src/assets/img/fg logo-white.png"
             alt="Logo"
           />
         </a>
 
         <!-- Right section -->
         <div class="flex items-center gap-6">
-          <!-- Marketplace Button -->
           <a
             href="/marketplace.html"
-            class="hidden lg:flex group relative overflow-hidden p-4 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center gap-2 cursor-pointer"
+            class="hidden lg:flex group relative overflow-hidden p-3 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center gap-2 cursor-pointer"
           >
+            <!-- NORMAL STATE -->
             <span
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <font-awesome-icon icon="leaf" class="text-xs text-white" />
+              <LeafIcon class="text-white" />
               <span class="text-sm font-semibold text-white">Marketplace</span>
             </span>
+
+            <!-- HOVER STATE -->
             <span
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
             >
-              <font-awesome-icon icon="leaf" class="text-xs" />
+              <LeafIcon class="text-black" />
               <span class="text-sm font-semibold">Marketplace</span>
             </span>
           </a>
@@ -60,14 +62,11 @@
       <div
         v-if="isMenuOpen"
         class="fixed inset-0 z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
-        style="background-image: url('/src/assets/img/pattern-bg1.jpg')"
+        :style="{ backgroundImage: `url(${patternBg})` }"
       >
-        <div
-          class="absolute inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-sm"
-        ></div>
+        <div class="absolute inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-sm"></div>
 
         <!--Mobile-nav-->
-
         <div
           class="relative flex flex-col lg:flex-row lg:justify-between p-12 max-w-[1820px] mx-auto"
         >
@@ -75,52 +74,52 @@
             <a href="/">
               <img
                 class="max-w-[160px] h-auto"
-                src="/src/assets/img/fg logo.png"
+                src="/src/assets/img/fg logo-white.png"
                 alt="Logo"
               />
             </a>
           </div>
 
-          <div class="flex-1 mb-8 lg:mb-0 mt-20">
-            <h3 class="font-semibold text-2xl mb-4">Home</h3>
+          <div class="flex-1 mt-20 mb-8 lg:mb-0">
+            <h3 class="mb-4 text-2xl font-semibold">Home</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="/index.html"
-                  class="hover:text-yellow-400 transition text-xl"
+                  class="text-xl font-medium relative transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full pb-1"
                   >Home</a
                 >
               </li>
             </ul>
           </div>
 
-          <div class="flex-1 mb-8 lg:mb-0 mt-20">
-            <h3 class="font-semibold text-2xl mb-4">About Us</h3>
+          <div class="flex-1 mt-20 mb-8 lg:mb-0">
+            <h3 class="mb-4 text-2xl font-semibold">About Us</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="/about.html"
-                  class="hover:text-yellow-400 transition text-xl"
+                  class="text-xl font-medium relative transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full pb-1"
                   >Our Story</a
                 >
               </li>
               <li>
                 <a
                   href="/team.html"
-                  class="hover:text-yellow-400 transition text-xl"
+                  class="text-xl font-medium relative transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full pb-1"
                   >Team</a
                 >
               </li>
             </ul>
           </div>
 
-          <div class="flex-1 mb-8 lg:mb-0 mt-20">
-            <h3 class="font-semibold text-2xl mb-4">Solutions</h3>
+          <div class="flex-1 mt-20 mb-8 lg:mb-0">
+            <h3 class="mb-4 text-2xl font-semibold">Solutions</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="/solutions.html"
-                  class="hover:text-yellow-400 transition text-xl"
+                  class="text-xl font-medium relative transition-all after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full pb-1"
                   >Our Services</a
                 >
               </li>
@@ -128,23 +127,37 @@
           </div>
 
           <div class="flex-1 mt-20">
-            <h3 class="font-semibold text-2xl mb-4 text-yellow-400">Connect</h3>
-            <p>FarmGate Africa</p>
-            <p>Aveyime Mangoase, Volta Region, Ghana</p>
-            <p>T: +233 30 398 0443</p>
-            <p>E: connect@farmgate.africa</p>
+  <h3 class="mb-4 text-2xl font-semibold text-yellow-400">Connect</h3>
+  <p>FarmGate Africa</p>
+  <p>Aveyime Mangoase, Volta Region, Ghana</p>
+  
+  <p class="flex items-center gap-2">
+  <font-awesome-icon :icon="['fas', 'phone']" class="text-white" />
+  +233 30 398 0443
+</p>
 
-            <div class="flex gap-3 mt-4">
-              <a href="#"><font-awesome-icon icon="youtube" /></a>
-              <a href="#"><font-awesome-icon icon="linkedin" /></a>
-              <a href="#"><font-awesome-icon icon="facebook" /></a>
-              <a href="#"><font-awesome-icon icon="instagram" /></a>
-            </div>
-          </div>
+<p class="flex items-center gap-2">
+  <font-awesome-icon :icon="['fas', 'envelope']" class="text-white" />
+  connect@farmgate.africa
+</p>
+
+<!--
+
+<div class="flex gap-3 mt-4">
+  <a href="#"><font-awesome-icon :icon="['fab', 'youtube']" /></a>
+  <a href="#"><font-awesome-icon :icon="['fab', 'linkedin-in']" /></a>
+  <a href="#"><font-awesome-icon :icon="['fab', 'facebook-f']" /></a>
+  <a href="#"><font-awesome-icon :icon="['fab', 'instagram']" /></a>
+</div>
+
+-->
+
+</div>
+
 
           <button
             @click="toggleMenu"
-            class="absolute top-6 right-6 text-3xl lg:text-5xl hover:text-yellow-400 cursor-pointer"
+            class="absolute text-3xl cursor-pointer top-6 right-6 lg:text-5xl hover:text-yellow-400"
           >
             &times;
           </button>
@@ -156,6 +169,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from "vue";
+import LeafIcon from "./icons/LeafIcon.vue";
+import patternBg from '@/assets/img/pattern-bg1.jpg' // <-- import image
 
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
