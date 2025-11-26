@@ -34,7 +34,7 @@
       <div v-if="!showOptions" class="flex justify-center mt-10">
         <button
           @click="activateOptions"
-          class="relative group px-6 py-3 rounded-full font-semibold text-base bg-gradient-to-r from-green-600 to-yellow-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex items-center gap-2 animate-bounce-button cursor-pointer"
+          class="relative flex items-center gap-2 px-6 py-3 overflow-hidden text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer group bg-gradient-to-r from-green-600 to-yellow-500 hover:shadow-xl animate-bounce-button"
         >
           <!-- Leaf Icon -->
           <svg
@@ -130,19 +130,19 @@
             <div class="flex items-center gap-4 mb-4">
               <!-- Icon Box -->
               <div
-                class="shared-icon-box flex items-center justify-center w-14 h-14 rounded-lg bg-green-100 flex-shrink-0"
+                class="flex items-center justify-center flex-shrink-0 bg-green-100 rounded-lg shared-icon-box w-14 h-14"
               >
                 <!-- SVG Wrapper -->
                 <div
                   v-html="selectedOption.svg"
-                  class="modal-svg text-green-700 w-7 h-7 flex items-center justify-center"
+                  class="flex items-center justify-center text-green-700 modal-svg w-7 h-7"
                   aria-hidden="true"
                 ></div>
               </div>
 
               <!-- Title -->
               <h2
-                class="text-xl font-bold text-green-600 sm:text-2xl leading-tight"
+                class="text-xl font-bold leading-tight text-green-600 sm:text-2xl"
               >
                 {{ selectedOption.title }}
               </h2>
@@ -169,17 +169,17 @@
     <transition name="fade-up">
       <div
         v-if="showOptions"
-        class="absolute right-16 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-20"
+        class="absolute z-20 flex flex-col items-end gap-4 -translate-y-1/2 right-16 top-1/2"
       >
         <div
           v-for="(social, index) in socials"
           :key="social.name"
-          class="group flex items-center gap-3"
+          class="flex items-center gap-3 group"
           :style="{ transitionDelay: index * 0.1 + 's' }"
         >
           <!-- Label -->
           <span
-            class="w-28 text-right text-white opacity-0 translate-x-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0"
+            class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0"
           >
             {{ social.name }}
           </span>
@@ -218,11 +218,14 @@ import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
 
+import video1 from "@/assets/video/farmgate-original-video.mp4";
+import video2 from "@/assets/video/farm-hero-video1.mp4";
+
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
 
 // VIDEO HANDLING
-const currentVideo = ref("/src/assets/video/farmgate-original-video.mp4");
+const currentVideo = ref(video1);
 const videoKey = ref(0);
 
 const showOptions = ref(false);
@@ -372,9 +375,10 @@ onBeforeUnmount(() => {
 function activateOptions() {
   showOptions.value = true;
   mainHeading.value = "gateway to Farming";
-  currentVideo.value = "/src/assets/video/farm-hero-video1.mp4";
+  currentVideo.value = video2;
   videoKey.value++;
 }
+
 
 function openModal(option) {
   selectedOption.value = option;
