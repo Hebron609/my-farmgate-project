@@ -235,7 +235,7 @@ import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
 
 import video1 from "@/assets/video/farmgate-original-video.mp4";
-import video2 from "@/assets/video/farm-hero-video1.mp4";
+import video2 from "@/assets/video/farm-hero-video2.mp4";
 
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
@@ -550,7 +550,7 @@ function closeModal() {
 @media (max-width: 640px) {
   .social-icons-hero {
     top: auto;                  /* remove vertical centering */
-    bottom: 100px;               /* place near the bottom */
+    bottom: 60px;               /* place near the bottom */
     left: 50%;                  /* center horizontally */
     right: auto;                /* unset right */
     transform: translateX(-50%); /* center by translating 50% of width */
