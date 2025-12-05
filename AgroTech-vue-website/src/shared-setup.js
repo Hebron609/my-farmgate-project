@@ -6,7 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
   faUser, faBars, faLeaf, faTimes, faArrowRight, faArrowDown,
   faChevronLeft, faChevronRight, faChartLine, faBriefcase, faChartBar,
-  faPhone, faEnvelope
+  faPhone, faEnvelope, faSearch   // 👈 Added faSearch here
 } from '@fortawesome/free-solid-svg-icons';
 
 // Brand icons
@@ -19,7 +19,7 @@ import {
 library.add(
   faUser, faBars, faLeaf, faTimes, faArrowRight, faArrowDown,
   faChevronLeft, faChevronRight, faChartLine, faBriefcase, faChartBar,
-  faPhone, faEnvelope,
+  faPhone, faEnvelope, faSearch,  // 👈 And added here too
   faGithub, faInstagram, faYoutube, faFacebookF, faWhatsapp,
   faLinkedinIn, faTiktok, faXTwitter
 );
