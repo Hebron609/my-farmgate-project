@@ -175,53 +175,45 @@
       </div>
     </div>
 
-<!-- Social Icons Section -->
+
+<!--Social Icons section-->
 <transition name="fade-up">
   <div
-    class="absolute z-20 flex flex-col items-center gap-4 top-1/2 right-6 transform -translate-y-1/2 social-icons-hero"
-  >
-    <div
-      v-for="(social, index) in socials"
-      :key="social.name"
-      class="flex items-center gap-3 group"
-      :style="{ transitionDelay: index * 0.1 + 's' }"
-    >
-      <!-- Label (hide on small screens) -->
-      <span
-        class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 hidden sm:inline-block"
-      >
-        {{ social.name }}
-      </span>
+  :class="[
+    'social-icons-hero absolute z-20 flex items-center gap-4 transform',
+    // Mobile first (default) → horizontal
+    'flex-row bottom-40 left-1/2 -translate-x-1/2',
+    // Desktop ≥640px → vertical on right
+    'sm:flex-col sm:top-1/2 sm:right-6 sm:-translate-y-1/2 sm:left-auto sm:bottom-auto',
+    // Adjust bottom for video 2 on mobile
+    videoVariant === 2 ? 'bottom-10' : ''
+  ]"
+>
 
-      <!-- Icon -->
-      <a
-        :href="social.link"
-        target="_blank"
-        class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300
-              backdrop-blur-md bg-[rgba(24,23,23,0.4)] border border-transparent rounded-full
-              group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+      <div
+        v-for="(social, index) in socials"
+        :key="social.name"
+        class="flex items-center gap-3 group"
+        :style="{ transitionDelay: index * 0.1 + 's' }"
       >
-        <!-- SVG version -->
-        <div
-          v-if="social.svg"
-          v-html="social.svg"
-          class="w-6 h-6 text-current"
-        ></div>
-
-        <!-- Keep WhatsApp default font-awesome -->
-        <font-awesome-icon
-          v-else
-          :icon="['fab', social.icon]"
-          class="text-lg"
-        />
-      </a>
+        <span
+          class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 hidden sm:inline-block"
+        >
+          {{ social.name }}
+        </span>
+        <a
+          :href="social.link"
+          target="_blank"
+          class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300
+                 backdrop-blur-md bg-[rgba(24,23,23,0.4)] border border-transparent rounded-full
+                 group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+        >
+          <div v-if="social.svg" v-html="social.svg" class="w-6 h-6 text-current"></div>
+          <font-awesome-icon v-else :icon="['fab', social.icon]" class="text-lg" />
+        </a>
+      </div>
     </div>
-  </div>
-</transition>
-
-
-
-
+  </transition>
 
   </div>
 </template>
@@ -239,6 +231,21 @@ import video2 from "@/assets/video/farm-hero-video2.mp4";
 
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
+
+const videoVariant = ref(1); // 1 for first video, 2 for second video
+
+function switchVideo(videoNumber) {
+  if(videoNumber === 1){
+    currentVideo.value = video1;
+    videoKey.value++;
+    videoVariant.value = 1;
+  } else {
+    currentVideo.value = video2;
+    videoKey.value++;
+    videoVariant.value = 2;
+  }
+}
+
 
 // VIDEO HANDLING
 const currentVideo = ref(video1);
@@ -546,22 +553,14 @@ function closeModal() {
   stroke: currentColor;
 }
 
-/* Optional: adjust position for mobile to prevent overlap */
-@media (max-width: 640px) {
-  .social-icons-hero {
-    top: auto;                  /* remove vertical centering */
-    bottom: 56px;               /* place near the bottom */
-    left: 50%;                  /* center horizontally */
-    right: auto;                /* unset right */
-    transform: translateX(-50%); /* center by translating 50% of width */
-    flex-direction: row;        /* horizontal layout */
-    gap: 10px;                  /* spacing between icons */
-  }
+
+
+
 
   /* hide the hover labels on mobile (optional) */
   .social-icons-hero span {
     display: none;
   }
-}
+
 
 </style>
