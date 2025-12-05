@@ -120,83 +120,87 @@
     </div>
 
     <!-- Overlay Menu -->
-    <transition name="fade">
-      <div
-        v-if="isMenuOpen"
-        class="fixed inset-0 z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
-        :style="{ backgroundImage: `url(${patternBg})` }"
-      >
-        <div class="absolute inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-sm"></div>
+<transition name="fade">
+  <div
+    v-if="isMenuOpen"
+    class="fixed inset-0 z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
+    :style="{ backgroundImage: `url(${patternBg})` }"
+  >
+    <div class="absolute inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-sm"></div>
 
-        <div class="relative flex flex-col lg:flex-row lg:justify-between p-12 max-w-[1820px] mx-auto">
-          <div class="absolute top-6 left-6">
-            <a href="/"><img class="max-w-[160px] h-auto" src="/src/assets/img/fg logo-white1.png" alt="Logo" /></a>
-          </div>
-
-          <!-- Home -->
-          <div class="flex-1 mt-20 mb-8 lg:mb-0">
-            <h3 class="mb-4 text-2xl font-semibold">Home</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="/index.html" class="relative text-xl font-medium pb-1 group">
-                  Home
-                  <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- About -->
-          <div class="flex-1 mt-20 mb-8 lg:mb-0">
-            <h3 class="mb-4 text-2xl font-semibold">About Us</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="/about.html" class="relative text-xl font-medium pb-1 group">
-                  Our Story
-                  <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a href="/team.html" class="relative text-xl font-medium pb-1 group">
-                  Team
-                  <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Solutions -->
-          <div class="flex-1 mt-20 mb-8 lg:mb-0">
-            <h3 class="mb-4 text-2xl font-semibold">Solutions</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="/solutions.html" class="relative text-xl font-medium pb-1 group">
-                  Our Services
-                  <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="flex-1 mt-20">
-            <h3 class="mb-4 text-2xl font-semibold text-yellow-400">Connect</h3>
-            <p>FarmGate Africa & Industries Limited</p>
-            <p>Aveyime Mangoase, Volta Region, Ghana</p>
-            <p class="flex items-center gap-2"><font-awesome-icon :icon="['fas','phone']"/> +233 30 398 0443</p>
-            <p class="flex items-center gap-2"><font-awesome-icon :icon="['fas','envelope']"/> connect@farmgate.africa</p>
-          </div>
-
-          <!-- Close -->
-          <button
-            @click="toggleMenu"
-            class="absolute text-3xl cursor-pointer top-6 right-6 lg:text-5xl hover:text-yellow-400"
-          >
-            &times;
-          </button>
-        </div>
+    <!-- Scrollable container -->
+    <div class="relative flex flex-col lg:flex-row lg:justify-between p-12 max-w-[1820px] mx-auto 
+                overflow-y-auto h-full space-y-12 lg:space-y-0 pb-24">
+      
+      <!-- Logo -->
+      <div class="absolute top-6 left-6">
+        <a href="/"><img class="max-w-[160px] h-auto" src="/src/assets/img/fg logo-white1.png" alt="Logo" /></a>
       </div>
-    </transition>
+
+      <!-- Home -->
+      <div class="flex-1 mt-20">
+        <h3 class="mb-6 text-2xl font-semibold">Home</h3>
+        <ul class="space-y-5">
+          <li>
+            <a href="/index.html" class="relative text-xl font-medium pb-2 group">
+              Home
+              <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div class="flex-1 mt-20">
+        <h3 class="mb-6 text-2xl font-semibold">About Us</h3>
+        <ul class="space-y-5">
+          <li>
+            <a href="/about.html" class="relative text-xl font-medium pb-2 group">
+              Our Story
+              <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+          <li>
+            <a href="/team.html" class="relative text-xl font-medium pb-2 group">
+              Team
+              <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Solutions -->
+      <div class="flex-1 mt-20">
+        <h3 class="mb-6 text-2xl font-semibold">Solutions</h3>
+        <ul class="space-y-5">
+          <li>
+            <a href="/solutions.html" class="relative text-xl font-medium pb-2 group">
+              Our Services
+              <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="flex-1 mt-20">
+        <h3 class="mb-6 text-2xl font-semibold text-yellow-400">Connect</h3>
+        <p class="mb-2">FarmGate Africa & Industries Limited</p>
+        <p class="mb-2">Aveyime Mangoase, Volta Region, Ghana</p>
+        <p class="flex items-center gap-2 mb-2"><font-awesome-icon :icon="['fas','phone']"/> +233 30 398 0443</p>
+        <p class="flex items-center gap-2"><font-awesome-icon :icon="['fas','envelope']"/> connect@farmgate.africa</p>
+      </div>
+
+      <!-- Close -->
+      <button
+        @click="toggleMenu"
+        class="absolute text-3xl cursor-pointer top-6 right-6 lg:text-5xl hover:text-yellow-400"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+</transition>
   </div>
 </template>
 
