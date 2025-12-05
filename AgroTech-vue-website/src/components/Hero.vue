@@ -550,7 +550,7 @@ function closeModal() {
 @media (max-width: 640px) {
   .social-icons-hero {
     top: auto;                  /* remove vertical centering */
-    bottom: 60px;               /* place near the bottom */
+    bottom: 56px;               /* place near the bottom */
     left: 50%;                  /* center horizontally */
     right: auto;                /* unset right */
     transform: translateX(-50%); /* center by translating 50% of width */
