@@ -178,18 +178,16 @@
 
 <!--Social Icons section-->
 <transition name="fade-up">
-  <div
-  :class="[
-    'social-icons-hero absolute z-20 flex items-center gap-4 transform',
-    // Mobile first (default) → horizontal
-    'flex-row bottom-40 left-1/2 -translate-x-1/2',
-    // Desktop ≥640px → vertical on right
-    'sm:flex-col sm:top-1/2 sm:right-6 sm:-translate-y-1/2 sm:left-auto sm:bottom-auto',
-    // Adjust bottom for video 2 on mobile
-    videoVariant === 2 ? 'bottom-10' : ''
-  ]"
->
-
+    <div
+      :class="[
+        'social-icons-hero absolute z-20 flex items-center gap-4 transform',
+        videoVariant === 2 ? 'video2' : '',
+        'flex-col top-1/2 right-6 -translate-y-1/2',   // Desktop default
+        'sm:flex-col sm:top-1/2 sm:right-6 sm:-translate-y-1/2', // Small screens (tablet)
+        'xs:flex-row xs:bottom-[160px] xs:left-1/2 xs:-translate-x-1/2', // Mobile first video
+        videoVariant === 2 ? 'xs:bottom-[40px]' : '' // Mobile second video
+      ]"
+    >
       <div
         v-for="(social, index) in socials"
         :key="social.name"
@@ -553,7 +551,31 @@ function closeModal() {
   stroke: currentColor;
 }
 
+/* Default mobile for first video */
+@media (max-width: 640px) {
+  .social-icons-hero {
+    top: auto;
+    bottom: 59px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 10px;
+  }
+}
 
+/* Mobile for second video */
+@media (max-width: 640px) {
+  .social-icons-hero.video2 {
+    top: auto;
+    bottom: 40px; /* different from first video */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 10px;
+  }
+}
 
 
 
