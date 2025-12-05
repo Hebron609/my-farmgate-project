@@ -37,28 +37,27 @@
           class="relative flex items-center gap-2 px-6 py-3 overflow-hidden text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer group bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl animate-bounce-button"
         >
           <!-- Icon Circle -->
-<div
-  class="flex items-center justify-center bg-white rounded-full shadow-sm w-7 h-7"
->
-  <svg
-    width="14"
-    height="18"
-    viewBox="0 0 5 7"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    class="w-3.5 h-4.5 rotate-[15deg]"
-  >
-    <path
-      d="M4.85 2.41003C4.53 3.81003 3.78 4.59003 2.61 4.75003V6.13003C2.49 6.19003 2.36 6.26003 2.24 6.33003V4.75003C1.07 4.59003 0.32 3.81003 0 2.41003C1.42 2.73003 2.21 3.49003 2.36 4.68003H2.49C2.65 3.48003 3.43 2.73003 4.85 2.41003Z"
-      fill="#129C48"
-    />
-    <path
-      d="M2.42987 0C1.62987 1.26 1.62987 2.37 2.41987 3.34C3.20987 2.37 3.21987 1.26 2.42987 0Z"
-      fill="#129C48"
-    />
-  </svg>
-</div>
-
+          <div
+            class="flex items-center justify-center bg-white rounded-full shadow-sm w-7 h-7"
+          >
+            <svg
+              width="14"
+              height="18"
+              viewBox="0 0 5 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-3.5 h-4.5 rotate-[15deg]"
+            >
+              <path
+                d="M4.85 2.41003C4.53 3.81003 3.78 4.59003 2.61 4.75003V6.13003C2.49 6.19003 2.36 6.26003 2.24 6.33003V4.75003C1.07 4.59003 0.32 3.81003 0 2.41003C1.42 2.73003 2.21 3.49003 2.36 4.68003H2.49C2.65 3.48003 3.43 2.73003 4.85 2.41003Z"
+                fill="#129C48"
+              />
+              <path
+                d="M2.42987 0C1.62987 1.26 1.62987 2.37 2.41987 3.34C3.20987 2.37 3.21987 1.26 2.42987 0Z"
+                fill="#129C48"
+              />
+            </svg>
+          </div>
 
           <span class="relative z-10"> Start Growing With Us </span>
 
@@ -70,41 +69,41 @@
       </div>
 
       <!-- Features Section -->
-<transition name="fade-up">
-  <div
-    v-if="showOptions"
-    class="flex flex-wrap items-stretch justify-center gap-6 max-w-[1000px] mx-auto mt-8 sm:mt-20 transition-all duration-700 ease-in-out"
-  >
-    <div
-      v-for="option in options"
-      :key="option.title"
-      @click="openModal(option)"
-      class="flex flex-col items-center text-center text-white cursor-pointer group w-full sm:w-[45%] lg:w-[30%]"
-    >
-      <div
-        class="px-2 py-3 mb-4 transition-all duration-300 rounded-lg bg-white/15 backdrop-blur-xs group-hover:bg-black/40"
-      >
-        <!-- Custom SVG Icon -->
+      <transition name="fade-up">
         <div
-          v-html="option.svg"
-          class="text-white w-[38px] h-[38px]"
-        ></div>
-      </div>
+          v-if="showOptions"
+          class="flex flex-wrap items-stretch justify-center gap-6 max-w-[1000px] mx-auto mt-8 sm:mt-20 transition-all duration-700 ease-in-out"
+        >
+          <div
+            v-for="option in options"
+            :key="option.title"
+            @click="openModal(option)"
+            class="flex flex-col items-center text-center text-white cursor-pointer group w-full sm:w-[45%] lg:w-[30%]"
+          >
+            <div
+              class="px-2 py-3 mb-4 transition-all duration-300 rounded-lg bg-white/15 backdrop-blur-xs group-hover:bg-black/40"
+            >
+              <!-- Custom SVG Icon -->
+              <div
+                v-html="option.svg"
+                class="text-white w-[38px] h-[38px]"
+              ></div>
+            </div>
 
-      <h3
-        class="font-medium text-lg sm:text-xl relative inline-block after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
-      >
-        {{ option.title }}
-      </h3>
+            <h3
+              class="font-medium text-lg sm:text-xl relative inline-block after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+            >
+              {{ option.title }}
+            </h3>
 
-      <p
-        class="text-sm sm:text-md text-[rgb(255,255,0)] mt-2 max-w-[300px]"
-      >
-        {{ option.subtitle }}
-      </p>
-    </div>
-  </div>
-</transition>
+            <p
+              class="text-sm sm:text-md text-[rgb(255,255,0)] mt-2 max-w-[300px]"
+            >
+              {{ option.subtitle }}
+            </p>
+          </div>
+        </div>
+      </transition>
     </div>
 
     <!-- Modal -->
@@ -175,44 +174,42 @@
       </div>
     </div>
 
-
-<!--Social Icons section-->
-<transition name="fade-up">
-    <div
-      :class="[
-        'social-icons-hero absolute z-20 flex items-center gap-4 transform',
-        videoVariant === 2 ? 'video2' : '',
-        'flex-col top-1/2 right-6 -translate-y-1/2',   // Desktop default
-        'sm:flex-col sm:top-1/2 sm:right-6 sm:-translate-y-1/2', // Small screens (tablet)
-        'xs:flex-row xs:bottom-[160px] xs:left-1/2 xs:-translate-x-1/2', // Mobile first video
-        videoVariant === 2 ? 'xs:bottom-[40px]' : '' // Mobile second video
-      ]"
-    >
+    <!--Social Icons section-->
+    <transition name="fade-up">
       <div
-        v-for="(social, index) in socials"
-        :key="social.name"
-        class="flex items-center gap-3 group"
-        :style="{ transitionDelay: index * 0.1 + 's' }"
+        :class="['social-icons-hero', videoVariant === 2 ? 'video2' : '']"
+        class="absolute z-20 flex flex-col items-center gap-4 top-1/2 right-6 transform -translate-y-1/2"
       >
-        <span
-          class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 hidden sm:inline-block"
+        <div
+          v-for="(social, index) in socials"
+          :key="social.name"
+          class="flex items-center gap-3 group"
+          :style="{ transitionDelay: index * 0.1 + 's' }"
         >
-          {{ social.name }}
-        </span>
-        <a
-          :href="social.link"
-          target="_blank"
-          class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300
-                 backdrop-blur-md bg-[rgba(24,23,23,0.4)] border border-transparent rounded-full
-                 group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
-        >
-          <div v-if="social.svg" v-html="social.svg" class="w-6 h-6 text-current"></div>
-          <font-awesome-icon v-else :icon="['fab', social.icon]" class="text-lg" />
-        </a>
+          <span
+            class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 hidden sm:inline-block"
+          >
+            {{ social.name }}
+          </span>
+          <a
+            :href="social.link"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300 backdrop-blur-md bg-[rgba(24,23,23,0.4)] border border-transparent rounded-full group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+          >
+            <div
+              v-if="social.svg"
+              v-html="social.svg"
+              class="w-6 h-6 text-current"
+            ></div>
+            <font-awesome-icon
+              v-else
+              :icon="['fab', social.icon]"
+              class="text-lg"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-  </transition>
-
+    </transition>
   </div>
 </template>
 
@@ -233,7 +230,7 @@ const mainHeading = ref("Impacting lives through sustainable agriculture...");
 const videoVariant = ref(1); // 1 for first video, 2 for second video
 
 function switchVideo(videoNumber) {
-  if(videoNumber === 1){
+  if (videoNumber === 1) {
     currentVideo.value = video1;
     videoKey.value++;
     videoVariant.value = 1;
@@ -243,7 +240,6 @@ function switchVideo(videoNumber) {
     videoVariant.value = 2;
   }
 }
-
 
 // VIDEO HANDLING
 const currentVideo = ref(video1);
@@ -429,6 +425,7 @@ function activateOptions() {
   mainHeading.value = "gateway to farming";
   currentVideo.value = video2;
   videoKey.value++;
+  videoVariant.value = 2;
 }
 
 function openModal(option) {
@@ -555,7 +552,7 @@ function closeModal() {
 @media (max-width: 640px) {
   .social-icons-hero {
     top: auto;
-    bottom: 59px;
+    bottom: 130px;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -566,23 +563,13 @@ function closeModal() {
 
 /* Mobile for second video */
 @media (max-width: 640px) {
-  .social-icons-hero.video2 {
-    top: auto;
-    bottom: 40px; /* different from first video */
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    flex-direction: row;
-    gap: 10px;
+  .video2 {
+    display: none !important;
   }
 }
 
-
-
-  /* hide the hover labels on mobile (optional) */
-  .social-icons-hero span {
-    display: none;
-  }
-
-
+/* hide the hover labels on mobile (optional) */
+.social-icons-hero span {
+  display: none;
+}
 </style>
