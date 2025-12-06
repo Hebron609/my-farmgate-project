@@ -8,20 +8,20 @@
       ]"
     >
       <nav
-        class="text-white flex justify-between items-center max-w-[1900px] mx-auto font-montserrat px-6 sm:px-8 h-35 "
+        class="text-white flex justify-between items-start max-w-[1900px] mx-auto font-montserrat px-6 sm:px-8 h-35 pt-4"
       >
         <!-- Logo -->
-        <a href="/" class="flex items-center">
+        <a href="/" class="flex items-start">
           <img
-  class="w-[160px] sm:w-[260px] md:w-[280px] object-contain"
-  src="/src/assets/img/fg logo-white1.png"
+  class="w-[100px] sm:w-[140px] md:w-[160px] object-contain"
+  src="/src/assets/img/fg logo-white2.png"
   alt="Logo"
 />
 
         </a>
 
         <!-- Right section -->
-        <div class="flex items-center gap-4 sm:gap-6">
+        <div class="flex items-start gap-4 sm:gap-6">
 
           <!-- SEARCH FEATURE -->
           <div class="relative flex items-center">
@@ -134,7 +134,7 @@
       
       <!-- Logo -->
       <div class="absolute top-6 left-6">
-        <a href="/"><img class="max-w-[160px] h-auto" src="/src/assets/img/fg logo-white1.png" alt="Logo" /></a>
+        <a href="/"><img class="max-w-[100px] h-auto" src="/src/assets/img/fg logo-white2.png" alt="Logo" /></a>
       </div>
 
       <!-- Home -->
@@ -143,7 +143,7 @@
         <ul class="space-y-5">
           <li>
             <a href="/index.html" class="relative text-xl font-medium pb-2 group">
-              Home
+              Home  
               <span class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
