@@ -194,7 +194,7 @@
           <a
             :href="social.link"
             target="_blank"
-            class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300 backdrop-blur-md bg-[rgba(24,23,23,0.4)] border border-transparent rounded-full group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+            class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300 backdrop-blur-md bg-[rgba(58,57,57,0.74)] border border-transparent rounded-full group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
           >
             <div
               v-if="social.svg"
@@ -568,8 +568,10 @@ function closeModal() {
   }
 }
 
-/* hide the hover labels on mobile (optional) */
-.social-icons-hero span {
-  display: none;
+/* hide the hover labels only on mobile */
+@media (max-width: 640px) {
+  .social-icons-hero span {
+    display: none !important;
+  }
 }
 </style>
