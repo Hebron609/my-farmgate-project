@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/marketplace", "destination": "/marketplace.html" },
+    { "source": "/pricing", "destination": "/pricing.html" },
+    { "source": "/solutions", "destination": "/solutions.html" }
+  ],
+  "redirects": [
+    { "source": "/about.html", "destination": "/about", "statusCode": 301 },
+    {
+      "source": "/marketplace.html",
+      "destination": "/marketplace",
+      "statusCode": 301
+    },
+    { "source": "/pricing.html", "destination": "/pricing", "statusCode": 301 },
+    {
+      "source": "/solutions.html",
+      "destination": "/solutions",
+      "statusCode": 301
+    },
+    { "source": "/index.html", "destination": "/", "statusCode": 301 }
+  ]
+}
