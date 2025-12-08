@@ -58,7 +58,7 @@
             <transition name="fade">
               <ul
                 v-if="isSearchOpen && searchQuery"
-                class="absolute right-12 mt-40 w-64 sm:w-160 bg-white/25 backdrop-blur-2xl
+                class="absolute right-12 mt-40 w-38 sm:w-160 bg-white/25 backdrop-blur-2xl
                        shadow-2xl rounded-2xl border border-white/30 overflow-hidden"
               >
                 <li
