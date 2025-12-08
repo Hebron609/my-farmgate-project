@@ -38,7 +38,7 @@
 <transition name="slide">
   <div
     v-if="isSearchOpen"
-    class="absolute right-12 w-64 sm:w-160 bg-white/20 backdrop-blur-xl
+    class="absolute right-12 w-38 sm:w-160 bg-white/20 backdrop-blur-xl
            rounded-2xl shadow-2xl border border-white/30 flex items-center px-4 py-2 mt-1
            focus-within:ring-2 focus-within:ring-yellow-400
            hidden:animate-none sm:animate-pulse"
