@@ -178,7 +178,7 @@
     <transition name="fade-up">
       <div
         :class="['social-icons-hero', videoVariant === 2 ? 'video2' : '']"
-        class="absolute z-20 flex flex-col items-center gap-4 top-1/2 right-6 transform -translate-y-1/2"
+        class="absolute z-20 flex flex-col items-center gap-4 transform -translate-y-1/2 top-1/2 right-6"
       >
         <div
           v-for="(social, index) in socials"
@@ -187,7 +187,7 @@
           :style="{ transitionDelay: index * 0.1 + 's' }"
         >
           <span
-            class="text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 hidden sm:inline-block"
+            class="hidden text-right text-white transition-all duration-500 translate-x-3 opacity-0 w-28 group-hover:opacity-100 group-hover:translate-x-0 sm:inline-block"
           >
             {{ social.name }}
           </span>
@@ -263,10 +263,11 @@ const options = [
   preserveAspectRatio="xMidYMid meet"
   style="display:block; width:38px; height:38px; object-fit:contain; overflow:visible;"
   fill="currentColor"
-  stroke=""
-  stroke-width="1"
+  stroke="currentColor"
+  stroke-width="0.3"
   stroke-linecap="round"
   stroke-linejoin="round"
+  paint-order="stroke fill"
   vector-effect="non-scaling-stroke"
 >
   <path d="M12.6817 8.96741C12.8677 8.87876 13.0339 8.75775 13.1874 8.62084C15.0701 6.94125 14.0217 3.6902 11.3825 3.54423C9.33442 3.39061 7.90788 5.75501 8.76715 7.64449C9.0184 8.19697 9.51794 8.77039 10.0967 8.98834C9.83969 8.97281 9.04848 8.93141 8.8066 8.98147C8.48718 9.04755 8.46577 9.49072 8.80717 9.54319C9.0388 9.57877 9.32557 9.55387 9.5641 9.55354L11.0802 9.55369L13.4556 9.55519C13.6167 9.5574 13.842 9.59614 13.9721 9.47689C14.0812 9.3768 14.0905 9.19875 13.9842 9.09232C13.8223 8.93025 13.522 8.96497 13.315 8.96539L12.6817 8.96741ZM11.4932 4.11799C13.5892 4.32052 14.3096 7.00275 12.7187 8.29871C12.3033 8.63707 11.6725 8.85315 11.1358 8.77916C9.11062 8.58259 8.32717 5.86144 9.93382 4.57627C10.3521 4.24166 10.9586 4.0545 11.4932 4.11799Z"/>
@@ -292,7 +293,7 @@ const options = [
   style="display:block; width:38px; height:38px; object-fit:contain; overflow:visible;"
   fill="currentColor"
   stroke=""
-  stroke-width="1"
+  stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
   vector-effect="non-scaling-stroke" xmlns="http://www.w3.org/2000/svg">
