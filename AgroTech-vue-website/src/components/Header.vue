@@ -123,7 +123,7 @@
           :class="[
             'flex items-center justify-center sm:hidden transition-all duration-500',
             isScrolled
-              ? 'absolute left-[260px] transform -translate-x-1/2 top-4 px-4 py-2 bg-gradient-to-b from-transparent via-white/5 to-transparent rounded-full'
+              ? 'absolute left-1/2 transform -translate-x-1/2 top-4 px-4 py-2 bg-gradient-to-b from-transparent via-white/5 to-transparent rounded-full'
               : 'px-8 py-6 bg-gradient-to-b from-transparent via-white/5 to-transparent',
           ]"
         >
