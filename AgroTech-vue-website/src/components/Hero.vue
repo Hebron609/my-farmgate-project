@@ -228,7 +228,7 @@
       <img
         src="/src/assets/img/fg logo-white2.png"
         alt="FarmGate Africa Logo"
-        class="object-contain w-[100px] h-[100px] pointer-events-none"
+        class="object-contain w-[70px] h-[70px] pointer-events-none"
       />
     </a>
   </div>
