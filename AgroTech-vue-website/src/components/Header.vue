@@ -142,7 +142,7 @@
           <img
             :class="[
               'object-contain transition-all duration-300',
-              isScrolled ? 'w-[100px] md:w-[120px]' : 'w-[140px] md:w-[160px]',
+              isScrolled ? 'w-[100px] md:w-[100px]' : 'w-[140px] md:w-[160px]',
             ]"
             src="/src/assets/img/fg logo-white2.png"
             alt="Logo"
