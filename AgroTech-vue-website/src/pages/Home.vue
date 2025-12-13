@@ -12,7 +12,7 @@ const currentPage = ref('home');
 <template>
   <div class="relative">
     <!--Header-component-->
-    <Header @pageChange="currentPage = $event" />
+    <Header :showMobileLogo="false" @pageChange="currentPage = $event" />
     <Hero v-if="currentPage === 'home'" />
 
     <!--Main-content---->

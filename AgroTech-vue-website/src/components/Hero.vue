@@ -25,12 +25,20 @@
         showOptions ? 'top-[25%]' : 'top-1/2 -translate-y-1/2',
       ]"
     >
+      <!-- Logo for video1: just above the heading -->
+      <a v-if="videoVariant === 1" href="/" class="block mb-6">
+        <img
+          src="/src/assets/img/fg logo-white2.png"
+          alt="FarmGate Africa Logo"
+          class="block w-40 mx-auto sm:hidden"
+        />
+      </a>
+
       <h1
         class="font-montserrat font-semibold max-w-[1000px] text-center mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight"
       >
         {{ mainHeading }}
       </h1>
-
       <div v-if="!showOptions" class="flex justify-center mt-10">
         <button
           @click="activateOptions"
@@ -210,6 +218,19 @@
         </div>
       </div>
     </transition>
+
+    <!-- Logo for video2: centered small between marketplace and right items -->
+    <a
+      v-if="videoVariant === 2"
+      href="/"
+      class="absolute z-50 block transform -translate-x-1/2 cursor-pointer video2-logo top-6 left-1/2 sm:hidden"
+    >
+      <img
+        src="/src/assets/img/fg logo-white2.png"
+        alt="FarmGate Africa Logo"
+        class="object-contain w-[100px] h-[100px] pointer-events-none"
+      />
+    </a>
   </div>
 </template>
 
@@ -228,18 +249,6 @@ import video2 from "@/assets/video/farm-hero-video2-compressed.mp4";
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
 
 const videoVariant = ref(1); // 1 for first video, 2 for second video
-
-function switchVideo(videoNumber) {
-  if (videoNumber === 1) {
-    currentVideo.value = video1;
-    videoKey.value++;
-    videoVariant.value = 1;
-  } else {
-    currentVideo.value = video2;
-    videoKey.value++;
-    videoVariant.value = 2;
-  }
-}
 
 // VIDEO HANDLING
 const currentVideo = ref(video1);
@@ -575,4 +584,10 @@ function closeModal() {
     display: none !important;
   }
 }
+
+/* hide video2 logo when menu is open */
+:global(.menu-open .video2-logo) {
+  display: none;
+}
 </style>
+
