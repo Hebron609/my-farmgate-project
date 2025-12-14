@@ -389,7 +389,7 @@
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
-                  No. 6 Nii Notes Baale Ave, East Legon, Accra,<br />
+                  No. 6 Nii Notes Baale Ave, <br /> East Legon, Accra,<br />
                   Greater Accra Region (GA-414-1928)
                 </p>
               </div>
@@ -433,7 +433,7 @@
               <div>
                 <p class="font-semibold text-white">Registered Address:</p>
                 <p class="text-gray-300">
-                  Aveyime Mangoase, Battor, Volta Region (VT-0320-8690)
+                  Aveyime Mangoase, Battor, <br /> Volta Region (VT-0320-8690)
                 </p>
               </div>
             </div>
@@ -489,7 +489,7 @@
               <div>
                 <p class="font-semibold text-white">Postal Address:</p>
                 <p class="text-gray-300">
-                  P. O. Box 2186, Adenta - Accra<br />
+                  P. O. Box 2186, Adenta - Accra,<br />
                   Ghana, West Africa
                 </p>
               </div>
