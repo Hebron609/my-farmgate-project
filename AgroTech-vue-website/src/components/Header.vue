@@ -281,7 +281,7 @@
                   href="/index.html"
                   class="relative pb-2 text-xl font-medium group"
                 >
-                  Home
+                  Homepage
                   <span
                     class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
                   ></span>
