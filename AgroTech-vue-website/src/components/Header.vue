@@ -293,7 +293,7 @@
           <div class="absolute top-6 left-6">
             <a href="/"
               ><img
-                class="max-w-[100px] h-auto"
+                class="max-w-[75px] h-auto"
                 src="/src/assets/img/fg logo-white2.png"
                 alt="Logo"
             /></a>
