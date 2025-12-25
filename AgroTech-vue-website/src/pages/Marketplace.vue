@@ -1,20 +1,15 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-700">
-
+  <div
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-700"
+  >
     <!--Header-component-->
-    <Header />
-
-     
-   
-  </div>  
+    <Header :videoVariant="2" />
+  </div>
 </template>
 
 <script setup>
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
-
 </script>
 
-<style>
-
-</style>
+<style></style>

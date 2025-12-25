@@ -26,7 +26,7 @@
       ]"
     >
       <!-- Logo for video1: just above the heading -->
-      <a v-if="videoVariant === 1" href="/" class="block mb-6">
+      <a v-if="videoVariant === 1" href="/" class="block mb-12">
         <img
           src="/src/assets/img/fg logo-white2.png"
           alt="FarmGate Africa Logo"
@@ -67,7 +67,7 @@
             </svg>
           </div>
 
-          <span class="relative z-10"> Start Growing With Us </span>
+          <span class="relative z-10"> Start growing with us </span>
 
           <font-awesome-icon
             :icon="['far', 'arrow-right']"
@@ -202,7 +202,7 @@
           <a
             :href="social.link"
             target="_blank"
-            class="flex items-center justify-center w-12 h-12 text-green-600 transition-all duration-300 backdrop-blur-md bg-[rgba(58,57,57,0.74)] border border-transparent rounded-full group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
+            class="flex items-center justify-center w-12 h-12 text-white transition-all duration-300 backdrop-blur-md bg-black/40 border border-transparent rounded-full group-hover:bg-transparent group-hover:text-[rgb(255,255,0)] group-hover:border-[rgb(255,255,0)]"
           >
             <div
               v-if="social.svg"
@@ -220,23 +220,22 @@
     </transition>
 
     <!-- Logo for video2: centered small between marketplace and right items -->
-    <a
-      v-if="videoVariant === 2"
-      href="/"
-      class="absolute z-50 block transform -translate-x-1/2 cursor-pointer video2-logo top-6 left-1/2 sm:hidden"
-    >
-      <img
-        src="/src/assets/img/fg logo-white2.png"
-        alt="FarmGate Africa Logo"
-        class="object-contain w-[70px] h-[70px] pointer-events-none"
-      />
-    </a>
+    
   </div>
 </template>
 
 <script setup>
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref } from "vue";
+
+const props = defineProps({
+  videoVariant: {
+    type: Number,
+    default: 1,
+  },
+});
+
+const emit = defineEmits(["update:videoVariant"]);
 
 import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
@@ -248,7 +247,7 @@ import video2 from "@/assets/video/farm-hero-video2-compressed.mp4";
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
 
-const videoVariant = ref(1); // 1 for first video, 2 for second video
+const videoVariant = ref(props.videoVariant); // 1 for first video, 2 for second video
 
 // VIDEO HANDLING
 const currentVideo = ref(video1);
@@ -436,6 +435,7 @@ function activateOptions() {
   currentVideo.value = video2;
   videoKey.value++;
   videoVariant.value = 2;
+  emit('update:videoVariant', 2);
 }
 
 function openModal(option) {
@@ -590,4 +590,3 @@ function closeModal() {
   display: none;
 }
 </style>
-

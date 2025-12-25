@@ -2,7 +2,7 @@
   <div>
     <div class="relative overflow-hidden h-[580px] pt-32">
       <!-- Header-component -->
-      <Header />
+      <Header :videoVariant="2" />
 
       <img
         src="/src/assets/img/our-solutions-banner.jpg"
@@ -12,7 +12,7 @@
 
       <!-- Hero-section-content -->
       <div
-        class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-13 sm:px-6 lg:px-8"
+        class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-2 sm:px-6 lg:px-8"
       >
         <h1
           class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"

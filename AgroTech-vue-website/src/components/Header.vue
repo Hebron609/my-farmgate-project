@@ -4,43 +4,54 @@
     <div
       :class="[
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'py-2' : 'py-2',
+        isScrolled ? 'py-0 sm:py-2' : 'py-2',
         isScrolled ? 'bg-[rgb(3,89,37)] shadow-md' : 'bg-transparent',
       ]"
     >
       <nav
-        class="text-white flex flex-col sm:flex-row sm:justify-between items-center sm:items-start max-w-[1900px] mx-auto font-montserrat px-6 sm:px-8 pt-4 pb-6 sm:pb-0"
+        :class="[
+          'text-white flex flex-col sm:flex-row sm:justify-between items-center sm:items-start max-w-[1900px] mx-auto font-montserrat px-6 sm:px-8',
+          isScrolled ? 'pt-4 pb-0 sm:pb-0' : 'pt-4 pb-6 sm:pb-0',
+        ]"
       >
-        <!-- Mobile: Navigation row (marketplace left, search/hamburger right) -->
-        <div class="flex items-center justify-between w-full mb-4 sm:hidden">
-          <!-- Marketplace Button (Mobile) -->
-          <a
-            href="/marketplace.html"
-            class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
-          >
-            <span
-              class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+        <!-- Mobile: Navigation row (conditional for video variants) -->
+        <div class="flex items-start justify-between w-full mb-4 sm:hidden">
+          <div v-if="videoVariant === 2" class="flex items-start h-[70px]">
+            <a href="/">
+              <img
+                src="/src/assets/img/fg logo-white2.png"
+                alt="FarmGate Africa Logo"
+                class="w-[65px] h-[65px] object-contain"
+              />
+            </a>
+          </div>
+          <div v-else class="flex items-start h-[70px]">
+            <a
+              href="/marketplace.html"
+              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
-              <LeafIcon class="w-4 h-4 text-white" />
-              <span class="text-xs font-semibold leading-none text-white"
-                >Marketplace</span
+              <span
+                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
-            </span>
+                <LeafIcon class="w-4 h-4 text-white" />
+                <span class="text-xs font-semibold leading-none text-white"
+                  >Marketplace</span
+                >
+              </span>
 
-            <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-            >
-              <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold leading-none"
-                >Marketplace</span
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
               >
-            </span>
-          </a>
+                <LeafIcon class="w-4 h-4 text-black" />
+                <span class="text-xs font-semibold leading-none"
+                  >Marketplace</span
+                >
+              </span>
+            </a>
+          </div>
 
-          <!-- Search and Hamburger (Mobile) -->
           <div class="flex items-center gap-3">
-            <!-- Search Feature (Mobile) -->
-            <div class="relative flex items-center">
+            <div v-if="videoVariant !== 2" class="relative flex items-center">
               <!-- Search icon -->
               <button
                 @click="toggleSearch"
@@ -102,6 +113,30 @@
               </transition>
             </div>
 
+            <a
+              v-if="videoVariant === 2"
+              href="/marketplace.html"
+              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
+            >
+              <span
+                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
+                <LeafIcon class="w-4 h-4 text-white" />
+                <span class="text-xs font-semibold leading-none text-white"
+                  >Marketplace</span
+                >
+              </span>
+
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              >
+                <LeafIcon class="w-4 h-4 text-black" />
+                <span class="text-xs font-semibold leading-none"
+                  >Marketplace</span
+                >
+              </span>
+            </a>
+
             <!-- Hamburger -->
             <button
               @click="toggleMenu"
@@ -118,20 +153,12 @@
 
         <!-- Mobile: Dynamic Logo -->
         <a
-          v-if="showMobileLogo"
+          v-if="showMobileLogo && videoVariant !== 2"
           href="/"
-          :class="[
-            'flex items-center justify-center sm:hidden transition-all duration-500',
-            isScrolled
-              ? 'absolute left-1/2 transform -translate-x-1/2 top-4 px-4 py-2 bg-gradient-to-b from-transparent via-white/5 to-transparent rounded-full'
-              : 'px-8 py-6 bg-gradient-to-b from-transparent via-white/5 to-transparent',
-          ]"
+          class="flex items-center justify-center sm:hidden px-8 py-6 bg-gradient-to-b from-transparent via-white/5 to-transparent"
         >
           <img
-            :class="[
-              'object-contain transition-all duration-500 drop-shadow-2xl',
-              isScrolled ? 'w-[70px]' : 'w-[130px]',
-            ]"
+            class="object-contain w-[70px] h-[70px]"
             src="/src/assets/img/fg logo-white2.png"
             alt="FarmGate Africa Logo"
           />
@@ -389,7 +416,8 @@
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
-                  No. 6 Nii Notes Baale Ave, <br /> East Legon, Accra,<br />
+                  No. 6 Nii Notes Baale Ave, <br />
+                  East Legon, Accra,<br />
                   Greater Accra Region (GA-414-1928)
                 </p>
               </div>
@@ -433,7 +461,8 @@
               <div>
                 <p class="font-semibold text-white">Registered Address:</p>
                 <p class="text-gray-300">
-                  Aveyime Mangoase, Battor, <br /> Volta Region (VT-0320-8690)
+                  Aveyime Mangoase, Battor, <br />
+                  Volta Region (VT-0320-8690)
                 </p>
               </div>
             </div>
@@ -495,7 +524,7 @@
               </div>
             </div>
             <!-- Telephone Info (Landline) -->
-            <div class="flex items-start gap-2 mb-4">
+            <div class="flex items-center gap-2 mb-4">
               <!-- Custom Telephone SVG -->
               <svg
                 id="Layer_1"
@@ -546,15 +575,11 @@
                 </g>
               </svg>
 
-              <!-- Text block -->
-              <div>
-                <p class="font-semibold text-white">Telephone:</p>
-                <p class="text-gray-300">+233 30 398 0443</p>
-              </div>
+              <p class="text-gray-300">+233 30 398 0443</p>
             </div>
 
             <!-- Telephone Info (Mobile) -->
-            <div class="flex items-start gap-2 mb-4">
+            <div class="flex items-center gap-2 mb-4">
               <!-- Custom Phone SVG -->
               <svg
                 version="1.1"
@@ -609,15 +634,11 @@
                 </g>
               </svg>
 
-              <!-- Text block -->
-              <div>
-                <p class="font-semibold text-white">Phone:</p>
-                <p class="text-gray-300">+233 50 330 1132</p>
-              </div>
+              <p class="text-gray-300">+233 50 330 1132</p>
             </div>
 
             <!-- Email Info -->
-            <div class="flex items-start gap-2 mb-4">
+            <div class="flex items-center gap-2 mb-4">
               <!-- Custom Envelope SVG -->
               <svg
                 id="Layer_1"
@@ -636,11 +657,7 @@
                 </g>
               </svg>
 
-              <!-- Text block -->
-              <div>
-                <p class="font-semibold text-white">Email:</p>
-                <p class="text-gray-300">connect@farmgate.africa</p>
-              </div>
+              <p class="text-gray-300">connect@farmgate.africa</p>
             </div>
           </div>
 
@@ -667,6 +684,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  videoVariant: {
+    type: Number,
+    default: 1,
+  },
 });
 
 /* Scroll */
@@ -678,17 +699,14 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 /* Menu */
 const isMenuOpen = ref(false);
 const toggleMenu = () => (isMenuOpen.value = !isMenuOpen.value);
-watch(
-  isMenuOpen,
-  (open) => {
-    document.body.style.overflow = open ? "hidden" : "";
-    if (open) {
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.classList.remove('menu-open');
-    }
+watch(isMenuOpen, (open) => {
+  document.body.style.overflow = open ? "hidden" : "";
+  if (open) {
+    document.body.classList.add("menu-open");
+  } else {
+    document.body.classList.remove("menu-open");
   }
-);
+});
 
 /* Search */
 const isSearchOpen = ref(false);
@@ -779,4 +797,3 @@ const selectSuggestion = (item) => {
   width: 26px;
 }
 </style>
-
