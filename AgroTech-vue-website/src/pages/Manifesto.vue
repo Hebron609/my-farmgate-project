@@ -6,7 +6,7 @@
     <!-- Hero Section -->
     <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
       <img
-        src="/src/assets/img/farm-pic7.jpg"
+        src="/src/assets/img/farm-pic6.jpg"
         class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.59] z-0"
         alt=""
       />
