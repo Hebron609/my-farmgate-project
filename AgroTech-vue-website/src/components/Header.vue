@@ -332,36 +332,80 @@
                   ></span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="/team.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Team
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
+
             </ul>
           </div>
 
-          <!-- Solutions -->
+          <!-- Programs -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold">Solutions</h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/solutions.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Our Services
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
+            <h3
+              class="mb-6 text-2xl font-semibold cursor-pointer flex items-center"
+              @click="toggleSection('programs')"
+            >
+              Our Initiatives
+              <svg width="25" height="25" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2 transition-transform duration-300" :class="{ 'rotate-90': activeSections.programs }">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </h3>
+            <transition name="slide">
+              <ul class="space-y-5" v-show="activeSections.programs">
+                <li>
+                  <a
+                    href="/solutions.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Solutions
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/impact.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Impact
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/projects.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Projects
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/people.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Team
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/manifesto.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Manifesto
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+              </ul>
+            </transition>
           </div>
 
           <!-- Contact -->
@@ -708,6 +752,18 @@ watch(isMenuOpen, (open) => {
   }
 });
 
+/* Menu Sections */
+const activeSections = ref({
+  home: false,
+  about: false,
+  programs: false,
+  contact: false,
+});
+
+const toggleSection = (section) => {
+  activeSections.value[section] = !activeSections.value[section];
+};
+
 /* Search */
 const isSearchOpen = ref(false);
 const searchQuery = ref("");
@@ -717,6 +773,10 @@ const suggestions = ref([
   "Marketplace",
   "Sustainability",
   "Invest in FarmGate",
+  "Our Impact",
+  "Projects",
+  "Our People",
+  "Manifesto",
 ]);
 
 const toggleSearch = () => {
@@ -737,6 +797,10 @@ const selectSuggestion = (item) => {
   if (i.includes("story")) window.location.href = "/about.html";
   else if (i.includes("service")) window.location.href = "/solutions.html";
   else if (i.includes("market")) window.location.href = "/marketplace.html";
+  else if (i.includes("impact")) window.location.href = "/impact.html";
+  else if (i.includes("projects")) window.location.href = "/projects.html";
+  else if (i.includes("people")) window.location.href = "/people.html";
+  else if (i.includes("manifesto")) window.location.href = "/manifesto.html";
 };
 </script>
 
@@ -795,5 +859,10 @@ const selectSuggestion = (item) => {
 .hamburger.open span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
   width: 26px;
+}
+
+/* Arrow rotation */
+.rotate-90 {
+  transform: rotate(90deg);
 }
 </style>

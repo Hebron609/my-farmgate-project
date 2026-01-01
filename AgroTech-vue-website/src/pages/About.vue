@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative overflow-hidden h-[580px] pt-32">
+    <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
       <!--Header-component-->
       <Header :videoVariant="2" />
 

@@ -220,7 +220,6 @@
     </transition>
 
     <!-- Logo for video2: centered small between marketplace and right items -->
-    
   </div>
 </template>
 
@@ -435,7 +434,7 @@ function activateOptions() {
   currentVideo.value = video2;
   videoKey.value++;
   videoVariant.value = 2;
-  emit('update:videoVariant', 2);
+  emit("update:videoVariant", 2);
 }
 
 function openModal(option) {
