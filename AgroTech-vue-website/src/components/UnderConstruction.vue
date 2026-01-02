@@ -1,6 +1,13 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen px-4 bg-gray-50">
-    <div class="max-w-md mx-auto text-center">
+  <div class="relative flex items-center justify-center min-h-screen px-4">
+    <!-- Blurred Background Layer -->
+    <div
+      class="fixed inset-0 bg-[url('/images/pattern-bg1.webp')] bg-cover bg-center blur-2xl bg-black/40"
+    ></div>
+    <!-- Content -->
+    <div
+      class="relative z-10 max-w-lg p-8 mx-auto text-center border shadow-xl bg-white/30 backdrop-blur-md border-white/20 rounded-3xl"
+    >
       <!-- Illustration Placeholder -->
       <picture>
         <source
@@ -20,7 +27,7 @@
       </h1>
 
       <!-- Sub-text -->
-      <p class="mb-8 text-gray-500">
+      <p class="mb-8 text-gray-200">
         We're working hard to bring you new features. Check back soon!
       </p>
 
@@ -36,5 +43,6 @@
 </template>
 
 <script setup>
+  import patternBg from "@/assets/img/pattern-bg1.webp";
 // No additional script needed for this component
 </script>
