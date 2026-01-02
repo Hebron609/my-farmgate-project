@@ -16,16 +16,23 @@
       >
         <!-- Mobile: Navigation row (conditional for video variants) -->
         <div class="flex items-start justify-between w-full mb-4 sm:hidden">
-          <div v-if="videoVariant === 2" class="flex items-start h-[70px]">
+          <div v-if="videoVariant === 2" class="flex items-center h-[50px]">
             <a href="/">
               <img
-                src="/src/assets/img/fg logo-white2.png"
+                :src="
+                  isScrolled
+                    ? '/src/assets/img/fg logo-white1.png'
+                    : '/src/assets/img/fg logo-white2.png'
+                "
                 alt="FarmGate Africa Logo"
-                class="w-[65px] h-[65px] object-contain"
+                :class="[
+                  'object-contain',
+                  isScrolled ? 'w-[100px] h-[100px]' : 'w-[65px] h-[65px]',
+                ]"
               />
             </a>
           </div>
-          <div v-else class="flex items-start h-[70px]">
+          <div v-else class="flex items-start h-[50px]">
             <a
               href="/marketplace.html"
               class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
@@ -155,11 +162,15 @@
         <a
           v-if="showMobileLogo && videoVariant !== 2"
           href="/"
-          class="flex items-center justify-center sm:hidden px-8 py-6 bg-gradient-to-b from-transparent via-white/5 to-transparent"
+          class="flex items-center justify-center px-8 py-6 sm:hidden bg-gradient-to-b from-transparent via-white/5 to-transparent"
         >
           <img
             class="object-contain w-[70px] h-[70px]"
-            src="/src/assets/img/fg logo-white2.png"
+            :src="
+              isScrolled
+                ? '/src/assets/img/fg logo-white1.png'
+                : '/src/assets/img/fg logo-white2.png'
+            "
             alt="FarmGate Africa Logo"
           />
         </a>
@@ -169,9 +180,13 @@
           <img
             :class="[
               'object-contain transition-all duration-300',
-              isScrolled ? 'w-[100px] md:w-[100px]' : 'w-[140px] md:w-[160px]',
+              isScrolled ? 'w-[100px] md:w-[150px]' : 'w-[140px] md:w-[160px]',
             ]"
-            src="/src/assets/img/fg logo-white2.png"
+            :src="
+              isScrolled
+                ? '/src/assets/img/fg logo-white1.png'
+                : '/src/assets/img/fg logo-white2.png'
+            "
             alt="Logo"
           />
         </a>
@@ -332,19 +347,32 @@
                   ></span>
                 </a>
               </li>
-
             </ul>
           </div>
 
           <!-- Programs -->
           <div class="flex-1 mt-20">
             <h3
-              class="mb-6 text-2xl font-semibold cursor-pointer flex items-center"
+              class="flex items-center mb-6 text-2xl font-semibold cursor-pointer"
               @click="toggleSection('programs')"
             >
               Our Initiatives
-              <svg width="25" height="25" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2 transition-transform duration-300" :class="{ 'rotate-90': activeSections.programs }">
-                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 transition-transform duration-300"
+                :class="{ 'rotate-90': activeSections.programs }"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </h3>
             <transition name="slide">

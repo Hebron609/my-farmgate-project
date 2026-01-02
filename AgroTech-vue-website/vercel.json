@@ -7,7 +7,9 @@
     { "source": "/impact", "destination": "/impact.html" },
     { "source": "/manifesto", "destination": "/manifesto.html" },
     { "source": "/people", "destination": "/people.html" },
-    { "source": "/projects", "destination": "/projects.html" }
+    { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/cookies", "destination": "/cookies.html" },
+    { "source": "/privacy", "destination": "/privacy.html" }
   ],
   "redirects": [
     { "source": "/about.html", "destination": "/about", "statusCode": 301 },

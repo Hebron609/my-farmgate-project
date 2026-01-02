@@ -167,7 +167,7 @@
 
               <!--Card-section-->
 
-              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+              <div class="grid grid-cols-3 gap-4">
                 <button
                   v-for="method in cardMethods"
                   :key="method.id"
@@ -175,20 +175,16 @@
                   :class="[
                     'h-16 border rounded-lg flex items-center justify-center transition-all duration-200',
                     selectedPayment === method.id
-                      ? method.id === 'amex'
-                        ? 'border-green-600 bg-[#006FCF] ring-1 ring-green-600'
-                        : 'border-green-600 bg-green-50 ring-1 ring-green-600'
-                      : method.id === 'amex'
-                        ? 'border-gray-200 hover:border-gray-300 hover:opacity-80'
-                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
-                    method.id === 'amex' && selectedPayment !== method.id ? 'bg-[#006FCF]' : '',
+                      ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
+                    method.id === 'amex' ? 'bg-[#006FCF]' : '',
                   ]"
                 >
                   <img
                     v-if="method.image"
                     :src="method.image"
                     :alt="method.name"
-                    class="object-contain w-auto h-5"
+                    class="object-contain w-auto h-8"
                   />
                   <span v-else class="text-sm font-bold text-gray-700">{{
                     method.name

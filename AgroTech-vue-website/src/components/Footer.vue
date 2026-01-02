@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-[1440px] mx-auto mt-20 font-montserrat px-6 sm:px-8">
+  <section class="max-w-[1900px] mx-auto mt-20 font-montserrat px-6 sm:px-8">
     <footer
       class="grid grid-cols-1 gap-12 py-10 text-gray-800 bg-white sm:gap-16 md:grid-cols-2"
     >
@@ -16,6 +16,7 @@
           Redefining agriculture at a global scale.
         </h3>
         <!-- Social Links -->
+         <!--
         <div class="flex flex-wrap items-center gap-4">
           <FooterSocialButton
             icon="fa-brands fa-instagram"
@@ -33,7 +34,9 @@
             href="https://facebook.com"
           />
         </div>
+        -->
       </div>
+    
 
       <!-- Right Content -->
       <div>
@@ -48,13 +51,13 @@
             title="Company"
             :items="[
               { label: 'About Us', href: 'about.html' },
-              { label: 'Our Team', href: 'team.html' },
+              { label: 'Our Team', href: 'people.html' },
             ]"
           />
           <FooterColumn
             title="Information"
             :items="[
-              { label: 'Gallery', href: 'gallery.html' },
+              { label: 'Gallery', href: 'projects.html' },
               { label: 'Privacy Policy', href: 'privacy.html' },
               { label: 'Cookies', href: 'cookies.html' },
             ]"
@@ -76,14 +79,16 @@
   <!-- Bottom Bar -->
   <div class="bg-[rgb(3,89,37)] h-13 relative">
     <div
-      class="absolute inset-0 flex flex-wrap items-center text-white font-normal text-sm max-w-[1440px] mx-auto px-4 sm:px-8 justify-center sm:justify-between gap-y-2"
+      class="absolute inset-0 flex flex-wrap items-center text-white font-normal text-sm max-w-[1900px] mx-auto px-4 sm:px-8 justify-center sm:justify-between gap-y-2"
     >
       <p class="text-center whitespace-nowrap sm:text-left">
         © 2025 FarmGate Africa & Industries. All rights reserved.
       </p>
       <p class="text-center whitespace-nowrap sm:text-right">
         Powered by:
-        <span class="ml-1 text-yellow-300">Butterfly Technologies</span>
+        <a href="https://butterflytech.io" target="_blank" class="ml-1 text-yellow-300"
+          >Butterfly Technologies</a
+        >
       </p>
     </div>
   </div>
