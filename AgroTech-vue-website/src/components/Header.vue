@@ -23,7 +23,7 @@
                 alt="FarmGate Africa Logo"
                 :class="[
                   'object-contain',
-                  isScrolled ? 'w-[100px] h-[100px]' : 'w-[65px] h-[65px]',
+                  isScrolled ? 'w-[130px] h-[130px]' : 'w-[65px] h-[65px]',
                 ]"
               />
             </a>
