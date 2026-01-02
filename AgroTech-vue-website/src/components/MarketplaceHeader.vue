@@ -5,10 +5,10 @@
     >
       <!-- Left Section: Description -->
       <div>
-        <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+        <h2 class="text-xl font-semibold text-gray-900 sm:text-3xl">
           All Products
         </h2>
-        <p class="text-gray-500 mt-1">
+        <p class="mt-1 text-gray-500">
           Explore range of fresh and organic produce, where quality meets
           affordability.
         </p>
@@ -57,7 +57,7 @@
                   : selectedCategory
               }}</span>
               <svg
-                class="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                class="absolute w-4 h-4 text-gray-400 transform -translate-y-1/2 right-2 top-1/2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -72,7 +72,7 @@
             </button>
             <div
               v-if="isCategoryOpen"
-              class="absolute mt-1 w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg z-10"
+              class="absolute z-10 w-full mt-1 border border-gray-200 rounded-lg shadow-lg bg-white/80 backdrop-blur-sm"
             >
               <div
                 @click="
@@ -80,7 +80,7 @@
                   isCategoryOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 All
               </div>
@@ -92,7 +92,7 @@
                   isCategoryOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 {{ category }}
               </div>
@@ -116,7 +116,7 @@
                   : "Select Price"
               }}</span>
               <svg
-                class="w-4 h-4 text-gray-400 ml-2"
+                class="w-4 h-4 ml-2 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -131,7 +131,7 @@
             </button>
             <div
               v-if="isPriceOpen"
-              class="absolute mt-1 w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg z-10"
+              class="absolute z-10 w-full mt-1 border border-gray-200 rounded-lg shadow-lg bg-white/80 backdrop-blur-sm"
             >
               <div
                 @click="
@@ -139,7 +139,7 @@
                   isPriceOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Select Price
               </div>
@@ -149,7 +149,7 @@
                   isPriceOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Under GHS 50
               </div>
@@ -159,7 +159,7 @@
                   isPriceOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 GHS 50 - 100
               </div>
@@ -169,7 +169,7 @@
                   isPriceOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Over GHS 100
               </div>
@@ -192,7 +192,7 @@
                   : "Rating"
               }}</span>
               <svg
-                class="w-4 h-4 text-gray-400 ml-2"
+                class="w-4 h-4 ml-2 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -207,7 +207,7 @@
             </button>
             <div
               v-if="isSortOpen"
-              class="absolute mt-1 w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg z-10"
+              class="absolute z-10 w-full mt-1 border border-gray-200 rounded-lg shadow-lg bg-white/80 backdrop-blur-sm"
             >
               <div
                 @click="
@@ -215,7 +215,7 @@
                   isSortOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Sort by: Latest
               </div>
@@ -225,7 +225,7 @@
                   isSortOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Price: Low to High
               </div>
@@ -235,7 +235,7 @@
                   isSortOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Price: High to Low
               </div>
@@ -245,7 +245,7 @@
                   isSortOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Rating
               </div>
@@ -260,7 +260,7 @@
             >
               <span>Show: {{ itemsPerPage }}</span>
               <svg
-                class="w-4 h-4 text-gray-400 ml-2"
+                class="w-4 h-4 ml-2 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -275,7 +275,7 @@
             </button>
             <div
               v-if="isShowOpen"
-              class="absolute mt-1 w-full bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg z-10"
+              class="absolute z-10 w-full mt-1 border border-gray-200 rounded-lg shadow-lg bg-white/80 backdrop-blur-sm"
             >
               <div
                 @click="
@@ -283,7 +283,7 @@
                   isShowOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Show: 10
               </div>
@@ -293,7 +293,7 @@
                   isShowOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Show: 20
               </div>
@@ -303,7 +303,7 @@
                   isShowOpen = false;
                   applyFilters();
                 "
-                class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                class="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
               >
                 Show: 50
               </div>
@@ -313,7 +313,7 @@
           <!-- Cart Icon -->
           <button
             @click="emit('open-cart')"
-            class="relative p-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            class="relative p-2 transition-colors border border-gray-200 rounded-lg bg-white/80 backdrop-blur-sm hover:bg-gray-50"
           >
             <svg
               class="w-6 h-6 text-gray-700"
@@ -330,7 +330,7 @@
             </svg>
             <span
               v-if="cart.length > 0"
-              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse"
+              class="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full -top-2 -right-2 animate-pulse"
             >
               {{ cart.length }}
             </span>
