@@ -19,11 +19,7 @@
           <div v-if="videoVariant === 2" class="flex items-center h-[50px]">
             <a href="/">
               <img
-                :src="
-                  isScrolled
-                    ? '/src/assets/img/fg logo-white1.png'
-                    : '/src/assets/img/fg logo-white2.png'
-                "
+                :src="isScrolled ? logoWhite1 : logoWhite2"
                 alt="FarmGate Africa Logo"
                 :class="[
                   'object-contain',
@@ -166,11 +162,7 @@
         >
           <img
             class="object-contain w-[70px] h-[70px]"
-            :src="
-              isScrolled
-                ? '/src/assets/img/fg logo-white1.png'
-                : '/src/assets/img/fg logo-white2.png'
-            "
+            :src="isScrolled ? logoWhite1 : logoWhite2"
             alt="FarmGate Africa Logo"
           />
         </a>
@@ -182,11 +174,7 @@
               'object-contain transition-all duration-300',
               isScrolled ? 'w-[100px] md:w-[150px]' : 'w-[140px] md:w-[160px]',
             ]"
-            :src="
-              isScrolled
-                ? '/src/assets/img/fg logo-white1.png'
-                : '/src/assets/img/fg logo-white2.png'
-            "
+            :src="isScrolled ? logoWhite1 : logoWhite2"
             alt="Logo"
           />
         </a>
@@ -309,7 +297,7 @@
             <a href="/"
               ><img
                 class="w-[75px] sm:w-[100px] h-auto"
-                src="/src/assets/img/fg logo-white2.png"
+                :src="logoWhite2"
                 alt="Logo"
             /></a>
           </div>
@@ -750,6 +738,8 @@
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
 import patternBg from "@/assets/img/pattern-bg1.webp";
+import logoWhite1 from "@/assets/img/fg logo-white1.png";
+import logoWhite2 from "@/assets/img/fg logo-white2.png";
 
 const props = defineProps({
   showMobileLogo: {

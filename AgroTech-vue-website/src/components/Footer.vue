@@ -6,8 +6,8 @@
       <!-- Left Content -->
       <div class="flex flex-col items-start gap-6 sm:gap-8">
         <img
-          class="w-[180px] sm:w-[220px] lg:w-[260px] h-auto cursor-pointer"
-          src="/src/assets/img/fg logo.png"
+          class="w-[150px] sm:w-[150px] lg:w-[160px] h-auto cursor-pointer"
+          src="/src/assets/img/FarmGate Africa 1 1.png"
           alt="Logo"
         />
         <h3
