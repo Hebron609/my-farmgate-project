@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import Manifesto from "./pages/Manifesto.vue";
+import UnderConstruction from "./components/UnderConstruction.vue";
 import "./style.css";
 import { setupApp } from "./shared-setup";
 
-setupApp(Manifesto, "#app");
+setupApp(UnderConstruction, "#app");

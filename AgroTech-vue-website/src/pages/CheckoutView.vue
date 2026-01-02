@@ -28,7 +28,9 @@
             </div>
             <span class="hidden text-lg font-bold sm:inline">Back to Cart</span>
           </button>
-          <h1 class="text-lg font-semibold text-gray-900 sm:text-xl">Checkout</h1>
+          <h1 class="text-lg font-semibold text-gray-900 sm:text-xl">
+            Checkout
+          </h1>
         </div>
 
         <!-- Progress Bar -->
@@ -50,7 +52,10 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-1 text-xs font-medium text-gray-900 sm:ml-2 sm:text-sm">Cart</span>
+              <span
+                class="ml-1 text-xs font-medium text-gray-900 sm:ml-2 sm:text-sm"
+                >Cart</span
+              >
             </div>
             <div class="w-4 sm:w-8 h-0.5 bg-gray-300"></div>
             <div class="flex items-center">
@@ -69,7 +74,8 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-1 text-xs font-medium text-green-600 sm:ml-2 sm:text-sm"
+              <span
+                class="ml-1 text-xs font-medium text-green-600 sm:ml-2 sm:text-sm"
                 >Checkout</span
               >
             </div>
@@ -92,7 +98,8 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-1 text-xs font-medium text-gray-500 sm:ml-2 sm:text-sm"
+              <span
+                class="ml-1 text-xs font-medium text-gray-500 sm:ml-2 sm:text-sm"
                 >Delivering</span
               >
             </div>
@@ -114,41 +121,40 @@
             </h2>
 
             <div class="space-y-6">
-  <div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-    <button
-      v-for="method in mobileMoney"
-      :key="method.id"
-      @click="selectedPayment = method.id"
-      :class="[
-        'w-full min-h-[4rem] px-4 py-2 border rounded-xl flex items-center justify-center transition-all duration-200 gap-3 shadow-sm active:scale-[0.98]',
-        selectedPayment === method.id
-          ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
-          : 'border-gray-200 hover:border-green-200 hover:bg-gray-50',
-      ]"
-    >
-      <img
-        :src="method.image"
-        :alt="method.name"
-        class="flex-shrink-0 object-contain w-auto h-6"
-      />
-      <span
-        :style="{
-          color:
-            method.name === 'MTN Mobile Money'
-              ? '#003857'
-              : method.name === 'Telecel cash'
-              ? '#E42628'
-              : method.name === 'Airtel tigo'
-              ? '#1E3F77'
-              : '#374151',
-        }"
-        class="text-sm font-semibold whitespace-nowrap"
-      >
-        {{ method.name }}
-      </span>
-    </button>
-  </div>
-
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+                <button
+                  v-for="method in mobileMoney"
+                  :key="method.id"
+                  @click="selectedPayment = method.id"
+                  :class="[
+                    'w-full min-h-[4rem] px-4 py-2 border rounded-xl flex items-center justify-center transition-all duration-200 gap-3 shadow-sm active:scale-[0.98]',
+                    selectedPayment === method.id
+                      ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
+                      : 'border-gray-200 hover:border-green-200 hover:bg-gray-50',
+                  ]"
+                >
+                  <img
+                    :src="method.image"
+                    :alt="method.name"
+                    class="flex-shrink-0 object-contain w-auto h-6"
+                  />
+                  <span
+                    :style="{
+                      color:
+                        method.name === 'MTN Mobile Money'
+                          ? '#003857'
+                          : method.name === 'Telecel cash'
+                          ? '#E42628'
+                          : method.name === 'Airtel tigo'
+                          ? '#1E3F77'
+                          : '#374151',
+                    }"
+                    class="text-sm font-semibold whitespace-nowrap"
+                  >
+                    {{ method.name }}
+                  </span>
+                </button>
+              </div>
 
               <div class="relative py-2">
                 <div
@@ -175,9 +181,12 @@
                   :class="[
                     'h-16 border rounded-lg flex items-center justify-center transition-all duration-200',
                     selectedPayment === method.id
-                      ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
+                      ? method.id === 'amex'
+                        ? 'border-green-600 ring-1 ring-green-600 bg-[#006FCF]'
+                        : 'border-green-600 bg-green-50 ring-1 ring-green-600'
+                      : method.id === 'amex'
+                      ? 'border-gray-200 hover:border-gray-300 hover:bg-[#006FCF]/80 bg-[#006FCF]'
                       : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
-                    method.id === 'amex' ? 'bg-[#006FCF]' : '',
                   ]"
                 >
                   <img
@@ -358,7 +367,9 @@
 
         <!-- Right Column - Order Summary -->
         <div class="lg:col-span-1">
-          <div class="p-4 bg-white rounded-lg shadow-sm sm:p-6 lg:sticky lg:top-4">
+          <div
+            class="p-4 bg-white rounded-lg shadow-sm sm:p-6 lg:sticky lg:top-4"
+          >
             <h2 class="mb-4 text-lg font-semibold text-gray-900">
               Order Summary
             </h2>

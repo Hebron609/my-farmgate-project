@@ -7,15 +7,21 @@
     @update-quantity="updateQuantity"
     @remove-item="removeFromCart"
   />
+  <ToastNotification :show="showToast" :message="toastMessage" />
 </template>
 
 <script setup>
 import { ref, provide, onMounted, watch } from "vue";
 import CartDrawer from "./components/CartDrawer.vue";
+import ToastNotification from "./components/ToastNotification.vue";
 
 // Cart state
 const cart = ref([]);
 const isCartOpen = ref(false);
+
+// Toast state
+const showToast = ref(false);
+const toastMessage = ref("");
 
 // Cart functions
 const addToCart = (productData) => {
@@ -34,6 +40,13 @@ const addToCart = (productData) => {
       selectedFarm: productData.selectedFarm || "",
     });
   }
+
+  // Show toast notification
+  toastMessage.value = `Added ${productData.name} to cart!`;
+  showToast.value = true;
+  setTimeout(() => {
+    showToast.value = false;
+  }, 3000);
 };
 
 const updateQuantity = ({ index, quantity }) => {
