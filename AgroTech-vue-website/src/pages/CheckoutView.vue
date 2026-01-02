@@ -2,15 +2,15 @@
   <div class="min-h-screen bg-gray-50">
     <!-- Top Navigation -->
     <div class="bg-white border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
           <button
             @click="goBackToCart"
             type="button"
-            class="group flex items-center text-gray-900 font-medium hover:text-green-600 transition-colors cursor-pointer rounded-lg relative z-10"
+            class="relative z-10 flex items-center font-medium text-gray-900 transition-colors rounded-lg cursor-pointer group hover:text-green-600"
           >
             <div
-              class="bg-white border border-gray-200 p-2 rounded-full mr-3 group-hover:border-green-500 shadow-sm"
+              class="p-2 mr-3 bg-white border border-gray-200 rounded-full shadow-sm group-hover:border-green-500"
             >
               <svg
                 width="20"
@@ -26,20 +26,20 @@
                 <path d="m12 19-7-7 7-7" />
               </svg>
             </div>
-            <span class="text-lg font-bold">Back to Cart</span>
+            <span class="hidden text-lg font-bold sm:inline">Back to Cart</span>
           </button>
-          <h1 class="text-lg font-semibold text-gray-900">Checkout</h1>
+          <h1 class="text-lg font-semibold text-gray-900 sm:text-xl">Checkout</h1>
         </div>
 
         <!-- Progress Bar -->
-        <div class="mt-6 flex items-center justify-center">
-          <div class="flex items-center">
+        <div class="flex items-center justify-center mt-6">
+          <div class="flex items-center space-x-2 sm:space-x-4">
             <div class="flex items-center">
               <div
-                class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center"
+                class="flex items-center justify-center w-6 h-6 bg-green-600 rounded-full sm:w-8 sm:h-8"
               >
                 <svg
-                  class="w-4 h-4 text-white"
+                  class="w-3 h-3 text-white sm:w-4 sm:h-4"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -50,15 +50,15 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-2 text-sm font-medium text-gray-900">Cart</span>
+              <span class="ml-1 text-xs font-medium text-gray-900 sm:ml-2 sm:text-sm">Cart</span>
             </div>
-            <div class="mx-4 w-8 h-0.5 bg-gray-300"></div>
+            <div class="w-4 sm:w-8 h-0.5 bg-gray-300"></div>
             <div class="flex items-center">
               <div
-                class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center"
+                class="flex items-center justify-center w-6 h-6 bg-green-600 rounded-full sm:w-8 sm:h-8"
               >
                 <svg
-                  class="w-4 h-4 text-white"
+                  class="w-3 h-3 text-white sm:w-4 sm:h-4"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -69,17 +69,17 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-2 text-sm font-medium text-green-600"
+              <span class="ml-1 text-xs font-medium text-green-600 sm:ml-2 sm:text-sm"
                 >Checkout</span
               >
             </div>
-            <div class="mx-4 w-8 h-0.5 bg-gray-300"></div>
+            <div class="w-4 sm:w-8 h-0.5 bg-gray-300"></div>
             <div class="flex items-center">
               <div
-                class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center"
+                class="flex items-center justify-center w-6 h-6 bg-gray-300 rounded-full sm:w-8 sm:h-8"
               >
                 <svg
-                  class="w-4 h-4 text-gray-500"
+                  class="w-3 h-3 text-gray-500 sm:w-4 sm:h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -92,7 +92,7 @@
                   ></path>
                 </svg>
               </div>
-              <span class="ml-2 text-sm font-medium text-gray-500"
+              <span class="ml-1 text-xs font-medium text-gray-500 sm:ml-2 sm:text-sm"
                 >Delivering</span
               >
             </div>
@@ -102,52 +102,53 @@
     </div>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div
-        class="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-white p-6 rounded-lg shadow-sm"
+        class="grid grid-cols-1 gap-8 p-6 bg-white rounded-lg shadow-sm lg:grid-cols-3"
       >
         <!-- Left Column -->
-        <div class="lg:col-span-2 space-y-8">
-          <div class="bg-white p-6 rounded-lg">
-            <h2 class="text-lg font-semibold text-gray-900 mb-6">
+        <div class="space-y-8 lg:col-span-2">
+          <div class="p-4 bg-white rounded-lg sm:p-6">
+            <h2 class="mb-6 text-lg font-semibold text-gray-900">
               Payment Method
             </h2>
 
             <div class="space-y-6">
-              <div class="grid grid-cols-3 gap-4">
-                <button
-                  v-for="method in mobileMoney"
-                  :key="method.id"
-                  @click="selectedPayment = method.id"
-                  :class="[
-                    'h-16 border rounded-lg flex items-center justify-center transition-all duration-200 gap-2',
-                    selectedPayment === method.id
-                      ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
-                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50',
-                  ]"
-                >
-                  <img
-                    :src="method.image"
-                    :alt="method.name"
-                    class="h-8 w-auto object-contain"
-                  />
-                  <span
-                    :style="{
-                      color:
-                        method.name === 'MTN Mobile Money'
-                          ? '#003857'
-                          : method.name === 'Telecel cash'
-                          ? '#E42628'
-                          : method.name === 'Airtel tigo'
-                          ? '#1E3F77'
-                          : '#374151',
-                    }"
-                    class="text-xs font-semibold"
-                  >
-                    {{ method.name }}
-                  </span>
-                </button>
-              </div>
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+    <button
+      v-for="method in mobileMoney"
+      :key="method.id"
+      @click="selectedPayment = method.id"
+      :class="[
+        'w-full min-h-[4rem] px-4 py-2 border rounded-xl flex items-center justify-center transition-all duration-200 gap-3 shadow-sm active:scale-[0.98]',
+        selectedPayment === method.id
+          ? 'border-green-600 bg-green-50 ring-1 ring-green-600'
+          : 'border-gray-200 hover:border-green-200 hover:bg-gray-50',
+      ]"
+    >
+      <img
+        :src="method.image"
+        :alt="method.name"
+        class="flex-shrink-0 object-contain w-auto h-6"
+      />
+      <span
+        :style="{
+          color:
+            method.name === 'MTN Mobile Money'
+              ? '#003857'
+              : method.name === 'Telecel cash'
+              ? '#E42628'
+              : method.name === 'Airtel tigo'
+              ? '#1E3F77'
+              : '#374151',
+        }"
+        class="text-sm font-semibold whitespace-nowrap"
+      >
+        {{ method.name }}
+      </span>
+    </button>
+  </div>
+
 
               <div class="relative py-2">
                 <div
@@ -158,7 +159,7 @@
                 </div>
                 <div class="relative flex justify-center">
                   <span
-                    class="bg-white px-4 text-sm text-gray-400 font-medium tracking-wider"
+                    class="px-4 text-sm font-medium tracking-wider text-gray-400 bg-white"
                     >OR</span
                   >
                 </div>
@@ -166,7 +167,7 @@
 
               <!--Card-section-->
 
-              <div class="grid grid-cols-3 gap-4">
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 <button
                   v-for="method in cardMethods"
                   :key="method.id"
@@ -187,7 +188,7 @@
                     v-if="method.image"
                     :src="method.image"
                     :alt="method.name"
-                    class="h-5 w-auto object-contain"
+                    class="object-contain w-auto h-5"
                   />
                   <span v-else class="text-sm font-bold text-gray-700">{{
                     method.name
@@ -198,8 +199,8 @@
           </div>
 
           <!-- Delivery Methods -->
-          <div class="bg-white p-6 rounded-lg shadow-sm">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">
+          <div class="p-6 bg-white rounded-lg shadow-sm">
+            <h2 class="mb-4 text-lg font-semibold text-gray-900">
               Delivery Method
             </h2>
             <div class="grid grid-cols-2 gap-4">
@@ -268,13 +269,13 @@
           </div>
 
           <!-- Delivery Address -->
-          <div class="bg-white p-6 rounded-lg shadow-sm">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">
+          <div class="p-6 bg-white rounded-lg shadow-sm">
+            <h2 class="mb-4 text-lg font-semibold text-gray-900">
               Delivery Address
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Country</label
                 >
                 <select
@@ -286,7 +287,7 @@
               </div>
               <div></div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >First Name</label
                 >
                 <input
@@ -296,7 +297,7 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Last Name</label
                 >
                 <input
@@ -306,7 +307,7 @@
                 />
               </div>
               <div class="md:col-span-2">
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Address</label
                 >
                 <input
@@ -316,7 +317,7 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Apartment</label
                 >
                 <input
@@ -326,7 +327,7 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >City</label
                 >
                 <input
@@ -336,7 +337,7 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Province</label
                 >
                 <input
@@ -346,7 +347,7 @@
                 />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1"
+                <label class="block mb-1 text-sm font-medium text-gray-700"
                   >Postal Code</label
                 >
                 <input
@@ -361,13 +362,13 @@
 
         <!-- Right Column - Order Summary -->
         <div class="lg:col-span-1">
-          <div class="bg-white p-6 rounded-lg sticky top-4 shadow-sm">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">
+          <div class="p-4 bg-white rounded-lg shadow-sm sm:p-6 lg:sticky lg:top-4">
+            <h2 class="mb-4 text-lg font-semibold text-gray-900">
               Order Summary
             </h2>
 
             <!-- Product List -->
-            <div class="space-y-4 mb-6">
+            <div class="mb-6 space-y-4">
               <div
                 v-for="item in cart"
                 :key="item.id"
@@ -377,10 +378,10 @@
                   <img
                     :src="item.image"
                     :alt="item.name"
-                    class="w-12 h-12 object-cover rounded-md"
+                    class="object-cover w-12 h-12 rounded-md"
                   />
                   <span
-                    class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                    class="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-black rounded-full -top-2 -right-2"
                     >{{ item.quantity }}</span
                   >
                 </div>
@@ -397,7 +398,7 @@
 
             <!-- Discount -->
             <div class="mb-4">
-              <label class="block text-sm font-medium text-gray-700 mb-2"
+              <label class="block mb-2 text-sm font-medium text-gray-700"
                 >Discount Code</label
               >
               <div class="flex space-x-2">
@@ -408,7 +409,7 @@
                   class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
                 />
                 <button
-                  class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
                 >
                   Apply
                 </button>
@@ -416,7 +417,7 @@
             </div>
 
             <!-- Calculations -->
-            <div class="border-t pt-4 space-y-2">
+            <div class="pt-4 space-y-2 border-t">
               <div class="flex justify-between text-sm">
                 <span>Subtotal</span>
                 <span>GHS{{ subtotal.toFixed(2) }}</span>
@@ -430,7 +431,7 @@
                 <span>GHS{{ tax.toFixed(2) }}</span>
               </div>
               <div
-                class="flex justify-between text-lg font-semibold pt-2 border-t"
+                class="flex justify-between pt-2 text-lg font-semibold border-t"
               >
                 <span>Total</span>
                 <span>GHS{{ total.toFixed(2) }}</span>
@@ -439,7 +440,7 @@
 
             <!-- Pay Button -->
             <button
-              class="w-full mt-6 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              class="w-full px-4 py-3 mt-6 font-semibold text-white transition-colors bg-green-600 rounded-lg hover:bg-green-700"
             >
               Pay GHS{{ total.toFixed(2) }}
             </button>
