@@ -2,11 +2,17 @@
   <div class="flex items-center justify-center min-h-screen px-4 bg-gray-50">
     <div class="max-w-md mx-auto text-center">
       <!-- Illustration Placeholder -->
-      <img
-        src="/images/under-construction-placeholder.png"
-        alt="A friendly vector illustration of a sprouting plant with gears and farming tools around it, symbolizing growth and construction in agriculture."
-        class="mx-auto mb-8 w-[480px] h-auto"
-      />
+      <picture>
+        <source
+          srcset="/images/under-construction-placeholder.webp"
+          type="image/webp"
+        />
+        <img
+          src="/images/under-construction-placeholder.png"
+          alt="A friendly vector illustration of a sprouting plant with gears and farming tools around it, symbolizing growth and construction in agriculture."
+          class="mx-auto mb-8 w-[480px] h-auto"
+        />
+      </picture>
 
       <!-- Heading -->
       <h1 class="mb-4 text-3xl font-bold text-gray-900">
