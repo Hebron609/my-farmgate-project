@@ -1,9 +1,10 @@
 import { createApp } from "vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
-import Marketplace from "./pages/Marketplace.vue";
-import ProductDetail from "./pages/ProductDetail.vue";
-import CheckoutView from "./pages/CheckoutView.vue";
+//import Marketplace from "./pages/Marketplace.vue";
+//import ProductDetail from "./pages/ProductDetail.vue";
+//import CheckoutView from "./pages/CheckoutView.vue";
+import MarketplaceUnderConstruction from "./components/MarketplaceUnderConstruction.vue";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -60,9 +61,9 @@ library.add(
 );
 
 const routes = [
-  { path: "/", name: "Marketplace", component: Marketplace },
-  { path: "/product/:id", name: "ProductDetail", component: ProductDetail },
-  { path: "/checkout", name: "Checkout", component: CheckoutView },
+  { path: "/", name: "Marketplace", component: MarketplaceUnderConstruction },
+  // { path: "/product/:id", name: "ProductDetail", component: ProductDetail },
+  // { path: "/checkout", name: "Checkout", component: CheckoutView },
 ];
 
 const router = createRouter({
