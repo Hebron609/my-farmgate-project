@@ -14,6 +14,7 @@
     </video>
 
     <!-- Scroll Indicator -->
+     <!---->
     <div class="absolute mt-12 transform -translate-x-1/2 bottom-6 left-1/2">
       <a href="/solutions.html">
         <ScrollDown />

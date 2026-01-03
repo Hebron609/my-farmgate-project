@@ -1,15 +1,23 @@
-<template>
+<!-- <template>
   <div class="scrolldown">
     <div class="chevrons">
       <div class="chevrondown"></div>
       <div class="chevrondown"></div>
     </div>
   </div>
+</template> -->
+
+<template>
+  <img
+    src="/images/Mouse-hero.gif"
+    alt="Scroll down indicator"
+    class="w-12 h-12 mx-auto mb-4"
+  />
 </template>
 
 <style scoped>
 .scrolldown {
-  --color: yellow;
+  --color: #ffff00;
   --sizeX: 26px;
   --sizeY: 42px;
   position: relative;
