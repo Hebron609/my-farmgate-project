@@ -8,12 +8,21 @@
 </template> -->
 
 <template>
-  <img
-    src="/images/Mouse-hero.gif"
-    alt="Scroll down indicator"
-    class="w-12 h-12 mx-auto mb-4"
-  />
+  <div class="text-center">
+    <img
+      src="/images/Mouse-hero1.gif"
+      alt="Click to explore solutions"
+      class="w-12 h-12 mx-auto mb-2 transition-transform cursor-pointer hover:scale-110"
+    />
+    <p class="text-sm text-white animate-bounce">Click to Explore</p>
+  </div>
 </template>
+
+<script setup>
+function scrollDown() {
+  window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+}
+</script>
 
 <style scoped>
 .scrolldown {

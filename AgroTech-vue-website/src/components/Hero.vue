@@ -4,6 +4,8 @@
     <video
       :key="videoKey"
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
+      :poster="videoVariant === 2 ? fallbackImage : ''"
+      @play="videoPlaying = true"
       autoplay
       muted
       loop
@@ -13,8 +15,14 @@
       <source :src="currentVideo" type="video/mp4" />
     </video>
 
+    <!-- Poster Overlay -->
+    <div
+      v-show="videoVariant === 2 && !videoPlaying"
+      class="absolute top-0 left-0 z-10 w-full h-full transition-opacity duration-1000 bg-black/90"
+    ></div>
+
     <!-- Scroll Indicator -->
-     <!---->
+    <!---->
     <div class="absolute mt-12 transform -translate-x-1/2 bottom-6 left-1/2">
       <a href="/solutions.html">
         <ScrollDown />
@@ -229,6 +237,7 @@
 <script setup>
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref } from "vue";
+import Hls from "hls.js";
 
 const props = defineProps({
   videoVariant: {
@@ -242,9 +251,10 @@ const emit = defineEmits(["update:videoVariant"]);
 import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
+import fallbackImage from "@/assets/img/fallback-image.png";
 
-import video1 from "@/assets/video/farmgate-original-video-compressed.mp4";
-import video2 from "@/assets/video/farm-hero-video2-compressed.mp4";
+const video1 = "/videos/farmgate-original-video.m3u8";
+const video2 = "/videos/farm-hero-video1.m3u8";
 
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
@@ -254,10 +264,13 @@ const videoVariant = ref(props.videoVariant); // 1 for first video, 2 for second
 // VIDEO HANDLING
 const currentVideo = ref(video1);
 const videoKey = ref(0);
+const videoRef = ref(null);
+const hls = ref(null);
 
 const showOptions = ref(false);
 const showModal = ref(false);
 const selectedOption = ref({});
+const videoPlaying = ref(false);
 
 // OPTIONS LIST
 const options = [
@@ -425,10 +438,27 @@ import { onMounted, onBeforeUnmount } from "vue";
 
 onMounted(() => {
   document.body.style.overflow = "hidden";
+
+  // HLS implementation
+  const video = videoRef.value;
+  if (Hls.isSupported()) {
+    hls.value = new Hls();
+    hls.value.loadSource(currentVideo.value);
+    hls.value.attachMedia(video);
+  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = currentVideo.value;
+  } else {
+    // Fallback for MP4 or other formats
+    video.src = currentVideo.value;
+    video.load();
+  }
 });
 
 onBeforeUnmount(() => {
   document.body.style.overflow = "auto";
+  if (hls.value) {
+    hls.value.destroy();
+  }
 });
 
 function activateOptions() {
