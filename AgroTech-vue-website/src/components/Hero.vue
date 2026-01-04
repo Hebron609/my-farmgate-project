@@ -18,7 +18,7 @@
     <!-- Poster Overlay -->
     <div
       v-show="videoVariant === 2 && !videoPlaying"
-      class="absolute top-0 left-0 z-10 w-full h-full transition-opacity duration-1000 bg-black/90"
+      class="absolute top-0 left-0 z-10 w-full h-full transition-opacity duration-1000 bg-black/50"
     ></div>
 
     <!-- Scroll Indicator -->
