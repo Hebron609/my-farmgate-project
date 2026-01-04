@@ -253,8 +253,8 @@ import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
 import fallbackImage from "@/assets/img/fallback-image.png";
 
-const video1 = "/videos/farmgate-original-video.m3u8";
-const video2 = "/videos/farm-hero-video1.m3u8";
+const video1 = "/videos/adaptive1/master.m3u8";
+const video2 = "/videos/adaptive2/master.m3u8";
 
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
