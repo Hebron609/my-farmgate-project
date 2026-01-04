@@ -1,5 +1,11 @@
 <template>
-  <div class="relative h-screen overflow-hidden">
+  <div
+    class="relative h-screen overflow-hidden bg-[#FDFCF8]"
+    :style="{
+      backgroundImage: `url(${fallbackImage1})`,
+      backgroundSize: 'cover',
+    }"
+  >
     <!-- Hero Background Video -->
     <video
       :key="videoKey"
@@ -252,6 +258,7 @@ import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
 import fallbackImage from "@/assets/img/fallback-image.png";
+import fallbackImage1 from "@/assets/img/fallback-image1.png";
 
 const video1 = "/videos/adaptive1/master.m3u8";
 const video2 = "/videos/adaptive2/master.m3u8";
