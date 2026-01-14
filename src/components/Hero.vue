@@ -1,11 +1,22 @@
 <template>
-  <div class="relative h-screen overflow-hidden bg-[#FDFCF8] bg-[url('/images/fallback-image.png')] bg-cover">
+  <div class="relative h-screen overflow-hidden bg-[#FDFCF8] bg-cover">
     <!-- Hero Background Video -->
     <video
       :key="videoKey"
+      ref="videoRef"
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
-      :poster="videoVariant === 2 ? fallbackImage : ''"
-      @play="videoPlaying = true"
+      @play="
+        console.log('video play');
+        videoPlaying = true;
+      "
+      @waiting="
+        console.log('video waiting');
+        buffering = true;
+      "
+      @canplay="
+        console.log('video canplay');
+        buffering = false;
+      "
       autoplay
       muted
       loop
@@ -15,11 +26,16 @@
       <source :src="currentVideo" type="video/mp4" />
     </video>
 
-    <!-- Poster Overlay -->
-    <div
-      v-show="videoVariant === 2 && !videoPlaying"
-      class="absolute top-0 left-0 z-10 w-full h-full transition-opacity duration-1000 bg-black/50"
-    ></div>
+    <!-- Video Placeholder -->
+    <transition name="fade">
+      <div
+        v-if="!videoPlaying || buffering"
+        class="video-placeholder"
+        :style="{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${currentFallbackImage})`,
+        }"
+      ></div>
+    </transition>
 
     <!-- Scroll Indicator -->
     <!---->
@@ -236,7 +252,7 @@
 
 <script setup>
 import ScrollDown from "@/components/ScrollDown.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Hls from "hls.js";
 
 const props = defineProps({
@@ -251,10 +267,13 @@ const emit = defineEmits(["update:videoVariant"]);
 import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
+import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
 
-const video1 = "/videos/adaptive1/master.m3u8";
-const video2 = "/videos/adaptive2/master.m3u8";
+const video1 =
+  import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";
+const video2 =
+  import.meta.env.VITE_VIDEO2_URL || "/videos/adaptive2/master.m3u8";
 
 // TEXT
 const mainHeading = ref("Impacting lives through sustainable agriculture...");
@@ -271,7 +290,17 @@ const showOptions = ref(false);
 const showModal = ref(false);
 const selectedOption = ref({});
 const videoPlaying = ref(false);
-
+const buffering = ref(true);
+const currentFallbackImage = computed(() => {
+  const img = videoVariant.value === 1 ? fallbackImage1 : fallbackImage;
+  console.log(
+    "currentFallbackImage:",
+    img,
+    "videoVariant:",
+    videoVariant.value
+  );
+  return img;
+});
 // OPTIONS LIST
 const options = [
   {
@@ -462,11 +491,14 @@ onBeforeUnmount(() => {
 });
 
 function activateOptions() {
+  console.log("activateOptions called, setting videoVariant to 2");
   showOptions.value = true;
   mainHeading.value = "gateway to farming";
   currentVideo.value = video2;
   videoKey.value++;
   videoVariant.value = 2;
+  videoPlaying.value = false;
+  buffering.value = true;
   emit("update:videoVariant", 2);
 }
 
@@ -566,6 +598,30 @@ function closeModal() {
 }
 .animate-bounce-button {
   animation: button-bounce 1.8s infinite ease-in-out;
+}
+
+/* Video Placeholder */
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 5;
+  filter: blur(1px);
+}
+
+/* Fade transition for placeholder */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* ensure the injected SVG centers correctly */
