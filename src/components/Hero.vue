@@ -6,15 +6,12 @@
       ref="videoRef"
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
       @play="
-        console.log('video play');
         videoPlaying = true;
       "
       @waiting="
-        console.log('video waiting');
         buffering = true;
       "
       @canplay="
-        console.log('video canplay');
         buffering = false;
       "
       autoplay
@@ -293,12 +290,7 @@ const videoPlaying = ref(false);
 const buffering = ref(true);
 const currentFallbackImage = computed(() => {
   const img = videoVariant.value === 1 ? fallbackImage1 : fallbackImage;
-  console.log(
-    "currentFallbackImage:",
-    img,
-    "videoVariant:",
-    videoVariant.value
-  );
+
   return img;
 });
 // OPTIONS LIST
@@ -491,7 +483,6 @@ onBeforeUnmount(() => {
 });
 
 function activateOptions() {
-  console.log("activateOptions called, setting videoVariant to 2");
   showOptions.value = true;
   mainHeading.value = "gateway to farming";
   currentVideo.value = video2;
