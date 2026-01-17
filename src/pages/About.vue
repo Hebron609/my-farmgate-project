@@ -9,7 +9,8 @@
         class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
       >
         <div
-          class="absolute inset-0 bg-[url('/src/assets/img/about-us-banner.jpg')] bg-cover bg-center opacity-30"
+          class="absolute inset-0 bg-center bg-cover opacity-30"
+          :style="{ backgroundImage: `url(${aboutUsBanner})` }"
         ></div>
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
@@ -107,7 +108,7 @@
         >
           <img
             class="h-auto w-[480px] opacity-10"
-            src="/src/assets/img/FarmGate Africa 1 1.png"
+            :src="farmGateLogo"
             alt=""
           />
         </div>
@@ -142,7 +143,7 @@
               class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[16/10]"
             >
               <img
-                src="/src/assets/img/farm-pic9.jpg"
+                :src="farmPic9"
                 alt="Farming Value Chain"
                 class="object-cover w-full h-full"
               />
@@ -363,7 +364,7 @@
       <div class="grid gap-12 lg:grid-cols-2">
         <div>
           <img
-            src="/src/assets/img/farm-pic1.jpg"
+            :src="farmPic1"
             alt="Farm aerial"
             class="object-cover w-full h-full rounded-2xl"
           />
@@ -386,7 +387,7 @@
           <div class="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2">
             <div class="p-6 bg-white shadow-sm rounded-xl">
               <img
-                src="/src/assets/img/farm-pic10.jpg"
+                :src="farmPic10"
                 alt="Innovation"
                 class="w-12 h-12 mb-3 rounded-md"
               />
@@ -399,7 +400,7 @@
 
             <div class="p-6 text-white bg-black rounded-xl">
               <img
-                src="/src/assets/img/farm-pic4.jpg"
+                :src="farmPic4"
                 alt="Sustainable"
                 class="w-12 h-12 mb-3 rounded-md"
               />
@@ -412,7 +413,7 @@
 
             <div class="p-6 text-white bg-green-900 rounded-xl">
               <img
-                src="/src/assets/img/farm-pic2.jpg"
+                :src="farmPic2"
                 alt="Market"
                 class="w-12 h-12 mb-3 rounded-md"
               />
@@ -425,7 +426,7 @@
 
             <div class="p-6 bg-gray-50 rounded-xl">
               <img
-                src="/src/assets/img/farm-pic1.jpg"
+                :src="farmPic1"
                 alt="Global"
                 class="w-12 h-12 mb-3 rounded-md"
               />
@@ -473,7 +474,7 @@
       <div class="mx-2">
         <div class="relative">
           <img
-            src="/src/assets/img/farm-pic7.jpg"
+            :src="farmPic7"
             class="w-full max-w-full h-[300px] sm:h-[400px] md:h-[480px] lg:h-[550px] object-cover rounded-xl brightness-60"
             alt="Farm Image"
           />
@@ -538,6 +539,15 @@ import Footer from "../components/Footer.vue";
 import Timeline from "../components/Timeline.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+import aboutUsBanner from '@/assets/img/about-us-banner.jpg';
+import farmGateLogo from '@/assets/img/FarmGate Africa 1 1.png';
+import farmPic9 from '@/assets/img/farm-pic9.jpg';
+import farmPic1 from '@/assets/img/farm-pic1.jpg';
+import farmPic10 from '@/assets/img/farm-pic10.jpg';
+import farmPic4 from '@/assets/img/farm-pic4.jpg';
+import farmPic2 from '@/assets/img/farm-pic2.jpg';
+import farmPic7 from '@/assets/img/farm-pic7.jpg';
 
 const focalAreas = [
   {

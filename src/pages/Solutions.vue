@@ -1,11 +1,12 @@
 <template>
   <div class="min-h-screen bg-white">
     <div
-      class="relative overflow-hidden h-[500px] md:h-[600px]  bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
+      class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
     >
       <Header :videoVariant="2" />
       <div
-        class="absolute inset-0 bg-[url('/src/assets/img/our-solutions-banner.jpg')] bg-cover bg-center opacity-20"
+        class="absolute inset-0 bg-center bg-cover opacity-20"
+        :style="{ backgroundImage: `url(${ourSolutionsBanner})` }"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
@@ -44,7 +45,8 @@
           Transforming agriculture through innovation
         </p>
         <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
-          Discover our comprehensive solutions for sustainable farming and agricultural success
+          Discover our comprehensive solutions for sustainable farming and
+          agricultural success
         </p>
       </div>
     </div>
@@ -52,16 +54,14 @@
     <section class="overflow-hidden bg-white pt-15 md:pt-24 font-montserrat">
       <div class="px-6 mx-auto mb-20 text-center max-w-7xl">
         <div class="flex items-center justify-center gap-2 mb-4">
-          
           <div>
-              <h1
-                class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
-              >
-                <LeafIcon class="text-green-700" />
-                <span class="text-sm font-semibold">Our Solutions</span>
-              </h1>
-            </div>
-    
+            <h1
+              class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
+            >
+              <LeafIcon class="text-green-700" />
+              <span class="text-sm font-semibold">Our Solutions</span>
+            </h1>
+          </div>
         </div>
         <h2
           class="text-2xl font-medium leading-tight md:text-5xl text-stone-900 font-montserrat"
@@ -152,105 +152,133 @@
     </section>
 
     <section class="py-10 overflow-hidden bg-white md:py-24 font-montserrat">
-    <div class="px-6 mx-auto max-w-[1440px]">
-      
-      <div class="mb-16 text-center md:text-left">
-        <div class="flex items-center justify-center gap-3 mb-4 md:justify-start">
-          <!-- Tag -->
-          <div class="mt-10 mb-5">
-            <h1
-              class="flex items-center gap-1 px-2 py-1 mb-2 border-gray-200 border-1 rounded-2xl max-w-[139px]"
+      <div class="px-6 mx-auto max-w-[1440px]">
+        <div class="mb-16 text-center md:text-left">
+          <div
+            class="flex items-center justify-center gap-3 mb-4 md:justify-start"
+          >
+            <!-- Tag -->
+            <div class="mt-10 mb-5">
+              <h1
+                class="flex items-center gap-1 px-2 py-1 mb-2 border-gray-200 border-1 rounded-2xl max-w-[139px]"
+              >
+                <LeafIcon class="text-green-700" />
+                <span class="text-xs font-semibold">Our Footprint</span>
+              </h1>
+            </div>
+          </div>
+
+          <div class="items-center md:flex md:justify-between">
+            <h2
+              class="text-2xl font-semibold leading-tight md:text-3xl text-stone-900 md:max-w-[30%] mb-4"
             >
-              <LeafIcon class="text-green-700" />
-              <span class="text-xs font-semibold">Our Footprint</span>
-            </h1>
+              Measuring the Scope of Our Agricultural Impact
+            </h2>
+            <p class="md:max-w-[40%]">
+              FarmGate Africa strategically manages its agricultural footprint
+              to balance large-scale economic development with essential social
+              well-being. By operating across the entire agricultural value
+              chain, the organization produces high-quality goods that serve two
+              distinct purposes.
+            </p>
           </div>
         </div>
-        
-        <div class="items-center md:flex md:justify-between">
-          <h2 class="text-2xl font-semibold leading-tight md:text-3xl text-stone-900 md:max-w-[30%] mb-4">
-          Measuring the Scope of Our Agricultural Impact
-        </h2>
-          <p class="md:max-w-[40%]">FarmGate Africa strategically manages its agricultural footprint to balance large-scale economic development with essential social well-being. By operating across the entire agricultural value chain, the organization produces high-quality goods that serve two distinct purposes.</p>
+
+        <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+          <div
+            class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 min-h-[480px]"
+            @mouseenter="animateValue(0, 65)"
+            @mouseleave="resetValue(0)"
+          >
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="w-8 h-[2px] bg-[#035925]"></span>
+                <span
+                  class="text-xs font-bold tracking-widest uppercase text-[#035925]"
+                  >Industrial Catalyst</span
+                >
+              </div>
+              <h3 class="mb-4 text-3xl font-bold text-stone-900">
+                Industrial Growth
+              </h3>
+              <p class="max-w-sm text-base leading-relaxed text-gray-700">
+                We drive industrial expansion by supplying high-quality,
+                value-added raw materials that strengthen regional supply chains
+                and fuel manufacturing growth.
+              </p>
+            </div>
+
+            <div class="mt-auto">
+              <div class="flex items-end justify-between mb-6">
+                <span
+                  class="text-xs font-bold tracking-tighter uppercase text-stone-400"
+                  >Current Production Capacity</span
+                >
+                <span
+                  class="text-7xl md:text-8xl font-black text-[#035925] opacity-20 group-hover:opacity-100 transition-all duration-500"
+                >
+                  {{ displayValues[0] }}%
+                </span>
+              </div>
+
+              <div class="w-full h-5 overflow-hidden rounded-full bg-stone-200">
+                <div
+                  class="h-full bg-[#035925] transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(3,89,37,0.3)]"
+                  :style="{ width: displayValues[0] + '%' }"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-[#035925] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 min-h-[480px]"
+            @mouseenter="animateValue(1, 35)"
+            @mouseleave="resetValue(1)"
+          >
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="w-8 h-[2px] bg-yellow-400"></span>
+                <span
+                  class="text-xs font-bold tracking-widest text-yellow-400 uppercase"
+                  >Community Support</span
+                >
+              </div>
+              <h3 class="mb-4 text-3xl font-bold text-white">
+                Household Consumption
+              </h3>
+              <p class="max-w-sm text-base leading-relaxed text-green-50/80">
+                A significant portion of our production is funneled directly
+                into households to combat food insecurity and support the daily
+                nutritional needs of families.
+              </p>
+            </div>
+
+            <div class="mt-auto">
+              <div class="flex items-end justify-between mb-6">
+                <span
+                  class="text-xs font-bold tracking-tighter uppercase text-green-200/50"
+                  >Direct Household Reach</span
+                >
+                <span
+                  class="font-black text-white transition-all duration-500 text-7xl md:text-8xl opacity-20 group-hover:opacity-100"
+                >
+                  {{ displayValues[1] }}%
+                </span>
+              </div>
+
+              <div class="w-full h-5 overflow-hidden rounded-full bg-white/10">
+                <div
+                  class="h-full transition-all duration-1000 ease-out bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                  :style="{ width: displayValues[1] + '%' }"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
-       
       </div>
+    </section>
 
-      <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-    <div 
-      class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 min-h-[480px]"
-      @mouseenter="animateValue(0, 65)"
-      @mouseleave="resetValue(0)"
-    >
-      <div class="relative z-10">
-        <div class="flex items-center gap-2 mb-6">
-          <span class="w-8 h-[2px] bg-[#035925]"></span>
-          <span class="text-xs font-bold tracking-widest uppercase text-[#035925]">Industrial Catalyst</span>
-        </div>
-        <h3 class="mb-4 text-3xl font-bold text-stone-900">Industrial Growth</h3>
-        <p class="max-w-sm text-base leading-relaxed text-gray-700">
-          We drive industrial expansion by supplying high-quality, value-added raw materials that strengthen regional supply chains and fuel manufacturing growth.
-        </p>
-      </div>
-
-      <div class="mt-auto">
-        <div class="flex items-end justify-between mb-6">
-          <span class="text-xs font-bold tracking-tighter uppercase text-stone-400">Current Production Capacity</span>
-          <span class="text-7xl md:text-8xl font-black text-[#035925] opacity-20 group-hover:opacity-100 transition-all duration-500">
-            {{ displayValues[0] }}%
-          </span>
-        </div>
-        
-        <div class="w-full h-5 overflow-hidden rounded-full bg-stone-200">
-          <div 
-            class="h-full bg-[#035925] transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(3,89,37,0.3)]"
-            :style="{ width: displayValues[0] + '%' }"
-          ></div>
-        </div>
-      </div>
-    </div>
-
-    <div 
-      class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-[#035925] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 min-h-[480px]"
-      @mouseenter="animateValue(1, 35)"
-      @mouseleave="resetValue(1)"
-    >
-      <div class="relative z-10">
-        <div class="flex items-center gap-2 mb-6">
-          <span class="w-8 h-[2px] bg-yellow-400"></span>
-          <span class="text-xs font-bold tracking-widest text-yellow-400 uppercase">Community Support</span>
-        </div>
-        <h3 class="mb-4 text-3xl font-bold text-white">Household Consumption</h3>
-        <p class="max-w-sm text-base leading-relaxed text-green-50/80">
-          A significant portion of our production is funneled directly into households to combat food insecurity and support the daily nutritional needs of families.
-        </p>
-      </div>
-
-      <div class="mt-auto">
-        <div class="flex items-end justify-between mb-6">
-          <span class="text-xs font-bold tracking-tighter uppercase text-green-200/50">Direct Household Reach</span>
-          <span class="font-black text-white transition-all duration-500 text-7xl md:text-8xl opacity-20 group-hover:opacity-100">
-            {{ displayValues[1] }}%
-          </span>
-        </div>
-
-        <div class="w-full h-5 overflow-hidden rounded-full bg-white/10">
-          <div 
-            class="h-full transition-all duration-1000 ease-out bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-            :style="{ width: displayValues[1] + '%' }"
-          ></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-      
-
-    </div>
-  </section>
-
-    
-     <GrowWithUs />
+    <GrowWithUs />
     <Footer />
   </div>
 </template>
@@ -261,6 +289,14 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
+import farmCrops from "@/assets/img/farm-crops.jpg";
+import farmIrrigation from "@/assets/img/farm-irrigation.jpg";
+import farmPic9 from "@/assets/img/farm-pic9.jpg";
+import farmPic1 from "@/assets/img/farm-pic1.jpg";
+import farmPic6 from "@/assets/img/farm-pic6.jpg";
+import farmPic3 from "@/assets/img/farm-pic3.jpg";
 
 const isMobile = ref(false);
 const displayValues = ref([0, 0]);
@@ -277,18 +313,18 @@ onMounted(() => {
     }
   };
   checkMobile();
-  window.addEventListener('resize', checkMobile);
+  window.addEventListener("resize", checkMobile);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkMobile);
+  window.removeEventListener("resize", checkMobile);
 });
 
 const animateValue = (index, target) => {
   if (isMobile.value) return; // No animation on mobile
   // Clear any existing interval for this card
   if (intervals[index]) clearInterval(intervals[index]);
-  
+
   // Start counting from current value to target
   intervals[index] = setInterval(() => {
     if (displayValues.value[index] < target) {
@@ -302,7 +338,7 @@ const animateValue = (index, target) => {
 const resetValue = (index) => {
   if (isMobile.value) return; // No reset animation on mobile
   if (intervals[index]) clearInterval(intervals[index]);
-  
+
   // Smoothly reset back to 0
   intervals[index] = setInterval(() => {
     if (displayValues.value[index] > 0) {
@@ -318,42 +354,42 @@ const solutions = [
   {
     id: 1,
     title: "AgriTech & Smart Farming",
-    image: "/src/assets/img/farm-crops.jpg",
+    image: farmCrops,
     description:
       "Leveraging cutting-edge technology and data analytics to optimize farming practices.",
   },
   {
     id: 2,
     title: "Horticulture",
-    image: "/src/assets/img/farm-irrigation.jpg",
+    image: farmIrrigation,
     description:
       "Modernizing your business with data-driven insights and technology.",
   },
   {
     id: 3,
     title: "Animal Husbandry",
-    image: "/src/assets/img/farm-pic9.jpg",
+    image: farmPic9,
     description:
       "Growth roadmaps and tailored strategies for agricultural expansion.",
   },
   {
     id: 4,
     title: "Aquaculture",
-    image: "/src/assets/img/farm-pic1.jpg",
+    image: farmPic1,
     description:
       "Streamlining workflows to boost productivity and reduce operational costs.",
   },
   {
     id: 5,
     title: "Agri-Value Additions (Food Processing)",
-    image: "/src/assets/img/farm-pic6.jpg",
+    image: farmPic6,
     description:
       "Sustainable fish and seafood farming in controlled environments promoting food security.",
   },
   {
     id: 6,
     title: "Agri-Advisory & Training.",
-    image: "/src/assets/img/farm-pic3.jpg",
+    image: farmPic3,
     description:
       "Equipping stakeholders with knowledge for better agricultural practices and decision-making.",
   },

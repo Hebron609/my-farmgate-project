@@ -52,7 +52,7 @@
       <!-- Logo for video1: just above the heading -->
       <a v-if="videoVariant === 1" href="/" class="block mb-12">
         <img
-          src="/src/assets/img/fg logo-white2.png"
+          :src="fgLogoWhite2"
           alt="FarmGate Africa Logo"
           class="block w-40 mx-auto sm:hidden"
         />
@@ -266,6 +266,7 @@ import farmerImg from "@/assets/img/farmer.webp";
 import trackImg from "@/assets/img/track.webp";
 import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
+import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
 
 const video1 =
   import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";

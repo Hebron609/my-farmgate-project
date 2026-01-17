@@ -6,7 +6,7 @@
     <!-- Hero Section -->
     <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
       <img
-        src="/src/assets/img/farm-tractor1.jpg"
+        :src="farmTractor1"
         class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.59] z-0"
         alt=""
       />
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Projects Grid Section -->
-     <!--
+    <!--
     <section
       class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 mt-16 font-montserrat"
     >
@@ -44,7 +44,7 @@
           class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
         >
           <img
-            src="/src/assets/img/farm-crops.jpg"
+            :src="farmCrops"
             alt="Project 1"
             class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 lg:mb-0 group-hover:scale-105"
           />
@@ -64,7 +64,7 @@
           class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
         >
           <img
-            src="/src/assets/img/farm-irrigation.jpg"
+            :src="farmIrrigation"
             alt="Project 2"
             class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
           />
@@ -84,7 +84,7 @@
           class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
         >
           <img
-            src="/src/assets/img/farm-pic9.jpg"
+            :src="farmPic9"
             alt="Project 3"
             class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
           />
@@ -104,7 +104,7 @@
           class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
         >
           <img
-            src="/src/assets/img/farm-pic1.jpg"
+            :src="farmPic1"
             alt="Project 4"
             class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
           />
@@ -133,6 +133,12 @@
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
+
+import farmTractor1 from "@/assets/img/farm-tractor1.jpg";
+import farmCrops from "@/assets/img/farm-crops.jpg";
+import farmIrrigation from "@/assets/img/farm-irrigation.jpg";
+import farmPic9 from "@/assets/img/farm-pic9.jpg";
+import farmPic1 from "@/assets/img/farm-pic1.jpg";
 </script>
 
 <style></style>

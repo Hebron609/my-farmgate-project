@@ -7,7 +7,7 @@
       <div class="flex flex-col items-start gap-6 sm:gap-8">
         <img
           class="w-[150px] sm:w-[150px] lg:w-[160px] h-auto cursor-pointer"
-          src="/src/assets/img/FarmGate Africa 1 1.png"
+          :src="farmGateLogo"
           alt="Logo"
         />
         <h3
@@ -16,7 +16,7 @@
           Redefining agriculture at a global scale.
         </h3>
         <!-- Social Links -->
-         <!--
+        <!--
         <div class="flex flex-wrap items-center gap-4">
           <FooterSocialButton
             icon="fa-brands fa-instagram"
@@ -36,7 +36,6 @@
         </div>
         -->
       </div>
-    
 
       <!-- Right Content -->
       <div>
@@ -85,7 +84,10 @@
       </p>
       <p class="text-center whitespace-nowrap sm:text-right">
         Powered by:
-        <a href="https://butterflytech.io" target="_blank" class="ml-1 text-yellow-300"
+        <a
+          href="https://butterflytech.io"
+          target="_blank"
+          class="ml-1 text-yellow-300"
           >Butterfly Technologies</a
         >
       </p>
@@ -96,4 +98,5 @@
 <script setup>
 import FooterColumn from "./FooterColumn.vue";
 
+import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
 </script>

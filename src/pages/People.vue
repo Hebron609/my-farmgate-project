@@ -8,7 +8,8 @@
       class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
     >
       <div
-        class="absolute inset-0 bg-[url('/src/assets/img/group-farm-image.jpg')] bg-cover bg-center opacity-30"
+        class="absolute inset-0 bg-cover bg-center opacity-30"
+        :style="{ backgroundImage: `url(${heroImage})` }"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"

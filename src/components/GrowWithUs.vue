@@ -6,7 +6,7 @@
  <div class="mx-2">
    <div class="relative">
      <img
-       src="/src/assets/img/farm-pic9.jpg"
+       :src="farmPic9"
        class="w-full h-[300px] sm:h-[400px] md:h-[480px] object-cover rounded-xl brightness-60"
        alt=""
      />
@@ -52,3 +52,7 @@
  </div>
 </section>
 </template>
+
+<script setup>
+import farmPic9 from '@/assets/img/farm-pic9.jpg';
+</script>

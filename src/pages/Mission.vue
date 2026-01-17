@@ -6,7 +6,7 @@
     <!-- Hero Section -->
     <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
       <img
-        src="/src/assets/img/Mission-hero-img1.png"
+        :src="missionHeroImg"
         class="absolute top-0 left-0 w-full h-full object-cover brightness-[1] z-0"
         style="transform: scale(1.1)"
         alt=""
@@ -46,10 +46,7 @@
           playsinline
           class="absolute inset-0 object-cover w-full h-full"
         >
-          <source
-            src="/src/assets/video/African_Farm_Video_Generation.mp4"
-            type="video/mp4"
-          />
+          <source :src="africanFarmVideo" type="video/mp4" />
         </video>
 
         <div class="absolute inset-0 bg-[#1b2418]/70"></div>
@@ -150,7 +147,7 @@
           >
             <img
               class="h-auto w-[480px] opacity-10"
-              src="/src/assets/img/FarmGate Africa 1 1.png"
+              :src="farmGateLogo"
               alt=""
             />
           </div>
@@ -267,7 +264,7 @@
                 </div>
                 <div>
                   <img
-                    src="/src/assets/img/Vision-future-img.jpg"
+                    :src="visionFutureImg"
                     alt="Farmer Vision"
                     class="object-cover w-full h-[480px] rounded-2xl mb-4"
                   />
@@ -287,7 +284,7 @@
       </section>
     </div>
 
-       <GrowWithUs />
+    <GrowWithUs />
 
     <!-- Impact Stories Section -->
     <!--
@@ -304,7 +301,7 @@
       <div class="grid gap-12 lg:grid-cols-2">
         <div>
           <img
-            src="/src/assets/img/farmer.webp"
+            :src="farmerImg"
             alt="Farmer Story"
             class="object-cover w-full h-full rounded-2xl"
           />
@@ -335,6 +332,12 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+import missionHeroImg from "@/assets/img/Mission-hero-img1.png";
+import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
+import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
+import visionFutureImg from "@/assets/img/Vision-future-img.jpg";
+import farmerImg from "@/assets/img/farmer.webp";
 
 const impactStats = [
   { value: "50K+", label: "Hectares of farmland cultivated" },
