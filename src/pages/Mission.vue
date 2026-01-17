@@ -37,14 +37,14 @@
 
     <div class="min-h-screen selection:bg-green-100">
       <section
-        class="relative h-[700px] md:h-[800px] overflow-hidden font-montserrat flex items-center"
+       class="relative block -mt-2 z-20 w-full min-h-[600px] h-[80vh] md:h-[800px] overflow-hidden font-montserrat bg-[#1b2418]"
       >
         <video
           autoplay
           muted
           loop
           playsinline
-          class="absolute inset-0 object-cover w-full h-full"
+         class="absolute inset-0 block object-cover w-full h-full scale-[1.30] object-center"
         >
           <source :src="africanFarmVideo" type="video/mp4" />
         </video>
@@ -54,9 +54,9 @@
         <div
           class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col justify-between h-full"
         >
-          <div class="pt-12">
+          <div class="md:pt-12">
             <h2
-              class="text-4xl font-bold tracking-tight text-white md:text-5xl"
+              class="mb-2 text-2xl font-bold tracking-tight text-white md:text-5xl"
             >
               OUR IMPACT
             </h2>
@@ -74,7 +74,7 @@
             </p>
 
             <button
-              class="relative inline-flex items-center px-4 py-4 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit"
+              class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit"
             >
               <span
                 class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -250,7 +250,7 @@
               <div class="grid items-stretch grid-cols-1 gap-8 md:grid-cols-2">
                 <div>
                   <h2
-                    class="mb-4 text-2xl font-semibold text-stone-800 max-w-[50%]"
+                    class="mb-4 text-2xl font-semibold text-stone-800 md:max-w-[50%]"
                   >
                     Our 2030 Vision for Shared Prosperity
                   </h2>
