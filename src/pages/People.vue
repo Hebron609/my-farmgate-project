@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <!-- Header -->
+  <div class="selection:bg-green-100">
     <Header :videoVariant="2" />
 
-    <!-- Hero Section -->
     <div
       class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
     >
       <div
-        class="absolute inset-0 bg-cover bg-center opacity-30"
+        class="absolute inset-0 bg-center bg-cover opacity-30"
         :style="{ backgroundImage: `url(${heroImage})` }"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
       ></div>
 
-      <!-- Futuristic elements -->
       <div
         class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/30 animate-pulse"
       ></div>
@@ -54,8 +51,6 @@
       </div>
     </div>
 
-    <!-- Team Section -->
-
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
       <div class="mb-10">
         <h1
@@ -66,7 +61,6 @@
         </h1>
       </div>
 
-      <!--Our-Team-heading-flex-->
       <div
         class="flex-col items-center justify-between gap-6 mb-12 md:flex md:flex-row"
       >
@@ -114,7 +108,7 @@
             <img
               class="object-cover w-[480px] h-auto rounded-3xl"
               :src="nelsonImage"
-              alt="James Der Linden, Founder & CEO"
+              alt="Nelson Madiba Amo, Founder & CEO"
             />
           </div>
         </div>
@@ -151,27 +145,27 @@
       </div>
     </section>
 
-    <!-- Custom Modal -->
     <Transition name="modal">
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-[999] flex items-center justify-center p-4"
+        class="fixed inset-0 z-[999] flex items-center justify-center p-4 overflow-y-auto"
       >
         <div
           @click="closeModal"
           class="absolute inset-0 bg-black/70 backdrop-blur-sm"
         ></div>
+        
         <div
-          class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden"
+          class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh] md:max-h-none"
         >
           <button
             @click="closeModal"
-            class="absolute z-10 px-4 py-1 text-sm font-bold uppercase border-2 rounded-full top-6 right-6 border-stone-300 text-stone-500 hover:bg-stone-100"
+            class="absolute z-20 px-3 py-1 text-[10px] md:text-sm font-bold uppercase border-2 rounded-full top-4 right-4 md:top-6 md:right-6 border-stone-300 text-stone-500 bg-white/80 md:bg-transparent hover:bg-stone-100"
           >
             close x
           </button>
 
-          <div class="w-full md:w-[45%] h-[400px] md:h-auto">
+          <div class="w-full md:w-[45%] h-56 md:h-auto shrink-0">
             <img
               :src="selectedMember.image"
               :alt="selectedMember.name"
@@ -180,17 +174,17 @@
           </div>
 
           <div
-            class="w-full md:w-[55%] p-8 md:p-12 flex flex-col justify-center"
+            class="w-full md:w-[55%] p-6 md:p-12 flex flex-col justify-center overflow-y-auto"
           >
-            <h3 class="text-3xl font-bold leading-tight">
+            <h3 class="text-2xl font-bold leading-tight md:text-3xl">
               {{ selectedMember.name }}
             </h3>
-            <p class="mt-1 text-lg font-semibold tracking-tight text-[#035925]">
+            <p class="mt-1 text-base md:text-lg font-semibold tracking-tight text-[#035925]">
               {{ selectedMember.role }}
             </p>
 
-            <div class="mt-8 mb-26 overflow-y-auto max-h-[300px]">
-              <p class="leading-relaxed text-stone-600">
+            <div class="mt-4 md:mt-8 mb-6 md:mb-26 overflow-y-auto max-h-[200px] md:max-h-[300px]">
+              <p class="text-sm leading-relaxed md:text-base text-stone-600">
                 {{ selectedMember.bio }}
               </p>
             </div>
@@ -199,10 +193,10 @@
               <a
                 :href="selectedMember.linkedin"
                 target="_blank"
-                class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0077b5] text-white font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95"
+                class="inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3.5 bg-[#0077b5] text-white text-sm md:text-base font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95"
               >
                 Connect on Linkedin
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                   />
@@ -216,7 +210,6 @@
 
     <GrowWithUs />
 
-    <!-- Footer -->
     <Footer />
   </div>
 </template>
@@ -271,34 +264,6 @@ const team = [
     role: "Creative Media Lead",
     image: "/images/Sammy.png",
     bio: "A self-taught creative with expertise in videography, photography, graphic design, and sound design, Samuel oversees media production at Innohub, crafting impactful video documentaries for partners like Tullow, MTN, and Fidelity Bank. With a BSc in Physics from UCC, he previously led Ghana Tech Lab's Creative Space Team, training over 1,000 youths in digital multimedia. His diverse portfolio includes collaborations with brands such as WACOMP, StartOA, and EMTECH.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Rachael Frempah",
-    role: "Finance Lead",
-    image: "/images/Rachael.png",
-    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before Innohub, she worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is pursuing ACCA certification to become a Chartered Accountant.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Juliet Yayra Dzasi",
-    role: "Programs Lead",
-    image: "/images/Juliet.png",
-    bio: "Juliet is a results-driven program manager with expertise in managing impactful projects like the MTN Ghana SME Support Programme and the Tullow AgriVentures Programme. She is currently pursuing a Master's degree in Development Management from KNUST, holds a BA in Rural Development, a training certificate in Project Management from PMI, and an executive certificate in Business Administration from Accra Business School.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Samuel Boateng",
-    role: "Creative Media Lead",
-    image: "/images/Sammy.png",
-    bio: "A self-taught creative with expertise in videography, photography, graphic design, and sound design, Samuel oversees media production at Innohub, crafting impactful video documentaries for partners like Tullow, MTN, and Fidelity Bank. With a BSc in Physics from UCC, he previously led Ghana Tech Lab's Creative Space Team, training over 1,000 youths in digital multimedia. His diverse portfolio includes collaborations with brands such as WACOMP, StartOA, and EMTECH.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Emmanuel G. Baiden",
-    role: "Finance Business Partner",
-    image: "/images/Emmanuel.png",
-    bio: "Emmanuel is a finance professional with over a decade of experience in business operations and project management. He leads financial management for major grants and impact-focused projects at Innohub including an SGB Climate Investment Fund. An MSc holder in Accounting and Finance, he strengthens Innohub's operations through robust financial leadership.",
     linkedin: "https://linkedin.com",
   },
 ];

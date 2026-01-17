@@ -37,14 +37,14 @@
 
     <div class="min-h-screen selection:bg-green-100">
       <section
-       class="relative block -mt-2 z-20 w-full min-h-[600px] h-[80vh] md:h-[800px] overflow-hidden font-montserrat bg-[#1b2418]"
+        class="relative block -mt-2 z-20 w-full min-h-[600px] h-[80vh] md:h-[800px] overflow-hidden font-montserrat bg-[#1b2418]"
       >
         <video
           autoplay
           muted
           loop
           playsinline
-         class="absolute inset-0 block object-cover w-full h-full scale-[1.30] object-center"
+          class="absolute inset-0 block object-cover w-full h-full scale-[1.30] object-center"
         >
           <source :src="africanFarmVideo" type="video/mp4" />
         </video>
@@ -52,21 +52,21 @@
         <div class="absolute inset-0 bg-[#1b2418]/70"></div>
 
         <div
-          class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-16 flex flex-col justify-between h-full"
+          class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 flex flex-col justify-between h-full"
         >
           <div class="md:pt-12">
             <h2
-              class="mb-2 text-2xl font-bold tracking-tight text-white md:text-5xl"
+              class="mb-2 text-2xl font-bold tracking-tight text-white md:text-5xl mt-[-50px] md:mt-[-65px]"
             >
               OUR IMPACT
             </h2>
           </div>
 
           <div
-            class="flex flex-col justify-between gap-6 md:flex-row md:items-center md:mt-20"
+            class="flex flex-col justify-between gap-10 md:flex-row md:items-center md:mt-20 mt-[-120px] ]"
           >
             <p
-              class="max-w-2xl text-base font-medium leading-relaxed text-white md:text-lg opacity-90"
+              class="max-w-2xl text-sm font-medium leading-relaxed text-white md:text-lg opacity-90"
             >
               By providing modern technology, sustainable farming practices, and
               direct market access, we have empowered smallholder farmers to
@@ -74,7 +74,7 @@
             </p>
 
             <button
-              class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit"
+              class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit mt-[-20px] md:mt-[-10px]"
             >
               <span
                 class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -121,13 +121,15 @@
             </button>
           </div>
 
-          <div class="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-6">
+          <div
+            class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 mt-[-32px] md:mt-0"
+          >
             <div
               v-for="stat in impactStats"
               :key="stat.label"
-              class="bg-[#4b5320]/80 p-8 md:p-12 flex flex-col justify-center min-h-[180px] rounded-xl"
+              class="bg-[#4b5320]/80 p-4 md:p-12 flex flex-col justify-center min-h-[60px] md:min-h-[80px] rounded-xl"
             >
-              <div class="mb-2 text-4xl font-bold text-white md:text-6xl">
+              <div class="mb-2 text-2xl font-bold text-white md:text-6xl">
                 {{ stat.value }}
               </div>
               <div
@@ -254,7 +256,9 @@
                   >
                     Our 2030 Vision for Shared Prosperity
                   </h2>
-                  <p class="leading-relaxed text-md text-stone-600 max-w-[70%]">
+                  <p
+                    class="leading-relaxed text-md text-stone-600 md:max-w-[70%]"
+                  >
                     Helping the farmers grow their wealth. We provide farmers
                     with access to quality inputs, tools, working capital
                     financing, training, agronomist technical assistance
