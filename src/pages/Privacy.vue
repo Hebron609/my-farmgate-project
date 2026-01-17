@@ -1,74 +1,95 @@
 <template>
-  <div>
-    <!-- Header -->
-    <Header :videoVariant="2" />
-
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden h-[580px] pt-32">
-      <img
-        src="/images/Privacy.jpg"
-        class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.59] z-0"
-        alt=""
-      />
-
-      <div
-        class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-13 sm:px-6 lg:px-8"
-      >
-        <h1
-          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"
-        >
-          <LeafIcon class="text-white" />
-          <span>Privacy Policy</span>
-        </h1>
-        <p
-          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8"
-        >
-          Your privacy matters to us.
-        </p>
-        <p
-          class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg"
-        >
-          Learn how we protect your personal information.
-        </p>
-      </div>
+  <div class="min-h-screen bg-white">
+    <div class="bg-green-800 py-25">
+      <Header :videoVariant="2" />
     </div>
 
-    <!-- Privacy Content Section -->
-    <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-      <div class="prose prose-lg max-w-none">
-        <h2>Introduction</h2>
-        <p>
-          This Privacy Policy explains how FarmGate Africa collects, uses, and
-          protects your personal information.
+    <section class="max-w-[1000px] mx-auto px-6 py-24 font-montserrat text-gray-800">
+      
+      <div class="mb-20 text-center">
+        <h1 class="mb-4 text-5xl font-bold tracking-tight text-gray-900 md:text-6xl">
+          Privacy Policy
+        </h1>
+        <p class="text-sm font-medium tracking-widest text-gray-500 uppercase">
+          Last Updated: Jan 17, 2026
         </p>
+      </div>
 
-        <h2>Information We Collect</h2>
-        <p>
-          We collect information you provide directly to us, such as when you
-          create an account or contact us.
-        </p>
+      <div class="space-y-16">
+        
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Introduction.</h2>
+          <p class="text-lg leading-relaxed">
+            At FarmGate Africa, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you interact with our sustainable agriculture technology platform and services.
+          </p>
+        </div>
 
-        <h2>How We Use Your Information</h2>
-        <p>
-          We use your information to provide our services, communicate with you,
-          and improve our platform.
-        </p>
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Information We Collect.</h2>
+          <p class="mb-6 text-lg leading-relaxed">
+            To provide and improve our services, we collect data necessary for legitimate business purposes. This includes:
+          </p>
+          <ul class="pl-5 space-y-4 text-lg list-disc">
+            <li>Personal identification information (Name, email address, phone number).</li>
+            <li>Farm data and agricultural practices shared through our platforms.</li>
+            <li>Transaction history and payment information processed by third-party providers.</li>
+            <li>Device and usage data collected through cookies and tracking technologies.</li>
+          </ul>
+        </div>
 
-        <h2>Data Security</h2>
-        <p>
-          We implement appropriate security measures to protect your personal
-          information.
-        </p>
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">How We Use Your Information.</h2>
+          <p class="mb-6 text-lg leading-relaxed">
+            The data we collect is used to enhance your experience and support our mission of sustainable farming. Specifically, we use it to:
+          </p>
+          <ol class="pl-5 space-y-4 text-lg list-decimal">
+            <li>Provide, maintain, and personalize our Services.</li>
+            <li>Process marketplace transactions and verify user accounts.</li>
+            <li>Communicate updates, security alerts, and support messages.</li>
+            <li>Analyze usage trends to improve our sustainable agricultural tools.</li>
+          </ol>
+        </div>
 
-        <h2>Contact Us</h2>
-        <p>
-          If you have questions about this Privacy Policy, please contact us at
-          connect@farmgateafrica.com.
-        </p>
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Data Privacy and Protection.</h2>
+          <p class="text-lg leading-relaxed">
+            We store data securely and comply with applicable data protection laws, including GDPR and local Ghanaian regulations. We do not sell your personal data to third parties. Access to your information is restricted to authorized personnel who require it to perform their duties.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Your Data Rights.</h2>
+          <p class="mb-6 text-lg leading-relaxed">
+            We believe in transparency and give you full control over your information. As a user, you have the right to:
+          </p>
+          <ul class="pl-5 space-y-4 text-lg list-disc">
+            <li>Access the personal data we hold about you.</li>
+            <li>Correct any inaccuracies in your personal information.</li>
+            <li>Request the deletion of your data when it is no longer needed for our Services.</li>
+            <li>Object to or restrict certain types of data processing.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Changes to this Policy.</h2>
+          <p class="text-lg leading-relaxed">
+            We reserve the right to update this Privacy Policy at any time. Any changes will be effective immediately upon posting to this page, and we will update the "Last Updated" date at the top of this document accordingly.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Contact Us.</h2>
+          <p class="text-lg leading-relaxed">
+            If you have any questions regarding this Privacy Policy or how your data is handled, please contact our legal team at 
+            <span class="font-bold text-[#035925] underline cursor-pointer">legal@farmgateafrica.com</span>.
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <!-- Footer -->
+    <GrowWithUs />
+
     <Footer />
   </div>
 </template>
@@ -76,7 +97,15 @@
 <script setup>
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
-import LeafIcon from "../components/icons/LeafIcon.vue";
+import GrowWithUs from "../components/GrowWithUs.vue";
 </script>
 
-<style></style>
+<style scoped>
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+p, li {
+  color: #374151; /* text-gray-700 */
+}
+</style>

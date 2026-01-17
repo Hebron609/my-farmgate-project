@@ -45,7 +45,7 @@
         >
           <FooterColumn
             title="Home"
-            :items="[{ label: 'Home', href: 'index.html' }]"
+            :items="[{ label: 'Homepage', href: 'index.html' }]"
           />
           <FooterColumn
             title="Company"
@@ -57,18 +57,17 @@
           <FooterColumn
             title="Information"
             :items="[
-              { label: 'Gallery', href: 'projects.html' },
-              { label: 'Privacy Policy', href: 'privacy.html' },
-              { label: 'Cookies', href: 'cookies.html' },
+              { label: 'Privacy & Policy', href: 'privacy.html' },
+              { label: 'Terms & Conditions', href: 'Terms.html' },
             ]"
           />
           <FooterColumn
             title="Our Initiatives"
             :items="[
-              { label: 'Our Impact', href: 'impact.html' },
+              { label: 'Mission', href: 'mission.html' },
               { label: 'Projects', href: 'projects.html' },
-              { label: 'Our People', href: 'people.html' },
               { label: 'Manifesto', href: 'manifesto.html' },
+              { label: 'Solutions', href: 'solutions.html' },
             ]"
           />
         </div>
@@ -96,5 +95,5 @@
 
 <script setup>
 import FooterColumn from "./FooterColumn.vue";
-import FooterSocialButton from "./FooterSocialButton.vue";
+
 </script>

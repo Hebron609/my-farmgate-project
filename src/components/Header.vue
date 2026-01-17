@@ -378,10 +378,10 @@
                 </li>
                 <li>
                   <a
-                    href="/impact.html"
+                    href="/mission.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
-                    Impact
+                    Mission
                     <span
                       class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
                     ></span>
@@ -789,9 +789,7 @@ const suggestions = ref([
   "Our Story",
   "Our Services",
   "Marketplace",
-  "Sustainability",
-  "Invest in FarmGate",
-  "Our Impact",
+  "Our Mission",
   "Projects",
   "Our People",
   "Manifesto",
@@ -815,7 +813,7 @@ const selectSuggestion = (item) => {
   if (i.includes("story")) window.location.href = "/about.html";
   else if (i.includes("service")) window.location.href = "/solutions.html";
   else if (i.includes("market")) window.location.href = "/marketplace.html";
-  else if (i.includes("impact")) window.location.href = "/impact.html";
+  else if (i.includes("mission")) window.location.href = "/mission.html";
   else if (i.includes("projects")) window.location.href = "/projects.html";
   else if (i.includes("people")) window.location.href = "/people.html";
   else if (i.includes("manifesto")) window.location.href = "/manifesto.html";

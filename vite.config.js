@@ -5,7 +5,16 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag === "lord-icon",
+        },
+      },
+    }),
+    tailwindcss(),
+  ],
 
   build: {
     rollupOptions: {
