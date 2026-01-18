@@ -65,12 +65,12 @@ const content = {
     text: "By 2014, the group expanded operations, introducing innovative irrigation systems and farmer training programs that transformed local communities.",
     image: farmPic6
   },
-  2018: {
+  2020: {
     title: "Technology-driven solutions introduced.",
-    text: "2018 marked the integration of precision farming tools, data-driven insights, and partnerships with agri-tech companies to boost productivity.",
+    text: "2020 marked the integration of precision farming tools, data-driven insights, and partnerships with agri-tech companies to boost productivity.",
     image: farmPic3
   },
-  2025: {
+  2026: {
     title: "Global recognition in sustainable agriculture.",
     text: "Today, Agricultural Group is recognized internationally for advancing eco-friendly farming practices, driving food security, and empowering smallholder farmers worldwide.",
     image: farmPic1
