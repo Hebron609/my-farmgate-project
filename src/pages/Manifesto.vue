@@ -28,7 +28,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -42,11 +42,11 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
           Guiding principles for a sustainable future
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
           Discover our core values that drive innovation and shared prosperity
           in agriculture
         </p>
@@ -56,7 +56,7 @@
     <!-- Manifesto Content Section -->
     <section class="py-20 bg-white font-montserrat">
       <div class="px-6 mx-auto max-w-[1440px]">
-        <div>
+        <div class="reveal-slide-left">
           <h1
             class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
           >
@@ -67,10 +67,10 @@
         <div
           class="flex flex-col items-center justify-between mb-16 md:flex-row"
         >
-          <h2 class="mb-4 text-2xl font-bold text-black md:text-3xl">
+          <h2 class="mb-4 text-2xl font-bold text-black md:text-3xl reveal-slide-up">
             Our Core Principles
           </h2>
-          <p class="text-gray-600 text-md md:max-w-[40%]">
+          <p class="text-gray-600 text-md md:max-w-[40%] reveal-slide-up">
             Discover the values that guide our mission. These are the
             deep-rooted principles that ensure every seed we sow leads to a
             harvest of shared prosperity across the continent
@@ -81,7 +81,7 @@
           <div
             v-for="(point, index) in manifestoPoints"
             :key="index"
-            class="overflow-hidden transition-shadow duration-300 bg-white border-2 border-green-200 shadow-lg rounded-2xl hover:shadow-xl group"
+            class="overflow-hidden transition-shadow duration-300 bg-white border-2 border-green-200 shadow-lg rounded-2xl hover:shadow-xl group reveal-stagger"
           >
             <div class="relative h-48 overflow-hidden">
               <img
@@ -179,11 +179,24 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 120, delay: 100 });
+});
 
 import farmTractor2 from "@/assets/img/farm-tractor2.jpg";
 import groupFarmImage from "@/assets/img/group-farm-image.jpg";

@@ -28,7 +28,7 @@
             </div>
             <span class="hidden text-lg font-bold sm:inline">Back to Cart</span>
           </button>
-          <h1 class="text-lg font-semibold text-gray-900 sm:text-xl">
+          <h1 class="text-lg font-semibold text-gray-900 sm:text-xl reveal-fade">
             Checkout
           </h1>
         </div>
@@ -111,7 +111,7 @@
     <!-- Main Content -->
     <div class="px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div
-        class="grid grid-cols-1 gap-8 p-6 bg-white rounded-lg shadow-sm lg:grid-cols-3"
+        class="grid grid-cols-1 gap-8 p-6 bg-white rounded-lg shadow-sm lg:grid-cols-3 reveal-slide-up"
       >
         <!-- Left Column -->
         <div class="space-y-8 lg:col-span-2">
@@ -459,10 +459,19 @@
 </template>
 
 <script setup>
-import { ref, computed, inject } from "vue";
+import { ref, computed, inject, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 
 const router = useRouter();
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 600, delay: 100 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 600, delay: 150 });
+});
 const cart = inject("cart");
 const openCart = inject("openCart");
 

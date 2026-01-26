@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Livvic:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap");
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background-color: white;
@@ -15,4 +19,17 @@ h5,
 h6 {
   font-family: "Livvic";
   font-weight: 700;
+}
+
+/* Scroll reveal: respect reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  [class*="reveal-fade"],
+  [class*="reveal-slide-up"],
+  [class*="reveal-slide-left"],
+  [class*="reveal-slide-right"],
+  [class*="reveal-stagger"],
+  [class*="reveal-stagger-tag"] {
+    opacity: 1;
+    transform: none;
+  }
 }

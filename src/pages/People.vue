@@ -26,7 +26,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -40,11 +40,11 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
           The team behind the mission.
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
           Meet the experts and innovators driving sustainable agriculture
           forward.
         </p>
@@ -52,7 +52,7 @@
     </div>
 
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-      <div>
+      <div class="reveal-slide-left">
         <h1
           class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
         >
@@ -63,7 +63,7 @@
 
       <section class="pb-20" aria-label="Our Team">
         <div class="md:flex justify-between items-start mb-12">
-          <div>
+          <div class="reveal-slide-up">
             <h3 class="mb-2 text-2xl font-semibold md:text-3xl md:max-w-[50%]">
               Meet Our <span class="text-[#129C48]">Diverse Team</span>
             </h3>
@@ -73,7 +73,7 @@
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 reveal-slide-right">
             <button
               v-for="dept in uniqueDepartments"
               :key="dept"
@@ -111,7 +111,7 @@
           <div
             v-for="member in filteredTeam"
             :key="member.name"
-            class="group bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-[#F2CB00] hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            class="group bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-[#F2CB00] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal-stagger"
             @click="openModal(member)"
           >
             <!-- Image Container with Hover Overlay -->
@@ -244,6 +244,8 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -253,7 +255,17 @@ import { TEAM_DATA } from "./teamData.js";
 import heroImage from "../assets/img/group-farm-image.jpg";
 import nelsonImage from "../assets/img/Nelson.png";
 
-import { ref, computed } from "vue";
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 100, delay: 100 });
+});
 
 const isOpen = ref(false);
 const selectedMember = ref(null);

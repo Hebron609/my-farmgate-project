@@ -28,7 +28,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -42,11 +42,11 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
         Innovative initiatives driving change.
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
           Explore our ongoing projects that are making a difference in
           agriculture.
         </p>
@@ -54,7 +54,7 @@
     </div>
     <section class="overflow-hidden bg-white pt-15 md:pt-24 font-montserrat">
       <div class="px-6 mx-auto mb-20 text-center max-w-7xl">
-        <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="flex items-center justify-center gap-2 mb-4 reveal-slide-left">
           <div>
             <h1
               class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
@@ -64,7 +64,7 @@
             </h1>
           </div>
         </div>
-        <h2 class="leading-tight md:text-5xl text-stone-900 text-subheading">
+        <h2 class="leading-tight md:text-5xl text-stone-900 text-subheading reveal-slide-up">
           Reliable expertise to drive your <br />
           greatest success
         </h2>
@@ -159,12 +159,23 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 
 import farmPic from "@/assets/img/farm-pic4.jpg";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+});
 import farmCrops from "@/assets/img/farm-crops.jpg";
 import farmIrrigation from "@/assets/img/farm-irrigation.jpg";
 import farmPic9 from "@/assets/img/farm-pic9.jpg";

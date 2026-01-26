@@ -15,19 +15,19 @@
         class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-2 sm:px-6 lg:px-8"
       >
         <h1
-          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"
+          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2 reveal-fade"
         >
           <LeafIcon class="text-white" />
           <span>Marketplace</span>
         </h1>
         <p
-          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8"
+          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8 reveal-slide-up"
         >
           Connecting farmers and buyers.
         </p>
 
         <p
-          class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg"
+          class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg reveal-slide-up"
         >
           Discover fresh produce and agricultural products in our digital
           marketplace.
@@ -48,7 +48,7 @@
       <div class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
         <!-- Product Grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 reveal-slide-up"
         >
           <ProductCard
             v-for="product in filteredProducts"
@@ -69,6 +69,7 @@
 <script setup>
 import { ref, onMounted, watch, computed, inject } from "vue";
 import { useRouter } from "vue-router";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -77,6 +78,7 @@ import MarketplaceHeader from "../components/MarketplaceHeader.vue";
 import { products } from "../data/products.js";
 
 const router = useRouter();
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
 const cart = inject("cart");
 const addToCart = inject("addToCart");
 const openCart = inject("openCart");
@@ -148,6 +150,13 @@ const filteredProducts = computed(() => {
   const start = 0;
   const end = filters.value.itemsPerPage;
   return filtered.slice(start, end);
+});
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
 });
 </script>
 

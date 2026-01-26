@@ -30,7 +30,7 @@
         <div
           class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
         >
-          <div class="mb-6">
+          <div class="mb-6 reveal-fade">
             <LeafIcon
               class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
             />
@@ -44,12 +44,12 @@
             ></div>
           </div>
           <p
-            class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-medium"
+            class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-medium reveal-slide-up"
           >
             We are committed to advancing agriculture
           </p>
           <p
-            class="text-gray-400 max-w-[600px] text-sm md:text-base font-medium"
+            class="text-gray-400 max-w-[600px] text-sm md:text-base font-medium reveal-slide-up"
           >
             FarmGate is more than a company — we're a movement toward smarter,
             more sustainable farming
@@ -68,7 +68,7 @@
       <div class="relative z-10 mx-auto max-w-[1440px] px-6">
         <div class="max-w-3xl mb-20">
           <!-- Tag -->
-          <div class="pt-10 mb-10">
+          <div class="pt-10 mb-10 reveal-slide-left">
             <h1
               class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[100px]"
             >
@@ -76,12 +76,12 @@
               <span class="text-sm font-semibold">About us</span>
             </h1>
           </div>
-          <h2 class="mb-8 text-4xl leading-tight md:text-5xl text-stone-900">
+          <h2 class="mb-8 text-4xl leading-tight md:text-5xl text-stone-900 reveal-slide-up">
             Discover the values that <br />
             <span class="font-light text-stone-600">guide our mission.</span>
           </h2>
           <p
-            class="pl-6 text-lg italic font-light leading-relaxed border-l-4 border-green-600 text-stone-600 md:text-xl"
+            class="pl-6 text-lg italic font-light leading-relaxed border-l-4 border-green-600 text-stone-600 md:text-xl reveal-slide-up"
           >
             "We started this journey with a simple belief — that farming can
             feed the world without harming it. Every seed we plant, every
@@ -93,7 +93,7 @@
         <div class="grid items-start grid-cols-1 gap-16 mb-24 lg:grid-cols-12">
           <div class="space-y-8 lg:col-span-7">
             <div
-              class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[16/10]"
+              class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[16/10] reveal-slide-left"
             >
               <img
                 :src="farmPic9"
@@ -118,7 +118,7 @@
 
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div
-                class="p-8 transition-shadow bg-white border shadow-sm rounded-3xl border-stone-100 hover:shadow-md"
+                class="p-8 transition-shadow bg-white border shadow-sm rounded-3xl border-stone-100 hover:shadow-md reveal-stagger"
               >
                 <h3 class="mb-4 text-xl font-bold text-stone-900">
                   The Value Chain
@@ -133,7 +133,7 @@
                   industries.
                 </p>
               </div>
-              <div class="p-8 text-white bg-[#129C48] shadow-xl rounded-3xl">
+              <div class="p-8 text-white bg-[#129C48] shadow-xl rounded-3xl reveal-stagger">
                 <h3 class="mb-4 text-xl font-bold text-gray-50">Our Output</h3>
                 <p class="text-sm leading-relaxed text-stone-100">
                   Currently, we grow diverse varieties of farm products and work
@@ -144,7 +144,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-5">
+          <div class="lg:col-span-5 reveal-slide-right">
             <div
               class="bg-white p-10 rounded-[3rem] shadow-sm border border-stone-100 relative"
             >
@@ -185,11 +185,19 @@
 
         <!-- Our Work Section -->
         <section class="our-work-section">
+          <div class="mb-4 reveal-slide-up">
+        <h1
+          class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
+        >
+          <LeafIcon class="text-green-700" />
+          <span class="text-xs font-semibold">Our Work</span>
+        </h1>
+      </div>
           <!-- THE INTRODUCTION -->
           <div class="bg-white py-16">
             <div class="max-w-[1440px] mx-auto px-6">
               <div class="flex flex-col md:flex-row gap-8 relative">
-                <div class="md:w-1/2 md:flex md:flex-col md:justify-between">
+                <div class="md:w-1/2 md:flex md:flex-col md:justify-between reveal-slide-left">
                   <div class="text-center">
                     <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
                       Who We Are
@@ -202,7 +210,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="md:w-1/2 md:flex md:flex-col md:justify-center">
+                <div class="md:w-1/2 md:flex md:flex-col md:justify-center reveal-slide-right">
                   <div class="text-center">
                     <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
                       What We Do
@@ -244,7 +252,7 @@
           >
             <div class="max-w-6xl mx-auto px-6">
               <h2
-                class="text-center text-white text-3xl font-bold font-livvic mb-8"
+                class="text-center text-white text-3xl font-bold font-livvic mb-8 reveal-slide-up"
               >
                 OUR YEAR IN NUMBERS
               </h2>
@@ -254,7 +262,7 @@
                 <div
                   v-for="stat in stats"
                   :key="stat.label"
-                  class="text-center"
+                  class="text-center reveal-stagger"
                 >
                   <div class="text-white text-5xl font-bold font-livvic">
                     {{ stat.number }}
@@ -273,7 +281,7 @@
           <div class="bg-gray-50 py-16">
             <div class="max-w-[1440px] mx-auto px-6">
               <h2
-                class="text-center text-3xl font-bold text-[#129C48] font-livvic mb-12"
+                class="text-center text-3xl font-bold text-[#129C48] font-livvic mb-12 reveal-slide-up"
               >
                 THE IMPACT GRID
               </h2>
@@ -281,7 +289,7 @@
                 <div
                   v-for="impact in impacts"
                   :key="impact.title"
-                  class="bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 p-6"
+                  class="bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 p-6 reveal-stagger"
                 >
                   <div class="text-[#129C48] text-2xl mb-4 opacity-75">
                     <font-awesome-icon :icon="['fas', impact.iconName]" />
@@ -338,7 +346,7 @@
           </h1>
         </div>
         <div class="grid items-stretch grid-cols-1 gap-8 md:grid-cols-2">
-          <div>
+          <div class="reveal-slide-left">
             <h2
               class="mb-4 text-2xl font-semibold text-stone-800 md:max-w-[50%]"
             >
@@ -352,7 +360,7 @@
               and decent living incomes.
             </p>
           </div>
-          <div>
+          <div class="reveal-slide-right">
             <img
               :src="visionFutureImg"
               alt="Farmer Vision"
@@ -555,12 +563,25 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import Timeline from "../components/Timeline.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 120, delay: 100 });
+});
 
 const stats = ref([
   { number: "1000+", label: "Farmers Impacted" },

@@ -28,7 +28,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -42,7 +42,7 @@
           ></div>
         </div>
         <p
-          class="md:max-w-[40%] text-md md:text-xl text-gray-300 mb-4 font-light"
+          class="md:max-w-[40%] text-md md:text-xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
           Get in touch with FarmGate Africa. We're here to help advance
           agriculture and connect with you.
@@ -56,7 +56,7 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
           <div class="grid grid-cols-1 lg:grid-cols-3">
             <!-- Left Column: Form -->
-            <div class="p-8 lg:p-12 lg:col-span-2">
+            <div class="p-8 lg:p-12 lg:col-span-2 reveal-slide-left">
               <h2 class="text-3xl font-bold text-gray-900 mb-4">
                 <span class="text-[#129C48]">Connect</span> with Us Today
               </h2>
@@ -213,7 +213,7 @@
             </div>
 
             <!-- Right Column: Map -->
-            <div class="relative bg-gray-100 lg:min-h-[600px]">
+            <div class="relative bg-gray-100 lg:min-h-[600px] reveal-slide-right">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3970.4780781420377!2d-0.160769!3d5.643748!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9be02ef482a7%3A0xe01c96c836aff70f!2sInnohub%20Growth%20Centre!5e0!3m2!1sen!2sgh!4v1769367233372!5m2!1sen!2sgh"
                 width="100%"
@@ -239,10 +239,22 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import Footer from "../components/Footer.vue";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+});
 
 // Form data
 const form = reactive({

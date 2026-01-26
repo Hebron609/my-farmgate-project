@@ -28,7 +28,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -42,12 +42,12 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
         We are committed to advancing agriculture and impacting lives.
 
         </p>
-        <p class="text-gray-300 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-300 max-w-[600px] text-sm md:text-base reveal-slide-up">
           FarmGate Africa is more than a company — we aim to contribute towards achieving SDGs 1, 2, 5, 8, 9, 13 & 17 in every community we work. Join us make a big impact.
 
         </p>
@@ -73,7 +73,7 @@
         <div
           class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 flex flex-col justify-between h-full"
         >
-          <div class="md:pt-12">
+          <div class="md:pt-12 reveal-slide-left">
             <h2
               class="mb-2 text-2xl font-bold tracking-tight text-white md:text-5xl mt-[-50px] md:mt-[-65px]"
             >
@@ -85,7 +85,7 @@
             class="flex flex-col justify-between gap-10 md:flex-row md:items-center md:mt-20 mt-[-120px] ]"
           >
             <p
-              class="md:max-w-[40%] leading-relaxed text-sm font-medium leading-relaxed text-white md:text-lg opacity-90"
+              class="md:max-w-[40%] leading-relaxed text-sm font-medium leading-relaxed text-white md:text-lg opacity-90 reveal-slide-up"
             >
               Our conservation efforts include reforestation,
 wetland restoration, and habitat preservation
@@ -94,7 +94,7 @@ to enhance biodiversity and ecological health.
             </p>
 
             <button
-              class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit mt-[-20px] md:mt-[-10px]"
+              class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit mt-[-20px] md:mt-[-10px] reveal-slide-right"
             >
               <span
                 class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -147,7 +147,7 @@ to enhance biodiversity and ecological health.
             <div
               v-for="stat in impactStats"
               :key="stat.label"
-              class="bg-[#4b5320]/80 p-4 md:p-12 flex flex-col justify-center min-h-[60px] md:min-h-[80px] rounded-xl"
+              class="reveal-stagger bg-[#4b5320]/80 p-4 md:p-12 flex flex-col justify-center min-h-[60px] md:min-h-[80px] rounded-xl"
             >
               <div class="mb-2 text-2xl font-bold text-white md:text-5xl">
                 {{ stat.value }}
@@ -168,10 +168,10 @@ to enhance biodiversity and ecological health.
             class="flex flex-col gap-10 lg:flex-row lg:justify-between lg:items-center"
           >
             <div class="relative z-10">
-              <h3 class="mb-6 text-3xl font-medium leading-tight md:text-4xl">
+              <h3 class="mb-6 text-3xl font-medium leading-tight md:text-4xl reveal-slide-left">
                 Committed to Global Impact
               </h3>
-              <p class="max-w-md mb-8 text-green-100/80">
+              <p class="max-w-md mb-8 text-green-100/80 reveal-slide-up">
                 We are partnering with stakeholders to address food insecurity
                 in Africa, dedicated to achieving the UN Sustainable Development
                 Goals in every community.
@@ -181,7 +181,7 @@ to enhance biodiversity and ecological health.
                 <span
                   v-for="sdg in [1, 2, 5, 8, 9, 13, 17]"
                   :key="sdg"
-                  class="px-4 py-2 text-xs font-bold transition-colors border rounded-full bg-white/10 border-white/10 hover:bg-white/20"
+                  class="reveal-stagger-tag px-4 py-2 text-xs font-bold transition-colors border rounded-full bg-white/10 border-white/10 hover:bg-white/20"
                 >
                   SDG {{ sdg }}
                 </span>
@@ -189,7 +189,7 @@ to enhance biodiversity and ecological health.
             </div>
 
             <div
-              class="relative z-10 flex flex-col items-center justify-center lg:items-end"
+              class="relative z-10 flex flex-col items-center justify-center lg:items-end reveal-slide-right"
             >
               <a
                 href="/marketplace.html"
@@ -271,16 +271,71 @@ to enhance biodiversity and ecological health.
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { useScrollReveal, revealEffects } from '@/composables/useScrollReveal';
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 
-import missionHeroImg from "@/assets/img/Mission-hero-img1.png";
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
-import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
-import visionFutureImg from "@/assets/img/Vision-future-img.jpg";
-import farmerImg from "@/assets/img/farmer.webp";
+
+const { init: initScrollReveal } = useScrollReveal({
+  duration: 800,
+  delay: 100,
+  viewFactor: 0.12,
+  mobile: true,
+  desktop: true,
+});
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+
+  // Hero: fade-in with slight scale
+  api.reveal('.reveal-fade', {
+    ...revealEffects.fade,
+    duration: 900,
+    delay: 200,
+  });
+
+  // Slide-up for hero subtext and sections
+  api.reveal('.reveal-slide-up', {
+    ...revealEffects.slideUp,
+    duration: 750,
+    delay: 250,
+  });
+
+  // Slide in from left (headings, left-side content)
+  api.reveal('.reveal-slide-left', {
+    ...revealEffects.slideLeft,
+    duration: 700,
+    delay: 150,
+  });
+
+  // Slide in from right (buttons, right-side content)
+  api.reveal('.reveal-slide-right', {
+    ...revealEffects.slideRight,
+    duration: 700,
+    delay: 200,
+  });
+
+  // Staggered stat cards
+  api.reveal('.reveal-stagger', {
+    ...revealEffects.stagger,
+    duration: 600,
+    interval: 120,
+    delay: 100,
+  });
+
+  // Staggered SDG tags
+  api.reveal('.reveal-stagger-tag', {
+    ...revealEffects.stagger,
+    duration: 500,
+    interval: 80,
+    delay: 200,
+  });
+});
 
 const impactStats = [
   { value: "20+", label: "Projects Funded" },

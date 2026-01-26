@@ -26,7 +26,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -40,11 +40,11 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
           Transforming lives through sustainable agriculture
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
           We exist to impact lives through sustainable agriculture and shared
           prosperity
         </p>
@@ -55,7 +55,7 @@
       <section class="relative w-full px-6 py-16 overflow-hidden bg-white">
         <div class="max-w-[1440px] mx-auto">
           <h2
-            class="mb-16 text-4xl font-bold tracking-wide text-center text-black md:text-5xl"
+            class="mb-16 text-4xl font-bold tracking-wide text-center text-black md:text-5xl reveal-slide-up"
           >
             OUR PURPOSE
           </h2>
@@ -67,7 +67,7 @@
               class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#129C48] -translate-x-1/2 opacity-30"
             ></div>
 
-            <div class="flex flex-col items-center text-center group">
+            <div class="flex flex-col items-center text-center group reveal-slide-left">
               <div
                 class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110"
               >
@@ -88,7 +88,7 @@
               </p>
             </div>
 
-            <div class="flex flex-col items-center text-center group">
+            <div class="flex flex-col items-center text-center group reveal-slide-right">
               <div
                 class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110"
               >
@@ -133,7 +133,7 @@
           </div>
         </div>
         <div class="px-6 mx-auto max-w-7xl">
-          <div class="mb-8">
+          <div class="mb-8 reveal-slide-left">
             <h1
               class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[119px]"
             >
@@ -145,10 +145,10 @@
           <div
             class="mb-20 max-w-[1440px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center"
           >
-            <h2 class="font-semibold md:text-3xl text-stone-800">
+            <h2 class="font-semibold md:text-3xl text-stone-800 reveal-slide-up">
               Our Roots of Impact
             </h2>
-            <p class="md:max-w-[50%] leading-relaxed text-md text-stone-600">
+            <p class="md:max-w-[50%] leading-relaxed text-md text-stone-600 reveal-slide-up">
               At FGAl, we share a set of core values which underpin and shape
               the way we do our work. The FGAI General Business Principles, Code
               of Conduct and Ethics and Compliance Manual help everyone at FGAI
@@ -159,7 +159,7 @@
 
           <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
             <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md"
+              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
             >
               <div class="flex justify-center mb-8">
                 <img
@@ -175,7 +175,7 @@
             </div>
 
             <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md"
+              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
             >
               <div class="flex justify-center mb-8">
                 <img
@@ -194,7 +194,7 @@
             </div>
 
             <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md"
+              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
             >
               <div class="flex justify-center mb-8">
                 <img
@@ -228,7 +228,7 @@
       <div class="px-6 mx-auto max-w-[1440px]">
         <div class="mb-16 text-center md:text-left">
           <div
-            class="flex items-center justify-center gap-3 mb-4 md:justify-start"
+            class="flex items-center justify-center gap-3 mb-4 md:justify-start reveal-slide-left"
           >
             <!-- Tag -->
             <div class="mt-10 mb-5">
@@ -243,11 +243,11 @@
 
           <div class="items-center md:flex md:justify-between">
             <h2
-              class="text-2xl font-semibold leading-tight md:text-3xl text-stone-900 md:max-w-[30%] mb-4"
+              class="text-2xl font-semibold leading-tight md:text-3xl text-stone-900 md:max-w-[30%] mb-4 reveal-slide-up"
             >
               Measuring the Scope of Our Agricultural Impact
             </h2>
-            <p class="md:max-w-[40%]">
+            <p class="md:max-w-[40%] reveal-slide-up">
               FarmGate Africa strategically manages its agricultural footprint
               to balance large-scale economic development with essential social
               well-being. By operating across the entire agricultural value
@@ -259,7 +259,7 @@
 
         <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
           <div
-            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 h-auto md:h-[480px] overflow-hidden"
+            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 h-auto md:h-[480px] overflow-hidden reveal-slide-left"
           >
             <div class="relative z-10">
               <div class="flex items-center gap-2 mb-6">
@@ -305,7 +305,7 @@
           </div>
 
           <div
-            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-[#129C48] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 h-auto md:h-[480px] overflow-hidden"
+            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-[#129C48] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 h-auto md:h-[480px] overflow-hidden reveal-slide-right"
           >
             <div class="relative z-10">
               <div class="flex items-center gap-2 mb-6">
@@ -363,7 +363,7 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative px-6 mx-auto max-w-[1440px] z-10">
         <div class="mb-16 text-center">
-          <div class="flex items-center justify-center">
+          <div class="flex items-center justify-center reveal-fade">
             <h1
               class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-md px-4 sm:px-5 md:px-3 flex items-center gap-2"
             >
@@ -373,7 +373,7 @@
           </div>
 
           <p
-            class="max-w-4xl mx-auto leading-relaxed text-white text-body-lg font-montserrat"
+            class="max-w-4xl mx-auto leading-relaxed text-white text-body-lg font-montserrat reveal-slide-up"
           >
             Our goal is practically simple – we aim to produce what we want from
             what we have by innovatively deploying Africa’s technology to
@@ -394,6 +394,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -404,6 +405,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
 
 library.add(faBullseye, faEye);
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
 
 const footprintSection = ref(null);
 const isMobile = ref(false);
@@ -428,6 +431,15 @@ const animateValue = (index, target) => {
 };
 
 onMounted(() => {
+  const api = initScrollReveal();
+  if (api) {
+    api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+    api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+    api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+    api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+    api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 120, delay: 100 });
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

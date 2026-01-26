@@ -26,7 +26,7 @@
       <div
         class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        <div class="mb-6">
+        <div class="mb-6 reveal-fade">
           <LeafIcon
             class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
           />
@@ -40,11 +40,11 @@
           ></div>
         </div>
         <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light"
+          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
         >
           Transforming agriculture through innovation
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base">
+        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
           Discover our comprehensive solutions for sustainable farming and
           agricultural success
         </p>
@@ -58,25 +58,25 @@
           
           <!-- Our Mandate Flex-->
           <div class="items-center justify-between mb-20 md:flex">
-            <h3 class="text-2xl md:text-3xl md:max-w-[30%]">We believe sustainable farming holds the answer</h3>
+            <h3 class="text-2xl md:text-3xl md:max-w-[30%] reveal-slide-left">We believe sustainable farming holds the answer</h3>
             
-            <p class="md:max-w-[40%]">FarmGate Africa is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
+            <p class="md:max-w-[40%] reveal-slide-right">FarmGate Africa is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
 </p>
           </div>
 
           <h3
-            class="text-2xl font-extrabold text-stone-900 mb-6 text-center uppercase tracking-[0.2em]"
+            class="text-2xl font-extrabold text-stone-900 mb-6 text-center uppercase tracking-[0.2em] reveal-slide-up"
           >
             Our Mandate
           </h3>
           <div
-            class="w-24 h-1 mx-auto mb-12 bg-gradient-to-r from-green-400 to-green-800"
+            class="w-24 h-1 mx-auto mb-12 bg-gradient-to-r from-green-400 to-green-800 reveal-slide-up"
           ></div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
               v-for="area in focalAreas"
               :key="area.name"
-              class="p-6 transition-shadow bg-white border shadow-sm cursor-default rounded-3xl border-stone-100 hover:shadow-lg group"
+              class="p-6 transition-shadow bg-white border shadow-sm cursor-default rounded-3xl border-stone-100 hover:shadow-lg group reveal-stagger"
             >
               <div class="flex items-center mb-4">
                 <div
@@ -106,12 +106,26 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 
 import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 120, delay: 100 });
+});
 
 const focalAreas = [
   {

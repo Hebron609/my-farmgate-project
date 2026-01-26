@@ -6,7 +6,7 @@
 
     <section class="max-w-[1000px] mx-auto px-6 py-24 font-montserrat text-gray-800">
       
-      <div class="mb-20 text-center">
+      <div class="mb-20 text-center reveal-fade">
         <h1 class="mb-4 text-5xl font-bold tracking-tight text-gray-900 md:text-6xl">
           Privacy Policy
         </h1>
@@ -17,14 +17,14 @@
 
       <div class="space-y-16">
         
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Introduction.</h2>
           <p class="text-lg leading-relaxed">
             At FarmGate Africa, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you interact with our sustainable agriculture technology platform and services.
           </p>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Information We Collect.</h2>
           <p class="mb-6 text-lg leading-relaxed">
             To provide and improve our services, we collect data necessary for legitimate business purposes. This includes:
@@ -37,7 +37,7 @@
           </ul>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">How We Use Your Information.</h2>
           <p class="mb-6 text-lg leading-relaxed">
             The data we collect is used to enhance your experience and support our mission of sustainable farming. Specifically, we use it to:
@@ -50,14 +50,14 @@
           </ol>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Data Privacy and Protection.</h2>
           <p class="text-lg leading-relaxed">
             We store data securely and comply with applicable data protection laws, including GDPR and local Ghanaian regulations. We do not sell your personal data to third parties. Access to your information is restricted to authorized personnel who require it to perform their duties.
           </p>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Your Data Rights.</h2>
           <p class="mb-6 text-lg leading-relaxed">
             We believe in transparency and give you full control over your information. As a user, you have the right to:
@@ -70,14 +70,14 @@
           </ul>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Changes to this Policy.</h2>
           <p class="text-lg leading-relaxed">
             We reserve the right to update this Privacy Policy at any time. Any changes will be effective immediately upon posting to this page, and we will update the "Last Updated" date at the top of this document accordingly.
           </p>
         </div>
 
-        <div>
+        <div class="reveal-slide-up">
           <h2 class="mb-6 text-3xl font-bold text-gray-900">Contact Us.</h2>
           <p class="text-lg leading-relaxed">
             If you have any questions regarding this Privacy Policy or how your data is handled, please contact our legal team at 
@@ -95,9 +95,20 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 700, delay: 150 });
+});
 </script>
 
 <style scoped>
