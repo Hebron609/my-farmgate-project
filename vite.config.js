@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
-import Contact from "./src/pages/Contact.vue";
 
 // https://vite.dev/config/
 export default defineConfig({
