@@ -4,7 +4,7 @@ export const TEAM_DATA = [
     title: "Founder & CEO",
     location: "Accra, Ghana",
     bio: "We started this journey with a simple belief — that farming can feed the world without harming it. Every seed we plant, every partnership we build, reflects our commitment to sustainability, innovation, and people.",
-    photoUrl: "/src/assets/img/Nelson.png",
+    photoUrl: "images/Nelson.png",
     email: "",
     socialLinks: { linkedin: "" },
     department: "General Management",

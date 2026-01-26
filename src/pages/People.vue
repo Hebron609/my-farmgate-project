@@ -122,9 +122,9 @@
                 class="w-full h-full rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-              </div>
-              <!-- Premium Hover Overlay -->
-               <!--
+            </div>
+            <!-- Premium Hover Overlay -->
+            <!--
               <div
                 class="absolute inset-0 rounded-full bg-gradient-to-br from-green-600/90 via-green-700/85 to-emerald-800/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
               >
@@ -150,9 +150,9 @@
             >
               {{ member.name }}
             </h3>
-            <!-- Hidden title that appears on card hover (alternative reveal) -->
+            <!-- Title visible on mobile, hidden on larger screens unless hover -->
             <p
-              class="text-sm text-gray-500 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"
+              class="text-sm text-gray-500 mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 delay-100"
             >
               {{ member.title }}
             </p>
