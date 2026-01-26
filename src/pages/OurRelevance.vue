@@ -259,7 +259,7 @@
 
         <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
           <div
-            class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 h-[480px] overflow-hidden"
+            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 h-auto md:h-[480px] overflow-hidden"
           >
             <div class="relative z-10">
               <div class="flex items-center gap-2 mb-6">
@@ -285,7 +285,7 @@
             <div class="mt-auto">
               <div class="mb-6">
                 <span
-                  class="text-7xl md:text-8xl font-black text-[#035925] opacity-40 group-hover:opacity-100 transition-all duration-500 block"
+                  class="text-5xl md:text-7xl font-black text-[#035925] opacity-40 group-hover:opacity-100 transition-all duration-500 block"
                 >
                   {{ displayValues[0] }}%
                 </span>
@@ -305,7 +305,7 @@
           </div>
 
           <div
-            class="group relative flex flex-col justify-between p-12 rounded-[3rem] bg-[#129C48] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 h-[480px] overflow-hidden"
+            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-[#129C48] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 h-auto md:h-[480px] overflow-hidden"
           >
             <div class="relative z-10">
               <div class="flex items-center gap-2 mb-6">
@@ -333,7 +333,7 @@
             <div class="mt-auto">
               <div class="mb-6">
                 <span
-                  class="block font-black text-white transition-all duration-500 text-7xl md:text-8xl opacity-40 group-hover:opacity-100"
+                  class="block font-black text-white transition-all duration-500 text-5xl md:text-7xl opacity-40 group-hover:opacity-100"
                 >
                   {{ displayValues[1] }}%
                 </span>
@@ -387,7 +387,6 @@
 
     <GrowWithUs />
 
-
     <!-- Footer -->
     <Footer />
   </div>
@@ -403,7 +402,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBullseye, faEye } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
-
 
 library.add(faBullseye, faEye);
 

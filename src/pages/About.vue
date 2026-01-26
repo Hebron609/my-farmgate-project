@@ -188,29 +188,51 @@
           <!-- THE INTRODUCTION -->
           <div class="bg-white py-16">
             <div class="max-w-[1440px] mx-auto px-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                <div>
-                  <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
-                    Who We Are
-                  </h2>
-                  <p class="text-lg text-gray-700 font-montserrat mt-4">
-                    We are a team of agronomists, technologists, and
-                    sustainability experts.
-                  </p>
+              <div class="flex flex-col md:flex-row gap-8 relative">
+                <div class="md:w-1/2 md:flex md:flex-col md:justify-between">
+                  <div class="text-center">
+                    <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
+                      Who We Are
+                    </h2>
+                    <p
+                      class="text-lg text-gray-700 font-montserrat mt-4 md:max-w-[60%] md:mx-auto"
+                    >
+                      We are a team of agronomists, technologists, and
+                      sustainability experts.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
-                    What We Do
-                  </h2>
-                  <p class="text-lg text-gray-700 font-montserrat mt-4">
-                    We partner with farmers and communities in Ghana to help the
-                    farmer grow more, sell more, connect more, protect the
-                    planet, and empower those behind each harvest.
-                  </p>
+                <div class="md:w-1/2 md:flex md:flex-col md:justify-center">
+                  <div class="text-center">
+                    <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
+                      What We Do
+                    </h2>
+                    <p
+                      class="text-lg text-gray-700 font-montserrat mt-4 md:max-w-[70%] md:mx-auto"
+                    >
+                      We partner with farmers and communities in Ghana to help
+                      the farmer grow more, sell more, connect more, protect the
+                      planet, and empower those behind each harvest.
+                    </p>
+                  </div>
                 </div>
                 <div
-                  class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#F2CB00] transform -translate-x-1/2"
-                ></div>
+                  class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2"
+                >
+                  <div
+                    class="absolute top-0 left-0 right-0 h-1/2 bg-[#F2CB00]"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-1/2 bg-[#F2CB00]"
+                  ></div>
+                  <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <LeafIcon
+                      class="w-8 h-8 text-[#129C48] bg-white rounded-full p-1"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -261,12 +283,15 @@
                   :key="impact.title"
                   class="bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 p-6"
                 >
-                  <div class="text-[#129C48] text-4xl mb-4">
+                  <div class="text-[#129C48] text-2xl mb-4 opacity-75">
                     <font-awesome-icon :icon="['fas', impact.iconName]" />
                   </div>
                   <h3
                     class="text-lg text-gray-800 font-montserrat"
-                    style="font-weight: 400"
+                    style="
+                      font-weight: 500 !important;
+                      font-family: Montserrat !important;
+                    "
                   >
                     {{ impact.title }}
                   </h3>
