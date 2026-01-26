@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+import Contact from "./src/pages/Contact.vue";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -30,6 +31,7 @@ export default defineConfig({
         mission: path.resolve(__dirname, "our-relevance.html"),
         impact: path.resolve(__dirname, "our-impact.html"),
         privacy: path.resolve(__dirname, "privacy.html"),
+        Contact: path.resolve(__dirname, "contact.html"),
       },
     },
   },
