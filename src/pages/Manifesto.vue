@@ -55,7 +55,7 @@
 
     <!-- Manifesto Content Section -->
     <section class="py-20 bg-white font-montserrat">
-      <div class="px-6 mx-auto max-w-7xl">
+      <div class="px-6 mx-auto max-w-[1440px]">
         <div>
           <h1
             class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
@@ -102,9 +102,10 @@
               <h3 class="mb-3 text-xl font-semibold text-green-800">
                 {{ point.title }}
               </h3>
-              <p class="text-sm leading-relaxed text-gray-700 line-clamp-4">
-                {{ point.description }}
-              </p>
+              <p
+                class="text-sm leading-relaxed text-gray-700 line-clamp-4"
+                v-html="point.description"
+              ></p>
               <button
                 class="mt-4 font-medium text-green-600 transition-colors duration-200 hover:text-green-800"
                 @click="toggleExpand(index)"
@@ -160,9 +161,10 @@
               <h3 class="mb-4 text-2xl font-semibold text-green-800">
                 {{ manifestoPoints[expandedIndex].title }}
               </h3>
-              <p class="leading-relaxed text-gray-700">
-                {{ manifestoPoints[expandedIndex].description }}
-              </p>
+              <p
+                class="leading-relaxed text-gray-700"
+                v-html="manifestoPoints[expandedIndex].description"
+              ></p>
             </div>
           </div>
         </div>
@@ -187,12 +189,14 @@ import farmTractor2 from "@/assets/img/farm-tractor2.jpg";
 import groupFarmImage from "@/assets/img/group-farm-image.jpg";
 import womenFarm from "@/assets/img/Women-farm.jpg";
 import invest1 from "@/assets/img/invest1.jpg";
+import SoilSample from "@/assets/img/soil-sampling.jpg";
+import farmCrops from "@/assets/img/farm-crops.jpg";
 
 const manifestoPoints = ref([
   {
     title: "We're in it for the long-term",
     description:
-      "Short-term returns are important, but our focus is long-term goals, and long-lasting impact. We know that true success does not simply lie in what happens immediately next. In everything we do, we think about the long-term implications and impacts. This is why we continually invest in our people, partners, infrastructure facilities, technologies, our farmers and arable farmlands close to water sources. This is why we are determined and aim to thrive for more than 100 years. This is why we have developed a user-friendly, innovative farmer connect solution 'myFarm' – a seamless agri-tech ERP solution that supports farming operation, connect farming actors and drives actionable insights.",
+      "Short-term returns are important, but our focus is long-term goals, and long-lasting impact. We know that true success does not simply lie in what happens immediately next. In everything we do, we think about the long-term implications and impacts. This is why we continually invest in our people, partners, infrastructure facilities, technologies, our farmers and arable farmlands close to water sources. This is why we are determined and aim to thrive for more than 100 years. This is why we have developed a user-friendly, innovative farmer connect solution  <strong>'myFarm' – a seamless agri-tech ERP solution that supports farming operation, connect farming actors and drives actionable insights.</strong>",
     image: farmTractor2,
     alt: "Long-term investment",
   },
@@ -200,7 +204,7 @@ const manifestoPoints = ref([
     title: "True sustainability is hinged on shared prosperity",
     description:
       "Shared prosperity lies behind everything we do. This is why shared value and equity is central to our ethos. We drive a greater fairness of outcomes for everyone along the agribusiness and agriculture value chain.",
-    image: groupFarmImage,
+    image: SoilSample,
     alt: "Shared prosperity",
   },
   {
@@ -221,7 +225,7 @@ const manifestoPoints = ref([
     title: "Quality is a specialty approach, not a product",
     description:
       "If you're happy. We're happy. While we mainly focus on 100% organic quality and traceability farming, we recognize that every farm produces a variety of different qualities. FGAI's specialty is derived from offering quality farm products; where we engaged and work closely with farmers to find lasting solutions to everyday farming challenges as soon as possible. And once produce is ready, we sort, grade, off-take and sell it, fresh from the farm to your table.",
-    image: womenFarm,
+    image: farmCrops,
     alt: "Quality is a specialty approach",
   },
 ]);

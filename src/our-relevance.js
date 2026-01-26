@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 //import UnderConstruction from "./components/UnderConstruction.vue";
-import Projects from "./pages/Projects.vue";
+import OurRelevance from "./pages/OurRelevance.vue";
 import "./style.css";
 import { setupApp } from "./shared-setup";
 
-setupApp(Projects, "#app");
+setupApp(OurRelevance, "#app");

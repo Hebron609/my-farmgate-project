@@ -63,7 +63,8 @@
           <FooterColumn
             title="Our Initiatives"
             :items="[
-              { label: 'Mission', href: 'mission.html' },
+              { label: 'Our Relevance', href: 'our-relevance.html' },
+              { label: 'Our Impact', href: 'our-impact.html' },
               { label: 'Projects', href: 'projects.html' },
               { label: 'Manifesto', href: 'manifesto.html' },
               { label: 'Solutions', href: 'solutions.html' },

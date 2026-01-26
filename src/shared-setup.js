@@ -25,6 +25,14 @@ import {
   faIndustry,
   faClipboard,
   faGraduationCap, // 👈 Added new icons
+  faMoneyBillWave,
+  faHandshake,
+  faUniversity,
+  faShieldAlt,
+  faGlobe,
+  faUsers,
+  faTruck,
+  faChalkboardTeacher,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Brand icons
@@ -62,6 +70,14 @@ library.add(
   faIndustry,
   faClipboard,
   faGraduationCap, // 👈 Added new icons
+  faMoneyBillWave,
+  faHandshake,
+  faUniversity,
+  faShieldAlt,
+  faGlobe,
+  faUsers,
+  faTruck,
+  faChalkboardTeacher,
   faGithub,
   faInstagram,
   faYoutube,
@@ -69,7 +85,7 @@ library.add(
   faWhatsapp,
   faLinkedinIn,
   faTiktok,
-  faXTwitter
+  faXTwitter,
 );
 
 // Setup app function

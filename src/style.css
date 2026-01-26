@@ -1,7 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap");
 @import "tailwindcss";
 
 html,
 body {
   background-color: white;
-  font-family: "Montserrat", "sans-serif";
+  font-family: "Montserrat";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Livvic";
+  font-weight: 700;
 }

@@ -23,8 +23,10 @@ const videoVariant = ref(1);
       @update:videoVariant="videoVariant = $event"
     />
 
+   
+
     <!-- Preview Sections -->
-     <!--
+    <!--
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="p-6 bg-white shadow-sm rounded-xl">

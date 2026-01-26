@@ -52,7 +52,7 @@
     </div>
 
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-      <div class="mb-10">
+      <div>
         <h1
           class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
         >
@@ -61,88 +61,109 @@
         </h1>
       </div>
 
-      <div
-        class="flex-col items-center justify-between gap-6 mb-12 md:flex md:flex-row"
-      >
-        <h3 class="mb-2 text-2xl font-semibold md:text-3xl md:max-w-[20%]">
-          Meet Our <span class="text-green-800">Diverse Team</span>
-        </h3>
-
-        <p class="md:max-w-[30%] text-gray-600">
-          We are a team of highly motivated professionals ready to go great
-          lengths to grow your business with you, whatever your needs are!
-        </p>
-      </div>
-
-      <div class="px-4 py-16 font-sans bg-white">
-        <div
-          class="flex flex-col items-start justify-between gap-20 mx-auto max-w-[1440px] lg:flex-row"
-        >
-          <div class="flex-1 space-y-8">
-            <svg
-              class="w-12 h-12 mb-6 text-green-600"
-              fill="currentColor"
-              viewBox="0 0 32 32"
-              aria-hidden="true"
-            >
-              <path
-                d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.816 9.12 8.808 9.12 3.816 0 6.84-2.568 6.84-6.264 0-3.36-2.448-5.64-5.568-5.64-1.296 0-2.496.432-3.312 1.128-.6.48-1.152.6-1.464.144.6-3.168 3.144-6.552 7.344-9.024L9.352 4zm16.512 0c-4.896 3.456-8.352 9.12-8.352 15.36 0 5.088 3.816 9.12 8.808 9.12 3.816 0 6.84-2.568 6.84-6.264 0-3.36-2.448-5.64-5.568-5.64-1.296 0-2.496.432-3.312 1.128-.6.48-1.152.6-1.464.144.6-3.168 3.144-6.552 7.344-9.024L25.864 4z"
-              />
-            </svg>
-            <blockquote
-              class="text-2xl font-semibold leading-snug text-gray-900 sm:text-3xl md:max-w-[85%]"
-            >
-              "We started this journey with a simple belief — that farming can
-              feed the world without harming it. Every seed we plant, every
-              partnership we build, reflects our commitment to sustainability,
-              innovation, and people."
-            </blockquote>
-            <div>
-              <div class="text-4xl font-semibold text-gray-900 sm:text-5xl">
-                Nelson Madiba Amo
-              </div>
-              <div class="mt-2 text-lg text-gray-500">Founder & CEO</div>
-            </div>
-          </div>
+      <section class="pb-20" aria-label="Our Team">
+        <div class="md:flex justify-between items-start mb-12">
           <div>
-            <img
-              class="object-cover w-[480px] h-auto rounded-3xl"
-              :src="nelsonImage"
-              alt="Nelson Madiba Amo, Founder & CEO"
-            />
+            <h3 class="mb-2 text-2xl font-semibold md:text-3xl md:max-w-[50%]">
+              Meet Our <span class="text-[#129C48]">Diverse Team</span>
+            </h3>
+            <p class="text-gray-600 md:max-w-[60%] mb-8">
+              Meet the experts and innovators driving sustainable agriculture
+              forward.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <button
+              v-for="dept in uniqueDepartments"
+              :key="dept"
+              @click="activeDepartment = dept"
+              :class="[
+                'group px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg',
+                activeDepartment === dept
+                  ? 'bg-[#129C48] text-white scale-105'
+                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300',
+              ]"
+              :aria-pressed="activeDepartment === dept"
+            >
+              {{ dept }}
+              <svg
+                :class="[
+                  'inline-block ml-2 w-4 h-4 transition-transform duration-300',
+                  activeDepartment === dept
+                    ? 'rotate-0'
+                    : '-rotate-52 group-hover:rotate-0',
+                ]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
 
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div
-          v-for="member in team"
-          :key="member.name"
-          @click="openModal(member)"
-          class="group relative overflow-hidden rounded-3xl bg-white cursor-pointer aspect-[4/5]"
-        >
-          <img
-            :src="member.image"
-            :alt="member.name"
-            class="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-110"
-          />
-
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           <div
-            class="absolute inset-0 flex flex-col justify-end p-8 transition-opacity duration-500 opacity-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:opacity-100"
+            v-for="member in filteredTeam"
+            :key="member.name"
+            class="group bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-[#F2CB00] hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            @click="openModal(member)"
           >
-            <h4
-              class="text-2xl font-bold text-white transition-transform duration-500 transform translate-y-4 group-hover:translate-y-0"
+            <!-- Image Container with Hover Overlay -->
+            <div class="relative w-28 h-28 md:w-40 md:h-40 mx-auto mb-4">
+              <img
+                :src="member.photoUrl"
+                :alt="'Photo of ' + member.name"
+                class="w-full h-full rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              </div>
+              <!-- Premium Hover Overlay -->
+               <!--
+              <div
+                class="absolute inset-0 rounded-full bg-gradient-to-br from-green-600/90 via-green-700/85 to-emerald-800/90 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
+              >
+                <div
+                  class="text-center px-4 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <p
+                    class="text-white text-xs md:text-sm font-semibold tracking-wide leading-tight"
+                  >
+                    {{ member.title }}
+                  </p>
+                </div>
+              </div>
+              
+              <div
+                class="absolute inset-0 rounded-full border-2 border-green-400/0 group-hover:border-green-400/60 transition-all duration-300 scale-100 group-hover:scale-110"
+              ></div>
+            </div>
+          -->
+
+            <h3
+              class="text-lg font-semibold mb-2 transition-colors duration-300 group-hover:text-green-700"
             >
               {{ member.name }}
-            </h4>
+            </h3>
+            <!-- Hidden title that appears on card hover (alternative reveal) -->
             <p
-              class="font-medium tracking-wide text-green-400 transition-transform duration-500 delay-75 transform translate-y-4 group-hover:translate-y-0"
+              class="text-sm text-gray-500 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"
             >
-              {{ member.role }}
+              {{ member.title }}
+            </p>
+            <p
+              class="text-xs text-gray-400 group-hover:text-[#F2CB00] transition-colors duration-300"
+            >
+              Click to view profile
             </p>
           </div>
         </div>
-      </div>
+      </section>
     </section>
 
     <Transition name="modal">
@@ -154,7 +175,7 @@
           @click="closeModal"
           class="absolute inset-0 bg-black/70 backdrop-blur-sm"
         ></div>
-        
+
         <div
           class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh] md:max-h-none"
         >
@@ -167,7 +188,7 @@
 
           <div class="w-full md:w-[45%] h-56 md:h-auto shrink-0">
             <img
-              :src="selectedMember.image"
+              :src="selectedMember.photoUrl"
               :alt="selectedMember.name"
               class="object-cover w-full h-full"
             />
@@ -179,11 +200,15 @@
             <h3 class="text-2xl font-bold leading-tight md:text-3xl">
               {{ selectedMember.name }}
             </h3>
-            <p class="mt-1 text-base md:text-lg font-semibold tracking-tight text-[#035925]">
-              {{ selectedMember.role }}
+            <p
+              class="mt-1 text-base md:text-lg font-semibold tracking-tight text-[#035925]"
+            >
+              {{ selectedMember.title }}
             </p>
 
-            <div class="mt-4 md:mt-8 mb-6 md:mb-26 overflow-y-auto max-h-[200px] md:max-h-[300px]">
+            <div
+              class="mt-4 md:mt-8 mb-6 md:mb-26 overflow-y-auto max-h-[200px] md:max-h-[300px]"
+            >
               <p class="text-sm leading-relaxed md:text-base text-stone-600">
                 {{ selectedMember.bio }}
               </p>
@@ -191,12 +216,16 @@
 
             <div>
               <a
-                :href="selectedMember.linkedin"
+                :href="selectedMember.socialLinks.linkedin"
                 target="_blank"
                 class="inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3.5 bg-[#0077b5] text-white text-sm md:text-base font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95"
               >
                 Connect on Linkedin
-                <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-4 h-4 md:w-5 md:h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                   />
@@ -219,14 +248,16 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+import { TEAM_DATA } from "./teamData.js";
 
 import heroImage from "../assets/img/group-farm-image.jpg";
 import nelsonImage from "../assets/img/Nelson.png";
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const isOpen = ref(false);
 const selectedMember = ref(null);
+const activeDepartment = ref("All");
 
 const openModal = (member) => {
   selectedMember.value = member;
@@ -237,36 +268,18 @@ const closeModal = () => {
   isOpen.value = false;
 };
 
-const team = [
-  {
-    name: "Emmanuel G. Baiden",
-    role: "Finance Business Partner",
-    image: "/images/Emmanuel.png",
-    bio: "Emmanuel is a finance professional with over a decade of experience in business operations and project management. He leads financial management for major grants and impact-focused projects at Innohub including an SGB Climate Investment Fund. An MSc holder in Accounting and Finance, he strengthens Innohub's operations through robust financial leadership.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Juliet Yayra Dzasi",
-    role: "Programs Lead",
-    image: "/images/Juliet.png",
-    bio: "Juliet is a results-driven program manager with expertise in managing impactful projects like the MTN Ghana SME Support Programme and the Tullow AgriVentures Programme. She is currently pursuing a Master's degree in Development Management from KNUST, holds a BA in Rural Development, a training certificate in Project Management from PMI, and an executive certificate in Business Administration from Accra Business School.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Rachael Frempah",
-    role: "Finance Lead",
-    image: "/images/Rachael.png",
-    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before Innohub, she worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is pursuing ACCA certification to become a Chartered Accountant.",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    name: "Samuel Boateng",
-    role: "Creative Media Lead",
-    image: "/images/Sammy.png",
-    bio: "A self-taught creative with expertise in videography, photography, graphic design, and sound design, Samuel oversees media production at Innohub, crafting impactful video documentaries for partners like Tullow, MTN, and Fidelity Bank. With a BSc in Physics from UCC, he previously led Ghana Tech Lab's Creative Space Team, training over 1,000 youths in digital multimedia. His diverse portfolio includes collaborations with brands such as WACOMP, StartOA, and EMTECH.",
-    linkedin: "https://linkedin.com",
-  },
-];
+const uniqueDepartments = computed(() => [
+  "All",
+  ...new Set(TEAM_DATA.map((m) => m.department)),
+]);
+
+const filteredTeam = computed(() => {
+  let filtered =
+    activeDepartment.value === "All"
+      ? TEAM_DATA
+      : TEAM_DATA.filter((m) => m.department === activeDepartment.value);
+  return filtered.sort((a, b) => (a.order || 0) - (b.order || 0));
+});
 </script>
 
 <style>

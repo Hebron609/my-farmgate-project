@@ -172,7 +172,7 @@
           <img
             :class="[
               'object-contain transition-all duration-300',
-              isScrolled ? 'w-[100px] md:w-[150px]' : 'w-[140px] md:w-[160px]',
+              isScrolled ? 'w-[100px] md:w-[160px]' : 'w-[140px] md:w-[160px]',
             ]"
             :src="isScrolled ? logoWhite1 : logoWhite2"
             alt="Logo"
@@ -302,46 +302,76 @@
             /></a>
           </div>
 
-          <!-- Home -->
-          <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold">Home</h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/index.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Homepage
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
           <!-- About -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold">About Us</h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/about.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Our Story
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
+            <h3
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              @click="toggleSection('about')"
+            >
+              About Us
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 transition-transform duration-300"
+                :class="{ 'rotate-90': activeSections.about }"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </h3>
+            <transition name="slide">
+              <ul class="space-y-5" v-show="activeSections.about">
+                <li>
+                  <a
+                    href="/about.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Story
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/our-relevance.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Relevance
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/people.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our People
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+              </ul>
+            </transition>
           </div>
 
           <!-- Programs -->
           <div class="flex-1 mt-20">
             <h3
-              class="flex items-center mb-6 text-2xl font-semibold cursor-pointer"
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
               @click="toggleSection('programs')"
             >
               Our Initiatives
@@ -378,17 +408,6 @@
                 </li>
                 <li>
                   <a
-                    href="/mission.html"
-                    class="relative pb-2 text-xl font-medium group"
-                  >
-                    Mission
-                    <span
-                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                    ></span>
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="/projects.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
@@ -400,10 +419,10 @@
                 </li>
                 <li>
                   <a
-                    href="/people.html"
+                    href="/our-impact.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
-                    Our Team
+                    Impact
                     <span
                       class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
                     ></span>
@@ -424,9 +443,29 @@
             </transition>
           </div>
 
+          <!-- Contact-Us -->
+          <div class="flex-1 mt-20">
+            <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
+              Get in Touch
+            </h3>
+            <ul class="space-y-5">
+              <li>
+                <a
+                  href="/contact.html"
+                  class="relative pb-2 text-xl font-medium group"
+                >
+                  Contact Us
+                  <span
+                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <!-- Contact -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold text-yellow-400">
+            <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
               Connect with us
             </h3>
             <p class="mb-4 font-medium">FarmGate Africa & Industries Ltd</p>
@@ -789,7 +828,8 @@ const suggestions = ref([
   "Our Story",
   "Our Services",
   "Marketplace",
-  "Our Mission",
+  "Our Relevance",
+  "Our Impact",
   "Projects",
   "Our People",
   "Manifesto",
@@ -802,8 +842,8 @@ const toggleSearch = () => {
 
 const filteredSuggestions = computed(() =>
   suggestions.value.filter((s) =>
-    s.toLowerCase().includes(searchQuery.value.toLowerCase())
-  )
+    s.toLowerCase().includes(searchQuery.value.toLowerCase()),
+  ),
 );
 
 const selectSuggestion = (item) => {
@@ -813,7 +853,9 @@ const selectSuggestion = (item) => {
   if (i.includes("story")) window.location.href = "/about.html";
   else if (i.includes("service")) window.location.href = "/solutions.html";
   else if (i.includes("market")) window.location.href = "/marketplace.html";
-  else if (i.includes("mission")) window.location.href = "/mission.html";
+  else if (i.includes("relevance"))
+    window.location.href = "/our-relevance.html";
+  else if (i.includes("impact")) window.location.href = "/our-impact.html";
   else if (i.includes("projects")) window.location.href = "/projects.html";
   else if (i.includes("people")) window.location.href = "/people.html";
   else if (i.includes("manifesto")) window.location.href = "/manifesto.html";
@@ -854,7 +896,9 @@ const selectSuggestion = (item) => {
   height: 3px;
   background: white;
   border-radius: 3px;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 .hamburger span:nth-child(1) {
   width: 26px;

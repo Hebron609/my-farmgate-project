@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative overflow-hidden h-[480px] md:h-[780px]">
+    <div class="relative overflow-hidden">
       <!--Header-component-->
       <Header :videoVariant="2" />
 
@@ -58,82 +58,35 @@
       </div>
     </div>
 
-    <!-- Our Track Record Section -->
-    <section class="max-w-[1440px] mx-auto pb-30 font-montserrat px-6 pt-10">
-      <div
-        class="flex flex-col items-center gap-10 lg:flex-row lg:justify-between"
-      >
-        <!-- Heading -->
-        <h1
-          class="font-semibold max-w-[450px] text-center lg:text-left text-lg text-gray-500"
-        >
-          Our conservation efforts include reforestation, wetland restoration,
-          and habitat preservation to enhance biodiversity and ecological
-          health.
-        </h1>
-
-        <!-- Stats Container -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Card 1 -->
-          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">20+</h2>
-            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-              Years in Business
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">1000+</h2>
-            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-              Farmers Supported
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="p-6 text-center rounded-lg bg-gray-50 lg:text-left">
-            <h2 class="text-4xl font-bold text-green-900 sm:text-5xl">98%</h2>
-            <p class="pt-3 text-sm font-semibold text-gray-700 sm:text-base">
-              Satisfaction Rate
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="relative py-40 bg-stone-50 font-montserrat">
+    <section class="relative py-18 bg-stone-50">
       <div class="sticky">
-        <div
-          class="w-full h-[300px] z-[-1] absolute top-[-165px] right-[150px]"
-        >
-          <img
-            class="h-auto w-[480px] opacity-10"
-            :src="farmGateLogo"
-            alt=""
-          />
+        <div class="w-full h-[300px] z-[-1] absolute top-[-50px] right-[150px]">
+          <img class="h-auto w-[480px] opacity-10" :src="farmGateLogo" alt="" />
         </div>
       </div>
 
       <div class="relative z-10 mx-auto max-w-[1440px] px-6">
         <div class="max-w-3xl mb-20">
           <!-- Tag -->
-          <div class="mb-10">
+          <div class="pt-10 mb-10">
             <h1
-              class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[139px]"
+              class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[100px]"
             >
               <LeafIcon class="text-green-700" />
-              <span class="text-xs font-semibold">Why choose us</span>
+              <span class="text-sm font-semibold">About us</span>
             </h1>
           </div>
-          <h2 class="mb-8 text-4xl leading-tight md:text-6xl text-stone-900">
+          <h2 class="mb-8 text-4xl leading-tight md:text-5xl text-stone-900">
             Discover the values that <br />
             <span class="font-light text-stone-600">guide our mission.</span>
           </h2>
           <p
             class="pl-6 text-lg italic font-light leading-relaxed border-l-4 border-green-600 text-stone-600 md:text-xl"
           >
-            "These are the deep-rooted principles that ensure every seed we sow
-            leads to a harvest of shared prosperity across the continent."
+            "We started this journey with a simple belief — that farming can
+            feed the world without harming it. Every seed we plant, every
+            partnership we build, reflects our commitment to sustainability,
+            innovation, and people."
           </p>
         </div>
 
@@ -171,23 +124,27 @@
                   The Value Chain
                 </h3>
                 <p class="text-sm leading-relaxed text-stone-600">
-                  We operate across a significant section of the farming value
-                  chain—operating our own farms and supplying raw material to
-                  feed industries globally.
+                  We are producers of high-quality farm products, operating
+                  across a significant section of the farming value chain. We
+                  operate our own farms and also small-holder farmers in
+                  adopting best practices to bring out quality high-yielding
+                  produce. We turn these into quality value-added agricultural
+                  products for a ready market and supply raw material to feed
+                  industries.
                 </p>
               </div>
-              <div class="p-8 text-white bg-green-900 shadow-xl rounded-3xl">
+              <div class="p-8 text-white bg-[#129C48] shadow-xl rounded-3xl">
                 <h3 class="mb-4 text-xl font-bold text-gray-50">Our Output</h3>
-                <p class="text-sm leading-relaxed text-stone-300">
-                  We grow diverse varieties of farm products, transforming them
-                  into quality value-added agricultural products for ready
-                  markets.
+                <p class="text-sm leading-relaxed text-stone-100">
+                  Currently, we grow diverse varieties of farm products and work
+                  hard to bring out the best value-added products from any
+                  produce we can find.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-5 lg:pt-9">
+          <div class="lg:col-span-5">
             <div
               class="bg-white p-10 rounded-[3rem] shadow-sm border border-stone-100 relative"
             >
@@ -197,14 +154,13 @@
                 <LeafIcon class="w-10 h-10 text-green-700" />
               </div>
 
-              <h3 class="mb-6 font-serif text-3xl text-stone-900">
-                Innovative Agri-Tech
-              </h3>
+              <h3 class="mb-6 text-3xl text-stone-900">Innovative Agri-Tech</h3>
               <p class="mb-8 leading-relaxed text-stone-600">
                 At FarmGate Africa, we create opportunities that enable
-                agribusinesses, food manufacturers, and governments to
-                intelligently foster sustainable farming through our innovative
-                platforms.
+                agribusinesses, food manufacturers, NGOs, Governments and Policy
+                Analysts globally to intelligently foster sustainable farming
+                initiatives while creating lasting gains for farmers everywhere
+                through our innovative agri-tech platforms.
               </p>
 
               <ul class="space-y-4">
@@ -214,6 +170,7 @@
                     'Food Manufacturers',
                     'NGOs',
                     'Governments',
+                    'Policy Analysts',
                   ]"
                   :key="stake"
                   class="flex items-center gap-3 font-semibold text-stone-800"
@@ -225,6 +182,99 @@
             </div>
           </div>
         </div>
+
+        <!-- Our Work Section -->
+        <section class="our-work-section">
+          <!-- THE INTRODUCTION -->
+          <div class="bg-white py-16">
+            <div class="max-w-[1440px] mx-auto px-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                <div>
+                  <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
+                    Who We Are
+                  </h2>
+                  <p class="text-lg text-gray-700 font-montserrat mt-4">
+                    We are a team of agronomists, technologists, and
+                    sustainability experts.
+                  </p>
+                </div>
+                <div>
+                  <h2 class="text-3xl font-bold text-[#129C48] font-livvic">
+                    What We Do
+                  </h2>
+                  <p class="text-lg text-gray-700 font-montserrat mt-4">
+                    We partner with farmers and communities in Ghana to help the
+                    farmer grow more, sell more, connect more, protect the
+                    planet, and empower those behind each harvest.
+                  </p>
+                </div>
+                <div
+                  class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#F2CB00] transform -translate-x-1/2"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OUR YEAR IN NUMBERS -->
+          <div
+            class="bg-[#129C48] py-16"
+            style="width: 100vw; margin-left: calc(-50vw + 50%)"
+          >
+            <div class="max-w-6xl mx-auto px-6">
+              <h2
+                class="text-center text-white text-3xl font-bold font-livvic mb-8"
+              >
+                OUR YEAR IN NUMBERS
+              </h2>
+              <div
+                class="flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0"
+              >
+                <div
+                  v-for="stat in stats"
+                  :key="stat.label"
+                  class="text-center"
+                >
+                  <div class="text-white text-5xl font-bold font-livvic">
+                    {{ stat.number }}
+                  </div>
+                  <div
+                    class="text-[#F2CB00] text-lg font-montserrat uppercase tracking-wider"
+                  >
+                    {{ stat.label }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE IMPACT GRID -->
+          <div class="bg-gray-50 py-16">
+            <div class="max-w-[1440px] mx-auto px-6">
+              <h2
+                class="text-center text-3xl font-bold text-[#129C48] font-livvic mb-12"
+              >
+                THE IMPACT GRID
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                  v-for="impact in impacts"
+                  :key="impact.title"
+                  class="bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 p-6"
+                >
+                  <div class="text-[#129C48] text-4xl mb-4">
+                    <font-awesome-icon :icon="['fas', impact.iconName]" />
+                  </div>
+                  <h3
+                    class="text-lg text-gray-800 font-montserrat"
+                    style="font-weight: 400"
+                  >
+                    {{ impact.title }}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!--Tractor-Divider-->
 
@@ -249,105 +299,50 @@
             />
           </div>
         </div>
-
-        <div class="mx-6 mb-32">
-          <h3
-            class="text-2xl font-extrabold text-stone-900 mb-6 text-center uppercase tracking-[0.2em]"
-          >
-            Our Focal Areas
-          </h3>
-          <div
-            class="w-24 h-1 mx-auto mb-12 bg-gradient-to-r from-green-400 to-green-800"
-          ></div>
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div
-              v-for="area in focalAreas"
-              :key="area.name"
-              class="p-6 transition-shadow bg-white border shadow-sm cursor-default rounded-3xl border-stone-100 hover:shadow-lg group"
-            >
-              <div class="flex items-center mb-4">
-                <div
-                  class="flex items-center justify-center w-12 h-12 transition-colors bg-green-100 rounded-full group-hover:bg-green-700"
-                >
-                  <font-awesome-icon
-                    :icon="area.icon"
-                    class="w-6 h-6 text-green-700 group-hover:text-white"
-                  />
-                </div>
-              </div>
-              <h4 class="mb-2 text-xl font-bold text-stone-900">
-                {{ area.name }}
-              </h4>
-              <p class="text-sm leading-relaxed text-stone-600">
-                {{ area.desc }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w-full bg-[#035925] text-white relative overflow-hidden">
-        <div class="mx-auto max-w-[1440px] p-12 md:p-20">
-          <div
-            class="flex flex-col gap-10 lg:flex-row lg:justify-between lg:items-center"
-          >
-            <div class="relative z-10">
-              <h3 class="mb-6 text-3xl font-medium leading-tight md:text-4xl">
-                Committed to Global Impact
-              </h3>
-              <p class="max-w-md mb-8 text-green-100/80">
-                We are partnering with stakeholders to address food insecurity
-                in Africa, dedicated to achieving the UN Sustainable Development
-                Goals in every community.
-              </p>
-
-              <div class="flex flex-wrap gap-3">
-                <span
-                  v-for="sdg in [1, 2, 5, 8, 9, 13, 17]"
-                  :key="sdg"
-                  class="px-4 py-2 text-xs font-bold transition-colors border rounded-full bg-white/10 border-white/10 hover:bg-white/20"
-                >
-                  SDG {{ sdg }}
-                </span>
-              </div>
-            </div>
-
-            <div
-              class="relative z-10 flex flex-col items-center justify-center lg:items-end"
-            >
-              <a
-                href="/marketplace.html"
-                class="relative flex items-center px-12 py-5 overflow-hidden bg-white rounded-full cursor-pointer group backdrop-blur-md"
-              >
-                <span
-                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-                >
-                  <LeafIcon class="w-4 h-4 text-[#035925]" />
-                  <span
-                    class="text-sm font-black leading-none text-[#035925] uppercase tracking-widest"
-                    >Join our impact</span
-                  >
-                </span>
-
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-                >
-                  <LeafIcon class="w-4 h-4 text-black" />
-                  <span
-                    class="text-sm font-black leading-none tracking-widest uppercase"
-                    >Join our impact</span
-                  >
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="absolute top-0 right-0 w-1/2 h-full bg-white/[0.03] -skew-x-12 transform translate-x-1/4"
-        ></div>
       </div>
     </section>
+
+    <div class="mt-20">
+      <div class="max-w-[1440px] mx-auto px-6">
+        <div class="mb-8">
+          <h1
+            class="inline-flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl"
+          >
+            <LeafIcon class="text-green-700" />
+            <span class="text-sm font-semibold">Our 5-Year Strategic Plan</span>
+          </h1>
+        </div>
+        <div class="grid items-stretch grid-cols-1 gap-8 md:grid-cols-2">
+          <div>
+            <h2
+              class="mb-4 text-2xl font-semibold text-stone-800 md:max-w-[50%]"
+            >
+              Our 2030 Vision for Shared Prosperity
+            </h2>
+            <p class="leading-relaxed text-md text-stone-600 md:max-w-[70%]">
+              Helping the farmers grow their wealth. We provide farmers with
+              access to quality inputs, tools, working capital financing,
+              training, agronomist technical assistance support, market access
+              and agritech solutions they can translate into sustainable gains
+              and decent living incomes.
+            </p>
+          </div>
+          <div>
+            <img
+              :src="visionFutureImg"
+              alt="Farmer Vision"
+              class="object-cover w-full h-[480px] rounded-2xl mb-4"
+            />
+            <h2 class="mb-2 text-2xl font-semibold text-stone-800">
+              The Future We Seed
+            </h2>
+            <p class="leading-relaxed text-md text-stone-600">
+              To be the backbone of Africa’s agricultural revolution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Commented out section: Why choose us -->
     <!--
@@ -443,8 +438,9 @@
     -->
 
     <!-- Our-history-section -->
+    <!--
     <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-      <!-- Section Label -->
+    
       <div class="flex justify-center">
         <h1
           class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[120px] justify-center"
@@ -454,7 +450,7 @@
         </h1>
       </div>
 
-      <!-- Heading -->
+     
       <div class="flex justify-center mb-12">
         <h1
           class="text-3xl font-semibold text-center leading-tighter max-w-[380px]"
@@ -463,9 +459,10 @@
         </h1>
       </div>
 
-      <!-- Timeline Component (placed below heading, full width) -->
+
       <Timeline />
     </section>
+    -->
 
     <!--
     <section
@@ -524,7 +521,6 @@
       </div>
     </section>
     -->
-    
 
     <GrowWithUs />
 
@@ -534,58 +530,47 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import Timeline from "../components/Timeline.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 
-import aboutUsBanner from '@/assets/img/about-us-banner.jpg';
-import farmGateLogo from '@/assets/img/FarmGate Africa 1 1.png';
-import farmPic9 from '@/assets/img/farm-pic9.jpg';
-import farmPic1 from '@/assets/img/farm-pic1.jpg';
-import farmPic10 from '@/assets/img/farm-pic10.jpg';
-import farmPic4 from '@/assets/img/farm-pic4.jpg';
-import farmPic2 from '@/assets/img/farm-pic2.jpg';
-import farmPic7 from '@/assets/img/farm-pic7.jpg';
+const stats = ref([
+  { number: "1000+", label: "Farmers Impacted" },
+  { number: "10", label: "Regions Covered" },
+  { number: "50+", label: "Partners" },
+  { number: "100%", label: "Growth" },
+]);
 
-const focalAreas = [
+const impacts = ref([
+  { title: "Enhance Productivity", iconName: "chart-line" },
+  { title: "Increase incomes", iconName: "money-bill-wave" },
+  { title: "Connect farmers to markets", iconName: "handshake" },
+  { title: "Increase access to finance", iconName: "university" },
+  { title: "Protect ecosystem", iconName: "shield-alt" },
+  { title: "Act on climate changes", iconName: "globe" },
+  { title: "Empower women & youth for job creation", iconName: "users" },
   {
-    name: "Smart Farming",
-    desc: "Leveraging technology for efficient agriculture.",
-    icon: "fa-microchip",
+    title: "Boost food security & Strengthen supply chain systems",
+    iconName: "truck",
   },
   {
-    name: "Horticulture",
-    desc: "Cultivating fruits, vegetables, and ornamental plants.",
-    icon: "fa-seedling",
+    title: "Provide CBTM support for FBO and co-operatives/FGO",
+    iconName: "chalkboard-teacher",
   },
-  {
-    name: "Animal Husbandry",
-    desc: "Raising and breeding livestock for food and products.",
-    icon: "fa-cow",
-  },
-  {
-    name: "Aquaculture",
-    desc: "Farming fish and aquatic organisms sustainably.",
-    icon: "fa-fish",
-  },
-  {
-    name: "Food Processing",
-    desc: "Transforming raw agricultural products into consumable goods.",
-    icon: "fa-industry",
-  },
-  {
-    name: "Agri-Advisory",
-    desc: "Providing expert guidance and consulting services.",
-    icon: "fa-clipboard",
-  },
-  {
-    name: "Training",
-    desc: "Educating farmers and stakeholders on best practices.",
-    icon: "fa-graduation-cap",
-  },
-];
+]);
+
+import aboutUsBanner from "@/assets/img/about-us-banner.jpg";
+import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
+import farmPic9 from "@/assets/img/farm-pic9.jpg";
+import farmPic1 from "@/assets/img/farm-pic1.jpg";
+import farmPic10 from "@/assets/img/farm-pic10.jpg";
+import farmPic4 from "@/assets/img/farm-pic4.jpg";
+import farmPic2 from "@/assets/img/farm-pic2.jpg";
+import farmPic7 from "@/assets/img/farm-pic7.jpg";
+import visionFutureImg from "@/assets/img/Vision-future-img.jpg";
 </script>
 
 <style scoped>

@@ -14,11 +14,11 @@
      <div
        class="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center sm:px-6"
      >
-       <p
+       <h2
          class="max-w-[90%] sm:max-w-[500px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 leading-tight"
        >
          Grow something great together.
-       </p>
+   </h2>
 
        <p
          class="text-white max-w-[90%] sm:max-w-[490px] text-xs sm:text-sm md:text-base mb-6 sm:mb-8 mt-2"
@@ -55,4 +55,5 @@
 
 <script setup>
 import farmPic9 from '@/assets/img/farm-pic9.jpg';
+import LeafIcon from '@/components/icons/LeafIcon.vue';
 </script>
