@@ -7,9 +7,7 @@
     <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
-        style="
-          background-image: url(&quot;/src/assets/img/crop-planting.jpg&quot;);
-        "
+        :style="{ backgroundImage: `url(${ImpactImg})` }"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
@@ -80,16 +78,16 @@
       <div
         class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 flex flex-col justify-between h-full"
       >
-        <div class="md:pt-12">
+        <div class="mb-8 md:pt-12 md:mb-0">
           <h2
-            class="font-['Livvic'] text-4xl md:text-6xl font-bold text-white leading-tight reveal-impact-stats"
+            class="font-['Livvic'] text-3xl md:text-6xl font-bold text-white leading-tight reveal-impact-stats"
           >
             OUR IMPACT <span class="text-[#F2CB00]">STATS.</span>
           </h2>
         </div>
 
         <div
-          class="flex flex-col justify-between gap-10 md:flex-row md:items-center md:mt-20 mt-[-120px]"
+          class="flex flex-col justify-between gap-6 mt-0 md:gap-10 md:flex-row md:items-center md:mt-20"
         >
           <p
             class="md:max-w-[40%] leading-relaxed text-sm font-medium text-white md:text-lg opacity-90 reveal-slide-up"
@@ -100,7 +98,7 @@
           </p>
 
           <button
-            class="relative inline-flex items-center px-4 py-4 mb-2 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit mt-[-20px] md:mt-[-10px] reveal-slide-right"
+            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit md:mt-0 reveal-slide-right"
           >
             <span
               class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -147,19 +145,19 @@
           </button>
         </div>
 
-        <div class="grid grid-cols-2 gap-6 md:grid-cols-5">
+        <div class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-2 md:grid-cols-5 sm:gap-6 md:gap-6 md:mt-0">
           <div
-            v-for="stat in impactStats"
+            v-for="(stat) in impactStats"
             :key="stat.label"
-            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger"
+            class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-4 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger"
           >
             <div
-              class="mb-2 font-['Livvic'] text-3xl md:text-5xl font-bold text-white group-hover:text-[#F2CB00] transition-colors"
+              class="mb-2 font-['Livvic'] text-2xl md:text-5xl font-bold text-white group-hover:text-[#F2CB00] transition-colors"
             >
               {{ stat.value }}
             </div>
             <div
-              class="h-1 w-8 bg-[#129C48] mb-4 group-hover:w-full transition-all duration-500"
+              class="h-1 w-8 bg-[#129C48] mb-3 md:mb-4 group-hover:w-full transition-all duration-500"
             ></div>
             <div
               class="font-['Montserrat'] text-xs font-bold uppercase tracking-widest text-gray-300 group-hover:text-white"
@@ -247,6 +245,7 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
+import ImpactImg from "@/assets/img/crop-planting.jpg"
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 

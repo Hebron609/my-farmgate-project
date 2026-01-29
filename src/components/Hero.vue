@@ -5,15 +5,9 @@
       :key="videoKey"
       ref="videoRef"
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
-      @play="
-        videoPlaying = true;
-      "
-      @waiting="
-        buffering = true;
-      "
-      @canplay="
-        buffering = false;
-      "
+      @play="videoPlaying = true"
+      @waiting="buffering = true"
+      @canplay="buffering = false"
       autoplay
       muted
       loop
@@ -272,8 +266,10 @@ import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
 import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
 
-const video1 = import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";
-const video2 = import.meta.env.VITE_VIDEO2_URL || "/videos/adaptive2/master.m3u8";
+const video1 =
+  import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";
+const video2 =
+  import.meta.env.VITE_VIDEO2_URL || "/videos/adaptive2/master.m3u8";
 
 const localHls1 = "/videos/adaptive1/master.m3u8";
 const localHls2 = "/videos/adaptive2/master.m3u8";
