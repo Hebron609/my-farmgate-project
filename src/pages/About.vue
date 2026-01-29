@@ -210,8 +210,56 @@
           <div class="h-1 w-24 bg-[#F2CB00]"></div>
         </div>
 
+        <!-- Mobile: Grid Layout -->
+        <div class="grid grid-cols-1 gap-6 md:hidden">
+          <div
+            v-for="(item, index) in galleryItems"
+            :key="index"
+            class="relative overflow-hidden rounded-[2rem] bg-cover bg-center"
+            :style="{ backgroundImage: `url(${item.image})` }"
+          >
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div
+              class="relative z-10 flex flex-col items-center justify-center p-6 text-center min-h-[300px]"
+            >
+              <h4
+                class="font-['Livvic'] text-xl font-bold text-white uppercase tracking-widest drop-shadow-lg mb-4"
+              >
+                {{ item.title }}
+              </h4>
+              <p
+                class="font-['Montserrat'] text-sm font-medium text-gray-100 mb-4 max-w-sm"
+              >
+                {{ item.description }}
+              </p>
+              <button
+                class="mx-auto flex relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-white/25 rounded-4xl items-center cursor-pointer"
+              >
+                <span
+                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                >
+                  <LeafIcon class="w-4 h-4 text-white" />
+                  <span class="text-xs font-semibold leading-none text-white"
+                    >Start growing with us</span
+                  >
+                </span>
+
+                <span
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                >
+                  <LeafIcon class="w-4 h-4 text-black" />
+                  <span class="text-xs font-semibold leading-none"
+                    >Start growing with us</span
+                  >
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop: Accordion/Flex Layout -->
         <div
-          class="flex h-[400px] md:h-[500px] w-full flex-col md:flex-row gap-4 md:gap-6"
+          class="hidden md:flex h-[400px] md:h-[500px] w-full flex-col md:flex-row gap-4 md:gap-6"
         >
           <div
             v-for="(item, index) in galleryItems"
@@ -245,10 +293,20 @@
                   {{ item.description }}
                 </p>
                 <button
-                  class="mt-4 mx-auto flex relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-white/25 rounded-4xl items-center cursor-pointer"
+                  class="button-group mt-4 mx-auto relative px-3 py-1.5 rounded-4xl items-center cursor-pointer overflow-hidden"
+                  style="display: inline-flex; align-items: center"
                 >
+                  <!-- Background layers -->
                   <span
-                    class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                    class="absolute inset-0 transition-opacity duration-300 opacity-100 white-bg bg-white/25 backdrop-blur-md rounded-4xl"
+                  ></span>
+                  <span
+                    class="absolute inset-0 transition-opacity duration-300 bg-yellow-400 opacity-0 yellow-bg rounded-4xl"
+                  ></span>
+
+                  <!-- White text content -->
+                  <span
+                    class="relative z-10 flex items-center gap-2 transition-opacity duration-300 opacity-100 white-text"
                   >
                     <LeafIcon class="w-4 h-4 text-white" />
                     <span class="text-xs font-semibold leading-none text-white"
@@ -256,8 +314,9 @@
                     >
                   </span>
 
+                  <!-- Black text content (for yellow background) -->
                   <span
-                    class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                    class="absolute inset-0 z-20 flex items-center justify-center gap-2 text-black transition-opacity duration-300 opacity-0 black-text rounded-4xl"
                   >
                     <LeafIcon class="w-4 h-4 text-black" />
                     <span class="text-xs font-semibold leading-none"
@@ -364,5 +423,23 @@ const galleryItems = ref([
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button hover animation */
+.button-group:hover .white-bg {
+  opacity: 0;
+}
+
+.button-group:hover .yellow-bg {
+  opacity: 1;
+}
+
+.button-group:hover .white-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button-group:hover .black-text {
+  opacity: 1;
 }
 </style>
