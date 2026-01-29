@@ -1,48 +1,84 @@
 <template>
-  <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white overflow-x-hidden">
+  <div
+    class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white overflow-x-hidden"
+  >
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${farmPic})` }"
       ></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
+      ></div>
 
-      <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
+      >
         <div class="reveal-slide-up">
-          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
-          
-          <h1 class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight">
+          <LeafIcon
+            class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse"
+          />
+
+          <h1
+            class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
+          >
             OUR <br />
             <span class="text-[#129C48]">PROJECTS.</span>
           </h1>
         </div>
 
-        <p class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-200 md:text-2xl reveal-slide-up delay-200">
+        <p
+          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-200 delay-200 md:text-2xl reveal-slide-up"
+        >
           Innovative initiatives driving change.
         </p>
-         <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
-          Explore our ongoing projects that are making a difference in agriculture.
+        <p
+          class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
+        >
+          Explore our ongoing projects that are making a difference in
+          agriculture.
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
-          <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <svg
+            class="w-8 h-8 text-white opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
           </svg>
         </div>
       </div>
     </div>
 
-    <section class="overflow-hidden bg-white pt-15 md:pt-24 font-montserrat pb-24">
+    <section
+      class="pb-24 overflow-hidden bg-white pt-15 md:pt-24 font-montserrat"
+    >
       <div class="px-6 mx-auto mb-20 text-center max-w-7xl">
-        <div class="flex items-center justify-center gap-2 mb-6 reveal-slide-left">
-           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50">
-                <LeafIcon class="text-[#129C48] w-4 h-4" />
-                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Our Projects</span>
-              </div>
+        <div
+          class="flex items-center justify-center gap-2 mb-6 reveal-slide-left"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 border border-gray-200 rounded-full bg-gray-50"
+          >
+            <LeafIcon class="text-[#129C48] w-4 h-4" />
+            <span
+              class="text-xs font-bold tracking-wider text-gray-500 uppercase"
+              >Our Projects</span
+            >
+          </div>
         </div>
-        <h2 class="font-['Livvic'] text-4xl md:text-6xl font-bold text-black leading-tight reveal-slide-up">
+        <h2
+          class="font-['Livvic'] text-4xl md:text-6xl font-bold text-black leading-tight reveal-slide-up"
+        >
           Explore our <span class="text-[#129C48]">ongoing projects.</span>
         </h2>
         <div class="h-1 w-24 bg-[#F2CB00] mx-auto mt-8"></div>
@@ -128,23 +164,28 @@
       </div>
     </section>
 
-    <section class="w-full bg-[#129C48] py-24 text-white reveal-fade relative overflow-hidden">
-        
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="font-['Livvic'] text-3xl font-bold tracking-widest uppercase mb-4">Our Year in Numbers</h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
+    <section
+      class="w-full bg-[#129C48] py-24 text-white reveal-fade relative overflow-hidden"
+    >
+      <div class="relative z-10 px-6 mx-auto max-w-7xl">
+        <div class="mb-16 text-center">
+          <h2
+            class="font-['Livvic'] text-3xl font-bold tracking-widest uppercase mb-4"
+          >
+            Our Year in Numbers
+          </h2>
+          <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
         </div>
-        
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center"
-        >
+
+        <div class="grid grid-cols-2 gap-12 text-center md:grid-cols-4">
           <div
             v-for="stat in stats"
             :key="stat.label"
             class="flex flex-col items-center reveal-stagger group"
           >
-            <div class="font-['Livvic'] text-5xl md:text-7xl font-bold text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div
+              class="font-['Livvic'] text-5xl md:text-7xl font-bold text-white mb-4 group-hover:scale-110 transition-transform duration-300"
+            >
               {{ stat.number }}
             </div>
             <div
@@ -188,10 +229,26 @@ const { init: initScrollReveal } = useScrollReveal({
 onMounted(() => {
   const api = initScrollReveal();
   if (!api) return;
-  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
-  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
-  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
-  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 100 });
+  api.reveal(".reveal-fade", {
+    ...revealEffects.fade,
+    duration: 900,
+    delay: 200,
+  });
+  api.reveal(".reveal-slide-up", {
+    ...revealEffects.slideUp,
+    duration: 750,
+    delay: 200,
+  });
+  api.reveal(".reveal-slide-left", {
+    ...revealEffects.slideLeft,
+    duration: 700,
+    delay: 150,
+  });
+  api.reveal(".reveal-stagger", {
+    ...revealEffects.stagger,
+    duration: 600,
+    interval: 100,
+  });
 });
 
 const solutions = [
@@ -199,37 +256,43 @@ const solutions = [
     id: 1,
     title: "AgriTech & Smart Farming",
     image: farmCrops,
-    description: "Leveraging cutting-edge technology and data analytics to optimize farming practices.",
+    description:
+      "Leveraging cutting-edge technology and data analytics to optimize farming practices.",
   },
   {
     id: 2,
     title: "Horticulture",
     image: farmIrrigation,
-    description: "Modernizing your business with data-driven insights and technology.",
+    description:
+      "Modernizing your business with data-driven insights and technology.",
   },
   {
     id: 3,
     title: "Animal Husbandry",
     image: farmPic9,
-    description: "Growth roadmaps and tailored strategies for agricultural expansion.",
+    description:
+      "Growth roadmaps and tailored strategies for agricultural expansion.",
   },
   {
     id: 4,
     title: "Aquaculture",
     image: farmPic1,
-    description: "Streamlining workflows to boost productivity and reduce operational costs.",
+    description:
+      "Streamlining workflows to boost productivity and reduce operational costs.",
   },
   {
     id: 5,
     title: "Agri-Value Additions",
     image: farmPic6,
-    description: "Sustainable fish and seafood farming in controlled environments promoting food security.",
+    description:
+      "Sustainable fish and seafood farming in controlled environments promoting food security.",
   },
   {
     id: 6,
     title: "Agri-Advisory & Training.",
     image: farmPic3,
-    description: "Equipping stakeholders with knowledge for better agricultural practices and decision-making.",
+    description:
+      "Equipping stakeholders with knowledge for better agricultural practices and decision-making.",
   },
 ];
 
