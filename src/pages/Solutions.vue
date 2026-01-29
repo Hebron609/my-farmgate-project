@@ -1,106 +1,104 @@
 <template>
-  <div class="min-h-screen bg-white">
-    <div
-      class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
-    >
-      <Header :videoVariant="2" />
+  <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
+    <Header :videoVariant="2" />
+
+    <div class="relative h-screen w-full overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-center bg-cover opacity-20"
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${ourSolutionsBanner})` }"
       ></div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-      ></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
-      <!-- Futuristic elements -->
-      <div
-        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/30 animate-pulse"
-      ></div>
-      <div
-        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/50 animate-ping"
-      ></div>
-      <div
-        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/40 animate-pulse"
-      ></div>
-
-      <div
-        class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
-      >
-        <div class="mb-6 reveal-fade">
-          <LeafIcon
-            class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
-          />
-          <h1
-            class="mb-4 text-4xl font-bold tracking-wider text-white md:text-6xl"
-          >
-            OUR SOLUTIONS
+      <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <div class="reveal-slide-up">
+          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
+          
+          <h1 class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight">
+            OUR <br />
+            <span class="text-[#129C48]">SOLUTIONS.</span>
           </h1>
-          <div
-            class="w-24 h-1 mx-auto mb-6 bg-gradient-to-r from-green-400 to-white"
-          ></div>
         </div>
-        <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
-        >
+
+        <p class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-200 md:text-2xl reveal-slide-up delay-200">
           Transforming agriculture through innovation
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
-          Discover our comprehensive solutions for sustainable farming and
-          agricultural success
+         <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
+          Discover our comprehensive solutions for sustainable farming and agricultural success
         </p>
+
+        <div class="absolute bottom-10 animate-bounce">
+          <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </div>
     </div>
 
-    <section class="relative mx-auto py-25 bg-stone-50">
-      <div class="max-w-[1440px] mx-auto px-6">
-        <div class="mx-6 mb-32">
-          
-          
-          <!-- Our Mandate Flex-->
-          <div class="items-center justify-between mb-20 md:flex">
-            <h3 class="text-2xl md:text-3xl md:max-w-[30%] reveal-slide-left">We believe sustainable farming holds the answer</h3>
-            
-            <p class="md:max-w-[40%] reveal-slide-right">FarmGate Africa is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
-</p>
-          </div>
+    <section class="w-full bg-white py-24 px-6 md:px-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+             <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
+        </div>
 
-          <h3
-            class="text-2xl font-extrabold text-stone-900 mb-6 text-center uppercase tracking-[0.2em] reveal-slide-up"
-          >
-            Our Mandate
-          </h3>
-          <div
-            class="w-24 h-1 mx-auto mb-12 bg-gradient-to-r from-green-400 to-green-800 reveal-slide-up"
-          ></div>
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mx-auto max-w-[1440px] relative z-10">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
+           <div class="md:max-w-2xl reveal-slide-right">
+              <div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50">
+                <LeafIcon class="text-[#129C48] w-4 h-4" />
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Our Belief</span>
+              </div>
+              <h3 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight">
+                 We believe sustainable farming <span class="text-[#129C48]">holds the answer.</span>
+              </h3>
+           </div>
+
+           <div class="md:max-w-xl reveal-slide-left">
+               <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+               <p class="text-gray-600 text-lg leading-relaxed font-light">
+                 FarmGate Africa is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
+              </p>
+           </div>
+        </div>
+
+        <div>
+           <div class="mb-16 text-center reveal-slide-up">
+              <h3 class="font-['Livvic'] text-3xl font-bold uppercase tracking-widest text-black mb-4">
+                Our Mandate
+              </h3>
+              <div class="h-1 w-16 bg-[#129C48] mx-auto"></div>
+           </div>
+
+           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
               v-for="area in focalAreas"
               :key="area.name"
-              class="p-6 transition-shadow bg-white border shadow-sm cursor-default rounded-3xl border-stone-100 hover:shadow-lg group reveal-stagger"
+              class="group relative bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger cursor-default"
             >
-              <div class="flex items-center mb-4">
-                <div
-                  class="flex items-center justify-center w-12 h-12 transition-colors bg-green-100 rounded-full group-hover:bg-green-700"
-                >
-                  <font-awesome-icon
-                    :icon="area.icon"
-                    class="w-6 h-6 text-green-700 group-hover:text-white"
-                  />
-                </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-[#129C48]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-[2rem]"></div>
+
+              <div class="relative z-10">
+                  <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-[#129C48] transition-all duration-300 group-hover:bg-[#129C48] group-hover:text-white group-hover:scale-110 shadow-sm">
+                    <font-awesome-icon
+                        :icon="['fas', area.icon.replace('fa-', '')]" 
+                        class="w-7 h-7"
+                    />
+                  </div>
+
+                  <h4 class="mb-4 font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">
+                    {{ area.name }}
+                  </h4>
+                  <p class="text-gray-500 leading-relaxed font-light group-hover:text-gray-700 transition-colors">
+                    {{ area.desc }}
+                  </p>
               </div>
-              <h4 class="mb-2 text-xl font-bold text-stone-900">
-                {{ area.name }}
-              </h4>
-              <p class="text-sm leading-relaxed text-stone-600">
-                {{ area.desc }}
-              </p>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <GrowWithUs />
     <Footer />
   </div>
 </template>
@@ -111,7 +109,22 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import GrowWithUs from "../components/GrowWithUs.vue";
+
+// FontAwesome Imports
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { 
+  faMicrochip, 
+  faSeedling, 
+  faCow, 
+  faFish, 
+  faIndustry, 
+  faClipboard, 
+  faGraduationCap 
+} from '@fortawesome/free-solid-svg-icons';
+
+// Add icons to library
+library.add(faMicrochip, faSeedling, faCow, faFish, faIndustry, faClipboard, faGraduationCap);
 
 import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
 

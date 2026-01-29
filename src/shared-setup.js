@@ -29,7 +29,7 @@ import {
   faHandshake,
   faUniversity,
   faShieldAlt,
-  faGlobe,
+  faCloudSun,
   faUsers,
   faTruck,
   faChalkboardTeacher,
@@ -74,7 +74,7 @@ library.add(
   faHandshake,
   faUniversity,
   faShieldAlt,
-  faGlobe,
+  faCloudSun,
   faUsers,
   faTruck,
   faChalkboardTeacher,
@@ -93,4 +93,9 @@ export function setupApp(RootComponent, selector) {
   const app = createApp(RootComponent);
   app.component("font-awesome-icon", FontAwesomeIcon);
   app.mount(selector);
+}
+
+// Setup FontAwesome on existing app instance
+export function setupFontAwesome(app) {
+  app.component("font-awesome-icon", FontAwesomeIcon);
 }

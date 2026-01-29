@@ -1,7 +1,7 @@
 <template>
-  <section class="max-w-[1900px] mx-auto mt-20 font-montserrat px-6 sm:px-8">
+  <section class="max-w-[1900px] mx-auto mt-20 font-montserrat px-6 sm:px-8 ">
     <footer
-      class="grid grid-cols-1 gap-12 py-10 text-gray-800 bg-white sm:gap-16 md:grid-cols-2"
+      class="grid grid-cols-1 gap-12 py-10 text-gray-800 bg-white sm:gap-16 md:grid-cols-2 "
     >
       <!-- Left Content -->
       <div class="flex flex-col items-start gap-6 sm:gap-8">
@@ -43,31 +43,34 @@
           class="grid grid-cols-2 text-sm gap-x-6 gap-y-6 sm:grid-cols-3 sm:gap-x-10 md:grid-cols-4 sm:text-base"
         >
           <FooterColumn
-            title="Home"
-            :items="[{ label: 'Homepage', href: 'index.html' }]"
+            title="About Us"
+            :items="[ { label: 'Our Story', href: 'about.html' },
+              { label: 'Our Relevance', href: 'our-relevance.html' },
+              { label: 'Our People', href: 'people.html' }]"
           />
           <FooterColumn
             title="Company"
             :items="[
-              { label: 'About Us', href: 'about.html' },
-              { label: 'Our Team', href: 'people.html' },
+              { label: 'Our Impact', href: 'our-impact.html' },
+              { label: 'Solutions', href: 'solutions.html' },
             ]"
           />
           <FooterColumn
-            title="Information"
+            title="Legal"
             :items="[
               { label: 'Privacy & Policy', href: 'privacy.html' },
               { label: 'Terms & Conditions', href: 'Terms.html' },
+              { label: 'Cookies', href: 'Terms.html' },
             ]"
           />
           <FooterColumn
             title="Our Initiatives"
             :items="[
-              { label: 'Our Relevance', href: 'our-relevance.html' },
-              { label: 'Our Impact', href: 'our-impact.html' },
+              { label: 'Relevance', href: 'our-relevance.html' },
+              { label: 'Impact', href: 'our-impact.html' },
               { label: 'Projects', href: 'projects.html' },
               { label: 'Manifesto', href: 'manifesto.html' },
-              { label: 'Solutions', href: 'solutions.html' },
+
             ]"
           />
         </div>

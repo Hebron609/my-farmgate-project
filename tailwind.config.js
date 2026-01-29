@@ -30,12 +30,34 @@ module.exports = {
         "sunny-yellow": "#F2CB00",
       },
       fontSize: {
-        'h1': ['2.5rem', { lineHeight: '1.2', fontWeight: '700', fontFamily: 'Livvic' }], // ~40pt
-        'subheading': ['1.5625rem', { lineHeight: '1.3', fontWeight: '600', fontFamily: 'Livvic' }], // ~25pt
-        'body': ['0.875rem', { lineHeight: '1.5', fontWeight: '400', fontFamily: 'Montserrat' }], // 14pt
-        'body-lg': ['1.125rem', { lineHeight: '1.5', fontWeight: '400', fontFamily: 'Montserrat' }], // 18pt
+        h1: [
+          "2.5rem",
+          { lineHeight: "1.2", fontWeight: "700", fontFamily: "Livvic" },
+        ], // ~40pt
+        subheading: [
+          "1.5625rem",
+          { lineHeight: "1.3", fontWeight: "600", fontFamily: "Livvic" },
+        ], // ~25pt
+        body: [
+          "0.875rem",
+          { lineHeight: "1.5", fontWeight: "400", fontFamily: "Montserrat" },
+        ], // 14pt
+        "body-lg": [
+          "1.125rem",
+          { lineHeight: "1.5", fontWeight: "400", fontFamily: "Montserrat" },
+        ], // 18pt
       },
     },
   },
   plugins: [],
+  safelist: [
+    "bg-[rgba(253,250,205,0.1)]",
+    "border-[rgba(253,250,205,0.3)]",
+    "text-[rgba(253,250,205,0.9)]",
+    "hover:from-[rgba(253,250,205,0.2)]",
+    "hover:to-[rgba(253,250,205,0.4)]",
+    "hover:border-[rgba(253,250,205,0.5)]",
+    "hover:shadow-[rgba(253,250,205,0.3)]",
+    "bg-[rgba(253,250,250,0.26)]",
+  ],
 };

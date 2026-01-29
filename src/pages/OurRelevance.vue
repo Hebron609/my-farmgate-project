@@ -1,87 +1,70 @@
 <template>
-  <div>
-    <div
-      class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
-    >
-      <Header :videoVariant="2" />
+  <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
+    <Header :videoVariant="2" />
+
+    <div class="relative h-screen w-full overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-center bg-cover opacity-20"
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${heroPic})` }"
       ></div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-      ></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
-      <!-- Futuristic elements -->
-      <div
-        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/30 animate-pulse"
-      ></div>
-      <div
-        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/50 animate-ping"
-      ></div>
-      <div
-        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/40 animate-pulse"
-      ></div>
-
-      <div
-        class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center"
-      >
-        <div class="mb-6 reveal-fade">
-          <LeafIcon
-            class="w-12 h-12 mx-auto mb-4 text-green-400 animate-bounce"
-          />
-          <h1
-            class="mb-4 text-4xl font-bold tracking-wider text-white md:text-6xl"
-          >
-            OUR RELEVANCE
+      <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <div class="reveal-slide-up">
+          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
+          
+          <h1 class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight">
+            OUR <br />
+            <span class="text-[#129C48]">RELEVANCE.</span>
           </h1>
-          <div
-            class="w-24 h-1 mx-auto mb-6 bg-gradient-to-r from-green-400 to-white"
-          ></div>
         </div>
-        <p
-          class="max-w-[800px] text-xl md:text-2xl text-gray-300 mb-4 font-light reveal-slide-up"
-        >
+
+        <p class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-200 md:text-2xl reveal-slide-up delay-200">
           Transforming lives through sustainable agriculture
         </p>
-        <p class="text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up">
-          We exist to impact lives through sustainable agriculture and shared
-          prosperity
+         <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
+          We exist to impact lives through sustainable agriculture and shared prosperity
         </p>
+
+        <div class="absolute bottom-10 animate-bounce">
+          <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </div>
     </div>
 
-    <div class="min-h-screen selection:bg-green-100">
-      <section class="relative w-full px-6 py-16 overflow-hidden bg-white">
-        <div class="max-w-[1440px] mx-auto">
-          <h2
-            class="mb-16 text-4xl font-bold tracking-wide text-center text-black md:text-5xl reveal-slide-up"
-          >
-            OUR PURPOSE
-          </h2>
+    <section class="w-full bg-white py-24 px-6 md:px-12 relative overflow-hidden">
+       <div class="absolute bottom-4 left-4 text-[#94C93D] opacity-40">
+          <LeafIcon class="w-[60px] h-[60px]" />
+        </div>
+        <div
+          class="absolute bottom-4 right-4 text-[#94C93D] opacity-40 transform scale-x-[-1]"
+        >
+          <LeafIcon class="w-[60px] h-[60px]" />
+        </div>
 
-          <div
-            class="relative grid items-start grid-cols-1 gap-12 md:grid-cols-2"
-          >
+      <div class="mx-auto max-w-[1440px]">
+        <div class="relative grid items-start grid-cols-1 gap-16 md:grid-cols-2 lg:gap-24">
             <div
-              class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#129C48] -translate-x-1/2 opacity-30"
+              class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#F2CB00] -translate-x-1/2 opacity-50"
             ></div>
 
             <div class="flex flex-col items-center text-center group reveal-slide-left">
               <div
                 class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110"
               >
-                <font-awesome-icon :icon="['fas', 'bullseye']" size="3x" />
+                <font-awesome-icon :icon="['fas', 'bullseye']" size="4x" />
               </div>
 
               <h3
-                class="text-[#129C48] font-semibold text-2xl mb-4 tracking-wider uppercase"
+                class="font-['Livvic'] text-[#129C48] font-bold text-3xl mb-4 tracking-wider uppercase"
               >
                 MISSION
               </h3>
 
               <p
-                class="text-gray-700 font-['Montserrat'] font-normal text-lg md:text-xl leading-relaxed max-w-sm"
+                class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed max-w-sm"
               >
                 We exist to impact lives through sustainable agriculture and
                 shared prosperity.
@@ -92,302 +75,218 @@
               <div
                 class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110"
               >
-                <font-awesome-icon :icon="['fas', 'eye']" size="3x" />
+                <font-awesome-icon :icon="['fas', 'eye']" size="4x" />
               </div>
 
               <h3
-                class="text-[#129C48] font-semibold text-2xl mb-4 tracking-wider uppercase"
+                class="font-['Livvic'] text-[#129C48] font-bold text-3xl mb-4 tracking-wider uppercase"
               >
                 VISION
               </h3>
 
               <p
-                class="text-gray-700 font-['Montserrat'] font-normal text-lg md:text-xl leading-relaxed max-w-sm"
+                class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed max-w-sm"
               >
                 To become a backbone for the agricultural revolution in Africa.
               </p>
             </div>
           </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-stone-50 py-24 px-6 md:px-12 relative overflow-hidden">
+       <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+            <img class="h-[600px] w-auto" :src="farmGateLogo" alt="" />
         </div>
 
-        <div class="absolute bottom-4 left-4 text-[#94C93D] opacity-40">
-          <LeafIcon class="w-[60px] h-[60px]" />
-        </div>
-        <div
-          class="absolute bottom-4 right-4 text-[#94C93D] opacity-40 transform scale-x-[-1]"
-        >
-          <LeafIcon class="w-[60px] h-[60px]" />
-        </div>
-      </section>
-
-      <section class="py-25 bg-stone-50 mt-15">
-        <div class="sticky">
-          <div
-            class="w-full h-[300px] z-[-1] absolute top-[150px] right-[150px]"
-          >
-            <img
-              class="h-auto w-[480px] opacity-10"
-              :src="farmGateLogo"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="px-6 mx-auto max-w-7xl">
-          <div class="mb-8 reveal-slide-left">
-            <h1
-              class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[119px]"
-            >
-              <LeafIcon class="text-green-700" />
-              <span class="text-sm font-semibold">Our Values</span>
-            </h1>
-          </div>
-
-          <div
-            class="mb-20 max-w-[1440px] mx-auto flex flex-col md:flex-row md:justify-between md:items-center"
-          >
-            <h2 class="font-semibold md:text-3xl text-stone-800 reveal-slide-up">
-              Our Roots of Impact
+      <div class="mx-auto max-w-7xl relative z-10">
+        <div class="mb-20 flex flex-col items-center text-center">
+            <div class="mb-6 flex items-center justify-center gap-2 px-4 py-2 border border-[#129C48]/30 rounded-full bg-white/50 backdrop-blur-sm">
+              <LeafIcon class="text-[#129C48] h-4 w-4" />
+              <span class="text-sm font-bold text-[#129C48] uppercase tracking-widest">Our Values</span>
+            </div>
+            
+            <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-8 leading-tight max-w-3xl">
+              Discover the values that <br/>
+              <span class="text-[#129C48]">guide our mission.</span>
             </h2>
-            <p class="md:max-w-[50%] leading-relaxed text-md text-stone-600 reveal-slide-up">
+            
+            <p class="text-gray-600 text-lg leading-relaxed max-w-3xl font-light">
               At FGAl, we share a set of core values which underpin and shape
               the way we do our work. The FGAI General Business Principles, Code
               of Conduct and Ethics and Compliance Manual help everyone at FGAI
               to act in line with these values and comply with relevant laws and
               regulations.
             </p>
-          </div>
+        </div>
 
-          <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
-            <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
-            >
-              <div class="flex justify-center mb-8">
-                <img
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger">
+              <div class="mb-8 flex justify-center">
+                 <img
                   src="@/assets/img/wired-outline-1468-morale-hover-pinch.gif"
-                  alt="Integrity - Morale Icon"
-                  class="object-contain w-20 h-20"
+                  alt="Integrity"
+                  class="h-24 w-24 object-contain"
                 />
               </div>
-              <h3 class="mb-3 text-2xl font-bold text-stone-800">Integrity</h3>
-              <p class="font-medium leading-relaxed text-stone-500">
+              <h3 class="mb-4 text-center font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">Integrity</h3>
+              <p class="text-center text-gray-500 leading-relaxed">
                 Strong moral principles, trustworthiness and honesty
               </p>
             </div>
 
-            <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
-            >
-              <div class="flex justify-center mb-8">
+            <div class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger">
+              <div class="mb-8 flex justify-center">
                 <img
-                  src="@/assets/img/wired-outline-1827-growing-plant-hover-pinch.gif"
-                  alt="Integrity - Growing Plant"
-                  class="object-contain w-20 h-20"
+                  src="@/assets/img/wired-outline-20-love-heart-hover-heartbeat.gif"
+                  alt="Accountability"
+                  class="h-24 w-24 object-contain"
                 />
               </div>
-
-              <h3 class="mb-3 text-2xl font-bold text-stone-800">
-                Accountability
-              </h3>
-              <p class="font-medium text-stone-500">
+              <h3 class="mb-4 text-center font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">Accountability</h3>
+              <p class="text-center text-gray-500 leading-relaxed">
                 Stewardship, answerable, discipline and focus
               </p>
             </div>
 
-            <div
-              class="p-10 text-center transition-all bg-white border shadow-sm group border-stone-100 rounded-2xl hover:shadow-md reveal-stagger"
-            >
-              <div class="flex justify-center mb-8">
-                <img
-                  src="@/assets/img/wired-outline-20-love-heart-hover-heartbeat.gif"
-                  alt="Service - Love Heart Icon"
-                  class="object-contain w-20 h-20"
+            <div class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger">
+              <div class="mb-8 flex justify-center">
+                 <img
+                  src="@/assets/img/wired-outline-1827-growing-plant-hover-pinch.gif"
+                  alt="Service"
+                  class="h-24 w-24 object-contain"
                 />
               </div>
-              <h3 class="mb-3 text-2xl font-bold text-stone-800">Service</h3>
-              <p class="font-medium text-stone-500">
+              <h3 class="mb-4 text-center font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">Service</h3>
+              <p class="text-center text-gray-500 leading-relaxed">
                 Respect for people, quality, excellence and going the extra mile
               </p>
             </div>
-          </div>
-
-          <div class="flex items-center my-16">
-            <div class="flex-1 border-t border-stone-300"></div>
-            <div class="mx-4">
-              <LeafIcon class="w-8 h-8 text-green-700" />
-            </div>
-            <div class="flex-1 border-t border-stone-300"></div>
-          </div>
         </div>
-      </section>
-    </div>
+        
+        <div class="flex items-center justify-center mt-20 opacity-30">
+            <div class="h-px w-full bg-gray-400"></div>
+            <div class="px-4"><LeafIcon class="w-6 h-6 text-gray-400" /></div>
+            <div class="h-px w-full bg-gray-400"></div>
+        </div>
+      </div>
+    </section>
 
-    <section
-      ref="footprintSection"
-      class="py-10 overflow-hidden bg-white md:py-24 font-montserrat"
-    >
-      <div class="px-6 mx-auto max-w-[1440px]">
-        <div class="mb-16 text-center md:text-left">
-          <div
-            class="flex items-center justify-center gap-3 mb-4 md:justify-start reveal-slide-left"
-          >
-            <!-- Tag -->
-            <div class="mt-10 mb-5">
-              <h1
-                class="flex items-center gap-1 px-2 py-1 mb-2 border-gray-200 border-1 rounded-2xl max-w-[139px]"
-              >
-                <LeafIcon class="text-green-700" />
-                <span class="text-xs font-semibold">Our Footprint</span>
-              </h1>
-            </div>
-          </div>
-
-          <div class="items-center md:flex md:justify-between">
-            <h2
-              class="text-2xl font-semibold leading-tight md:text-3xl text-stone-900 md:max-w-[30%] mb-4 reveal-slide-up"
-            >
-              Measuring the Scope of Our Agricultural Impact
-            </h2>
-            <p class="md:max-w-[40%] reveal-slide-up">
+    <section ref="footprintSection" class="w-full bg-white py-24 px-6 md:px-12">
+      <div class="mx-auto max-w-[1440px]">
+        
+        <div class="mb-16 md:flex md:items-end md:justify-between">
+           <div class="md:max-w-xl">
+              <div class="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50">
+                <LeafIcon class="text-[#129C48] w-4 h-4" />
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Start Growing With Us</span>
+              </div>
+              <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
+                 Our Footprint
+              </h2>
+              <div class="h-1 w-24 bg-[#F2CB00]"></div>
+           </div>
+           
+           <p class="mt-8 md:mt-0 md:max-w-xl text-gray-600 text-lg leading-relaxed font-light">
               FarmGate Africa strategically manages its agricultural footprint
               to balance large-scale economic development with essential social
               well-being. By operating across the entire agricultural value
               chain, the organization produces high-quality goods that serve two
               distinct purposes.
             </p>
-          </div>
         </div>
 
-        <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-          <div
-            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-stone-100 border border-stone-100 hover:shadow-2xl transition-all duration-700 h-auto md:h-[480px] overflow-hidden reveal-slide-left"
-          >
-            <div class="relative z-10">
-              <div class="flex items-center gap-2 mb-6">
-                <span class="w-8 h-[2px] bg-[#035925]"></span>
-                <span
-                  class="text-xs font-bold tracking-widest uppercase text-[#035925]"
-                  >Industrial Catalyst</span
-                >
-              </div>
-              <h3 class="mb-4 text-3xl font-bold text-stone-900">
-                Industrial Growth
-              </h3>
-              <p class="max-w-[90%] text-base leading-relaxed text-gray-700">
-                <strong
-                  >65% of what we produce is to drive industrial growth.</strong
-                >
-                We help boost local industrial expansion by supplying
-                high-quality, value-added raw materials that strengthen regional
-                supply chains and fuel manufacturing growth.
-              </p>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            
+            <div class="group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] bg-gray-50 p-10 md:p-14 hover:shadow-2xl transition-all duration-500 border border-gray-100 reveal-slide-left">
+               <div class="relative z-10">
+                  <div class="flex items-center gap-3 mb-8">
+                     <div class="h-[2px] w-10 bg-black"></div>
+                     <span class="font-bold uppercase tracking-widest text-sm text-black">Industrial Catalyst</span>
+                  </div>
+                  <h3 class="mb-6 font-['Livvic'] text-3xl font-bold text-black">Industrial Growth</h3>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    <strong class="text-black">65% of what we produce is to drive industrial growth.</strong>
+                    We help boost local industrial expansion by supplying
+                    high-quality, value-added raw materials that strengthen regional
+                    supply chains and fuel manufacturing growth.
+                  </p>
+               </div>
+               
+               <div class="mt-16">
+                  <div class="mb-4 flex items-baseline gap-2">
+                    <span class="text-6xl md:text-8xl font-['Livvic'] font-bold text-black opacity-20 group-hover:opacity-100 transition-opacity duration-500">
+                        {{ displayValues[0] }}%
+                    </span>
+                    <span class="text-sm font-bold uppercase tracking-widest text-gray-400">Current Capacity</span>
+                  </div>
+                  <div class="h-4 w-full rounded-full bg-gray-200 overflow-hidden">
+                     <div 
+                        class="h-full bg-black transition-all duration-1000 ease-out"
+                        :style="{ width: displayValues[0] + '%' }"
+                     ></div>
+                  </div>
+               </div>
             </div>
 
-            <div class="mt-auto">
-              <div class="mb-6">
-                <span
-                  class="text-5xl md:text-7xl font-black text-[#035925] opacity-40 group-hover:opacity-100 transition-all duration-500 block"
-                >
-                  {{ displayValues[0] }}%
-                </span>
-                <span
-                  class="block text-sm font-medium tracking-tighter uppercase text-stone-600 font-montserrat"
-                  >Current Production Capacity</span
-                >
-              </div>
-
-              <div class="w-full h-5 overflow-hidden rounded-full bg-stone-200">
-                <div
-                  class="h-full bg-[#035925] transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(3,89,37,0.3)]"
-                  :style="{ width: displayValues[0] + '%' }"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="group relative flex flex-col justify-between p-6 md:p-12 rounded-[3rem] bg-[#129C48] text-white shadow-2xl hover:scale-[1.03] transition-all duration-700 h-auto md:h-[480px] overflow-hidden reveal-slide-right"
-          >
-            <div class="relative z-10">
-              <div class="flex items-center gap-2 mb-6">
-                <span class="w-8 h-[2px] bg-yellow-400"></span>
-                <span
-                  class="text-xs font-bold tracking-widest text-[#F2CB00] uppercase"
-                  >Household Catalyst</span
-                >
-              </div>
-              <h3 class="mb-4 text-3xl font-bold text-white">
-                Household Consumption
-              </h3>
-              <p class="max-w-[90%] text-base leading-relaxed text-green-50/80">
-                <strong
-                  >35% of whatever we grow is aimed at contributing to daily
-                  households’ consumption.</strong
-                >
-                We at FGAI ensure that a significant portion of our production
-                is funneled directly into households as our contribution to help
-                combat food insecurity and support the daily nutritional needs
-                of individuals, families and animals.
-              </p>
+            <div class="group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] bg-[#129C48] p-10 md:p-14 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] reveal-slide-right">
+               <div class="relative z-10">
+                  <div class="flex items-center gap-3 mb-8">
+                     <div class="h-[2px] w-10 bg-[#F2CB00]"></div>
+                     <span class="font-bold uppercase tracking-widest text-sm text-[#F2CB00]">Household Catalyst</span>
+                  </div>
+                  <h3 class="mb-6 font-['Livvic'] text-3xl font-bold text-white">Household Consumption</h3>
+                  <p class="text-green-50 leading-relaxed text-lg opacity-90">
+                    <strong class="text-white">35% of whatever we grow is aimed at contributing to daily households’ consumption.</strong>
+                    We at FGAI ensure that a significant portion of our production
+                    is funneled directly into households as our contribution to help
+                    combat food insecurity.
+                  </p>
+               </div>
+               
+               <div class="mt-16">
+                  <div class="mb-4 flex items-baseline gap-2">
+                    <span class="text-6xl md:text-8xl font-['Livvic'] font-bold text-white opacity-30 group-hover:opacity-100 transition-opacity duration-500">
+                        {{ displayValues[1] }}%
+                    </span>
+                    <span class="text-sm font-bold uppercase tracking-widest text-green-200">Direct Reach</span>
+                  </div>
+                  <div class="h-4 w-full rounded-full bg-white/20 overflow-hidden">
+                     <div 
+                        class="h-full bg-[#F2CB00] transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(242,203,0,0.5)]"
+                        :style="{ width: displayValues[1] + '%' }"
+                     ></div>
+                  </div>
+               </div>
             </div>
 
-            <div class="mt-auto">
-              <div class="mb-6">
-                <span
-                  class="block font-black text-white transition-all duration-500 text-5xl md:text-7xl opacity-40 group-hover:opacity-100"
-                >
-                  {{ displayValues[1] }}%
-                </span>
-                <span
-                  class="block text-sm font-medium tracking-tighter text-green-100 uppercase font-montserrat"
-                  >Direct Household Reach</span
-                >
-              </div>
-
-              <div class="w-full h-5 overflow-hidden rounded-full bg-white/10">
-                <div
-                  class="h-full transition-all duration-1000 ease-out bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                  :style="{ width: displayValues[1] + '%' }"
-                ></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="relative py-32 overflow-hidden font-montserrat">
-      <div
-        class="absolute inset-0 bg-center bg-cover"
-        :style="{ backgroundImage: `url(/images/our-goal-bg-image.avif)` }"
+    <section class="relative h-[600px] w-full overflow-hidden flex items-center justify-center">
+        <div
+        class="absolute inset-0 bg-cover bg-center bg-fixed"
+        :style="{ backgroundImage: `url(${farmPic9})` }"
       ></div>
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="relative px-6 mx-auto max-w-[1440px] z-10">
-        <div class="mb-16 text-center">
-          <div class="flex items-center justify-center reveal-fade">
-            <h1
-              class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-md px-4 sm:px-5 md:px-3 flex items-center gap-2"
-            >
-              <LeafIcon class="text-white" />
-              <span>Our Goal</span>
-            </h1>
-          </div>
-
-          <p
-            class="max-w-4xl mx-auto leading-relaxed text-white text-body-lg font-montserrat reveal-slide-up"
-          >
-            Our goal is practically simple – we aim to produce what we want from
+      <div class="absolute inset-0 bg-black/60"></div>
+      
+      <div class="relative z-10 px-6 max-w-4xl text-center">
+         <div class="mb-8 flex justify-center reveal-fade">
+            <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+               <LeafIcon class="text-[#F2CB00]" />
+               <span class="font-bold uppercase tracking-widest text-sm">Our Goal</span>
+            </div>
+         </div>
+         
+         <p class="font-['Livvic'] text-2xl md:text-4xl font-bold text-white leading-tight reveal-slide-up">
+            "Our goal is practically simple – we aim to produce what we want from
             what we have by innovatively deploying Africa’s technology to
-            contribute to solving Africa’s food security problems, while
-            empowering growers, regenerating the land we depend on and
-            strengthening supply chains and market access engagement.
-          </p>
-        </div>
+            contribute to solving Africa’s food security problems."
+         </p>
       </div>
     </section>
 
-    <GrowWithUs />
-
-    <!-- Footer -->
     <Footer />
   </div>
 </template>
@@ -398,11 +297,12 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import GrowWithUs from "../components/GrowWithUs.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBullseye, faEye } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
+import farmPic9 from '@/assets/img/farm-pic9.jpg';
+import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
 
 library.add(faBullseye, faEye);
 
@@ -471,19 +371,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", checkMobile);
 });
-
-import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
-import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
-import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
-import visionFutureImg from "@/assets/img/Vision-future-img.jpg";
-import farmerImg from "@/assets/img/farmer.webp";
-
-const impactStats = [
-  { value: "50K+", label: "Hectares of farmland cultivated" },
-  { value: "100K+", label: "Farmers supported with inputs" },
-  { value: "25+", label: "Local communities transformed" },
-  { value: "45%", label: "Average increase in crop yield" },
-];
 </script>
 
-<style></style>
+<style scoped>
+/* Ensure smooth transitions if Tailwind utility classes aren't sufficient */
+</style>
