@@ -10,31 +10,9 @@
           :src="farmGateLogo"
           alt="Logo"
         />
-        <h3
-          class="text-lg sm:text-xl md:text-2xl font-semibold leading-snug max-w-[90%] sm:max-w-[280px]"
-        >
-          Redefining agriculture at a global scale.
-        </h3>
-        <!-- Social Links -->
-        <!--
-        <div class="flex flex-wrap items-center gap-4">
-          <FooterSocialButton
-            icon="fa-brands fa-instagram"
-            label="Instagram"
-            href="https://instagram.com"
-          />
-          <FooterSocialButton
-            icon="fa-brands fa-youtube"
-            label="YouTube"
-            href="https://youtube.com"
-          />
-          <FooterSocialButton
-            icon="fa-brands fa-facebook-f"
-            label="Facebook"
-            href="https://facebook.com"
-          />
-        </div>
-        -->
+
+       
+        
       </div>
 
       <!-- Right Content -->
@@ -42,34 +20,37 @@
         <div
           class="grid grid-cols-2 text-sm gap-x-6 gap-y-6 sm:grid-cols-3 sm:gap-x-10 md:grid-cols-4 sm:text-base"
         >
-          <FooterColumn
-            title="About Us"
-            :items="[ { label: 'Our Story', href: 'about.html' },
-              { label: 'Our Relevance', href: 'our-relevance.html' },
-              { label: 'Our People', href: 'people.html' }]"
-          />
+         
           <FooterColumn
             title="Company"
             :items="[
-              { label: 'Our Impact', href: 'our-impact.html' },
-              { label: 'Solutions', href: 'solutions.html' },
+             { label: 'Our Story', href: 'about.html' },
+             { label: 'Our Initiatives', href: 'solutions.html' },
+             { label: 'Investor Relations', href: 'index.html' },
+             { label: 'Marketplace', href: 'marketplace.html' },
             ]"
           />
           <FooterColumn
             title="Legal"
             :items="[
-              { label: 'Privacy & Policy', href: 'privacy.html' },
               { label: 'Terms & Conditions', href: 'Terms.html' },
+              { label: 'Privacy Policy', href: 'privacy.html' },
+              { label: 'Refund & Return Policy', href: 'index.html' },
               { label: 'Cookies', href: 'Terms.html' },
             ]"
           />
           <FooterColumn
-            title="Our Initiatives"
+            title="Quick links"
             :items="[
-              { label: 'Relevance', href: 'our-relevance.html' },
-              { label: 'Impact', href: 'our-impact.html' },
-              { label: 'Projects', href: 'projects.html' },
-              { label: 'Manifesto', href: 'manifesto.html' },
+              
+
+            ]"
+          />
+          
+          <FooterColumn
+            title="Quick links"
+            :items="[
+              
 
             ]"
           />

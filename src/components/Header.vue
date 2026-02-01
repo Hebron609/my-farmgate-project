@@ -31,7 +31,7 @@
           <div v-else class="flex items-start h-[50px]">
             <a
               href="/marketplace.html"
-              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
+              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgb(253,250,250)] rounded-4xl items-center cursor-pointer"
             >
               <span
                 class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -352,6 +352,30 @@
                     ></span>
                   </a>
                 </li>
+                
+                <li>
+                  <a
+                    href="footprint.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Footprint
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/manifesto.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Manifesto
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
 
                 <li>
                   <a
@@ -428,17 +452,7 @@
                     ></span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/manifesto.html"
-                    class="relative pb-2 text-xl font-medium group"
-                  >
-                    Manifesto
-                    <span
-                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                    ></span>
-                  </a>
-                </li>
+               
               </ul>
             </transition>
           </div>

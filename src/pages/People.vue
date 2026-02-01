@@ -19,11 +19,9 @@
           </h1>
         </div>
 
-        <p class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-200 md:text-2xl reveal-slide-up delay-200">
-          The team behind the mission.
-        </p>
+    
          <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
-          Meet the experts and innovators driving sustainable agriculture forward.
+          Meet the experts and innovators behind the mission towards driving sustainable agriculture forward.
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
@@ -44,16 +42,37 @@
         <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
            
            <div class="md:max-w-xl reveal-slide-right">
-              <div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50">
-                <LeafIcon class="text-[#129C48] w-4 h-4" />
-                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Our Team</span>
-              </div>
+            <div class="inline-flex">
+              <a
+                href="/solutions.html"
+                class="inline-flex group relative overflow-hidden px-3 py-1 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap"
+              >
+                <span
+                  class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                >
+                  <LeafIcon class="text-[#129C48] w-4 h-4 shrink-0" />
+                  <span
+                    class="text-xs font-semibold tracking-wider text-gray-500"
+                    >Our solution</span
+                  >
+                </span>
+
+                <span
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                >
+                  <LeafIcon class="w-4 h-4 text-black shrink-0" />
+                  <span class="text-xs font-semibold leading-none"
+                    >Our solution</span
+                  >
+                </span>
+              </a>
+            </div>
               <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
                  Who <span class="text-[#129C48]">We Are</span>
               </h2>
               <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-               <p class="text-gray-600 text-lg leading-relaxed font-light">
-                 We are a team of agronomists, technologists, and sustainability experts.
+               <p class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]">
+                 We are a team of agronomists, technologists, agripreneur, and sustainability experts.
               </p>
            </div>
 
@@ -97,29 +116,35 @@
           <div
             v-for="member in filteredTeam"
             :key="member.name"
-            class="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300 rounded-full reveal-stagger aspect-square w-32 sm:w-48 lg:w-48 mx-auto"
+            class="group cursor-pointer transition-all duration-300 reveal-stagger mx-auto w-32 sm:w-48 lg:w-48 text-center"
             @click="openModal(member)"
             :aria-label="'View profile of ' + member.name"
           >
-            <img
-              :src="member.photoUrl"
-              :alt="'Photo of ' + member.name"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end items-center text-center pb-4"
-            >
-              <h3
-                class="text-white text-xs sm:text-sm md:text-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-serif"
-              >
-                {{ member.name.split(" ")[0] }}
-              </h3>
-              <p
-                class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
-              >
-                {{ member.title.split(" ")[0] }}
-              </p>
+            <div class="relative overflow-hidden rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300 transition-all duration-300">
+                <img
+                    :src="member.photoUrl"
+                    :alt="'Photo of ' + member.name"
+                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex flex-col justify-end items-center text-center pb-4"
+                >
+                    <h3
+                        class="text-white text-xs sm:text-sm md:text-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-serif"
+                    >
+                        {{ member.name.split(" ")[0] }}
+                    </h3>
+                    <p
+                        class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
+                    >
+                        {{ member.title.split(" ")[0] }}
+                    </p>
+                </div>
+            </div>
+            <div class="mt-4 md:hidden">
+                <h3 class="font-bold text-black">{{ member.name.split(" ")[0] }}</h3>
+                <p class="text-sm text-[#129C48]">{{ member.title.split(" ")[0] }}</p>
             </div>
           </div>
         </div>

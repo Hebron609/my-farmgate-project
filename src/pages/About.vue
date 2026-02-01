@@ -24,17 +24,15 @@
           <h1
             class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
-            THE FUTURE <br />
-            <span class="text-[#129C48]">IS GROWN.</span>
+            OUR <br />
+            <span class="text-[#129C48]">STORY.</span>
           </h1>
         </div>
 
         <p
-          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-200 delay-200 md:text-2xl reveal-slide-up"
+          class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-400 md:text-lg reveal-slide-up delay-200"
         >
-          We are not just farming. We are engineering the
-          <br class="hidden md:block" />
-          backbone of Africa's agricultural revolution.
+          Redefining agriculture at a global scale.
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
@@ -135,7 +133,7 @@
             class="absolute -bottom-12 md:bottom-12 left-6 right-6 rounded-xl bg-white p-8 shadow-2xl border-l-8 border-[#F2CB00]"
           >
             <h4 class="font-['Livvic'] text-xl font-bold text-black mb-2">
-              Our 5-Year Strategic Plan: <br />
+              Our 5-Year Strategic Plan: 
               <span class="text-[#129C48]"
                 >2030 Vision for Shared Prosperity</span
               >

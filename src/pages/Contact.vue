@@ -39,7 +39,7 @@
           ></div>
         </div>
         <p
-          class="md:max-w-[40%] text-md md:text-xl text-gray-300 mb-4 font-light reveal-slide-up"
+          class="md:max-w-[30%] text-md md:text-base text-gray-300 mb-4 font-light reveal-slide-up"
         >
           Get in touch with FarmGate Africa. We're here to help advance
           agriculture and connect with you.

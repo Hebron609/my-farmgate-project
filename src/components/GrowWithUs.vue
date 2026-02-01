@@ -17,15 +17,14 @@
        <h2
          class="max-w-[90%] sm:max-w-[500px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 leading-tight"
        >
-         Grow something great together.
+         Let grow something great together.
    </h2>
 
        <p
          class="text-white max-w-[90%] sm:max-w-[490px] text-xs sm:text-sm md:text-base mb-6 sm:mb-8 mt-2"
        >
-         Whether you’re a farmer, distributor, or partner, we’re here to
-         support your goals with sustainable solutions and global
-         expertise.
+         Whether you’re an organization, an NGO, a farmer, distributor, a coporate body an individual, we’re here to
+         partner you, to achieve your sustainable farming goals. 
        </p>
 
        <a

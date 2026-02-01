@@ -29,11 +29,7 @@
           </h1>
         </div>
 
-        <p
-          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-200 delay-200 md:text-2xl reveal-slide-up"
-        >
-          We are committed to advancing agriculture and impacting lives.
-        </p>
+    
         <p
           class="mt-4 text-gray-400 max-w-[700px] text-sm md:text-base reveal-slide-up delay-300"
         >

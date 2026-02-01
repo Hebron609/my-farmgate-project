@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="font-semibold text-[rgb(13,46,26)] mb-2">{{ title }}</h4>
+    <p class="font-semibold text-[rgb(13,46,26)] mb-2">{{ title }}</p>
     <ul class="space-y-1">
       <li
         v-for="(item, index) in items"
