@@ -109,6 +109,20 @@
             </p>
           </div>
         </div>
+
+        <div class="mt-24 flex justify-center">
+            <div class="flex flex-col items-center text-center group reveal-slide-up max-w-lg">
+                <div class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110">
+                    <font-awesome-icon :icon="['fas', 'gem']" size="4x" />
+                </div>
+                <h3 class="font-['Livvic'] text-black font-bold text-3xl mb-4 tracking-wider uppercase">
+                    CORE VALUES
+                </h3>
+                <p class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed">
+                    Our principles of integrity, accountability, and service guide every decision and action we take.
+                </p>
+            </div>
+        </div>
       </div>
     </section>
 
@@ -130,7 +144,7 @@
             >
               <LeafIcon class="text-[#129C48] w-4 h-4" />
               <span class="text-xs font-semibold tracking-wider text-gray-500"
-                >Core values</span
+                >Start growing with us</span
               >
             </span>
 
@@ -139,7 +153,7 @@
             >
               <LeafIcon class="w-4 h-4 text-black" />
               <span class="text-xs font-semibold leading-none"
-                >Core values</span
+                >Start growing with us</span
               >
             </span>
           </a>
@@ -290,13 +304,13 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faBullseye, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faBullseye, faEye, faGem } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
 import farmPic9 from "@/assets/img/farm-pic9.jpg";
 import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
 
-library.add(faBullseye, faEye);
+library.add(faBullseye, faEye, faGem);
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,

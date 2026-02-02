@@ -529,7 +529,7 @@
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
-                  No. 6 Nii Notes Baale Ave, <br />
+                  No. 6 Nii Kotey Baale Ave, <br />
                   East Legon, Accra,<br />
                   Greater Accra Region (GA-414-1928)
                 </p>
