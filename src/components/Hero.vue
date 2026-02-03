@@ -139,7 +139,7 @@
       @click.self="closeModal"
     >
       <div
-        class="relative flex flex-col w-full max-w-6xl sm:h-[550px] overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
+        class="relative flex flex-col w-full max-w-6xl sm:h-[480px] overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
       >
         <!-- Close Button -->
         <button

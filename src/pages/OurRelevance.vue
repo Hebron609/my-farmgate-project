@@ -157,11 +157,11 @@
         <img class="h-[600px] w-auto" :src="farmGateLogo" alt="" />
       </div>
 
-      <div class="mx-auto max-w-7xl relative z-10">
+      <div class="mx-auto max-w-[1440px] relative z-10">
         <div class="mb-20 flex flex-col items-center text-center">
           <a
             href="/marketplace.html"
-            class="flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200"
+            class="flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 md:mb-10 mb-5"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
