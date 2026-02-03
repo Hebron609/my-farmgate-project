@@ -21,6 +21,28 @@ export const TEAM_DATA = [
     department: "Governance & Leadership",
     order: 2
   },
+  {
+    name: "Rachael Frempah",
+    title: "Finance Lead",
+    location: "Accra, Ghana",
+    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before Innohub, she worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is pursuing ACCA certification to become a Chartered Accountant.",
+    photoUrl: "/images/Rachael.png",
+    email: "",
+    socialLinks: { linkedin: "" },
+    department: "Board Of Directors",
+    order: 1
+  },
+  {
+    name: "Linda Amankwah",
+    title: "Human Capital Manager",
+    location: "Accra, Ghana",
+    bio: "Linda is an HR professional with experience in banking, insurance, and non-profit sectors. She has successfully managed projects in organizational restructuring and talent acquisition as an Associate Consultant at Excel HR Consult. Linda holds an MBA in Human Resource Management and a Bachelor’s in English and Psychology from the University of Ghana.",
+    photoUrl: "/images/Linda.png",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Operations Management",
+    order: 2
+  },
 
   
 ];

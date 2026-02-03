@@ -9,6 +9,17 @@
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${footprintHeroPic})` }"
       ></div>
+
+      <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/60 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/15 to-black/80"
       ></div>
@@ -53,14 +64,12 @@
       </div>
     </div>
 
-    <section ref="footprintSection" class="w-full bg-white py-24 px-6 md:px-12">
+    <section ref="footprintSection" class="w-full bg-white pb-20 px-6 md:px-12 mt-14">
       <div class="mx-auto max-w-[1440px]">
-        <div class="mb-16 md:flex md:items-end md:justify-between">
-          <div class="md:max-w-xl">
-            <div class="inline-flex">
+        <div class="inline-flex ">
               <a
                 href="/marketplace.html"
-                class="inline-flex group relative overflow-hidden px-3 py-1 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap"
+                class="inline-flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
               >
                 <span
                   class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -82,23 +91,25 @@
                 </span>
               </a>
             </div>
-            <h2
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6"
-            >
-              Our Footprint
-            </h2>
-            <div class="h-1 w-24 bg-[#F2CB00]"></div>
-          </div>
 
-          <p
-            class="mt-8 md:mt-0 md:max-w-[50%] text-gray-600 text-lg leading-relaxed font-light"
-          >
-            FarmGate Africa & Industries strategically manages its agricultural footprint to
+            <div class="flex flex-col md:flex-row justify-between md:items-center md:gap-12 mb-22">
+           <div class="md:max-w-2xl reveal-slide-right">
+            
+              <h3 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight">
+                Our Footprint
+              </h3>
+           </div>
+
+           <div class="md:max-w-2xl reveal-slide-left">
+               <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+               <p class="text-gray-600 text-lg leading-relaxed font-light">
+                FarmGate Africa & Industries strategically manages its agricultural footprint to
             balance large-scale economic development with essential social
             well-being. By operating across the entire agricultural value chain,
             the organization produces high-quality goods that serve two distinct
             purposes.
-          </p>
+              </p>
+           </div>
         </div>
 
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">

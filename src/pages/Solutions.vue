@@ -9,6 +9,17 @@
       ></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
+      <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10  md:border-green-400/60 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 md:border-green-400/60 animate-pulse"
+      ></div>
+
+
       <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <div class="reveal-slide-up">
           <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
@@ -31,19 +42,19 @@
       </div>
     </div>
 
-    <section class="w-full bg-white py-24 px-6 md:px-12 relative overflow-hidden">
+    <section class="w-full bg-white pb-20 px-6 md:px-12 relative overflow-hidden mt-14">
         <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
              <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
         </div>
 
-      <div class="mx-auto max-w-[1440px] relative z-10">
         
-        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
-           <div class="md:max-w-2xl reveal-slide-right">
-            <div class="inline-flex">
+
+      <div class="mx-auto max-w-[1440px] relative z-10">
+
+        <div class="inline-flex">
               <a
                 href="/marketplace.html"
-                class="inline-flex group relative overflow-hidden px-3 py-1 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap"
+                class="inline-flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
               >
                 <span
                   class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -65,6 +76,10 @@
                 </span>
               </a>
             </div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
+           <div class="md:max-w-2xl reveal-slide-right">
+            
               <h3 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight">
                  We believe sustainable farming <span class="text-[#129C48]">holds the answer.</span>
               </h3>
@@ -81,7 +96,7 @@
         <div>
            <div class="mb-16 text-center reveal-slide-up">
               <h3 class="font-['Livvic'] text-3xl font-bold uppercase tracking-widest text-black mb-4">
-                Our Mandate
+                Our Core Mandate
               </h3>
               <div class="h-1 w-16 bg-[#129C48] mx-auto"></div>
            </div>
@@ -90,7 +105,7 @@
             <div
               v-for="area in focalAreas"
               :key="area.name"
-              class="group relative bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger cursor-default"
+              class="group relative bg-stone-50 p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger cursor-default"
             >
               <div class="absolute inset-0 bg-gradient-to-br from-[#129C48]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-[2rem]"></div>
 
@@ -188,7 +203,7 @@ const focalAreas = [
   },
   {
     name: "Food Processing",
-    desc: "Transforming raw agricultural products into consumable goods.",
+    desc: "Transforming raw agricultural products into value-added consumable goods.",
     icon: "fa-industry",
   },
   {
@@ -197,7 +212,7 @@ const focalAreas = [
     icon: "fa-clipboard",
   },
   {
-    name: "Training",
+    name: "Training-CBTM",
     desc: "Educating farmers and stakeholders on best practices.",
     icon: "fa-graduation-cap",
   },

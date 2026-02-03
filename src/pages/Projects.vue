@@ -9,6 +9,17 @@
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${farmPic})` }"
       ></div>
+
+      <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/60 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+      
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
@@ -65,7 +76,7 @@
         <div class="inline-flex">
               <a
                 href="/marketplace.html"
-                class="inline-flex group relative overflow-hidden px-3 py-1 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap"
+                class="inline-flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-8"
               >
                 <span
                   class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"

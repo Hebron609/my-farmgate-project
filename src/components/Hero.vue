@@ -139,7 +139,7 @@
       @click.self="closeModal"
     >
       <div
-        class="relative flex flex-col w-full max-w-6xl overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
+        class="relative flex flex-col w-full max-w-6xl sm:h-[550px] overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
       >
         <!-- Close Button -->
         <button
@@ -153,7 +153,7 @@
         <img
           :src="selectedOption.image"
           alt="option image"
-          class="object-cover w-full h-52 sm:h-auto sm:w-1/2"
+          class="object-cover w-full h-52 sm:h-full sm:w-1/2"
         />
 
         <!-- Right Text Box -->

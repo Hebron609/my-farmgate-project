@@ -9,6 +9,17 @@
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${heroPic})` }"
       ></div>
+
+      <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/60 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+      
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
@@ -111,17 +122,30 @@
         </div>
 
         <div class="mt-24 flex justify-center">
-            <div class="flex flex-col items-center text-center group reveal-slide-up max-w-lg">
-                <div class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110">
-                    <font-awesome-icon :icon="['fas', 'gem']" size="4x" />
-                </div>
-                <h3 class="font-['Livvic'] text-black font-bold text-3xl mb-4 tracking-wider uppercase">
-                    CORE VALUES
-                </h3>
-                <p class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed">
-                    Our principles of integrity, accountability, and service guide every decision and action we take.
-                </p>
+          <div
+            class="flex flex-col items-center text-center group reveal-slide-up max-w-[80%]"
+          >
+            <div
+              class="mb-6 text-[#129C48] transform transition-transform duration-300 group-hover:scale-110"
+            >
+              <font-awesome-icon :icon="['fas', 'gem']" size="4x" />
             </div>
+            <h3
+              class="font-['Livvic'] text-black font-bold text-3xl mb-4 tracking-wider uppercase"
+            >
+              CORE VALUES
+            </h3>
+            <p
+              class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed"
+            >
+              Our principles of integrity, accountability, and service guide
+              every decision and action we take. At FGAl, we share a set of core
+              values which underpin and shape the way we do our work. The FGAI
+              General Business Principles, Code of Conduct and Ethics and
+              Compliance Manual help everyone at FGAI to act in line with these
+              values and comply with relevant laws and regulations.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -137,7 +161,7 @@
         <div class="mb-20 flex flex-col items-center text-center">
           <a
             href="/marketplace.html"
-            class="flex group relative overflow-hidden px-3 py-1 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200"
+            class="flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -164,14 +188,6 @@
             Discover the values that <br />
             <span class="text-[#129C48]">guide our mission.</span>
           </h2>
-
-          <p class="text-gray-600 text-lg leading-relaxed max-w-3xl font-light">
-            At FGAl, we share a set of core values which underpin and shape the
-            way we do our work. The FGAI General Business Principles, Code of
-            Conduct and Ethics and Compliance Manual help everyone at FGAI to
-            act in line with these values and comply with relevant laws and
-            regulations.
-          </p>
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -244,54 +260,40 @@
       </div>
     </section>
 
-   
-
     <section
-      class="relative h-[600px] w-full overflow-hidden flex items-center justify-center"
-    >
-      <div
-        class="absolute inset-0 bg-cover bg-center bg-fixed"
-        :style="{ backgroundImage: `url(${farmPic9})` }"
-      ></div>
-      <div class="absolute inset-0 bg-black/60"></div>
+  class="relative h-[600px] w-full overflow-hidden flex items-center justify-center"
+>
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-fixed"
+    :style="{ backgroundImage: `url(${farmPic9})` }"
+  ></div>
+  
+  <div class="absolute inset-0 bg-black/60"></div>
 
-      <div class="relative z-10 px-6 max-w-4xl text-center">
-        <div class="mb-8 flex justify-center reveal-fade">
-         
-          <a
-              href="/marketplace.html"
-              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-white/20 rounded-4xl items-center cursor-pointer"
-            >
-              <span
-                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-              >
-                <LeafIcon class="w-4 h-4 text-white" />
-                <span class="text-xs font-semibold leading-none text-white"
-                  >Our goal</span
-                >
-              </span>
-
-              <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-              >
-                <LeafIcon class="w-4 h-4 text-black" />
-                <span class="text-xs font-semibold leading-none"
-                  >Our goal</span
-                >
-              </span>
-            </a>
-          
-        </div>
-
-        <p
-          class="font-['Livvic'] text-2xl md:text-4xl font-bold text-white leading-tight reveal-slide-up"
-        >
-          Our goal is practically simple – we aim to produce what we need from
-          what we have by innovatively deploying Africa’s technology to
-          contribute to solving Africa’s food insecurity and nutrition problems.
-        </p>
+  <div class="relative z-10 px-6 max-w-5xl text-center">
+    
+    <div class="mb-10 flex flex-col items-center justify-center reveal-fade">
+      <div class="mb-6 text-[#129C48] drop-shadow-2xl filter">
+        <font-awesome-icon 
+          :icon="['fas', 'trophy']" 
+          class="text-6xl md:text-[5rem]" 
+        />
       </div>
-    </section>
+      
+      <h3 class="font-['Livvic'] text-white font-bold text-lg md:text-3xl tracking-[0.25em] uppercase border-b-2 border-[#129C48] pb-2 px-4 inline-block">
+        Our Goals
+      </h3>
+    </div>
+
+    <p
+      class="font-['Livvic'] text-2xl md:text-4xl font-bold text-white leading-tight md:leading-snug shadow-sm reveal-slide-up"
+    >
+      Our goal is practically simple – we aim to produce what we need from
+      what we have by innovatively deploying Africa’s technology to
+      contribute to solving Africa’s food insecurity and nutrition problems.
+    </p>
+  </div>
+</section>
 
     <Footer />
   </div>
@@ -304,13 +306,18 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faBullseye, faEye, faGem } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBullseye,
+  faEye,
+  faGem,
+  faTrophy,
+} from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
 import farmPic9 from "@/assets/img/farm-pic9.jpg";
 import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
 
-library.add(faBullseye, faEye, faGem);
+library.add(faBullseye, faEye, faGem, faTrophy);
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,

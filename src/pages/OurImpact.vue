@@ -9,6 +9,17 @@
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${ImpactImg})` }"
       ></div>
+
+      <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/60 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
@@ -78,7 +89,7 @@
           <h2
             class="font-['Livvic'] text-3xl md:text-6xl font-bold text-white leading-tight reveal-impact-stats"
           >
-            OUR IMPACT <span class="text-[#F2CB00]">STATS.</span>
+            Our Impact <span class="text-[#F2CB00]">Stats.</span>
           </h2>
         </div>
 
@@ -94,14 +105,14 @@
           </p>
 
           <button
-            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-8 group rounded-xl w-fit md:mt-0 reveal-slide-right"
+            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-xl w-fit md:mt-0 reveal-slide-right"
           >
             <span
               class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
               <span
-                class="text-xs font-bold tracking-widest text-white uppercase"
-                >JOIN US NOW</span
+                class="text-sm font-bold tracking-widest text-white "
+                >Send us a message</span
               >
               <svg
                 class="w-4 h-4 text-white"
@@ -121,8 +132,8 @@
             <span
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
             >
-              <span class="text-xs font-bold tracking-widest uppercase"
-                >JOIN US NOW</span
+              <span class="text-sm font-bold tracking-widest "
+                >Send us a message</span
               >
               <svg
                 class="w-4 h-4 text-black"
@@ -241,7 +252,7 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
-import ImpactImg from "@/assets/img/crop-planting.jpg"
+import ImpactImg from "@/assets/img/Women-farm.jpg"
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 
