@@ -156,7 +156,7 @@
           <div
             v-for="(stat) in impactStats"
             :key="stat.label"
-            class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-4 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger"
+            class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-2.5 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger"
           >
             <div
               class="mb-2 font-['Livvic'] text-2xl md:text-5xl font-bold text-white group-hover:text-[#F2CB00] transition-colors"

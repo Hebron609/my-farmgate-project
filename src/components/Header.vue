@@ -31,7 +31,7 @@
           <div v-else class="flex items-start h-[50px]">
             <a
               href="/marketplace.html"
-              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgb(253,250,250)] rounded-4xl items-center cursor-pointer"
+              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)]  rounded-4xl items-center cursor-pointer"
             >
               <span
                 class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
