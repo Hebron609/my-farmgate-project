@@ -261,7 +261,7 @@ const emit = defineEmits(["update:videoVariant"]);
 
 import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
-import trackImg from "@/assets/img/track.webp";
+import trackImg from "@/assets/img/track-with-us-img.webp";
 import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
 import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
