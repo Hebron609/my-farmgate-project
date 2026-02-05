@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+import Footer from "./src/components/Footer.vue";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -31,6 +32,7 @@ export default defineConfig({
         impact: path.resolve(__dirname, "our-impact.html"),
         privacy: path.resolve(__dirname, "privacy.html"),
         Contact: path.resolve(__dirname, "contact.html"),
+        footer: path.resolve(__dirname, "footer.html"),
       },
     },
   },
