@@ -31,7 +31,6 @@ export default defineConfig({
         impact: path.resolve(__dirname, "our-impact.html"),
         privacy: path.resolve(__dirname, "privacy.html"),
         Contact: path.resolve(__dirname, "contact.html"),
-        footprint: path.resolve(__dirname, "footprint.html"),
       },
     },
   },
