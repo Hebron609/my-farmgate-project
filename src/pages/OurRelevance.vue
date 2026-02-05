@@ -91,9 +91,9 @@
             </h3>
 
             <p
-              class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed md:max-w-[70%]"
+              class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed md:max-w-[70%] max-w-full"
             >
-              We exist to impact lives through sustainable agriculture and
+              We exist to impact lives through sustainable agriculture and 
               shared prosperity.
             </p>
           </div>

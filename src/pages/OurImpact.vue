@@ -83,7 +83,7 @@
       <div class="absolute inset-0 bg-[#1b2418]/70"></div>
 
       <div
-        class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 flex flex-col justify-between h-full"
+        class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-20 pt-14 flex flex-col justify-between h-full"
       >
         <div class="mb-8 md:pt-12 md:mb-0">
           <h2
