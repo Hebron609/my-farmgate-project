@@ -76,7 +76,7 @@
         <div class="inline-flex">
           <a
             href="/marketplace.html"
-            class="inline-flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
+            class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -99,7 +99,7 @@
         </div>
 
         <div
-          class="flex flex-col md:flex-row justify-between md:items-center mb-16 md:gap-12"
+          class="flex flex-col md:flex-row justify-between md:items-start mb-16 md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h2
@@ -110,6 +110,7 @@
           </div>
 
           <div class="md:max-w-xl reveal-slide-left">
+            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
             <p class="text-gray-600 text-lg leading-relaxed font-light">
               Discover the values that guide our mission. These are the
               deep-rooted principles that ensure every seed we sow leads to a

@@ -214,26 +214,16 @@
             </div>
           </div>
 
-          <div class="reveal-slide-right">
-            <a
-              href="/marketplace.html"
-              class="relative flex items-center justify-center w-24 h-24 transition-all duration-300 bg-white rounded-full shadow-2xl group md:h-32 md:w-32 hover:scale-110"
+          <div class="reveal-slide-right z-30">
+            <div
+              class="relative w-full lg:w-[450px] h-64 lg:h-[350px] overflow-hidden rounded-2xl z-30"
             >
-              <div
-                class="absolute inset-0 rounded-full border-2 border-dashed border-white/50 animate-[spin_10s_linear_infinite] scale-125"
-              ></div>
-              <div
-                class="flex flex-col items-center justify-center text-center"
-              >
-                <LeafIcon
-                  class="w-6 h-6 text-[#035925] mb-1 group-hover:text-[#F2CB00] transition-colors"
-                />
-                <span
-                  class="text-[10px] font-black uppercase tracking-widest text-[#035925] leading-tight"
-                  >Join<br />Impact</span
-                >
-              </div>
-            </a>
+              <img
+                :src="WindMillSvg"
+                alt="Wind Mill Illustration"
+                class="absolute inset-0 object-cover w-full h-full z-30"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -253,6 +243,7 @@ import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 import ImpactImg from "@/assets/img/Women-farm.jpg"
+import WindMillSvg from "@/assets/img/svgviewer-output1.svg";
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 

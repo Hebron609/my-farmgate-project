@@ -19,7 +19,7 @@
       <div
         class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
       ></div>
-      
+
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
@@ -242,7 +242,7 @@
                 {{ item.description }}
               </p>
               <button
-                class="mx-auto flex relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-white/25 rounded-4xl items-center cursor-pointer"
+                class="mx-auto flex relative overflow-hidden px-4 py-2 backdrop-blur-md bg-white/25 rounded-4xl items-center cursor-pointer"
               >
                 <span
                   class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -302,7 +302,7 @@
                   {{ item.description }}
                 </p>
                 <button
-                  class="button-group mt-4 mx-auto relative px-3 py-1.5 rounded-4xl items-center cursor-pointer overflow-hidden"
+                  class="button-group mt-4 mx-auto relative px-4 py-2 rounded-4xl items-center cursor-pointer overflow-hidden"
                   style="display: inline-flex; align-items: center"
                 >
                   <!-- Background layers -->

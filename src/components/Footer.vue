@@ -1,12 +1,12 @@
 <template>
-  <section class="max-w-[1900px] mx-auto mt-20 font-montserrat">
+  <section class="w-full mx-auto mt-20 font-montserrat">
     <footer class="bg-[rgb(3,89,37)] text-gray-300 px-6 sm:px-8 py-10">
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 gap-12 py-10 sm:gap-16 md:grid-cols-2">
         <!-- Left Content -->
         <div class="flex flex-col items-start gap-6 sm:gap-8">
           <img
-            class="w-[150px] sm:w-[150px] lg:w-[200px] h-auto cursor-pointer"
+            class="w-[150px] sm:w-[150px] lg:w-[170px] h-auto cursor-pointer"
             :src="farmGateWhiteLogo"
             alt="Logo"
           />

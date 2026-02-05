@@ -161,7 +161,7 @@
         <div class="mb-20 flex flex-col items-center text-center">
           <a
             href="/marketplace.html"
-            class="flex group relative overflow-hidden px-3 py-1.5 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 md:mb-10 mb-5"
+            class="flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 md:mb-10 mb-5 font-semibold"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -183,7 +183,7 @@
           </a>
 
           <h2
-            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-8 leading-tight max-w-3xl"
+            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black  leading-tight max-w-3xl"
           >
             Discover the values that <br />
             <span class="text-[#129C48]">guide our mission.</span>
