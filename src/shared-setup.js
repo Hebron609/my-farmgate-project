@@ -89,9 +89,12 @@ library.add(
 );
 
 // Setup app function
-export function setupApp(RootComponent, selector) {
+export function setupApp(RootComponent, selector, configure) {
   const app = createApp(RootComponent);
   app.component("font-awesome-icon", FontAwesomeIcon);
+  if (configure && typeof configure === "function") {
+    configure(app);
+  }
   app.mount(selector);
 }
 

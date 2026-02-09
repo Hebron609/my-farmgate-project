@@ -40,7 +40,6 @@
           </h1>
         </div>
 
-        
         <p
           class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
         >
@@ -73,31 +72,30 @@
         <div
           class="flex items-center justify-center gap-2 mb-6 reveal-slide-left"
         >
-        <div class="inline-flex">
-              <a
-                href="/marketplace.html"
-                class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-8"
+          <div class="inline-flex">
+            <button
+              @click="navigateToVideo2"
+              class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            >
+              <span
+                class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
-                <span
-                  class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                <LeafIcon class="w-4 h-4 text-black" />
+                <span class="text-xs font-semibold tracking-wider text-black"
+                  >Start growing with us</span
                 >
-                  <LeafIcon class="text-[#129C48] w-4 h-4 shrink-0" />
-                  <span
-                    class="text-xs font-semibold tracking-wider text-gray-500"
-                    >Start growing with us</span
-                  >
-                </span>
+              </span>
 
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
+              >
+                <LeafIcon class="w-4 h-4 text-white" />
+                <span class="text-xs font-semibold leading-none text-white"
+                  >Start growing with us</span
                 >
-                  <LeafIcon class="w-4 h-4 text-black shrink-0" />
-                  <span class="text-xs font-semibold leading-none"
-                    >Start growing with us</span
-                  >
-                </span>
-              </a>
-            </div>
+              </span>
+            </button>
+          </div>
         </div>
         <h2
           class="font-['Livvic'] text-4xl md:text-6xl font-bold text-black leading-tight reveal-slide-up"
@@ -248,6 +246,11 @@ const { init: initScrollReveal } = useScrollReveal({
   delay: 100,
   viewFactor: 0.12,
 });
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
+};
 
 onMounted(() => {
   const api = initScrollReveal();

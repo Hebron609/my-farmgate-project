@@ -34,7 +34,7 @@
           <h1
             class="mb-4 text-4xl font-bold tracking-wider text-white md:text-6xl"
           >
-            CONTACT US
+            CONNECT WITH US
           </h1>
           <div
             class="w-24 h-1 mx-auto mb-6 bg-gradient-to-r from-green-400 to-white"
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <section class="relative w-full bg-white mt-15 z-20 pb-24 px-6 md:px-12">
+    <section class="relative z-20 w-full px-6 pb-24 bg-white mt-15 md:px-12">
       <div
         class="max-w-[1440px] mx-auto shadow-2xl rounded-[3rem] overflow-hidden bg-white"
       >
@@ -57,7 +57,7 @@
           <div
             class="relative bg-[#129C48] p-10 md:p-14 text-white flex flex-col justify-between overflow-hidden"
           >
-            <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 right-0 pointer-events-none opacity-10">
               <LeafIcon class="w-[300px] h-[300px] text-white" />
             </div>
 
@@ -68,13 +68,13 @@
                 >
                   Get in <span class="text-[#F2CB00]">Touch</span>
                 </h2>
-                <p class="text-green-100 text-lg font-light">
+                <p class="text-lg font-light text-green-100">
                   We're here to help you grow
                 </p>
               </div>
 
               <div class="space-y-8">
-                <div class="group flex items-start gap-6">
+                <div class="flex items-start gap-6 group">
                   <div
                     class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
                   >
@@ -98,14 +98,14 @@
                     </h3>
                     <a
                       href="mailto:connect@farmgate.africa"
-                      class="text-green-100 hover:text-white transition-colors border-b border-transparent hover:border-white"
+                      class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white"
                     >
                       connect@farmgate.africa
                     </a>
                   </div>
                 </div>
 
-                <div class="group flex items-start gap-6">
+                <div class="flex items-start gap-6 group">
                   <div
                     class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
                   >
@@ -130,19 +130,41 @@
                     <div class="flex flex-col space-y-1">
                       <a
                         href="tel:+233303980443"
-                        class="text-green-100 hover:text-white transition-colors border-b border-transparent hover:border-white w-max"
+                        class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                         >+233 30 398 0443</a
-                      >
-                      <a
-                        href="tel:+233503301132"
-                        class="text-green-100 hover:text-white transition-colors border-b border-transparent hover:border-white w-max"
-                        >+233 50 330 1132</a
                       >
                     </div>
                   </div>
                 </div>
 
-                <div class="group flex items-start gap-6">
+                <div class="flex items-start gap-6 group">
+                  <div
+                    class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-['Livvic'] text-xl font-bold mb-1">
+                      WhatsApp Us
+                    </h3>
+                    <a
+                      href="https://wa.me/233503301132"
+                      target="_blank"
+                      class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                      >+233 50 330 1132</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-6 group">
                   <div
                     class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
                   >
@@ -173,30 +195,31 @@
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=P.+O.+Box+2186,+Adenta+-+Accra,+Ghana,+West+Africa"
                       target="_blank"
-                      class="text-green-100 hover:text-white transition-colors border-b border-transparent hover:border-white leading-relaxed block"
+                      class="block leading-relaxed text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white"
                     >
                       No. 6 Nii Kotey Baale Ave, <br />
                       East Legon, Accra, <br />
-                       Greater Accra Region (GA-414-1928)
+                      Greater Accra Region (GA-414-1928)
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-12 pt-8 border-t border-white/20">
+            <div class="pt-8 mt-12 border-t border-white/20">
               <p
-                class="text-sm font-medium text-green-100 mb-4 tracking-widest"
+                class="mb-4 text-sm font-medium tracking-widest text-green-100"
               >
                 Ready to transform your agricultural journey?
               </p>
               <button
-                class="w-full py-3 bg-[#F2CB00] text-black font-bold tracking-widest rounded-full hover:bg-white hover:text-[#129C48] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group"
+                @click="navigateToVideo2"
+                class="w-full py-3 bg-[#F2CB00] text-black font-bold tracking-widest rounded-full hover:bg-white hover:text-[#129C48] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group cursor-pointer"
               >
                 <LeafIcon class="w-4 h-4" />
                 <span>Start growing with us</span>
                 <svg
-                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  class="w-4 h-4 transition-transform transform group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -222,30 +245,30 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               aria-label="Innohub Growth Centre location map"
-              class="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-700"
+              class="absolute inset-0 transition-all duration-700 grayscale hover:grayscale-0"
             ></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-24 bg-white px-6 md:px-12">
+    <section class="px-6 py-24 bg-white md:px-12">
       <div class="max-w-[1000px] mx-auto">
-        <div class="text-center mb-16 reveal-slide-up">
+        <div class="mb-16 text-center reveal-slide-up">
           <h2
             class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-4"
           >
             <span class="text-[#129C48]">Send</span> us a Message
           </h2>
           <div class="h-1 w-24 bg-[#F2CB00] mx-auto mb-6"></div>
-          <p class="text-xl text-gray-600 font-light">
+          <p class="text-xl font-light text-gray-600">
             Have questions or need assistance? We'd love to hear from you.
           </p>
         </div>
 
-        <div class="bg-white p-2 reveal-slide-up">
+        <div class="p-2 bg-white reveal-slide-up">
           <form @submit.prevent="submitForm" class="space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div class="relative group">
                 <label
                   for="lastName"
@@ -261,7 +284,7 @@
                   placeholder="Osei"
                   :class="{ 'border-red-500': errors.lastName }"
                 />
-                <p v-if="errors.lastName" class="text-red-500 text-xs mt-1">
+                <p v-if="errors.lastName" class="mt-1 text-xs text-red-500">
                   {{ errors.lastName }}
                 </p>
               </div>
@@ -281,13 +304,13 @@
                   placeholder="Kwame"
                   :class="{ 'border-red-500': errors.firstName }"
                 />
-                <p v-if="errors.firstName" class="text-red-500 text-xs mt-1">
+                <p v-if="errors.firstName" class="mt-1 text-xs text-red-500">
                   {{ errors.firstName }}
                 </p>
               </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div class="relative group">
                 <label
                   for="email"
@@ -303,7 +326,7 @@
                   placeholder="kwame.osei@gmail.com"
                   :class="{ 'border-red-500': errors.email }"
                 />
-                <p v-if="errors.email" class="text-red-500 text-xs mt-1">
+                <p v-if="errors.email" class="mt-1 text-xs text-red-500">
                   {{ errors.email }}
                 </p>
               </div>
@@ -326,21 +349,21 @@
 
             <div>
               <label
-                class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-4"
+                class="block mb-4 text-xs font-bold tracking-widest text-gray-500 uppercase"
                 >Subject *</label
               >
               <div class="flex flex-wrap gap-4">
                 <label
                   v-for="option in subjectOptions"
                   :key="option.value"
-                  class="cursor-pointer group relative"
+                  class="relative cursor-pointer group"
                 >
                   <input
                     v-model="form.subject"
                     :value="option.value"
                     type="radio"
                     name="subject"
-                    class="peer sr-only"
+                    class="sr-only peer"
                     required
                   />
                   <div
@@ -350,7 +373,7 @@
                   </div>
                 </label>
               </div>
-              <p v-if="errors.subject" class="text-red-500 text-xs mt-2">
+              <p v-if="errors.subject" class="mt-2 text-xs text-red-500">
                 {{ errors.subject }}
               </p>
             </div>
@@ -370,7 +393,7 @@
                 placeholder="How can we help you?"
                 :class="{ 'border-red-500': errors.message }"
               ></textarea>
-              <p v-if="errors.message" class="text-red-500 text-xs mt-1">
+              <p v-if="errors.message" class="mt-1 text-xs text-red-500">
                 {{ errors.message }}
               </p>
             </div>
@@ -378,7 +401,7 @@
             <div class="pt-8 text-center">
               <button
                 type="submit"
-                class="inline-flex items-center gap-3 px-10 py-3 bg-[#129C48] text-white font-bold  tracking-widest rounded-full hover:bg-yellow-400 hover:text-black hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="inline-flex items-center gap-3 px-10 py-3 bg-yellow-400 text-black font-bold tracking-widest rounded-full hover:bg-[#129C48] hover:text-white hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 :disabled="isSubmitting"
               >
                 <span>{{
@@ -521,6 +544,11 @@ const submitForm = async () => {
   } finally {
     isSubmitting.value = false;
   }
+};
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
 };
 
 onMounted(() => {

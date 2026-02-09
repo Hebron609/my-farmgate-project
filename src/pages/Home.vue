@@ -6,7 +6,14 @@ import { ref, onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 
 const currentPage = ref("home");
-const videoVariant = ref(1);
+
+// Check sessionStorage before initializing videoVariant
+const initialVariant =
+  sessionStorage.getItem("activateVideo2") === "true" ? 2 : 1;
+if (initialVariant === 2) {
+  sessionStorage.removeItem("activateVideo2");
+}
+const videoVariant = ref(initialVariant);
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -15,6 +22,11 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  // Check for hash in URL to determine video variant
+  if (window.location.hash === "#video2") {
+    videoVariant.value = 2;
+  }
+
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {

@@ -2,7 +2,7 @@
   <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${heroImage})` }"
@@ -20,7 +20,7 @@
 
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
-      <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
         <div class="reveal-slide-up">
           <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
           
@@ -36,46 +36,45 @@
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
-          <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-8 h-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </div>
     </div>
 
-    <section class="w-full bg-white pb-20 px-6 md:px-12 relative overflow-hidden mt-14" aria-label="Our Team">
-        <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+    <section class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14" aria-label="Our Team">
+        <div class="absolute top-0 right-0 pointer-events-none opacity-5">
              <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
         </div>
 
       <div class="mx-auto max-w-[1440px] relative z-10">
         <div class="inline-flex ">
-              <a
-                href="/solutions.html"
-                class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
+<a
+            href="/solutions.html"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+          >
+            <span
+              class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+            >
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
+                >Our solutions</span
               >
-                <span
-                  class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-                >
-                  <LeafIcon class="text-[#129C48] w-4 h-4 shrink-0" />
-                  <span
-                    class="text-xs font-semibold tracking-wider text-gray-500"
-                    >Our solution</span
-                  >
-                </span>
+            </span>
 
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-                >
-                  <LeafIcon class="w-4 h-4 text-black shrink-0" />
-                  <span class="text-xs font-semibold leading-none"
-                    >Our solution</span
-                  >
-                </span>
-              </a>
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
+            >
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
+                >Our solutions</span
+              >
+            </span>
+          </a>
             </div>
         
-        <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
+        <div class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row">
 
           
            
@@ -90,7 +89,7 @@
               </p>
            </div>
 
-           <div class="flex flex-wrap gap-3 reveal-slide-left justify-end">
+           <div class="flex flex-wrap justify-end gap-3 reveal-slide-left">
               <button
               v-for="dept in uniqueDepartments"
               :key="dept"
@@ -125,27 +124,27 @@
         </div>
 
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6"
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 sm:gap-6"
         >
           <div
             v-for="member in filteredTeam"
             :key="member.name"
-            class="group cursor-pointer transition-all duration-300 reveal-stagger mx-auto w-32 sm:w-48 lg:w-48 text-center"
+            class="w-32 mx-auto text-center transition-all duration-300 cursor-pointer group reveal-stagger sm:w-48 lg:w-48"
             @click="openModal(member)"
             :aria-label="'View profile of ' + member.name"
           >
-            <div class="relative overflow-hidden rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300 transition-all duration-300">
+            <div class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300">
                 <img
                     :src="member.photoUrl"
                     :alt="'Photo of ' + member.name"
-                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    class="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                 />
                 <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex flex-col justify-end items-center text-center pb-4"
+                    class="absolute inset-0 flex-col items-center justify-end hidden pb-4 text-center transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:opacity-100 md:flex"
                 >
                     <h3
-                        class="text-white text-xs sm:text-sm md:text-xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100 font-serif"
+                        class="font-serif text-xs font-bold text-white transition-transform duration-300 delay-100 transform translate-y-4 sm:text-sm md:text-xl group-hover:translate-y-0"
                     >
                         {{ member.name.split(" ")[0] }}
                     </h3>
@@ -197,7 +196,7 @@
           <div
             class="w-full md:w-[55%] p-4 sm:p-6 md:p-12 flex flex-col justify-center overflow-y-auto"
           >
-            <h3 class="text-xl sm:text-2xl font-bold leading-tight md:text-3xl">
+            <h3 class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl">
               {{ selectedMember.name }}
             </h3>
             <p
@@ -210,7 +209,7 @@
               class="mt-3 md:mt-8 mb-4 md:mb-26 overflow-y-auto max-h-[150px] sm:max-h-[200px] md:max-h-[300px]"
             >
               <p
-                class="text-xs sm:text-sm leading-relaxed md:text-base text-stone-600"
+                class="text-xs leading-relaxed sm:text-sm md:text-base text-stone-600"
               >
                 {{ selectedMember.bio }}
               </p>

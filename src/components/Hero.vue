@@ -275,19 +275,23 @@ const localHls1 = "/videos/adaptive1/master.m3u8";
 const localHls2 = "/videos/adaptive2/master.m3u8";
 
 // TEXT
-const mainHeading = ref("Impacting lives through sustainable agriculture...");
+const mainHeading = ref(
+  props.videoVariant === 2
+    ? "gateway to farming"
+    : "Impacting lives through sustainable agriculture...",
+);
 
 const videoVariant = ref(props.videoVariant); // 1 for first video, 2 for second video
 
 // VIDEO HANDLING
-const currentVideo = ref(video1);
+const currentVideo = ref(props.videoVariant === 2 ? video2 : video1);
 const videoKey = ref(0);
 const videoRef = ref(null);
 const hls = ref(null);
 const triedFallback = ref(false);
 const errorHandlerRef = ref(null);
 
-const showOptions = ref(false);
+const showOptions = ref(props.videoVariant === 2);
 const showModal = ref(false);
 const selectedOption = ref({});
 const videoPlaying = ref(false);
@@ -487,6 +491,10 @@ function initPlayer() {
     hls.value.loadSource(currentVideo.value);
     hls.value.attachMedia(video);
 
+    hls.value.on(Hls.Events.MANIFEST_PARSED, function () {
+      video.play().catch((err) => console.log("Video play failed:", err));
+    });
+
     hls.value.on(Hls.Events.ERROR, function (event, data) {
       const { type, details, fatal } = data || {};
       const isNetworkOrManifestError =
@@ -526,9 +534,12 @@ function initPlayer() {
     });
   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
     video.src = currentVideo.value;
+    video.load();
+    video.play().catch((err) => console.log("Video play failed:", err));
   } else {
     video.src = currentVideo.value;
     video.load();
+    video.play().catch((err) => console.log("Video play failed:", err));
   }
 
   const videoErrorHandler = () => {
@@ -557,6 +568,16 @@ onBeforeUnmount(() => {
     hls.value.destroy();
   }
 });
+
+// Watch for changes to the videoVariant prop
+watch(
+  () => props.videoVariant,
+  (newVariant) => {
+    if (newVariant === 2 && !showOptions.value) {
+      activateOptions();
+    }
+  },
+);
 
 // Re-initialize player whenever the current video source or video element key changes
 watch([currentVideo, videoKey], async () => {

@@ -2,7 +2,7 @@
   <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${ourSolutionsBanner})` }"
@@ -10,7 +10,7 @@
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
       <div
-        class="absolute w-32 h-32 border rounded-full top-20 left-10  border-green-400/50 animate-pulse"
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"
       ></div>
       <div
         class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
@@ -20,7 +20,7 @@
       ></div>
 
 
-      <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
         <div class="reveal-slide-up">
           <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
           
@@ -35,15 +35,15 @@
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
-          <svg class="h-8 w-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-8 h-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </div>
     </div>
 
-    <section class="w-full bg-white pb-20 px-6 md:px-12 relative overflow-hidden mt-14">
-        <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+    <section class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14">
+        <div class="absolute top-0 right-0 pointer-events-none opacity-5">
              <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
         </div>
 
@@ -53,31 +53,30 @@
 
         <div class="inline-flex">
               <a
-                href="/marketplace.html"
-                class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
+            href="/marketplace.html"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+          >
+            <span
+              class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+            >
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
+                >Marketplace</span
               >
-                <span
-                  class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-                >
-                  <LeafIcon class="text-[#129C48] w-4 h-4 shrink-0" />
-                  <span
-                    class="text-xs font-semibold tracking-wider text-gray-500"
-                    >Marketplace</span
-                  >
-                </span>
+            </span>
 
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-                >
-                  <LeafIcon class="w-4 h-4 text-black shrink-0" />
-                  <span class="text-xs font-semibold leading-none"
-                    >Marketplace</span
-                  >
-                </span>
-              </a>
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
+            >
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
+                >Marketplace</span
+              >
+            </span>
+          </a>
             </div>
         
-        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
+        <div class="flex flex-col items-start justify-between gap-12 mb-32 md:flex-row">
            <div class="md:max-w-2xl reveal-slide-right">
             
               <h3 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight">
@@ -87,7 +86,7 @@
 
            <div class="md:max-w-xl reveal-slide-left">
                <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-               <p class="text-gray-600 text-lg leading-relaxed font-light">
+               <p class="text-lg font-light leading-relaxed text-gray-600">
                  FarmGate Africa & Industries is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
               </p>
            </div>
@@ -120,7 +119,7 @@
                   <h4 class="mb-4 font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">
                     {{ area.name }}
                   </h4>
-                  <p class="text-gray-500 leading-relaxed font-light group-hover:text-gray-700 transition-colors">
+                  <p class="font-light leading-relaxed text-gray-500 transition-colors group-hover:text-gray-700">
                     {{ area.desc }}
                   </p>
               </div>

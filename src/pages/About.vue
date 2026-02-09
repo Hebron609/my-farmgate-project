@@ -41,7 +41,7 @@
         </div>
 
         <p
-          class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-400 md:text-lg reveal-slide-up delay-200"
+          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-300 delay-200 md:text-lg reveal-slide-up"
         >
           Redefining agriculture at a global scale.
         </p>
@@ -67,7 +67,7 @@
     <section class="w-full px-6 py-24 bg-black md:py-40">
       <div class="max-w-5xl mx-auto text-center reveal-fade">
         <h2
-          class="font-['Livvic'] text-3xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
+          class="font-['Livvic'] text-3xl font-bold leading-tight text-white md:text-5xl"
         >
           "We started this journey with a simple belief — that farming can feed
           the world
@@ -144,7 +144,7 @@
             class="absolute -bottom-12 md:bottom-12 left-6 right-6 rounded-xl bg-white p-8 shadow-2xl border-l-8 border-[#F2CB00]"
           >
             <h4 class="font-['Livvic'] text-xl font-bold text-black mb-2">
-              Our 5-Year Strategic Plan: 
+              Our 5-Year Strategic Plan:
               <span class="text-[#129C48]"
                 >2030 Vision for Shared Prosperity</span
               >
@@ -242,7 +242,8 @@
                 {{ item.description }}
               </p>
               <button
-                class="mx-auto flex relative overflow-hidden px-4 py-2 backdrop-blur-md bg-white/25 rounded-4xl items-center cursor-pointer"
+                @click="navigateToVideo2"
+                class="relative flex items-center px-4 py-2 mx-auto overflow-hidden cursor-pointer backdrop-blur-md bg-white/25 rounded-4xl"
               >
                 <span
                   class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -302,7 +303,8 @@
                   {{ item.description }}
                 </p>
                 <button
-                  class="button-group mt-4 mx-auto relative px-4 py-2 rounded-4xl items-center cursor-pointer overflow-hidden"
+                  @click="navigateToVideo2"
+                  class="relative items-center px-4 py-2 mx-auto mt-4 overflow-hidden cursor-pointer button-group rounded-4xl"
                   style="display: inline-flex; align-items: center"
                 >
                   <!-- Background layers -->
@@ -358,6 +360,11 @@ const { init: initScrollReveal } = useScrollReveal({
   delay: 100,
   viewFactor: 0.1,
 });
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
+};
 
 onMounted(() => {
   const api = initScrollReveal();

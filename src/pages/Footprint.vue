@@ -4,7 +4,7 @@
   >
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${footprintHeroPic})` }"
@@ -25,7 +25,7 @@
       ></div>
 
       <div
-        class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
       >
         <div class="reveal-slide-up">
           <LeafIcon
@@ -41,7 +41,7 @@
         </div>
 
         <p
-          class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-400 md:text-lg reveal-slide-up delay-200"
+          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-400 delay-200 md:text-lg reveal-slide-up"
         >
           We are not just farming, We are engineering thae backbone of Africa's
           agricultural revolution.
@@ -49,7 +49,7 @@
 
         <div class="absolute bottom-10 animate-bounce">
           <svg
-            class="h-8 w-8 text-white opacity-50"
+            class="w-8 h-8 text-white opacity-50"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -67,36 +67,36 @@
 
     <section
       ref="footprintSection"
-      class="w-full bg-white pb-20 px-6 md:px-12 mt-14"
+      class="w-full px-6 pb-20 bg-white md:px-12 mt-14"
     >
       <div class="mx-auto max-w-[1440px]">
         <div class="inline-flex">
-          <a
-            href="/marketplace.html"
-            class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
+          <button
+            @click="navigateToVideo2"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <LeafIcon class="text-[#129C48] w-4 h-4" />
-              <span class="text-xs font-semibold leading-none text-gray-500"
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold leading-none text-black"
                 >Start growing with us</span
               >
             </span>
 
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
-              <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold leading-none"
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
-          </a>
+          </button>
         </div>
 
         <div
-          class="flex flex-col md:flex-row justify-between md:items-start md:gap-12 mb-22"
+          class="flex flex-col justify-between md:flex-row md:items-start md:gap-12 mb-22"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h3
@@ -108,7 +108,7 @@
 
           <div class="md:max-w-2xl reveal-slide-left">
             <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-            <p class="text-gray-600 text-lg leading-relaxed font-light">
+            <p class="text-lg font-light leading-relaxed text-gray-600">
               FarmGate Africa & Industries strategically manages its
               agricultural footprint to balance large-scale economic development
               with essential social well-being. By operating across the entire
@@ -120,20 +120,20 @@
 
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div
-            class="group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] bg-gray-50 p-10 md:p-14 hover:shadow-2xl transition-all duration-500 border border-gray-100 reveal-slide-left"
+            class="group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] bg-stone-100 p-10 md:p-14 hover:shadow-2xl transition-all duration-500 border border-gray-100 reveal-slide-left"
           >
             <div class="relative z-10">
               <div class="flex items-center gap-3 mb-8">
                 <div class="h-[2px] w-10 bg-black"></div>
                 <span
-                  class="font-bold uppercase tracking-widest text-sm text-black"
+                  class="text-sm font-bold tracking-widest text-black uppercase"
                   >Industrial Catalyst</span
                 >
               </div>
               <h3 class="mb-6 font-['Livvic'] text-3xl font-bold text-black">
                 Industrial Growth
               </h3>
-              <p class="text-gray-600 leading-relaxed text-lg">
+              <p class="text-lg leading-relaxed text-gray-600">
                 <strong class="text-black"
                   >65% of what we produce is to drive industrial growth.</strong
                 >
@@ -144,20 +144,20 @@
             </div>
 
             <div class="mt-16">
-              <div class="mb-4 flex items-baseline gap-2">
+              <div class="flex items-baseline gap-2 mb-4">
                 <span
                   class="text-6xl md:text-8xl font-['Livvic'] font-bold text-black opacity-20 group-hover:opacity-100 transition-opacity duration-500"
                 >
                   {{ displayValues[0] }}%
                 </span>
                 <span
-                  class="text-sm font-bold uppercase tracking-widest text-gray-400"
+                  class="text-sm font-bold tracking-widest text-gray-400 uppercase"
                   >Current Capacity</span
                 >
               </div>
-              <div class="h-4 w-full rounded-full bg-gray-200 overflow-hidden">
+              <div class="w-full h-4 overflow-hidden bg-gray-200 rounded-full">
                 <div
-                  class="h-full bg-black transition-all duration-1000 ease-out"
+                  class="h-full transition-all duration-1000 ease-out bg-black"
                   :style="{ width: displayValues[0] + '%' }"
                 ></div>
               </div>
@@ -178,30 +178,30 @@
               <h3 class="mb-6 font-['Livvic'] text-3xl font-bold text-white">
                 Household Consumption
               </h3>
-              <p class="text-green-50 leading-relaxed text-lg opacity-90">
+              <p class="text-lg leading-relaxed text-green-50 opacity-90">
                 <strong class="text-white"
                   >35% of whatever we grow is aimed at contributing to daily
                   households' consumption.</strong
                 >
                 We at FGAI ensure that a significant portion of our production
                 is funneled directly into households as our contribution to help
-                combat food insecurity.
+                combat food insecurity and improve nutrition.
               </p>
             </div>
 
             <div class="mt-16">
-              <div class="mb-4 flex items-baseline gap-2">
+              <div class="flex items-baseline gap-2 mb-4">
                 <span
                   class="text-6xl md:text-8xl font-['Livvic'] font-bold text-white opacity-30 group-hover:opacity-100 transition-opacity duration-500"
                 >
                   {{ displayValues[1] }}%
                 </span>
                 <span
-                  class="text-sm font-bold uppercase tracking-widest text-green-200"
+                  class="text-sm font-bold tracking-widest text-green-200 uppercase"
                   >Direct Reach</span
                 >
               </div>
-              <div class="h-4 w-full rounded-full bg-white/20 overflow-hidden">
+              <div class="w-full h-4 overflow-hidden rounded-full bg-white/20">
                 <div
                   class="h-full bg-[#F2CB00] transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(242,203,0,0.5)]"
                   :style="{ width: displayValues[1] + '%' }"
@@ -260,6 +260,11 @@ const animateValue = (index, target) => {
   }, 50);
 };
 
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
+};
+
 onMounted(() => {
   const api = initScrollReveal();
   if (api) {
@@ -296,8 +301,8 @@ onMounted(() => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !hasAnimated) {
           hasAnimated = true;
-          animateValue(0, 40);
-          setTimeout(() => animateValue(1, 60), 500);
+          animateValue(0, 65);
+          setTimeout(() => animateValue(1, 35), 500);
         }
       });
     },
@@ -310,7 +315,7 @@ onMounted(() => {
   const checkMobile = () => {
     isMobile.value = window.innerWidth < 768;
     if (isMobile.value) {
-      displayValues.value = [40, 60];
+      displayValues.value = [65, 35];
     } else {
       displayValues.value = [0, 0];
     }

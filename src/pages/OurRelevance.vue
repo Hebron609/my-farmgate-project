@@ -4,7 +4,7 @@
   >
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${heroPic})` }"
@@ -19,13 +19,13 @@
       <div
         class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
       ></div>
-      
+
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
 
       <div
-        class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
       >
         <div class="reveal-slide-up">
           <LeafIcon
@@ -41,14 +41,14 @@
         </div>
 
         <p
-          class="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-400 md:text-lg reveal-slide-up delay-200"
+          class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-400 delay-200 md:text-lg reveal-slide-up"
         >
           We believe that the future can be grown.
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
           <svg
-            class="h-8 w-8 text-white opacity-50"
+            class="w-8 h-8 text-white opacity-50"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -65,7 +65,7 @@
     </div>
 
     <section
-      class="w-full bg-white py-24 px-6 md:px-12 relative overflow-hidden"
+      class="relative w-full px-6 py-24 overflow-hidden bg-white md:px-12"
     >
       <div class="mx-auto max-w-[1440px]">
         <div
@@ -93,7 +93,7 @@
             <p
               class="text-gray-600 font-['Montserrat'] font-light text-xl leading-relaxed md:max-w-[70%] max-w-full"
             >
-              We exist to impact lives through sustainable agriculture and 
+              We exist to impact lives through sustainable agriculture and
               shared prosperity.
             </p>
           </div>
@@ -121,7 +121,7 @@
           </div>
         </div>
 
-        <div class="mt-24 flex justify-center">
+        <div class="flex justify-center mt-24">
           <div
             class="flex flex-col items-center text-center group reveal-slide-up max-w-[80%]"
           >
@@ -151,39 +151,39 @@
     </section>
 
     <section
-      class="w-full bg-stone-50 py-24 px-6 md:px-12 relative overflow-hidden"
+      class="relative w-full px-6 py-24 overflow-hidden bg-stone-50 md:px-12"
     >
-      <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
         <img class="h-[600px] w-auto" :src="farmGateLogo" alt="" />
       </div>
 
       <div class="mx-auto max-w-[1440px] relative z-10">
-        <div class="mb-20 flex flex-col items-center text-center">
-          <a
-            href="/marketplace.html"
-            class="flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 md:mb-10 mb-5 font-semibold"
+        <div class="flex flex-col items-center mb-20 text-center">
+          <button
+            @click="navigateToVideo2"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <LeafIcon class="text-[#129C48] w-4 h-4" />
-              <span class="text-xs font-semibold tracking-wider text-gray-500"
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
                 >Start growing with us</span
               >
             </span>
 
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
-              <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold leading-none"
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
-          </a>
+          </button>
 
           <h2
-            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black  leading-tight max-w-3xl"
+            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight max-w-3xl"
           >
             Discover the values that <br />
             <span class="text-[#129C48]">guide our mission.</span>
@@ -192,13 +192,13 @@
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div
-            class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger"
+            class="relative p-10 transition-all duration-300 bg-white border border-gray-100 shadow-sm group rounded-3xl hover:shadow-xl hover:-translate-y-2 reveal-stagger"
           >
-            <div class="mb-8 flex justify-center">
+            <div class="flex justify-center mb-8">
               <img
                 src="@/assets/img/wired-outline-1468-morale-hover-pinch.gif"
                 alt="Integrity"
-                class="h-24 w-24 object-contain"
+                class="object-contain w-24 h-24"
               />
             </div>
             <h3
@@ -206,19 +206,19 @@
             >
               Integrity
             </h3>
-            <p class="text-center text-gray-500 leading-relaxed">
+            <p class="leading-relaxed text-center text-gray-500">
               Strong moral principles, trustworthiness and honesty
             </p>
           </div>
 
           <div
-            class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger"
+            class="relative p-10 transition-all duration-300 bg-white border border-gray-100 shadow-sm group rounded-3xl hover:shadow-xl hover:-translate-y-2 reveal-stagger"
           >
-            <div class="mb-8 flex justify-center">
+            <div class="flex justify-center mb-8">
               <img
                 src="@/assets/img/wired-outline-20-love-heart-hover-heartbeat.gif"
                 alt="Accountability"
-                class="h-24 w-24 object-contain"
+                class="object-contain w-24 h-24"
               />
             </div>
             <h3
@@ -226,19 +226,19 @@
             >
               Accountability
             </h3>
-            <p class="text-center text-gray-500 leading-relaxed">
+            <p class="leading-relaxed text-center text-gray-500">
               Stewardship, answerable, discipline and focus
             </p>
           </div>
 
           <div
-            class="group relative bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger"
+            class="relative p-10 transition-all duration-300 bg-white border border-gray-100 shadow-sm group rounded-3xl hover:shadow-xl hover:-translate-y-2 reveal-stagger"
           >
-            <div class="mb-8 flex justify-center">
+            <div class="flex justify-center mb-8">
               <img
                 src="@/assets/img/wired-outline-1827-growing-plant-hover-pinch.gif"
                 alt="Service"
-                class="h-24 w-24 object-contain"
+                class="object-contain w-24 h-24"
               />
             </div>
             <h3
@@ -246,54 +246,57 @@
             >
               Service
             </h3>
-            <p class="text-center text-gray-500 leading-relaxed">
+            <p class="leading-relaxed text-center text-gray-500">
               Respect for people, quality, excellence and going the extra mile
             </p>
           </div>
         </div>
 
         <div class="flex items-center justify-center mt-20 opacity-30">
-          <div class="h-px w-full bg-gray-400"></div>
+          <div class="w-full h-px bg-gray-400"></div>
           <div class="px-4"><LeafIcon class="w-6 h-6 text-gray-400" /></div>
-          <div class="h-px w-full bg-gray-400"></div>
+          <div class="w-full h-px bg-gray-400"></div>
         </div>
       </div>
     </section>
 
     <section
-  class="relative h-[600px] w-full overflow-hidden flex items-center justify-center"
->
-  <div
-    class="absolute inset-0 bg-cover bg-center bg-fixed"
-    :style="{ backgroundImage: `url(${farmPic9})` }"
-  ></div>
-  
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <div class="relative z-10 px-6 max-w-5xl text-center">
-    
-    <div class="mb-10 flex flex-col items-center justify-center reveal-fade">
-      <div class="mb-6 text-[#129C48] drop-shadow-2xl filter">
-        <font-awesome-icon 
-          :icon="['fas', 'trophy']" 
-          class="text-6xl md:text-[5rem]" 
-        />
-      </div>
-      
-      <h3 class="font-['Livvic'] text-white font-bold text-lg md:text-3xl tracking-[0.25em] uppercase border-b-2 border-[#129C48] pb-2 px-4 inline-block">
-        Our Goals
-      </h3>
-    </div>
-
-    <p
-      class="font-['Livvic'] text-2xl md:text-4xl font-bold text-white leading-tight md:leading-snug shadow-sm reveal-slide-up"
+      class="relative h-[600px] w-full overflow-hidden flex items-center justify-center"
     >
-      Our goal is practically simple – we aim to produce what we need from
-      what we have by innovatively deploying Africa’s technology to
-      contribute to solving Africa’s food insecurity and nutrition problems.
-    </p>
-  </div>
-</section>
+      <div
+        class="absolute inset-0 bg-fixed bg-center bg-cover"
+        :style="{ backgroundImage: `url(${farmPic9})` }"
+      ></div>
+
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <div class="relative z-10 max-w-5xl px-6 text-center">
+        <div
+          class="flex flex-col items-center justify-center mb-10 reveal-fade"
+        >
+          <div class="mb-6 text-[#129C48] drop-shadow-2xl filter">
+            <font-awesome-icon
+              :icon="['fas', 'trophy']"
+              class="text-6xl md:text-[5rem]"
+            />
+          </div>
+
+          <h3
+            class="font-['Livvic'] text-white font-bold text-3xl tracking-[0.25em] uppercase border-b-2 border-[#129C48] pb-2 px-4 inline-block mb-4"
+          >
+            Our Goals
+          </h3>
+        </div>
+
+        <p
+          class="font-['Livvic'] text-xl font-bold text-white leading-tight md:leading-snug shadow-sm reveal-slide-up text-center max-w-2xl mx-auto"
+        >
+          Our goal is practically simple – we aim to produce what we need from
+          what we have by innovatively deploying Africa’s technology to
+          contribute to solving Africa’s food insecurity and nutrition problems.
+        </p>
+      </div>
+    </section>
 
     <Footer />
   </div>
@@ -345,6 +348,11 @@ const animateValue = (index, target) => {
     }
     displayValues.value[index] = Math.round(current);
   }, 50);
+};
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
 };
 
 onMounted(() => {

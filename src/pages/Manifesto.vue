@@ -4,7 +4,7 @@
   >
     <Header :videoVariant="2" />
 
-    <div class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${farmTractor1})` }"
@@ -25,7 +25,7 @@
       ></div>
 
       <div
-        class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
       >
         <div class="reveal-slide-up">
           <LeafIcon
@@ -49,7 +49,7 @@
 
         <div class="absolute bottom-10 animate-bounce">
           <svg
-            class="h-8 w-8 text-white opacity-50"
+            class="w-8 h-8 text-white opacity-50"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -66,40 +66,40 @@
     </div>
 
     <section
-      class="w-full bg-white pb-20 px-6 md:px-12 relative overflow-hidden mt-14"
+      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
     >
-      <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
       </div>
 
       <div class="mx-auto max-w-[1440px] relative z-10">
         <div class="inline-flex">
-          <a
-            href="/marketplace.html"
-            class="inline-flex group relative overflow-hidden px-4 py-2 rounded-4xl items-center justify-center cursor-pointer bg-gray-50 border border-gray-200 whitespace-nowrap md:mb-10 mb-5"
+          <button
+            @click="navigateToVideo2"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <LeafIcon class="text-[#129C48] w-4 h-4 shrink-0" />
-              <span class="text-xs font-semibold tracking-wider text-gray-500"
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
                 >Start growing with us</span
               >
             </span>
 
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
-              <LeafIcon class="w-4 h-4 text-black shrink-0" />
-              <span class="text-xs font-semibold leading-none"
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
-          </a>
+          </button>
         </div>
 
         <div
-          class="flex flex-col md:flex-row justify-between md:items-start mb-16 md:gap-12"
+          class="flex flex-col justify-between mb-16 md:flex-row md:items-start md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h2
@@ -111,7 +111,7 @@
 
           <div class="md:max-w-xl reveal-slide-left">
             <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-            <p class="text-gray-600 text-lg leading-relaxed font-light">
+            <p class="text-lg font-light leading-relaxed text-gray-600">
               Discover the values that guide our mission. These are the
               deep-rooted principles that ensure every seed we sow leads to a
               harvest of shared prosperity across the continent.
@@ -133,7 +133,7 @@
                 class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
               />
               <div
-                class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"
+                class="absolute inset-0 transition-colors duration-500 bg-black/20 group-hover:bg-black/40"
               ></div>
 
               <div
@@ -143,7 +143,7 @@
               </div>
             </div>
 
-            <div class="p-6 md:p-8 flex flex-col flex-grow relative">
+            <div class="relative flex flex-col flex-grow p-6 md:p-8">
               <div
                 class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#129C48] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
               ></div>
@@ -156,7 +156,7 @@
 
               <div class="relative flex-grow">
                 <div
-                  class="text-gray-600 text-sm leading-relaxed font-light line-clamp-4"
+                  class="text-sm font-light leading-relaxed text-gray-600 line-clamp-4"
                   v-html="point.description"
                 ></div>
                 <div
@@ -207,12 +207,12 @@
         >
           <button
             @click="closeExpand"
-            class="absolute z-20 px-4 py-2 text-xs font-bold uppercase tracking-widest border border-white/20 rounded-full top-6 right-6 text-white bg-black/50 hover:bg-black transition-colors backdrop-blur-md"
+            class="absolute z-20 px-4 py-2 text-xs font-bold tracking-widest text-white uppercase transition-colors border rounded-full border-white/20 top-6 right-6 bg-black/50 hover:bg-black backdrop-blur-md"
           >
             Close
           </button>
 
-          <div class="w-full md:w-2/5 h-64 md:h-auto relative shrink-0">
+          <div class="relative w-full h-64 md:w-2/5 md:h-auto shrink-0">
             <div
               class="absolute inset-0 bg-[#129C48]/10 mix-blend-overlay z-10 pointer-events-none"
             ></div>
@@ -224,12 +224,12 @@
           </div>
 
           <div
-            class="w-full md:w-3/5 bg-white flex flex-col justify-center p-8 md:p-14 overflow-y-auto md:overflow-y-visible"
+            class="flex flex-col justify-center w-full p-8 overflow-y-auto bg-white md:w-3/5 md:p-14 md:overflow-y-visible"
           >
             <div>
               <div class="mb-4 inline-flex items-center gap-2 text-[#129C48]">
                 <LeafIcon class="w-5 h-5" />
-                <span class="text-sm font-bold uppercase tracking-wider"
+                <span class="text-sm font-bold tracking-wider uppercase"
                   >Principle {{ expandedIndex + 1 }}</span
                 >
               </div>
@@ -243,7 +243,7 @@
               <div class="h-1.5 w-24 bg-[#F2CB00] mb-8"></div>
 
               <div
-                class="text-gray-600 text-lg md:text-xl leading-relaxed font-light space-y-4"
+                class="space-y-4 text-lg font-light leading-relaxed text-gray-600 md:text-xl"
                 v-html="manifestoPoints[expandedIndex].description"
               ></div>
             </div>
@@ -282,6 +282,11 @@ const { init: initScrollReveal } = useScrollReveal({
   delay: 100,
   viewFactor: 0.12,
 });
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
+};
 
 onMounted(() => {
   const api = initScrollReveal();

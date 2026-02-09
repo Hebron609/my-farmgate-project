@@ -20,8 +20,8 @@
             <FooterColumn
               title="Company"
               :items="[
-                { label: 'Our Story', href: 'about.html' },
-                { label: 'Our Initiatives', href: 'solutions.html' },
+                { label: 'About Us', href: 'about.html' },
+                { label: 'Our Relevance', href: 'our-relevance.html' },
                 { label: 'Investor Relations', href: 'index.html' },
                 { label: 'Marketplace', href: 'marketplace.html' },
               ]"
@@ -40,9 +40,9 @@
       </div>
 
       <!-- Bottom Bar -->
-      <div class="border-t border-white/20 pt-8 flex flex-wrap items-center justify-center sm:justify-between gap-y-2 text-sm">
+      <div class="flex flex-wrap items-center justify-center pt-8 text-sm border-t border-white/20 sm:justify-between gap-y-2">
         <p class="text-center whitespace-nowrap sm:text-left">
-          © 2026 FarmGate Africa & Industries. All rights reserved.
+          © 2026 FarmGate Africa & Industries Ltd. |  All rights reserved.
         </p>
         <p class="text-center whitespace-nowrap sm:text-right">
           Powered by:
