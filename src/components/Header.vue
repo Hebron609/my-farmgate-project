@@ -31,7 +31,7 @@
           <div v-else class="flex items-start h-[50px]">
             <a
               href="/marketplace.html"
-              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)]  rounded-4xl items-center cursor-pointer"
+              class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
               <span
                 class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -352,7 +352,7 @@
                     ></span>
                   </a>
                 </li>
-                
+
                 <li>
                   <a
                     href="footprint.html"
@@ -452,37 +452,83 @@
                     ></span>
                   </a>
                 </li>
-               
               </ul>
             </transition>
           </div>
 
           <!-- Contact-Us -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
+            <h3
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              @click="toggleSection('contact')"
+            >
               Get in Touch
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 transition-transform duration-300"
+                :class="{ 'rotate-90': activeSections.contact }"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/contact.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Connect with Us
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
+            <transition name="slide">
+              <ul class="space-y-5" v-show="activeSections.contact">
+                <li>
+                  <a
+                    href="/contact.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Connect with us
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <button
+                    @click="navigateToVideo2"
+                    class="relative pb-2 text-xl font-medium text-left cursor-pointer group"
+                  >
+                    Start growing with us
+
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </button>
+                </li>
+
+                <li>
+                  <a
+                    href="/marketplace.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    ⁠Shop at marketplace
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+              </ul>
+            </transition>
           </div>
 
           <!-- Contact -->
           <div class="flex-1 mt-20">
             <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
-              Connect with us
+              Contact Us
             </h3>
-            <p class="mb-4 font-medium">FarmGate Africa & Industries Ltd</p>
+            <p class="mb-4 font-bold">FarmGate Africa & Industries Ltd</p>
 
             <!-- Office Location -->
             <div class="flex items-start gap-2 mb-4">
@@ -873,6 +919,11 @@ const selectSuggestion = (item) => {
   else if (i.includes("projects")) window.location.href = "/projects.html";
   else if (i.includes("people")) window.location.href = "/people.html";
   else if (i.includes("manifesto")) window.location.href = "/manifesto.html";
+};
+
+const navigateToVideo2 = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
 };
 </script>
 

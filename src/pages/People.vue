@@ -8,15 +8,16 @@
         :style="{ backgroundImage: `url(${heroImage})` }"
       ></div>
 
-      <div
-        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/60 animate-pulse"
+       <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/70 animate-pulse"
       ></div>
       <div
-        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/90 animate-ping"
       ></div>
       <div
-        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/80 animate-pulse"
       ></div>
+
 
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 

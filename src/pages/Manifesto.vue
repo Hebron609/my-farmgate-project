@@ -111,10 +111,9 @@
 
           <div class="md:max-w-xl reveal-slide-left">
             <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-            <p class="text-lg font-light leading-relaxed text-gray-600">
-              Discover the values that guide our mission. These are the
-              deep-rooted principles that ensure every seed we sow leads to a
-              harvest of shared prosperity across the continent.
+            <p class="text-lg font-light leading-relaxed text-gray-600 max-w-[90%]">
+              These are the deep-rooted principles that ensure every seed we sow
+              leads to a harvest of shared prosperity across the continent.
             </p>
           </div>
         </div>

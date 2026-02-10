@@ -1,6 +1,6 @@
 <template>
   <section class="w-full mx-auto mt-20 font-montserrat">
-    <footer class="bg-[rgb(3,89,37)] text-gray-300 px-6 sm:px-8 py-10">
+    <footer class="bg-[rgb(3,89,37)] text-gray-200 px-6 sm:px-8 py-10">
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 gap-12 py-10 sm:gap-16 md:grid-cols-2">
         <!-- Left Content -->
