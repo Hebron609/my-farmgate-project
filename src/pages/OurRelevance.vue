@@ -153,8 +153,8 @@
     <section
       class="relative w-full px-6 py-24 overflow-hidden bg-stone-50 md:px-12"
     >
-      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
-        <img class="h-[600px] w-auto" :src="farmGateLogo" alt="" />
+      <div class="absolute right-0 pointer-events-none top-[-50px] opacity-5">
+        <img class="h-[480px] w-auto" :src="farmGateLogo" alt="" />
       </div>
 
       <div class="mx-auto max-w-[1440px] relative z-10">
@@ -318,7 +318,7 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core";
 import heroPic from "@/assets/img/farm-pic3.jpg";
 import farmPic9 from "@/assets/img/farm-pic9.jpg";
-import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 
 library.add(faBullseye, faEye, faGem, faTrophy);
 
