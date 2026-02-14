@@ -40,7 +40,6 @@
           </h1>
         </div>
 
-    
         <p
           class="mt-4 text-gray-400 max-w-[700px] text-sm md:text-base reveal-slide-up delay-300"
         >
@@ -110,8 +109,7 @@
             <span
               class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
-              <span
-                class="text-sm font-bold tracking-widest text-white "
+              <span class="text-sm font-bold tracking-widest text-white"
                 >Send us a message</span
               >
               <svg
@@ -132,7 +130,7 @@
             <span
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
             >
-              <span class="text-sm font-bold tracking-widest "
+              <span class="text-sm font-bold tracking-widest"
                 >Send us a message</span
               >
               <svg
@@ -152,9 +150,11 @@
           </button>
         </div>
 
-        <div class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-2 md:grid-cols-5 sm:gap-6 md:gap-6 md:mt-0">
+        <div
+          class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-2 md:grid-cols-5 sm:gap-6 md:gap-6 md:mt-0"
+        >
           <div
-            v-for="(stat) in impactStats"
+            v-for="stat in impactStats"
             :key="stat.label"
             class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-2.5 md:p-8 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger"
           >
@@ -214,15 +214,19 @@
             </div>
           </div>
 
-          <div class="reveal-slide-right z-30">
+          <div class="z-30">
             <div
-              class="relative w-full lg:w-[450px] h-64 lg:h-[350px] overflow-hidden rounded-2xl z-30"
+              class="relative w-full lg:w-[580px] h-64 lg:h-[350px] rounded-2xl"
             >
-              <img
-                :src="WindMillSvg"
-                alt="Wind Mill Illustration"
-                class="absolute inset-0 object-cover w-full h-full z-30"
-              />
+              <div
+                ref="staticTurbineContainer"
+                class="absolute inset-0 z-0 pointer-events-none static-turbine"
+                v-html="windTurbineSvg"
+              ></div>
+              <div
+                ref="lottieContainer"
+                class="absolute inset-0 z-10 lottie-impact"
+              ></div>
             </div>
           </div>
         </div>
@@ -236,16 +240,21 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
-import ImpactImg from "@/assets/img/Women-farm.jpg"
-import WindMillSvg from "@/assets/img/svgviewer-output1.svg";
+import ImpactImg from "@/assets/img/Women-farm.jpg";
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
+import climateAnimationData from "@/assets/animations/climate-lottie.json";
+import windTurbineSvg from "@/assets/img/svgviewer-output1.svg?raw";
+
+const lottieContainer = ref(null);
+const staticTurbineContainer = ref(null);
+let lottieInstance = null;
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -255,7 +264,41 @@ const { init: initScrollReveal } = useScrollReveal({
   desktop: true,
 });
 
-onMounted(() => {
+// Initialize Lottie on mount
+onMounted(async () => {
+  // Set up Intersection Observer to play animation when element comes into view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isInViewport !== undefined) {
+          if (entry.isInViewport && !lottieInstance) {
+            initializeLottie();
+          } else if (!entry.isInViewport && lottieInstance) {
+            lottieInstance.pause();
+          }
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  if (lottieContainer.value) {
+    observer.observe(lottieContainer.value);
+  }
+
+  // Try to load Lottie right away as a fallback
+  setTimeout(() => {
+    if (!lottieInstance && lottieContainer.value) {
+      initializeLottie();
+    }
+  }, 100);
+
+  // Mark the turbine blade group for CSS animation
+  setTimeout(() => {
+    markTurbineBlades();
+    applyAdditionalAnimations();
+  }, 0);
+
   const api = initScrollReveal();
   if (!api) return;
 
@@ -298,6 +341,253 @@ onMounted(() => {
     viewFactor: 0.1,
   });
 });
+
+async function initializeLottie() {
+  if (!lottieContainer.value || lottieInstance) return;
+
+  try {
+    const lottie = await import("lottie-web");
+
+    lottieInstance = lottie.default.loadAnimation({
+      container: lottieContainer.value,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: climateAnimationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid meet",
+      },
+    });
+
+    lottieInstance.addEventListener("DOMLoaded", () => {
+      const svg = lottieContainer.value?.querySelector("svg");
+      if (svg) {
+        svg.style.width = "100%";
+        svg.style.height = "100%";
+        svg.style.display = "block";
+      }
+      lottieInstance.setSpeed(1);
+      lottieInstance.goToAndPlay(0, true);
+    });
+  } catch (err) {
+    console.error("Failed to load Lottie animation:", err);
+  }
+}
+
+function markTurbineBlades() {
+  const root = staticTurbineContainer.value?.querySelector("svg");
+  if (!root) return;
+
+  // Reset previous wrappers if this runs more than once.
+  const existingWrappers = Array.from(root.querySelectorAll(".turbine-rotor"));
+  existingWrappers.forEach((wrapper) => {
+    const parent = wrapper.parentNode;
+    if (!parent) return;
+    while (wrapper.firstChild) {
+      parent.insertBefore(wrapper.firstChild, wrapper);
+    }
+    parent.removeChild(wrapper);
+  });
+
+  const bladePaths = Array.from(
+    root.querySelectorAll('path[d*="36.145999908447266"]'),
+  );
+  const bladeGroups = bladePaths
+    .map((path) => path.closest("g"))
+    .filter(Boolean);
+  if (!bladeGroups.length) return;
+
+  const grouped = new Map();
+  bladeGroups.forEach((group) => {
+    const scaleAncestor = findScaleAncestor(group);
+    const key = scaleAncestor || group.parentNode;
+    if (!key) return;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+    grouped.get(key).push(group);
+  });
+
+  grouped.forEach((groups) => {
+    if (!groups.length) return;
+    const firstGroup = groups[0];
+    if (!firstGroup || !firstGroup.parentNode) return;
+
+    const wrapper = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    wrapper.classList.add("turbine-rotor");
+    firstGroup.parentNode.insertBefore(wrapper, firstGroup);
+
+    groups.forEach((group) => {
+      wrapper.appendChild(group);
+    });
+
+    try {
+      const bbox = wrapper.getBBox();
+      wrapper.style.transformBox = "fill-box";
+      wrapper.style.transformOrigin = "center";
+      if (bbox.width > 0 && bbox.height > 0) {
+        const centerX = bbox.x + bbox.width / 1.8;
+        const centerY = bbox.y + bbox.height / 2.5; // Push down 12px for better centering
+        wrapper.style.transformOrigin = `${centerX}px ${centerY}px`;
+      }
+    } catch (err) {
+      // Ignore bbox errors in case the element is not renderable yet.
+    }
+  });
+}
+
+function findScaleAncestor(element) {
+  let current = element.parentElement;
+  while (
+    current &&
+    current.tagName &&
+    current.tagName.toLowerCase() !== "svg"
+  ) {
+    const transform = current.getAttribute("transform");
+    const matrix = parseMatrix(transform);
+    if (matrix) {
+      const { a, d } = matrix;
+      if (a > 0.5 && a < 0.98 && d > 0.5 && d < 0.98) {
+        return current;
+      }
+    }
+    current = current.parentElement;
+  }
+  return null;
+}
+
+function parseMatrix(transform) {
+  if (!transform) return null;
+  const match = transform.match(/matrix\(([^)]+)\)/);
+  if (!match) return null;
+  const parts = match[1].split(",").map((v) => Number(v.trim()));
+  if (parts.length < 6 || parts.some((n) => !Number.isFinite(n))) return null;
+  return {
+    a: parts[0],
+    b: parts[1],
+    c: parts[2],
+    d: parts[3],
+    e: parts[4],
+    f: parts[5],
+  };
+}
+
+function applyAdditionalAnimations() {
+  const root = staticTurbineContainer.value?.querySelector("svg");
+  if (!root) return;
+
+  // Apply pulsing to circles
+  const circles = Array.from(root.querySelectorAll("circle"));
+  circles.forEach((circle) => {
+    // Only animate visible circles
+    if (
+      circle.getAttribute("display") !== "none" &&
+      circle.parentElement?.getAttribute("style")?.includes("display: block")
+    ) {
+      circle.classList.add("pulse-circle");
+    }
+  });
+
+  // Find all g elements and identify turbine poles by checking for nested groups with blade paths
+  const allGroups = Array.from(root.querySelectorAll("g[transform]"));
+  const turbinePoles = [];
+
+  allGroups.forEach((group) => {
+    const transform = group.getAttribute("transform");
+    // Look for scale transforms that match our turbine scales
+    if (
+      transform &&
+      (transform.includes("0.952") ||
+        transform.includes("0.711") ||
+        transform.includes("0.527"))
+    ) {
+      turbinePoles.push(group);
+    }
+  });
+
+  console.log("Found turbine poles:", turbinePoles.length); // Debug log
+
+  turbinePoles.forEach((pole, index) => {
+    // Move to end of parent to ensure it renders on top
+    const parent = pole.parentNode;
+    if (parent) {
+      parent.appendChild(pole);
+    }
+
+    // Apply continuous looping animation
+    const animationDuration = 6000; // 4 seconds per loop
+    const downDuration = 1000; // 1 second to move down
+    const upDuration = 1000; // 1 second to move back up
+    const pauseDuration = 3000; // 2 seconds at top
+
+    const animate = () => {
+      const loopStartTime = Date.now();
+
+      const animateFrame = () => {
+        const elapsed = (Date.now() - loopStartTime) % animationDuration;
+        let progress = 0;
+        let translateY = 0;
+
+        if (elapsed < downDuration) {
+          // Moving down
+          progress = elapsed / downDuration;
+          translateY = progress * 480; // Move 120px down
+        } else if (elapsed < downDuration + upDuration) {
+          // Moving back up
+          progress = (elapsed - downDuration) / upDuration;
+          translateY = 150 - progress * 120; // Move back up
+        }
+        // else: stays at top for pauseDuration
+
+        // Update transform
+        const currentTransform = pole.getAttribute("transform") || "";
+        const baseTransform = currentTransform.split("translate")[0].trim();
+        pole.setAttribute(
+          "transform",
+          `${baseTransform} translate(0, ${translateY})`,
+        );
+
+        requestAnimationFrame(animateFrame);
+      };
+
+      animateFrame();
+    };
+
+    animate();
+  });
+
+  // Apply wave effect to wind/flowing lines (curved paths with stroke)
+  const allPaths = Array.from(root.querySelectorAll("path[stroke]"));
+  allPaths.forEach((path) => {
+    const d = path.getAttribute("d");
+    const stroke = path.getAttribute("stroke");
+    // Wind lines typically have curves (C or M commands indicating curves)
+    if (d && d.includes("C") && stroke && stroke.toLowerCase() === "#ffffff") {
+      // Skip the blade paths
+      if (!d.includes("36.145999908447266")) {
+        path.classList.add("wave-line");
+      }
+    }
+  });
+
+  // Apply drawing animation to structural lines (horizontal and vertical lines)
+  const structuralLines = Array.from(
+    root.querySelectorAll('path[stroke-width="5"]'),
+  );
+  structuralLines.forEach((line) => {
+    const d = line.getAttribute("d");
+    // Structural elements are typically simpler paths (not curves, or very specific patterns)
+    if (
+      d &&
+      ((d.includes("M") && !d.includes("C")) || d.match(/^M[\d\s,.-]+$/))
+    ) {
+      line.classList.add("draw-stroke");
+      const length = line.getTotalLength?.() || 100;
+      line.style.strokeDasharray = length;
+    }
+  });
+}
 
 const impactStats = [
   { value: "20+", label: "Projects Funded" },
