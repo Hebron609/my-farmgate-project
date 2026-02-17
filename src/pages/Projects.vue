@@ -345,10 +345,10 @@ const handlePrev = () => {
 };
 
 const stats = ref([
-  { number: "1000+", label: "Farmers Impacted" },
-  { number: "10", label: "Regions Covered" },
-  { number: "50+", label: "Partners" },
-  { number: "100%", label: "Growth" },
+  { number: "550+", label: "Farmers Supported" },
+  { number: "4", label: "Regions Covered" },
+  { number: "2+", label: "Sponsored Partners" },
+  { number: "₵2.72m", label: "Working Capital Raised" },
 ]);
 </script>
 

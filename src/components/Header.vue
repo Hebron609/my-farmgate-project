@@ -78,41 +78,59 @@
                   />
                   <input
                     v-model="searchQuery"
+                    @input="handleSearchInput"
                     type="text"
-                    placeholder="Type to search..."
+                    placeholder="Search agriculture..."
                     class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
+                    @keydown.escape="isSearchOpen = false"
                   />
                   <button
                     @click="toggleSearch"
                     class="ml-2 text-white/70 hover:text-white"
                   >
-                    &times;
+                    ✕
                   </button>
                 </div>
               </transition>
 
               <!-- Suggestions Dropdown (Mobile) -->
               <transition name="fade">
-                <ul
-                  v-if="isSearchOpen && searchQuery"
-                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden"
+                <div
+                  v-if="isSearchOpen && (showResults || searchQuery)"
+                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72"
                 >
-                  <li
-                    v-for="item in filteredSuggestions"
-                    :key="item"
-                    @click="selectSuggestion(item)"
-                    class="px-6 py-4 text-sm text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
-                  >
-                    {{ item }}
-                  </li>
+                  <!-- Results List -->
+                  <div v-if="hasResults" class="overflow-y-auto max-h-72">
+                    <div
+                      v-for="result in searchResults"
+                      :key="result.id"
+                      @click="onSelectResult(result)"
+                      class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                    >
+                      <div>
+                        <p class="text-sm font-semibold">{{ result.title }}</p>
+                        <p class="text-xs text-white/70">
+                          {{ result.category }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-                  <li
-                    v-if="filteredSuggestions.length === 0"
-                    class="px-6 py-4 text-sm text-white/80"
+                  <!-- No Results State -->
+                  <div
+                    v-else-if="searchQuery && !hasResults"
+                    class="px-4 py-6 text-center"
                   >
-                    No results…
-                  </li>
-                </ul>
+                    <p class="text-sm text-white/70">No results found for</p>
+                    <p class="text-sm font-semibold text-white mt-1 truncate">
+                      "{{ searchQuery }}"
+                    </p>
+                    <p class="text-xs text-white/50 mt-2">
+                      Try searching for topics like "farming", "solutions", or
+                      "products"
+                    </p>
+                  </div>
+                </div>
               </transition>
             </div>
 
@@ -198,7 +216,7 @@
             <transition name="slide">
               <div
                 v-if="isSearchOpen"
-                class="absolute flex items-center px-4 py-2 mt-1 border shadow-2xl right-12 w-38 sm:w-160 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400 hidden:animate-none sm:animate-pulse"
+                class="absolute flex items-center px-4 py-2 border shadow-2xl right-12 w-64 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
@@ -206,35 +224,65 @@
                 />
                 <input
                   v-model="searchQuery"
+                  @input="handleSearchInput"
                   type="text"
-                  placeholder="Type to search..."
+                  placeholder="Search agriculture..."
                   class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
+                  @keydown.escape="isSearchOpen = false"
                 />
+                <button
+                  v-if="searchQuery"
+                  @click="clearSearch"
+                  class="ml-2 text-white/70 hover:text-white"
+                >
+                  ✕
+                </button>
               </div>
             </transition>
 
-            <!-- Suggestions Dropdown -->
+            <!-- Results Dropdown -->
             <transition name="fade">
-              <ul
-                v-if="isSearchOpen && searchQuery"
-                class="absolute mt-40 overflow-hidden border shadow-2xl right-12 w-38 sm:w-160 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30"
+              <div
+                v-if="isSearchOpen && (showResults || searchQuery)"
+                class="absolute mt-2 border shadow-2xl right-12 w-64 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 overflow-hidden top-12"
               >
-                <li
-                  v-for="item in filteredSuggestions"
-                  :key="item"
-                  @click="selectSuggestion(item)"
-                  class="px-6 py-4 text-sm text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
-                >
-                  {{ item }}
-                </li>
+                <!-- Results List -->
+                <div v-if="hasResults" class="max-h-80 overflow-y-auto">
+                  <div
+                    v-for="result in searchResults"
+                    :key="result.id"
+                    @click="onSelectResult(result)"
+                    class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                  >
+                    <div class="flex items-start justify-between">
+                      <div>
+                        <p class="text-sm font-semibold">{{ result.title }}</p>
+                        <p class="text-xs text-white/70">
+                          {{ result.category }}
+                        </p>
+                      </div>
+                      <span class="text-xs px-2 py-1 bg-white/20 rounded-full">
+                        {{ result.category }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-                <li
-                  v-if="filteredSuggestions.length === 0"
-                  class="px-6 py-4 text-sm text-white/80"
+                <!-- No Results State -->
+                <div
+                  v-else-if="searchQuery && !hasResults"
+                  class="px-4 py-6 text-center"
                 >
-                  No results…
-                </li>
-              </ul>
+                  <p class="text-sm text-white/70">No results found for</p>
+                  <p class="text-sm font-semibold text-white mt-1">
+                    "{{ searchQuery }}"
+                  </p>
+                  <p class="text-xs text-white/50 mt-2">
+                    Try searching for topics like "farming", "solutions", or
+                    "products"
+                  </p>
+                </div>
+              </div>
             </transition>
           </div>
 
@@ -836,6 +884,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
+import { useGlobalSearch } from "@/composables/useGlobalSearch";
 import patternBg from "@/assets/img/pattern-bg1.webp";
 import logoWhite1 from "@/assets/img/fg logo-white1.png";
 import logoWhite2 from "@/assets/img/fg logo-white2.png";
@@ -881,47 +930,35 @@ const toggleSection = (section) => {
   activeSections.value[section] = !activeSections.value[section];
 };
 
-/* Search */
+/* Global Search */
+const {
+  searchQuery,
+  searchResults,
+  hasResults,
+  showResults,
+  selectResult,
+  clearSearch,
+} = useGlobalSearch();
+
 const isSearchOpen = ref(false);
-const searchQuery = ref("");
-const suggestions = ref([
-  "Our Story",
-  "Our Services",
-  "Marketplace",
-  "Our Relevance",
-  "Our Impact",
-  "Projects",
-  "Our People",
-  "Manifesto",
-]);
 
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value;
-  if (!isSearchOpen.value) searchQuery.value = "";
+  if (!isSearchOpen.value) clearSearch();
 };
 
-const filteredSuggestions = computed(() =>
-  suggestions.value.filter((s) =>
-    s.toLowerCase().includes(searchQuery.value.toLowerCase()),
-  ),
-);
+const handleSearchInput = () => {
+  showResults.value = true;
+};
 
-const selectSuggestion = (item) => {
-  searchQuery.value = item;
+const onSelectResult = (result) => {
+  clearSearch();
   isSearchOpen.value = false;
-  const i = item.toLowerCase();
-  if (i.includes("story")) window.location.href = "/about.html";
-  else if (i.includes("service")) window.location.href = "/solutions.html";
-  else if (i.includes("market")) window.location.href = "/marketplace.html";
-  else if (i.includes("relevance"))
-    window.location.href = "/our-relevance.html";
-  else if (i.includes("impact")) window.location.href = "/our-impact.html";
-  else if (i.includes("projects")) window.location.href = "/projects.html";
-  else if (i.includes("people")) window.location.href = "/people.html";
-  else if (i.includes("manifesto")) window.location.href = "/manifesto.html";
+  selectResult(result);
 };
 
 const navigateToVideo2 = () => {
+  clearSearch();
   sessionStorage.setItem("activateVideo2", "true");
   window.location.href = "/";
 };

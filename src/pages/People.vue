@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
+  <div
+    class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white"
+  >
     <Header :videoVariant="2" />
 
     <div class="relative w-full h-screen overflow-hidden bg-black">
@@ -8,7 +10,7 @@
         :style="{ backgroundImage: `url(${heroImage})` }"
       ></div>
 
-       <div
+      <div
         class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/70 animate-pulse"
       ></div>
       <div
@@ -18,40 +20,62 @@
         class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/80 animate-pulse"
       ></div>
 
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
+      ></div>
 
-      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
-
-      <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
+      >
         <div class="reveal-slide-up">
-          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
-          
-          <h1 class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight">
+          <LeafIcon
+            class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse"
+          />
+
+          <h1
+            class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
+          >
             OUR <br />
             <span class="text-[#129C48]">PEOPLE.</span>
           </h1>
         </div>
 
-    
-         <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
-          Meet the experts and innovators behind the mission towards driving sustainable agriculture forward.
+        <p
+          class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
+        >
+          Meet the experts and innovators behind the mission towards driving
+          sustainable agriculture forward.
         </p>
 
         <div class="absolute bottom-10 animate-bounce">
-          <svg class="w-8 h-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <svg
+            class="w-8 h-8 text-white opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
           </svg>
         </div>
       </div>
     </div>
 
-    <section class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14" aria-label="Our Team">
-        <div class="absolute top-0 right-0 pointer-events-none opacity-5">
-             <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
-        </div>
+    <section
+      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      aria-label="Our Team"
+    >
+      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
+        <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
+      </div>
 
       <div class="mx-auto max-w-[1440px] relative z-10">
-        <div class="inline-flex ">
-<a
+        <div class="inline-flex">
+          <a
             href="/solutions.html"
             class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
@@ -73,25 +97,28 @@
               >
             </span>
           </a>
-            </div>
-        
-        <div class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row">
+        </div>
 
-          
-           
-           <div class="md:max-w-xl reveal-slide-right">
-            
-              <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
-                 Who <span class="text-[#129C48]">We Are</span>
-              </h2>
-              <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-               <p class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]">
-                 We are a team of agronomists, technologists, agripreneur, and sustainability experts.
-              </p>
-           </div>
+        <div
+          class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row"
+        >
+          <div class="md:max-w-xl reveal-slide-right">
+            <h2
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6"
+            >
+              Who <span class="text-[#129C48]">We Are</span>
+            </h2>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <p
+              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]"
+            >
+              We are a team of agronomists, technologists, agripreneur, and
+              sustainability experts.
+            </p>
+          </div>
 
-           <div class="flex flex-wrap justify-end gap-3 reveal-slide-left">
-              <button
+          <div class="flex flex-wrap justify-end gap-3 reveal-slide-left">
+            <button
               v-for="dept in uniqueDepartments"
               :key="dept"
               @click="activeDepartment = dept"
@@ -121,7 +148,7 @@
                 />
               </svg>
             </button>
-           </div>
+          </div>
         </div>
 
         <div
@@ -134,35 +161,42 @@
             @click="openModal(member)"
             :aria-label="'View profile of ' + member.name"
           >
-            <div class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300">
-                <img
-                    :src="member.photoUrl"
-                    :alt="'Photo of ' + member.name"
-                    class="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                />
-                <div
-                    class="absolute inset-0 flex-col items-center justify-end hidden pb-4 text-center transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:opacity-100 md:flex"
+            <div
+              class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300"
+            >
+              <img
+                :src="member.photoUrl"
+                :alt="'Photo of ' + member.name"
+                class="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 flex-col items-center justify-end hidden pb-4 text-center transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:opacity-100 md:flex"
+              >
+                <h3
+                  v-if="showNames"
+                  class="font-serif text-xs font-bold text-white transition-transform duration-300 delay-100 transform translate-y-4 sm:text-sm md:text-xl group-hover:translate-y-0"
                 >
-                    <h3
-                        class="font-serif text-xs font-bold text-white transition-transform duration-300 delay-100 transform translate-y-4 sm:text-sm md:text-xl group-hover:translate-y-0"
-                    >
-                        {{ member.name.split(" ")[0] }}
-                    </h3>
-                    <p
-                        class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
-                    >
-                        {{ member.title.split(" ")[0] }}
-                    </p>
-                </div>
+                  {{ member.name.split(" ")[0] }}
+                </h3>
+                <p
+                  v-if="showNames"
+                  class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
+                >
+                  {{ member.title.split(" ")[0] }}
+                </p>
+              </div>
             </div>
-            <div class="mt-4 md:hidden">
-                <h3 class="font-bold text-black">{{ member.name.split(" ")[0] }}</h3>
-                <p class="text-sm text-[#129C48]">{{ member.title.split(" ")[0] }}</p>
+            <div v-if="showNames" class="mt-4 md:hidden">
+              <h3 class="font-bold text-black">
+                {{ member.name.split(" ")[0] }}
+              </h3>
+              <p class="text-sm text-[#129C48]">
+                {{ member.title.split(" ")[0] }}
+              </p>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -197,15 +231,18 @@
           <div
             class="w-full md:w-[55%] p-4 sm:p-6 md:p-12 flex flex-col justify-center overflow-y-auto"
           >
-            <h3 class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl">
+            <h3
+              v-if="showNames"
+              class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl"
+            >
               {{ selectedMember.name }}
             </h3>
             <p
+              v-if="showNames"
               class="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight text-[#035925]"
             >
               {{ selectedMember.title }}
             </p>
-
             <div
               class="mt-3 md:mt-8 mb-4 md:mb-26 overflow-y-auto max-h-[150px] sm:max-h-[200px] md:max-h-[300px]"
             >
@@ -296,6 +333,7 @@ onMounted(() => {
 const isOpen = ref(false);
 const selectedMember = ref(null);
 const activeDepartment = ref("All");
+const showNames = ref(false);
 
 const openModal = (member) => {
   selectedMember.value = member;

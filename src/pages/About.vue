@@ -10,7 +10,7 @@
         :style="{ backgroundImage: `url(${aboutUsBanner})` }"
       ></div>
 
-       <div
+      <div
         class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/70 animate-pulse"
       ></div>
       <div
@@ -208,140 +208,6 @@
       </div>
     </section>
 
-    <section class="w-full px-4 py-24 overflow-hidden bg-white md:px-12">
-      <div class="mx-auto max-w-[1440px]">
-        <div class="flex flex-col items-center mb-16">
-          <h2
-            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-6 text-center"
-          >
-            Strategic Initiatives
-          </h2>
-          <div class="h-1 w-24 bg-[#F2CB00]"></div>
-        </div>
-
-        <!-- Mobile: Grid Layout -->
-        <div class="grid grid-cols-1 gap-6 md:hidden">
-          <div
-            v-for="(item, index) in galleryItems"
-            :key="index"
-            class="relative overflow-hidden rounded-[2rem] bg-cover bg-center"
-            :style="{ backgroundImage: `url(${item.image})` }"
-          >
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div
-              class="relative z-10 flex flex-col items-center justify-center p-6 text-center min-h-[300px]"
-            >
-              <h4
-                class="font-['Livvic'] text-xl font-bold text-white uppercase tracking-widest drop-shadow-lg mb-4"
-              >
-                {{ item.title }}
-              </h4>
-              <p
-                class="font-['Montserrat'] text-sm font-medium text-gray-100 mb-4 max-w-sm"
-              >
-                {{ item.description }}
-              </p>
-              <button
-                @click="navigateToVideo2"
-                class="relative flex items-center px-4 py-2 mx-auto overflow-hidden cursor-pointer backdrop-blur-md bg-white/25 rounded-4xl"
-              >
-                <span
-                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-                >
-                  <LeafIcon class="w-4 h-4 text-white" />
-                  <span class="text-xs font-semibold leading-none text-white"
-                    >Start growing with us</span
-                  >
-                </span>
-
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
-                >
-                  <LeafIcon class="w-4 h-4 text-black" />
-                  <span class="text-xs font-semibold leading-none"
-                    >Start growing with us</span
-                  >
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop: Accordion/Flex Layout -->
-        <div
-          class="hidden md:flex h-[400px] md:h-[500px] w-full flex-col md:flex-row gap-4 md:gap-6"
-        >
-          <div
-            v-for="(item, index) in galleryItems"
-            :key="index"
-            class="group relative flex-1 cursor-pointer overflow-hidden rounded-[2rem] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3]"
-          >
-            <div
-              class="absolute inset-0 h-full w-full bg-cover bg-center transition-all duration-700 group-hover:scale-110 group-hover:blur-[3px]"
-              :style="{ backgroundImage: `url(${item.image})` }"
-            ></div>
-
-            <div
-              class="absolute inset-0 transition-colors duration-500 bg-black/20 group-hover:bg-black/40"
-            ></div>
-
-            <div
-              class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
-            >
-              <h4
-                class="translate-y-0 transform font-['Livvic'] text-xl md:text-2xl font-bold text-white uppercase tracking-widest drop-shadow-lg transition-transform duration-500 group-hover:-translate-y-4"
-              >
-                {{ item.title }}
-              </h4>
-
-              <div
-                class="max-w-md transition-all duration-500 delay-100 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-              >
-                <p
-                  class="font-['Montserrat'] text-sm md:text-base font-medium text-gray-100"
-                >
-                  {{ item.description }}
-                </p>
-                <button
-                  @click="navigateToVideo2"
-                  class="relative items-center px-4 py-2 mx-auto mt-4 overflow-hidden cursor-pointer button-group rounded-4xl"
-                  style="display: inline-flex; align-items: center"
-                >
-                  <!-- Background layers -->
-                  <span
-                    class="absolute inset-0 transition-opacity duration-300 opacity-100 white-bg bg-white/25 backdrop-blur-md rounded-4xl"
-                  ></span>
-                  <span
-                    class="absolute inset-0 transition-opacity duration-300 bg-yellow-400 opacity-0 yellow-bg rounded-4xl"
-                  ></span>
-
-                  <!-- White text content -->
-                  <span
-                    class="relative z-10 flex items-center gap-2 transition-opacity duration-300 opacity-100 white-text"
-                  >
-                    <LeafIcon class="w-4 h-4 text-white" />
-                    <span class="text-xs font-semibold leading-none text-white"
-                      >Start growing with us</span
-                    >
-                  </span>
-
-                  <!-- Black text content (for yellow background) -->
-                  <span
-                    class="absolute inset-0 z-20 flex items-center justify-center gap-2 text-black transition-opacity duration-300 opacity-0 black-text rounded-4xl"
-                  >
-                    <LeafIcon class="w-4 h-4 text-black" />
-                    <span class="text-xs font-semibold leading-none"
-                      >Start growing with us</span
-                    >
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!--<GrowWithUs />-->
     <Footer />
   </div>
@@ -360,11 +226,6 @@ const { init: initScrollReveal } = useScrollReveal({
   delay: 100,
   viewFactor: 0.1,
 });
-
-const navigateToVideo2 = () => {
-  sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
-};
 
 onMounted(() => {
   const api = initScrollReveal();
@@ -407,31 +268,6 @@ const impacts = ref([
 // Image Imports
 import aboutUsBanner from "@/assets/img/about-us-banner.jpg";
 import farmPic9 from "@/assets/img/farm-pic9.jpg";
-import farmPic1 from "@/assets/img/farm-pic1.jpg";
-import farmPic2 from "@/assets/img/farm-pic2.jpg";
-import farmPic3 from "@/assets/img/farm-pic3.jpg";
-
-// Gallery Data
-const galleryItems = ref([
-  {
-    title: "Sustainable Growth",
-    description:
-      "Implementing eco-friendly practices to ensure long-term agricultural viability.",
-    image: farmPic1,
-  },
-  {
-    title: "Community Power",
-    description:
-      "Empowering local farmers with the tools and knowledge to succeed together.",
-    image: farmPic2,
-  },
-  {
-    title: "Future Innovation",
-    description:
-      "Leveraging technology to revolutionize food production across Africa.",
-    image: farmPic3,
-  },
-]);
 </script>
 
 <style scoped>
