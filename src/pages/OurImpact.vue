@@ -765,7 +765,7 @@ const galleryItems = ref([
     image: farmPic1,
   },
   {
-    title: "Community Power",
+    title: "Community Empowerment",
     description:
       "Empowering local farmers with the tools and knowledge to succeed together.",
     image: farmPic2,

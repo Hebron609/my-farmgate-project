@@ -284,7 +284,7 @@
           <h3
             class="font-['Livvic'] text-white font-bold text-3xl tracking-[0.25em] uppercase border-b-2 border-[#129C48] pb-2 px-4 inline-block mb-4"
           >
-            Our Goals
+            Our Goal
           </h3>
         </div>
 
