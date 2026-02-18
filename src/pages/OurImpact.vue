@@ -82,7 +82,7 @@
       <div class="absolute inset-0 bg-[#1b2418]/70"></div>
 
       <div
-        class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-20 pt-14 flex flex-col justify-between h-full"
+        class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-12 md:pb-20 pt-8 md:pt-14 flex flex-col justify-between h-full"
       >
         <div class="mb-8 md:pt-12 md:mb-0">
           <h2
@@ -151,7 +151,7 @@
         </div>
 
         <div
-          class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-3 lg:grid-cols-6 sm:gap-4 md:gap-6 md:mt-0"
+          class="grid grid-cols-2 gap-3 mt-6 sm:grid-cols-3 lg:grid-cols-6 sm:gap-4 md:gap-6 md:mt-0"
         >
           <div
             v-for="stat in impactStats"
@@ -377,7 +377,7 @@
         </div>
       </div>
     </section>
-let
+    let
     <GrowWithUs />
 
     <Footer />
