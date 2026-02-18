@@ -78,41 +78,59 @@
                   />
                   <input
                     v-model="searchQuery"
+                    @input="handleSearchInput"
                     type="text"
-                    placeholder="Type to search..."
+                    placeholder="Search agriculture..."
                     class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
+                    @keydown.escape="isSearchOpen = false"
                   />
                   <button
                     @click="toggleSearch"
                     class="ml-2 text-white/70 hover:text-white"
                   >
-                    &times;
+                    ✕
                   </button>
                 </div>
               </transition>
 
               <!-- Suggestions Dropdown (Mobile) -->
               <transition name="fade">
-                <ul
-                  v-if="isSearchOpen && searchQuery"
-                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden"
+                <div
+                  v-if="isSearchOpen && (showResults || searchQuery)"
+                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72"
                 >
-                  <li
-                    v-for="item in filteredSuggestions"
-                    :key="item"
-                    @click="selectSuggestion(item)"
-                    class="px-6 py-4 text-sm text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
-                  >
-                    {{ item }}
-                  </li>
+                  <!-- Results List -->
+                  <div v-if="hasResults" class="overflow-y-auto max-h-72">
+                    <div
+                      v-for="result in searchResults"
+                      :key="result.id"
+                      @click="onSelectResult(result)"
+                      class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                    >
+                      <div>
+                        <p class="text-sm font-semibold">{{ result.title }}</p>
+                        <p class="text-xs text-white/70">
+                          {{ result.category }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-                  <li
-                    v-if="filteredSuggestions.length === 0"
-                    class="px-6 py-4 text-sm text-white/80"
+                  <!-- No Results State -->
+                  <div
+                    v-else-if="searchQuery && !hasResults"
+                    class="px-4 py-6 text-center"
                   >
-                    No results…
-                  </li>
-                </ul>
+                    <p class="text-sm text-white/70">No results found for</p>
+                    <p class="text-sm font-semibold text-white mt-1 truncate">
+                      "{{ searchQuery }}"
+                    </p>
+                    <p class="text-xs text-white/50 mt-2">
+                      Try searching for topics like "farming", "solutions", or
+                      "products"
+                    </p>
+                  </div>
+                </div>
               </transition>
             </div>
 
@@ -172,7 +190,7 @@
           <img
             :class="[
               'object-contain transition-all duration-300',
-              isScrolled ? 'w-[100px] md:w-[150px]' : 'w-[140px] md:w-[160px]',
+              isScrolled ? 'w-[100px] md:w-[160px]' : 'w-[140px] md:w-[160px]',
             ]"
             :src="isScrolled ? logoWhite1 : logoWhite2"
             alt="Logo"
@@ -198,7 +216,7 @@
             <transition name="slide">
               <div
                 v-if="isSearchOpen"
-                class="absolute flex items-center px-4 py-2 mt-1 border shadow-2xl right-12 w-38 sm:w-160 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400 hidden:animate-none sm:animate-pulse"
+                class="absolute flex items-center px-4 py-2 border shadow-2xl right-12 w-64 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
@@ -206,35 +224,65 @@
                 />
                 <input
                   v-model="searchQuery"
+                  @input="handleSearchInput"
                   type="text"
-                  placeholder="Type to search..."
+                  placeholder="Search agriculture..."
                   class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
+                  @keydown.escape="isSearchOpen = false"
                 />
+                <button
+                  v-if="searchQuery"
+                  @click="clearSearch"
+                  class="ml-2 text-white/70 hover:text-white"
+                >
+                  ✕
+                </button>
               </div>
             </transition>
 
-            <!-- Suggestions Dropdown -->
+            <!-- Results Dropdown -->
             <transition name="fade">
-              <ul
-                v-if="isSearchOpen && searchQuery"
-                class="absolute mt-40 overflow-hidden border shadow-2xl right-12 w-38 sm:w-160 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30"
+              <div
+                v-if="isSearchOpen && (showResults || searchQuery)"
+                class="absolute mt-2 border shadow-2xl right-12 w-64 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 overflow-hidden top-12"
               >
-                <li
-                  v-for="item in filteredSuggestions"
-                  :key="item"
-                  @click="selectSuggestion(item)"
-                  class="px-6 py-4 text-sm text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
-                >
-                  {{ item }}
-                </li>
+                <!-- Results List -->
+                <div v-if="hasResults" class="max-h-80 overflow-y-auto">
+                  <div
+                    v-for="result in searchResults"
+                    :key="result.id"
+                    @click="onSelectResult(result)"
+                    class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                  >
+                    <div class="flex items-start justify-between">
+                      <div>
+                        <p class="text-sm font-semibold">{{ result.title }}</p>
+                        <p class="text-xs text-white/70">
+                          {{ result.category }}
+                        </p>
+                      </div>
+                      <span class="text-xs px-2 py-1 bg-white/20 rounded-full">
+                        {{ result.category }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-                <li
-                  v-if="filteredSuggestions.length === 0"
-                  class="px-6 py-4 text-sm text-white/80"
+                <!-- No Results State -->
+                <div
+                  v-else-if="searchQuery && !hasResults"
+                  class="px-4 py-6 text-center"
                 >
-                  No results…
-                </li>
-              </ul>
+                  <p class="text-sm text-white/70">No results found for</p>
+                  <p class="text-sm font-semibold text-white mt-1">
+                    "{{ searchQuery }}"
+                  </p>
+                  <p class="text-xs text-white/50 mt-2">
+                    Try searching for topics like "farming", "solutions", or
+                    "products"
+                  </p>
+                </div>
+              </div>
             </transition>
           </div>
 
@@ -302,46 +350,100 @@
             /></a>
           </div>
 
-          <!-- Home -->
-          <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold">Home</h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/index.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Homepage
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
           <!-- About -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold">About Us</h3>
-            <ul class="space-y-5">
-              <li>
-                <a
-                  href="/about.html"
-                  class="relative pb-2 text-xl font-medium group"
-                >
-                  Our Story
-                  <span
-                    class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                  ></span>
-                </a>
-              </li>
-            </ul>
+            <h3
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              @click="toggleSection('about')"
+            >
+              About Us
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 transition-transform duration-300"
+                :class="{ 'rotate-90': activeSections.about }"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </h3>
+            <transition name="slide">
+              <ul class="space-y-5" v-show="activeSections.about">
+                <li>
+                  <a
+                    href="/about.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Story
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/our-relevance.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Relevance
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="footprint.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Footprint
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/manifesto.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our Manifesto
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/people.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    Our People
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+              </ul>
+            </transition>
           </div>
 
           <!-- Programs -->
           <div class="flex-1 mt-20">
             <h3
-              class="flex items-center mb-6 text-2xl font-semibold cursor-pointer"
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
               @click="toggleSection('programs')"
             >
               Our Initiatives
@@ -378,17 +480,6 @@
                 </li>
                 <li>
                   <a
-                    href="/impact.html"
-                    class="relative pb-2 text-xl font-medium group"
-                  >
-                    Impact
-                    <span
-                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                    ></span>
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="/projects.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
@@ -400,21 +491,77 @@
                 </li>
                 <li>
                   <a
-                    href="/people.html"
+                    href="/our-impact.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
-                    Our Team
+                    Impact
                     <span
                       class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
                     ></span>
                   </a>
                 </li>
+              </ul>
+            </transition>
+          </div>
+
+          <!-- Contact-Us -->
+          <div class="flex-1 mt-20">
+            <h3
+              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              @click="toggleSection('contact')"
+            >
+              Get in Touch
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 transition-transform duration-300"
+                :class="{ 'rotate-90': activeSections.contact }"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </h3>
+            <transition name="slide">
+              <ul class="space-y-5" v-show="activeSections.contact">
                 <li>
                   <a
-                    href="/manifesto.html"
+                    href="/contact.html"
                     class="relative pb-2 text-xl font-medium group"
                   >
-                    Manifesto
+                    Connect with us
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </a>
+                </li>
+
+                <li>
+                  <button
+                    @click="navigateToVideo2"
+                    class="relative pb-2 text-xl font-medium text-left cursor-pointer group"
+                  >
+                    Start growing with us
+
+                    <span
+                      class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                    ></span>
+                  </button>
+                </li>
+
+                <li>
+                  <a
+                    href="/marketplace.html"
+                    class="relative pb-2 text-xl font-medium group"
+                  >
+                    ⁠Shop at marketplace
                     <span
                       class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
                     ></span>
@@ -426,10 +573,10 @@
 
           <!-- Contact -->
           <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold text-yellow-400">
-              Connect with us
+            <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
+              Contact Us
             </h3>
-            <p class="mb-4 font-medium">FarmGate Africa & Industries Ltd</p>
+            <p class="mb-4 font-bold">FarmGate Africa & Industries Ltd</p>
 
             <!-- Office Location -->
             <div class="flex items-start gap-2 mb-4">
@@ -476,7 +623,7 @@
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
-                  No. 6 Nii Notes Baale Ave, <br />
+                  No. 6 Nii Kotey Baale Ave, <br />
                   East Legon, Accra,<br />
                   Greater Accra Region (GA-414-1928)
                 </p>
@@ -737,6 +884,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
+import { useGlobalSearch } from "@/composables/useGlobalSearch";
 import patternBg from "@/assets/img/pattern-bg1.webp";
 import logoWhite1 from "@/assets/img/fg logo-white1.png";
 import logoWhite2 from "@/assets/img/fg logo-white2.png";
@@ -782,43 +930,37 @@ const toggleSection = (section) => {
   activeSections.value[section] = !activeSections.value[section];
 };
 
-/* Search */
+/* Global Search */
+const {
+  searchQuery,
+  searchResults,
+  hasResults,
+  showResults,
+  selectResult,
+  clearSearch,
+} = useGlobalSearch();
+
 const isSearchOpen = ref(false);
-const searchQuery = ref("");
-const suggestions = ref([
-  "Our Story",
-  "Our Services",
-  "Marketplace",
-  "Sustainability",
-  "Invest in FarmGate",
-  "Our Impact",
-  "Projects",
-  "Our People",
-  "Manifesto",
-]);
 
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value;
-  if (!isSearchOpen.value) searchQuery.value = "";
+  if (!isSearchOpen.value) clearSearch();
 };
 
-const filteredSuggestions = computed(() =>
-  suggestions.value.filter((s) =>
-    s.toLowerCase().includes(searchQuery.value.toLowerCase())
-  )
-);
+const handleSearchInput = () => {
+  showResults.value = true;
+};
 
-const selectSuggestion = (item) => {
-  searchQuery.value = item;
+const onSelectResult = (result) => {
+  clearSearch();
   isSearchOpen.value = false;
-  const i = item.toLowerCase();
-  if (i.includes("story")) window.location.href = "/about.html";
-  else if (i.includes("service")) window.location.href = "/solutions.html";
-  else if (i.includes("market")) window.location.href = "/marketplace.html";
-  else if (i.includes("impact")) window.location.href = "/impact.html";
-  else if (i.includes("projects")) window.location.href = "/projects.html";
-  else if (i.includes("people")) window.location.href = "/people.html";
-  else if (i.includes("manifesto")) window.location.href = "/manifesto.html";
+  selectResult(result);
+};
+
+const navigateToVideo2 = () => {
+  clearSearch();
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
 };
 </script>
 
@@ -856,7 +998,9 @@ const selectSuggestion = (item) => {
   height: 3px;
   background: white;
   border-radius: 3px;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 .hamburger span:nth-child(1) {
   width: 26px;

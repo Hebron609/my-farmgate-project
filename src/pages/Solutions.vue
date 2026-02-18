@@ -1,271 +1,219 @@
 <template>
-  <div>
-    <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
-      <!-- Header-component -->
-      <Header :videoVariant="2" />
+  <div class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white">
+    <Header :videoVariant="2" />
 
-      <img
-        src="/src/assets/img/our-solutions-banner.jpg"
-        class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.56] z-0"
-        alt=""
-      />
-
-      <!-- Hero-section-content -->
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
-        class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-2 sm:px-6 lg:px-8"
-      >
-        <h1
-          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"
-        >
-          <LeafIcon class="text-white" />
-          <span>Our solutions</span>
-        </h1>
-        <p
-          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8"
-        >
-          Transforming agriculture through innovation.
-        </p>
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
+        :style="{ backgroundImage: `url(${ourSolutionsBanner})` }"
+      ></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"></div>
 
-        <p
-          class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg"
-        >
-          Our goal is simple: to empower growers, strengthen supply chains, and
-          regenerate the land we depend on.
-        </p>
-      </div>
-    </div>
-
-    <!--Flex-heading-->
-    <section
-      class="max-w-[1440px] mx-auto py-10 sm:py-12 font-montserrat px-4 sm:px-6 lg:px-8 border-b-2 border-b-gray-100 lg:pt-28"
-    >
       <div
-        class="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center"
-      >
-        <div>
-          <h1
-            class="flex items-center gap-1 px-2 py-1 mb-4 border border-gray-200 rounded-2xl"
-          >
-            <LeafIcon class="text-green-700" />
-            <span class="text-[10px] sm:text-xs font-semibold"
-              >Delivering impact at every level</span
-            >
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+
+
+      <div class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+        <div class="reveal-slide-up">
+          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
+          
+          <h1 class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight">
+            OUR <br />
+            <span class="text-[#129C48]">SOLUTIONS.</span>
           </h1>
         </div>
 
-        <div>
-          <h1
-            class="text-xl sm:text-2xl lg:text-4xl max-w-[90%] sm:max-w-[700px] font-semibold"
-          >
-            Explore how our integrated solutions help farms and food systems
-            thrive.
-          </h1>
-        </div>
-      </div>
-    </section>
+         <p class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300">
+          Discover our comprehensive offerings for sustainable farming and  transforming agriculture through innovation.
+        </p>
 
-    <!-- Solutions Section -->
-    <div
-      class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 mt-16 font-montserrat"
-    >
-      <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
-        <!-- Card -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-crops.jpg"
-            alt="Precision Farming"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 lg:mb-0 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Precision farming
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              We use data-driven insights and smart technology to help farmers
-              monitor soil health.
-            </p>
-          </div>
-        </div>
-
-        <!-- Repeat the same pattern for other items -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-irrigation.jpg"
-            alt="Sustainable Irrigation"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Sustainable irrigation
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              Our advanced irrigation systems reduce water waste and support
-              efficient crop hydration.
-            </p>
-          </div>
-        </div>
-
-        <!-- Supply Chain Support -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-pic9.jpg"
-            alt="Supply Chain Support"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Supply chain support
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              Smarter post-harvest logistics and digital tracking systems for
-              fresher, better-quality products.
-            </p>
-          </div>
-        </div>
-
-        <!-- Climate-Resilient Program -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-pic1.jpg"
-            alt="Climate Resilient Program"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-32 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Climate-Resilient program
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              Our team works closely with clients to implement scalable
-              solutions that improve resilience and long-term productivity.
-            </p>
-          </div>
-        </div>
-
-        <!-- Technology Integration -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-pic6.jpg"
-            alt="Technology Integration"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-34 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Technology integration
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              We bring cutting-edge technology into the heart of agriculture —
-              making operations smarter, faster, and more resilient from field
-              to market.
-            </p>
-          </div>
-        </div>
-
-        <!-- Organic Practices -->
-        <div
-          class="flex flex-col items-start overflow-hidden transition-shadow duration-300 bg-white shadow-md lg:flex-row lg:space-x-6 rounded-2xl hover:shadow-xl group"
-        >
-          <img
-            src="/src/assets/img/farm-pic3.jpg"
-            alt="Organic Practices"
-            class="object-cover w-full h-56 transition-transform duration-500 transform md:h-64 lg:w-44 lg:h-34 group-hover:scale-105"
-          />
-          <div class="p-4">
-            <h3
-              class="text-xl font-semibold text-gray-900 transition-colors duration-300 group-hover:text-green-700"
-            >
-              Organic practices
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray-600">
-              Our organic practices prioritize soil vitality, natural inputs,
-              and ecological harmony to produce high-quality crops without
-              synthetic chemicals or GMOs.
-            </p>
-          </div>
+        <div class="absolute bottom-10 animate-bounce">
+          <svg class="w-8 h-8 text-white opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </div>
     </div>
 
-    <!--Grow-with-us-section-->
-    <section
-      class="max-w-[1440px] mx-auto py-20 font-montserrat px-4 sm:px-6 lg:px-8"
-    >
-      <div class="mx-2">
-        <div class="relative">
-          <img
-            src="/src/assets/img/farm-pic9.jpg"
-            class="w-full h-[300px] sm:h-[400px] md:h-[480px] object-cover rounded-xl brightness-60"
-            alt=""
-          />
-
-          <div
-            class="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center sm:px-6"
-          >
-            <p
-              class="max-w-[90%] sm:max-w-[500px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 leading-tight"
-            >
-              Grow something great together.
-            </p>
-
-            <p
-              class="text-white max-w-[90%] sm:max-w-[490px] text-xs sm:text-sm md:text-base mb-6 sm:mb-8 mt-2"
-            >
-              Whether you’re a farmer, distributor, or partner, we’re here to
-              support your goals with sustainable solutions and global
-              expertise.
-            </p>
-
-            <a
-              href="/marketplace.html"
-              class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-3 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
-            >
-              <span
-                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
-              >
-                <LeafIcon class="text-white" />
-                <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
-              </span>
-              <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
-              >
-                <LeafIcon class="text-black" />
-                <span class="text-xs font-semibold sm:text-sm md:text-base"
-                  >Marketplace</span
-                >
-              </span>
-            </a>
-          </div>
+    <section class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14">
+        <div class="absolute top-0 right-0 pointer-events-none opacity-5">
+             <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
         </div>
+
+        
+
+      <div class="mx-auto max-w-[1440px] relative z-10">
+
+        <div class="inline-flex">
+              <a
+            href="/marketplace.html"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+          >
+            <span
+              class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+            >
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
+                >Marketplace</span
+              >
+            </span>
+
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
+            >
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
+                >Marketplace</span
+              >
+            </span>
+          </a>
+            </div>
+        
+        <div class="flex flex-col items-start justify-between gap-12 mb-32 md:flex-row">
+           <div class="md:max-w-2xl reveal-slide-right">
+            
+              <h3 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight">
+                 We believe sustainable farming <span class="text-[#129C48]">holds the answer.</span>
+              </h3>
+           </div>
+
+           <div class="md:max-w-xl reveal-slide-left">
+               <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+               <p class="text-lg font-light leading-relaxed text-gray-600">
+                 FarmGate Africa & Industries is leading the way in partnership with farmers and farmer group organizations (FGOs) to unlock the transformative potential of sustainable agriculture and shared prosperity.
+              </p>
+           </div>
+        </div>
+
+        <div>
+           <div class="mb-16 text-center reveal-slide-up">
+              <h3 class="font-['Livvic'] text-3xl font-bold uppercase tracking-widest text-black mb-4">
+                Our Core Mandate
+              </h3>
+              <div class="h-1 w-16 bg-[#129C48] mx-auto"></div>
+           </div>
+
+           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              v-for="area in focalAreas"
+              :key="area.name"
+              class="group relative bg-stone-50 p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 reveal-stagger cursor-default"
+            >
+              <div class="absolute inset-0 bg-gradient-to-br from-[#129C48]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-[2rem]"></div>
+
+              <div class="relative z-10">
+                  <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-[#129C48] transition-all duration-300 group-hover:bg-[#129C48] group-hover:text-white group-hover:scale-110 shadow-sm">
+                    <font-awesome-icon
+                        :icon="['fas', area.icon.replace('fa-', '')]" 
+                        class="w-7 h-7"
+                    />
+                  </div>
+
+                  <h4 class="mb-4 font-['Livvic'] text-2xl font-bold text-black group-hover:text-[#129C48] transition-colors">
+                    {{ area.name }}
+                  </h4>
+                  <p class="font-light leading-relaxed text-gray-500 transition-colors group-hover:text-gray-700">
+                    {{ area.desc }}
+                  </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
+
+    <Footer />
   </div>
-
-  <Footer />
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-</script>
 
-<style></style>
+// FontAwesome Imports
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { 
+  faMicrochip, 
+  faSeedling, 
+  faCow, 
+  faFish, 
+  faIndustry, 
+  faClipboard, 
+  faGraduationCap,
+  faRobot,
+  faCloudSun
+} from '@fortawesome/free-solid-svg-icons';
+
+// Add icons to library
+library.add(faMicrochip, faSeedling, faCow, faFish, faIndustry, faClipboard, faGraduationCap, faRobot, faCloudSun);
+
+import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
+
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-slide-left", { ...revealEffects.slideLeft, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-right", { ...revealEffects.slideRight, duration: 700, delay: 200 });
+  api.reveal(".reveal-stagger", { ...revealEffects.stagger, duration: 600, interval: 120, delay: 100 });
+});
+
+const focalAreas = [
+{
+    name: "AgriTech",
+    desc: "Implementing automation, robotics, and data analytics to optimize farming practices and increase productivity.",
+    icon: "fa-robot",
+  },
+  {
+    name: "Climate Smart Agriculture",
+    desc: "Leveraging technology for efficient agriculture.",
+    icon: "fa-microchip",
+  },
+  {
+    name: "Horticulture",
+    desc: "Cultivating crops, fruits, vegetables, tubers, cereals and other tree crops.",
+    icon: "fa-seedling",
+  },
+  {
+    name: "Animal Husbandry",
+    desc: "Raising and breeding livestock for food and products.",
+    icon: "fa-cow",
+  },
+  {
+    name: "Aquaculture",
+    desc: "Farming  aquatic organisms sustainably.",
+    icon: "fa-fish",
+  },
+  {
+    name: "Food Processing",
+    desc: "Transforming raw agricultural products into value-added consumable goods.",
+    icon: "fa-industry",
+  },
+  {
+    name: "Agri-Advisory",
+    desc: "Providing expert guidance and consulting services.",
+    icon: "fa-clipboard",
+  },
+  {
+    name: "Training-CBTM",
+    desc: "Educating farmers and stakeholders on best practices.",
+    icon: "fa-graduation-cap",
+  },
+];
+</script>

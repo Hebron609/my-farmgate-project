@@ -1,69 +1,12 @@
 import { createApp } from "vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
-//import Marketplace from "./pages/Marketplace.vue";
-//import ProductDetail from "./pages/ProductDetail.vue";
-//import CheckoutView from "./pages/CheckoutView.vue";
 import MarketplaceUnderConstruction from "./components/MarketplaceUnderConstruction.vue";
 import "./style.css";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faUser,
-  faBars,
-  faLeaf,
-  faTimes,
-  faArrowRight,
-  faArrowDown,
-  faChevronLeft,
-  faChevronRight,
-  faChartLine,
-  faBriefcase,
-  faChartBar,
-  faPhone,
-  faEnvelope,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faInstagram,
-  faYoutube,
-  faFacebookF,
-  faWhatsapp,
-  faLinkedinIn,
-  faTiktok,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-
-library.add(
-  faUser,
-  faBars,
-  faLeaf,
-  faTimes,
-  faArrowRight,
-  faArrowDown,
-  faChevronLeft,
-  faChevronRight,
-  faChartLine,
-  faBriefcase,
-  faChartBar,
-  faPhone,
-  faEnvelope,
-  faSearch,
-  faGithub,
-  faInstagram,
-  faYoutube,
-  faFacebookF,
-  faWhatsapp,
-  faLinkedinIn,
-  faTiktok,
-  faXTwitter
-);
+import { setupFontAwesome } from "./shared-setup";
 
 const routes = [
   { path: "/", name: "Marketplace", component: MarketplaceUnderConstruction },
-  // { path: "/product/:id", name: "ProductDetail", component: ProductDetail },
-  // { path: "/checkout", name: "Checkout", component: CheckoutView },
 ];
 
 const router = createRouter({
@@ -73,5 +16,5 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
-app.component("font-awesome-icon", FontAwesomeIcon);
+setupFontAwesome(app);
 app.mount("#app");

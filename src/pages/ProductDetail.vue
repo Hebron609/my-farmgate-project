@@ -30,7 +30,7 @@
 
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="bg-white rounded-3xl p-6 md:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16"
+          class="bg-white rounded-3xl p-6 md:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 reveal-slide-up"
         >
           <div class="space-y-4">
             <div
@@ -359,11 +359,19 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, inject } from "vue";
+import { ref, computed, watch, inject, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import { products } from "../data/products.js";
 
 const route = useRoute();
+const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 700, delay: 150 });
+});
 const router = useRouter();
 const addToCart = inject("addToCart");
 

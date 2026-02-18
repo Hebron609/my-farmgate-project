@@ -5,15 +5,9 @@
       :key="videoKey"
       ref="videoRef"
       class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.7] z-0"
-      @play="
-        videoPlaying = true;
-      "
-      @waiting="
-        buffering = true;
-      "
-      @canplay="
-        buffering = false;
-      "
+      @play="videoPlaying = true"
+      @waiting="buffering = true"
+      @canplay="buffering = false"
       autoplay
       muted
       loop
@@ -52,7 +46,7 @@
       <!-- Logo for video1: just above the heading -->
       <a v-if="videoVariant === 1" href="/" class="block mb-12">
         <img
-          src="/src/assets/img/fg logo-white2.png"
+          :src="fgLogoWhite2"
           alt="FarmGate Africa Logo"
           class="block w-40 mx-auto sm:hidden"
         />
@@ -145,7 +139,7 @@
       @click.self="closeModal"
     >
       <div
-        class="relative flex flex-col w-full max-w-6xl overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
+        class="relative flex flex-col w-full max-w-6xl sm:h-[480px] overflow-hidden bg-white shadow-xl rounded-2xl sm:flex-row animate-fadeIn"
       >
         <!-- Close Button -->
         <button
@@ -159,7 +153,7 @@
         <img
           :src="selectedOption.image"
           alt="option image"
-          class="object-cover w-full h-52 sm:h-auto sm:w-1/2"
+          class="object-cover w-full h-52 sm:h-full sm:w-1/2"
         />
 
         <!-- Right Text Box -->
@@ -249,8 +243,12 @@
 
 <script setup>
 import ScrollDown from "@/components/ScrollDown.vue";
-import { ref, computed } from "vue";
+import { ref, computed, watch, nextTick } from "vue";
 import Hls from "hls.js";
+
+// Local MP4 fallbacks (used when external HLS fails)
+import fallbackMp4A from "@/assets/video/farm-hero-video.mp4";
+import fallbackMp4B from "@/assets/video/farm-hero-video1.mp4";
 
 const props = defineProps({
   videoVariant: {
@@ -263,27 +261,35 @@ const emit = defineEmits(["update:videoVariant"]);
 
 import investImg from "@/assets/img/invest1.jpg";
 import farmerImg from "@/assets/img/farmer.webp";
-import trackImg from "@/assets/img/track.webp";
+import trackImg from "@/assets/img/track-with-us-img.webp";
 import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
+import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
 
-const video1 =
-  import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";
-const video2 =
-  import.meta.env.VITE_VIDEO2_URL || "/videos/adaptive2/master.m3u8";
+const localHls1 = "/videos/adaptive1/master.m3u8";
+const localHls2 = "/videos/adaptive2/master.m3u8";
+
+const video1 = localHls1;
+const video2 = localHls2;
 
 // TEXT
-const mainHeading = ref("Impacting lives through sustainable agriculture...");
+const mainHeading = ref(
+  props.videoVariant === 2
+    ? "gateway to farming"
+    : "Impacting lives through sustainable agriculture...",
+);
 
 const videoVariant = ref(props.videoVariant); // 1 for first video, 2 for second video
 
 // VIDEO HANDLING
-const currentVideo = ref(video1);
+const currentVideo = ref(props.videoVariant === 2 ? video2 : video1);
 const videoKey = ref(0);
 const videoRef = ref(null);
 const hls = ref(null);
+const triedFallback = ref(false);
+const errorHandlerRef = ref(null);
 
-const showOptions = ref(false);
+const showOptions = ref(props.videoVariant === 2);
 const showModal = ref(false);
 const selectedOption = ref({});
 const videoPlaying = ref(false);
@@ -457,22 +463,101 @@ const socials = [
 
 import { onMounted, onBeforeUnmount } from "vue";
 
-onMounted(() => {
-  document.body.style.overflow = "hidden";
-
-  // HLS implementation
+function initPlayer() {
   const video = videoRef.value;
+  if (!video) return;
+
+  // cleanup previous handlers
+  try {
+    if (hls.value) {
+      hls.value.destroy();
+      hls.value = null;
+    }
+  } catch (e) {}
+
+  if (errorHandlerRef.value) {
+    try {
+      video.removeEventListener("error", errorHandlerRef.value);
+    } catch (e) {}
+    errorHandlerRef.value = null;
+  }
+
+  triedFallback.value = false;
+
   if (Hls.isSupported()) {
     hls.value = new Hls();
     hls.value.loadSource(currentVideo.value);
     hls.value.attachMedia(video);
+
+    hls.value.on(Hls.Events.MANIFEST_PARSED, function () {
+      video.play().catch((err) => console.log("Video play failed:", err));
+    });
+
+    hls.value.on(Hls.Events.ERROR, function (event, data) {
+      const { type, details, fatal } = data || {};
+      const isNetworkOrManifestError =
+        type === Hls.ErrorTypes.NETWORK_ERROR ||
+        details === Hls.ErrorDetails.MANIFEST_LOAD_ERROR ||
+        details === Hls.ErrorDetails.FRAG_LOAD_ERROR ||
+        details === Hls.ErrorDetails.KEY_LOAD_ERROR;
+
+      if (isNetworkOrManifestError && !triedFallback.value) {
+        triedFallback.value = true;
+        const localFallback = videoVariant.value === 1 ? localHls1 : localHls2;
+        if (localFallback && localFallback !== currentVideo.value) {
+          try {
+            hls.value.destroy();
+          } catch (e) {}
+          hls.value = new Hls();
+          currentVideo.value = localFallback;
+          hls.value.loadSource(currentVideo.value);
+          hls.value.attachMedia(video);
+          return;
+        }
+
+        const mp4 = videoVariant.value === 1 ? fallbackMp4A : fallbackMp4B;
+        try {
+          hls.value.destroy();
+        } catch (e) {}
+        video.src = mp4;
+        video.load();
+        return;
+      }
+
+      if (fatal) {
+        try {
+          hls.value.destroy();
+        } catch (e) {}
+      }
+    });
   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
     video.src = currentVideo.value;
+    video.load();
+    video.play().catch((err) => console.log("Video play failed:", err));
   } else {
-    // Fallback for MP4 or other formats
     video.src = currentVideo.value;
     video.load();
+    video.play().catch((err) => console.log("Video play failed:", err));
   }
+
+  const videoErrorHandler = () => {
+    if (triedFallback.value) return;
+    triedFallback.value = true;
+    const mp4 = videoVariant.value === 1 ? fallbackMp4A : fallbackMp4B;
+    try {
+      if (hls.value) hls.value.destroy();
+    } catch (e) {}
+    video.src = mp4;
+    video.load();
+  };
+
+  errorHandlerRef.value = videoErrorHandler;
+  video.addEventListener("error", videoErrorHandler);
+}
+
+onMounted(() => {
+  document.body.style.overflow = "hidden";
+  initPlayer();
 });
 
 onBeforeUnmount(() => {
@@ -480,6 +565,22 @@ onBeforeUnmount(() => {
   if (hls.value) {
     hls.value.destroy();
   }
+});
+
+// Watch for changes to the videoVariant prop
+watch(
+  () => props.videoVariant,
+  (newVariant) => {
+    if (newVariant === 2 && !showOptions.value) {
+      activateOptions();
+    }
+  },
+);
+
+// Re-initialize player whenever the current video source or video element key changes
+watch([currentVideo, videoKey], async () => {
+  await nextTick();
+  initPlayer();
 });
 
 function activateOptions() {

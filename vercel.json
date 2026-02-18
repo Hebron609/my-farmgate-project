@@ -9,7 +9,12 @@
     { "source": "/people", "destination": "/people.html" },
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/cookies", "destination": "/cookies.html" },
-    { "source": "/privacy", "destination": "/privacy.html" }
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/footprint", "destination": "/footprint.html" },
+    { "source": "/our-impact", "destination": "/our-impact.html" },
+    { "source": "/our-relevance", "destination": "/our-relevance.html" },
+    { "source": "/terms", "destination": "/Terms.html" }
   ],
   "redirects": [
     { "source": "/about.html", "destination": "/about", "statusCode": 301 },
@@ -36,6 +41,11 @@
       "destination": "/projects",
       "statusCode": 301
     },
-    { "source": "/index.html", "destination": "/", "statusCode": 301 }
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/contact.html", "destination": "/contact", "statusCode": 301 },
+    { "source": "/footprint.html", "destination": "/footprint", "statusCode": 301 },
+    { "source": "/our-impact.html", "destination": "/our-impact", "statusCode": 301 },
+    { "source": "/our-relevance.html", "destination": "/our-relevance", "statusCode": 301 },
+    { "source": "/Terms.html", "destination": "/terms", "statusCode": 301 }
   ]
 }
