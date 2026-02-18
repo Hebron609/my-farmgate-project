@@ -266,13 +266,11 @@ import fallbackImage1 from "@/assets/img/fallback-image1.png";
 import fallbackImage from "@/assets/img/fallback-image.png";
 import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
 
-const video1 =
-  import.meta.env.VITE_VIDEO1_URL || "/videos/adaptive1/master.m3u8";
-const video2 =
-  import.meta.env.VITE_VIDEO2_URL || "/videos/adaptive2/master.m3u8";
-
 const localHls1 = "/videos/adaptive1/master.m3u8";
 const localHls2 = "/videos/adaptive2/master.m3u8";
+
+const video1 = localHls1;
+const video2 = localHls2;
 
 // TEXT
 const mainHeading = ref(
