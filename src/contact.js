@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import Cookies from "./pages/Cookies.vue";
+import Contact from "./pages/Contact.vue";
 import "./style.css";
 import { setupApp } from "./shared-setup";
 
-setupApp(Cookies, "#app");
+setupApp(Contact, "#app");

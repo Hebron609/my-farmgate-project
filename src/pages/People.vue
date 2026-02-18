@@ -1,110 +1,381 @@
 <template>
-  <div>
-    <!-- Header -->
+  <div
+    class="w-full bg-white font-['Montserrat'] selection:bg-[#129C48] selection:text-white"
+  >
     <Header :videoVariant="2" />
 
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden h-[480px] md:h-[580px] pt-32">
-      <img
-        src="/src/assets/img/group-farm-image.jpg"
-        class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.59] z-0"
-        alt=""
-      />
+    <div class="relative w-full h-screen overflow-hidden bg-black">
+      <div
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
+        :style="{ backgroundImage: `url(${heroImage})` }"
+      ></div>
 
       <div
-        class="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center top-2 sm:px-6 lg:px-8"
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/70 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/90 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/80 animate-pulse"
+      ></div>
+
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
+      ></div>
+
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
       >
-        <h1
-          class="mb-4 font-semibold text-white py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl text-xs sm:text-sm md:text-base lg:text-sm px-4 sm:px-5 md:px-3 flex items-center gap-2"
-        >
-          <LeafIcon class="text-white" />
-          <span>Our People</span>
-        </h1>
+        <div class="reveal-slide-up">
+          <LeafIcon
+            class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse"
+          />
+
+          <h1
+            class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
+          >
+            OUR <br />
+            <span class="text-[#129C48]">PEOPLE.</span>
+          </h1>
+        </div>
+
         <p
-          class="max-w-[90%] sm:max-w-[700px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 sm:mb-8"
+          class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
         >
-          The team behind the mission.
+          Meet the experts and innovators behind the mission towards driving
+          sustainable agriculture forward.
         </p>
-        <p
-          class="text-white max-w-[90%] sm:max-w-[500px] text-sm sm:text-base md:text-lg"
-        >
-          Meet the experts and innovators driving sustainable agriculture
-          forward.
-        </p>
+
+        <div class="absolute bottom-10 animate-bounce">
+          <svg
+            class="w-8 h-8 text-white opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
       </div>
     </div>
 
-    <!-- Team Section -->
-
-    <!--
-    <section class="max-w-[1440px] mx-auto px-6 py-20 font-montserrat">
-      <div class="mb-10">
-        <h1
-          class="flex items-center gap-1 px-2 py-1 mb-4 border-gray-200 border-1 rounded-2xl max-w-[110px] justify-center"
-        >
-          <LeafIcon class="text-green-700" />
-          <span class="text-xs font-semibold">Our Team</span>
-        </h1>
+    <section
+      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      aria-label="Our Team"
+    >
+      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
+        <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
       </div>
 
-      <div class="grid gap-12 lg:grid-cols-2">
-        <div>
-          <img
-            src="/src/assets/img/farm-ceo.jpg"
-            alt="CEO"
-            class="object-cover w-full h-full rounded-2xl"
-          />
-        </div>
-        <div class="flex flex-col justify-center">
-          <h2
-            class="text-3xl font-semibold leading-tight text-gray-900 lg:text-2xl max-w-[550px]"
+      <div class="mx-auto max-w-[1440px] relative z-10">
+        <div class="inline-flex">
+          <a
+            href="/solutions.html"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
-            Leadership with vision.
-          </h2>
-          <p class="mt-4 text-gray-600">
-            Our CEO and leadership team bring decades of experience in
-            agriculture and sustainability.
-          </p>
-        </div>
-      </div>
+            <span
+              class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+            >
+              <LeafIcon class="w-4 h-4 text-black" />
+              <span class="text-xs font-semibold tracking-wider text-black"
+                >Our solutions</span
+              >
+            </span>
 
-      <div class="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2">
-        <div class="p-6 bg-white shadow-sm rounded-xl">
-          <img
-            src="/src/assets/img/farmer-img1.avif"
-            alt="Team Member"
-            class="w-12 h-12 mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-gray-900">Agronomist</h3>
-          <p class="mt-2 text-sm text-gray-600">
-            Specializing in crop science and soil health.
-          </p>
+            <span
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
+            >
+              <LeafIcon class="w-4 h-4 text-white" />
+              <span class="text-xs font-semibold leading-none text-white"
+                >Our solutions</span
+              >
+            </span>
+          </a>
         </div>
-        <div class="p-6 text-white bg-black rounded-xl">
-          <img
-            src="/src/assets/img/farmer-img2.jpg"
-            alt="Team Member"
-            class="w-12 h-12 mb-3 rounded-md"
-          />
-          <h3 class="font-semibold">Technologist</h3>
-          <p class="mt-2 text-sm text-gray-300">
-            Developing smart farming solutions.
-          </p>
+
+        <div
+          class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row"
+        >
+          <div class="md:max-w-xl reveal-slide-right">
+            <h2
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6"
+            >
+              Who <span class="text-[#129C48]">We Are</span>
+            </h2>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <p
+              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]"
+            >
+              We are a team of agronomists, technologists, agripreneur, and
+              sustainability experts.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-end gap-3 reveal-slide-left">
+            <button
+              v-for="dept in uniqueDepartments"
+              :key="dept"
+              @click="activeDepartment = dept"
+              :class="[
+                'px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border flex items-center gap-2 group',
+                activeDepartment === dept
+                  ? 'bg-[#129C48] text-white border-[#129C48] shadow-lg scale-105'
+                  : 'bg-white text-gray-500 border-gray-200 hover:border-[#129C48] hover:text-[#129C48]',
+              ]"
+              :aria-pressed="activeDepartment === dept"
+            >
+              {{ dept }}
+              <svg
+                :class="[
+                  'w-4 h-4 transition-transform duration-300',
+                  activeDepartment === dept
+                    ? 'rotate-0'
+                    : '-rotate-45 group-hover:rotate-0',
+                ]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 sm:gap-6"
+        >
+          <div
+            v-for="member in filteredTeam"
+            :key="member.name"
+            class="w-32 mx-auto text-center transition-all duration-300 cursor-pointer group reveal-stagger sm:w-48 lg:w-48"
+            @click="openModal(member)"
+            :aria-label="'View profile of ' + member.name"
+          >
+            <div
+              class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300"
+            >
+              <img
+                :src="member.photoUrl"
+                :alt="'Photo of ' + member.name"
+                class="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 flex-col items-center justify-end hidden pb-4 text-center transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:opacity-100 md:flex"
+              >
+                <h3
+                  v-if="showNames"
+                  class="font-serif text-xs font-bold text-white transition-transform duration-300 delay-100 transform translate-y-4 sm:text-sm md:text-xl group-hover:translate-y-0"
+                >
+                  {{ member.name.split(" ")[0] }}
+                </h3>
+                <p
+                  v-if="showNames"
+                  class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
+                >
+                  {{ member.title.split(" ")[0] }}
+                </p>
+              </div>
+            </div>
+            <div v-if="showNames" class="mt-4 md:hidden">
+              <h3 class="font-bold text-black">
+                {{ member.name.split(" ")[0] }}
+              </h3>
+              <p class="text-sm text-[#129C48]">
+                {{ member.title.split(" ")[0] }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-  -->
+    <Transition name="modal">
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 z-[999] flex items-center justify-center p-4 overflow-y-auto"
+      >
+        <div
+          @click="closeModal"
+          class="absolute inset-0 bg-black/70 backdrop-blur-xl"
+        ></div>
 
-    <!-- Footer -->
+        <div
+          class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm sm:max-w-md md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh] md:max-h-none"
+        >
+          <button
+            @click="closeModal"
+            class="absolute z-20 px-3 py-1 text-[10px] md:text-sm font-bold uppercase border-2 rounded-full top-4 right-4 md:top-6 md:right-6 border-stone-300 text-stone-500 bg-white/80 md:bg-transparent hover:bg-stone-100"
+          >
+            close x
+          </button>
+
+          <div class="w-full md:w-[45%] h-56 md:h-auto shrink-0">
+            <img
+              :src="selectedMember.photoUrl"
+              :alt="selectedMember.name"
+              class="object-cover w-full h-full"
+            />
+          </div>
+
+          <div
+            class="w-full md:w-[55%] p-4 sm:p-6 md:p-12 flex flex-col justify-center overflow-y-auto"
+          >
+            <h3
+              v-if="showNames"
+              class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl"
+            >
+              {{ selectedMember.name }}
+            </h3>
+            <p
+              v-if="showNames"
+              class="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight text-[#035925]"
+            >
+              {{ selectedMember.title }}
+            </p>
+            <div
+              class="mt-3 md:mt-8 mb-4 md:mb-26 overflow-y-auto max-h-[150px] sm:max-h-[200px] md:max-h-[300px]"
+            >
+              <p
+                class="text-xs leading-relaxed sm:text-sm md:text-base text-stone-600"
+              >
+                {{ selectedMember.bio }}
+              </p>
+            </div>
+
+            <div>
+              <a
+                :href="selectedMember.socialLinks.linkedin"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3.5 bg-[#0077b5] text-white text-xs sm:text-sm md:text-base font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95"
+              >
+                Connect on Linkedin
+                <svg
+                  class="w-4 h-4 md:w-5 md:h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <GrowWithUs />
+
     <Footer />
   </div>
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from "vue";
+import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
+import GrowWithUs from "../components/GrowWithUs.vue";
+import { TEAM_DATA } from "./teamData.js";
+
+import heroImage from "../assets/img/group-farm-image.jpg";
+
+const { init: initScrollReveal } = useScrollReveal({
+  duration: 800,
+  delay: 100,
+  viewFactor: 0.12,
+});
+
+onMounted(() => {
+  const api = initScrollReveal();
+  if (!api) return;
+  api.reveal(".reveal-fade", {
+    ...revealEffects.fade,
+    duration: 900,
+    delay: 200,
+  });
+  api.reveal(".reveal-slide-up", {
+    ...revealEffects.slideUp,
+    duration: 750,
+    delay: 200,
+  });
+  api.reveal(".reveal-slide-left", {
+    ...revealEffects.slideLeft,
+    duration: 700,
+    delay: 150,
+  });
+  api.reveal(".reveal-slide-right", {
+    ...revealEffects.slideRight,
+    duration: 700,
+    delay: 200,
+  });
+  api.reveal(".reveal-stagger", {
+    ...revealEffects.stagger,
+    duration: 600,
+    interval: 100,
+    delay: 100,
+  });
+});
+
+const isOpen = ref(false);
+const selectedMember = ref(null);
+const activeDepartment = ref("All");
+const showNames = ref(false);
+
+const openModal = (member) => {
+  selectedMember.value = member;
+  isOpen.value = true;
+};
+
+const closeModal = () => {
+  isOpen.value = false;
+};
+
+const uniqueDepartments = computed(() => [
+  "All",
+  ...new Set(TEAM_DATA.map((m) => m.department)),
+]);
+
+const filteredTeam = computed(() => {
+  let filtered =
+    activeDepartment.value === "All"
+      ? TEAM_DATA
+      : TEAM_DATA.filter((m) => m.department === activeDepartment.value);
+  return filtered.sort((a, b) => (a.order || 0) - (b.order || 0));
+});
 </script>
 
-<style></style>
+<style>
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active > .relative,
+.modal-leave-active > .relative {
+  transition: transform 0.3s ease;
+}
+
+.modal-enter-from > .relative,
+.modal-leave-to > .relative {
+  transform: scale(0.95);
+}
+</style>

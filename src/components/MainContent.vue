@@ -4,7 +4,7 @@
     <div class="absolute top-70 right-30 w-full h-[300px] z-[-1]">
       <img
         class="h-auto w-[480px] opacity-6"
-        src="/src/assets/img/FarmGate Africa 1 1.png"
+        :src="farmGateLogo"
         alt=""
       />
     </div>
@@ -67,7 +67,7 @@
           <!-- Image 1 (spans both columns) -->
           <div class="col-span-2">
             <img
-              src="/src/assets/img/farm-crops.jpg"
+              :src="farmCrops"
               alt=""
               class="w-full h-[250px] object-cover rounded-2xl brightness-85"
             />
@@ -76,7 +76,7 @@
           <!-- Image 2 -->
           <div>
             <img
-              src="/src/assets/img/soil-sampling.jpg"
+              :src="soilSampling"
               alt=""
               class="object-cover w-full rounded-2xl"
             />
@@ -85,7 +85,7 @@
           <!-- Image 3 -->
           <div>
             <img
-              src="/src/assets/img/farm-tractor2.jpg"
+              :src="farmTractor2"
               alt=""
               class="object-cover w-full rounded-2xl"
             />
@@ -156,7 +156,7 @@
             <!-- Media wrapper with fixed aspect so overlay & image always match -->
             <div class="w-full md:w-1/2 h-[400px] md:h-[380px]">
               <img
-                src="/src/assets/img/farmer-img1.avif"
+                :src="farmerImg1"
                 alt="Precision farming"
                 class="absolute inset-0 object-cover w-full h-full"
               />
@@ -179,7 +179,7 @@
           <div class="relative z-10 overflow-hidden rounded-lg">
             <div class="w-full md:w-1/2 h-[400px] md:h-[380px]">
               <img
-                src="/src/assets/img/Women-farm.jpg"
+                :src="womenFarm"
                 alt="Personalized services"
                 class="absolute inset-0 object-cover w-full h-full"
               />
@@ -202,7 +202,7 @@
           >
             <div class="w-full md:w-1/2 h-[400px] md:h-[380px]">
               <img
-                src="/src/assets/img/farm-irrigation.jpg"
+                :src="farmIrrigation"
                 alt="Sustainable irrigation"
                 class="absolute inset-0 object-cover w-full h-full"
               />
@@ -232,7 +232,7 @@
         <!-- Image -->
         <div class="md:col-span-1 lg:col-span-6">
           <img
-            src="/src/assets/img/faso-farm.jpg"
+            :src="fasoFarm"
             alt="Sustainable Agriculture"
             class="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[580px] object-cover rounded-2xl brightness-90"
           />
@@ -346,7 +346,7 @@
         <div class="w-full h-[300px] z-[-1] absolute top-70 bottom-80 right-30">
           <img
             class="h-auto w-[480px] opacity-6"
-            src="/src/assets/img/FarmGate Africa 1 1.png"
+            :src="farmGateLogo"
             alt=""
           />
         </div>
@@ -384,7 +384,7 @@
             <div>
               <div class="overflow-hidden rounded-xl">
                 <img
-                  src="/src/assets/img/farm-pic5.jpg"
+                  :src="farmPic5"
                   alt="Smart Irrigation"
                   class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
                 />
@@ -402,7 +402,7 @@
             <div>
               <div class="overflow-hidden rounded-xl">
                 <img
-                  src="/src/assets/img/farm-pic3.jpg"
+                  :src="farmPic3"
                   alt="Soil Health"
                   class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
                 />
@@ -420,7 +420,7 @@
             <div>
               <div class="overflow-hidden rounded-xl">
                 <img
-                  src="/src/assets/img/farm-pic4.jpg"
+                  :src="farmPic4"
                   alt="Sustainable Farm Planning"
                   class="object-cover w-full h-56 sm:h-64 md:h-72 lg:h-[430px] mb-4 rounded-xl transition-transform duration-500 ease-in-out hover:scale-110 shadow-lg"
                 />
@@ -608,6 +608,17 @@
 import { ref } from "vue";
 
 import ceoDp from "@/assets/img/farm-ceo.jpg";
+import farmGateLogo from '@/assets/img/FarmGate Africa 1 1.png';
+import farmCrops from '@/assets/img/farm-crops.jpg';
+import soilSampling from '@/assets/img/soil-sampling.jpg';
+import farmTractor2 from '@/assets/img/farm-tractor2.jpg';
+import farmerImg1 from '@/assets/img/farmer-img1.avif';
+import womenFarm from '@/assets/img/Women-farm.jpg';
+import farmIrrigation from '@/assets/img/farm-irrigation.jpg';
+import fasoFarm from '@/assets/img/faso-farm.jpg';
+import farmPic5 from '@/assets/img/farm-pic5.jpg';
+import farmPic3 from '@/assets/img/farm-pic3.jpg';
+import farmPic4 from '@/assets/img/farm-pic4.jpg';
 
 const activeIndex = ref(0);
 
@@ -660,3 +671,5 @@ const prevSlide = () => {
   }
 };
 </script>
+
+
