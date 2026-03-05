@@ -564,10 +564,9 @@
           <div class="hidden mt-0 sm:flex-1 sm:block">
             <h3
               :class="[
-                'text-2xl font-semibold text-[#F2CB00]',
+                'text-2xl font-semibold text-[#F2CB00] mb-4',
                 'flex items-center',
                 'cursor-pointer',
-                activeSections.contact ? 'mb-4' : 'mb-0',
               ]"
             >
               Contact Us
@@ -900,7 +899,7 @@
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
 import { useGlobalSearch } from "@/composables/useGlobalSearch";
-import patternBg from "@/assets/img/footer-bg.jpg";
+import patternBg from "@/assets/img/footer-bg.webp";
 import logoWhite1 from "@/assets/img/fg logo-white1.png";
 import logoWhite2 from "@/assets/img/fg logo-white2.png";
 

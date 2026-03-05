@@ -367,7 +367,7 @@
         </div>
       </div>
     </section>
-    let
+    
     <GrowWithUs />
 
     <Footer />
