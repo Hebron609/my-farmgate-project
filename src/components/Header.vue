@@ -1,6 +1,5 @@
 <template>
   <div class="relative w-full">
-    <!-- Header -->
     <div
       :class="[
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
@@ -10,11 +9,10 @@
     >
       <nav
         :class="[
-          'text-white flex flex-col sm:flex-row sm:justify-between items-center sm:items-start max-w-[1900px] mx-auto font-montserrat px-6 sm:px-8',
-          isScrolled ? 'pt-4 pb-0 sm:pb-0' : 'pt-4 pb-6 sm:pb-0',
+          'text-white flex flex-col lg:flex-row lg:justify-between items-center lg:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
+          isScrolled ? 'pt-4 pb-0 lg:pb-0' : 'pt-4 pb-6 lg:pb-0',
         ]"
       >
-        <!-- Mobile: Navigation row (conditional for video variants) -->
         <div class="flex items-start justify-between w-full mb-4 sm:hidden">
           <div v-if="videoVariant === 2" class="flex items-center h-[50px]">
             <a href="/">
@@ -55,7 +53,6 @@
 
           <div class="flex items-center gap-3">
             <div v-if="videoVariant !== 2" class="relative flex items-center">
-              <!-- Search icon -->
               <button
                 @click="toggleSearch"
                 class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-yellow-400 hover:text-black"
@@ -66,7 +63,6 @@
                 />
               </button>
 
-              <!-- Expanding search box (Mobile) -->
               <transition name="slide">
                 <div
                   v-if="isSearchOpen"
@@ -93,19 +89,17 @@
                 </div>
               </transition>
 
-              <!-- Suggestions Dropdown (Mobile) -->
               <transition name="fade">
                 <div
                   v-if="isSearchOpen && (showResults || searchQuery)"
                   class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72"
                 >
-                  <!-- Results List -->
                   <div v-if="hasResults" class="overflow-y-auto max-h-72">
                     <div
                       v-for="result in searchResults"
                       :key="result.id"
                       @click="onSelectResult(result)"
-                      class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                      class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
                     >
                       <div>
                         <p class="text-sm font-semibold">{{ result.title }}</p>
@@ -116,16 +110,15 @@
                     </div>
                   </div>
 
-                  <!-- No Results State -->
                   <div
                     v-else-if="searchQuery && !hasResults"
                     class="px-4 py-6 text-center"
                   >
                     <p class="text-sm text-white/70">No results found for</p>
-                    <p class="text-sm font-semibold text-white mt-1 truncate">
+                    <p class="mt-1 text-sm font-semibold text-white truncate">
                       "{{ searchQuery }}"
                     </p>
-                    <p class="text-xs text-white/50 mt-2">
+                    <p class="mt-2 text-xs text-white/50">
                       Try searching for topics like "farming", "solutions", or
                       "products"
                     </p>
@@ -158,7 +151,6 @@
               </span>
             </a>
 
-            <!-- Hamburger -->
             <button
               @click="toggleMenu"
               class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
@@ -172,7 +164,6 @@
           </div>
         </div>
 
-        <!-- Mobile: Dynamic Logo -->
         <a
           v-if="showMobileLogo && videoVariant !== 2"
           href="/"
@@ -185,7 +176,6 @@
           />
         </a>
 
-        <!-- Desktop: Logo on left -->
         <a href="/" class="items-start hidden sm:flex">
           <img
             :class="[
@@ -197,11 +187,8 @@
           />
         </a>
 
-        <!-- Desktop: Right section -->
         <div class="items-start hidden gap-6 sm:flex">
-          <!-- SEARCH FEATURE -->
           <div class="relative flex items-center">
-            <!-- Search icon -->
             <button
               @click="toggleSearch"
               class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-yellow-400 hover:text-black"
@@ -212,11 +199,10 @@
               />
             </button>
 
-            <!-- Expanding search box -->
             <transition name="slide">
               <div
                 v-if="isSearchOpen"
-                class="absolute flex items-center px-4 py-2 border shadow-2xl right-12 w-64 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
+                class="absolute flex items-center w-64 px-4 py-2 border shadow-2xl right-12 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
@@ -240,19 +226,17 @@
               </div>
             </transition>
 
-            <!-- Results Dropdown -->
             <transition name="fade">
               <div
                 v-if="isSearchOpen && (showResults || searchQuery)"
-                class="absolute mt-2 border shadow-2xl right-12 w-64 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 overflow-hidden top-12"
+                class="absolute w-64 mt-2 overflow-hidden border shadow-2xl right-12 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 top-12"
               >
-                <!-- Results List -->
-                <div v-if="hasResults" class="max-h-80 overflow-y-auto">
+                <div v-if="hasResults" class="overflow-y-auto max-h-80">
                   <div
                     v-for="result in searchResults"
                     :key="result.id"
                     @click="onSelectResult(result)"
-                    class="px-4 py-3 border-b border-white/10 text-white transition-all cursor-pointer hover:bg-yellow-400 hover:text-black"
+                    class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
                   >
                     <div class="flex items-start justify-between">
                       <div>
@@ -261,23 +245,22 @@
                           {{ result.category }}
                         </p>
                       </div>
-                      <span class="text-xs px-2 py-1 bg-white/20 rounded-full">
+                      <span class="px-2 py-1 text-xs rounded-full bg-white/20">
                         {{ result.category }}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <!-- No Results State -->
                 <div
                   v-else-if="searchQuery && !hasResults"
                   class="px-4 py-6 text-center"
                 >
                   <p class="text-sm text-white/70">No results found for</p>
-                  <p class="text-sm font-semibold text-white mt-1">
+                  <p class="mt-1 text-sm font-semibold text-white">
                     "{{ searchQuery }}"
                   </p>
-                  <p class="text-xs text-white/50 mt-2">
+                  <p class="mt-2 text-xs text-white/50">
                     Try searching for topics like "farming", "solutions", or
                     "products"
                   </p>
@@ -286,7 +269,6 @@
             </transition>
           </div>
 
-          <!-- Marketplace Button -->
           <a
             href="/marketplace.html"
             class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
@@ -310,7 +292,6 @@
             </span>
           </a>
 
-          <!-- Hamburger -->
           <button
             @click="toggleMenu"
             class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
@@ -325,35 +306,40 @@
       </nav>
     </div>
 
-    <!-- Overlay Menu -->
     <transition name="fade">
       <div
         v-if="isMenuOpen"
         class="fixed inset-0 z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
-        :style="{ backgroundImage: `url(${patternBg})` }"
+        :style="{
+          backgroundImage: `url(${patternBg})`,
+          backgroundPosition: 'left center',
+        }"
       >
         <div
-          class="absolute inset-0 bg-[rgba(0,0,0,0.65)] backdrop-blur-sm"
+          class="absolute inset-0 pointer-events-none header-overlay-bg"
         ></div>
 
-        <!-- Scrollable container -->
         <div
-          class="relative flex flex-col lg:flex-row lg:justify-between p-12 max-w-[1820px] mx-auto overflow-y-auto h-full space-y-12 lg:space-y-0 pb-24"
+          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:flex-row lg:gap-10 pb-32 overflow-y-auto lg:overflow-y-visible"
         >
-          <!-- Logo -->
-          <div class="absolute top-6 left-6">
-            <a href="/"
-              ><img
-                class="w-[75px] sm:w-[100px] h-auto"
+          <div
+            class="relative flex flex-col items-start mb-12 h-auto lg:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-24 lg:mb-0"
+          >
+            <a href="/">
+              <img
+                class="drop-shadow-xl transition-all duration-300 w-[80px] sm:w-[200px] h-auto hover:scale-105"
                 :src="logoWhite2"
                 alt="Logo"
-            /></a>
+              />
+            </a>
           </div>
 
-          <!-- About -->
-          <div class="flex-1 mt-20">
+          <div class="p-0 mt-0 mb-20 sm:mb-0 sm:flex-1">
             <h3
-              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              :class="[
+                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer mt-10 lg:mt-0',
+                activeSections.about ? 'mb-4' : 'mb-0',
+              ]"
               @click="toggleSection('about')"
             >
               About Us
@@ -440,10 +426,12 @@
             </transition>
           </div>
 
-          <!-- Programs -->
-          <div class="flex-1 mt-20">
+          <div class="mt-0 mb-20 sm:mb-0 sm:flex-1">
             <h3
-              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              :class="[
+                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer',
+                activeSections.programs ? 'mb-4' : 'mb-0',
+              ]"
               @click="toggleSection('programs')"
             >
               Our Initiatives
@@ -504,10 +492,12 @@
             </transition>
           </div>
 
-          <!-- Contact-Us -->
-          <div class="flex-1 mt-20">
+          <div class="mt-0 mb-20 sm:mb-0 sm:flex-1">
             <h3
-              class="flex items-center mb-6 text-2xl font-semibold text-[#F2CB00] cursor-pointer"
+              :class="[
+                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer',
+                activeSections.contact ? 'mb-4' : 'mb-0',
+              ]"
               @click="toggleSection('contact')"
             >
               Get in Touch
@@ -531,7 +521,7 @@
             </h3>
             <transition name="slide">
               <ul class="space-y-5" v-show="activeSections.contact">
-                <li>
+                <li class="block">
                   <a
                     href="/contact.html"
                     class="relative pb-2 text-xl font-medium group"
@@ -571,16 +561,22 @@
             </transition>
           </div>
 
-          <!-- Contact -->
-          <div class="flex-1 mt-20">
-            <h3 class="mb-6 text-2xl font-semibold text-[#F2CB00]">
+          <div class="hidden mt-0 sm:flex-1 sm:block">
+            <h3
+              :class="[
+                'text-2xl font-semibold text-[#F2CB00]',
+                'flex items-center',
+                'cursor-pointer',
+                activeSections.contact ? 'mb-4' : 'mb-0',
+              ]"
+            >
               Contact Us
             </h3>
-            <p class="mb-4 font-bold">FarmGate Africa & Industries Ltd</p>
+            <p class="mb-4 font-bold font-livvic">
+              FarmGate Africa & Industries Ltd
+            </p>
 
-            <!-- Office Location -->
             <div class="flex items-start gap-2 mb-4">
-              <!-- Map Icon SVG -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 682.66669 682.66669"
@@ -619,7 +615,6 @@
                 </g>
               </svg>
 
-              <!-- Text block -->
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
@@ -630,9 +625,7 @@
               </div>
             </div>
 
-            <!-- Registered Address -->
             <div class="flex items-start gap-2 mb-4">
-              <!-- Registered Address Icon SVG -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -664,7 +657,6 @@
                 />
               </svg>
 
-              <!-- Text block -->
               <div>
                 <p class="font-semibold text-white">Registered Address:</p>
                 <p class="text-gray-300">
@@ -674,9 +666,7 @@
               </div>
             </div>
 
-            <!-- Postal Address -->
             <div class="flex items-start gap-2 mb-4">
-              <!-- Postal Address Icon SVG -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1707 1707"
@@ -721,7 +711,6 @@
                 />
               </svg>
 
-              <!-- Text block -->
               <div>
                 <p class="font-semibold text-white">Postal Address:</p>
                 <p class="text-gray-300">
@@ -730,9 +719,7 @@
                 </p>
               </div>
             </div>
-            <!-- Telephone Info (Landline) -->
             <div class="flex items-center gap-2 mb-4">
-              <!-- Custom Telephone SVG -->
               <svg
                 id="Layer_1"
                 enable-background="new 0 0 48 48"
@@ -752,7 +739,7 @@
                       d="m17.9 18.3c-.8 0-1.5.7-1.5 1.5v1.3h-7.2c-.7 0-1.2.4-1.4 1.1l-5.4 17.6c-.6 1.8-.4 3.7.7 5.3s2.9 2.5 4.8 2.5h32c1.9 0 3.7-.9 4.8-2.5 1.1-1.5 1.4-3.5.8-5.2l-5.3-17.6c-.2-.6-.8-1.1-1.4-1.1h-7.2v-1.3c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v1.3h-9.2v-1.3c0-.9-.7-1.6-1.5-1.6zm24.8 22.4c.3.9.2 1.8-.4 2.5-.6.8-1.4 1.2-2.4 1.2h-31.9c-1 0-1.8-.4-2.4-1.2-.5-.7-.7-1.7-.3-2.6l5-16.5h27.4z"
                     />
                     <path
-                      d="m19.6 28.5c0-.1-.1-.2-.1-.3-.1-.1-.1-.2-.2-.2-.3-.4-.9-.5-1.3-.4-.1 0-.2 0-.3.1-.1 0-.2.1-.3.1s-.2.1-.2.2c-.1.1-.1.1-.2.2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.2-.2-.2-.3z"
+                      d="m19.6 28.5c0-.1-.1-.2-.1-.3-.1-.1-.1-.2-.2-.2-.3-.4-.9-.5-1.3-.4-.1 0-.2 0-.3.1-.1 0-.2.1-.3.1s-.2.1-.2.2c-.1.1-.1 .1-.2 .2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.2-.2-.2-.3z"
                     />
                     <path
                       d="m25.4 28.5c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.4-.4-.9-.5-1.4-.4-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1s-.2 .1-.2 .2c-.1 .1-.1 .1-.2 .2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
@@ -776,7 +763,7 @@
                       d="m25.4 39c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2-.2-.1-.2-.2c-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1s.2 .8.4 1.1c.3 .3.7 .4 1.1 .4s.8-.1 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
                     />
                     <path
-                      d="m31.2 39c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.1-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1 0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4.2 0 .4 0 .6-.1s.3-.2.5-.3c.1-.1.3-.3.3-.5.1-.2.1-.4.1-.6 0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
+                      d="m31.2 39c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.1-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1 0 .2 0 .4 .1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4.2 0 .4 0 .6-.1s.3-.2.5-.3c.1-.1.3-.3.3-.5.1-.2.1-.4.1-.6 0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
                     />
                   </g>
                 </g>
@@ -785,9 +772,7 @@
               <p class="text-gray-300">+233 30 398 0443</p>
             </div>
 
-            <!-- Telephone Info (Mobile) -->
             <div class="flex items-center gap-2 mb-4">
-              <!-- Custom Phone SVG -->
               <svg
                 version="1.1"
                 id="Capa_1"
@@ -844,9 +829,7 @@
               <p class="text-gray-300">+233 50 330 1132</p>
             </div>
 
-            <!-- Email Info -->
             <div class="flex items-center gap-2 mb-4">
-              <!-- Custom Envelope SVG -->
               <svg
                 id="Layer_1"
                 viewBox="0 0 512 512"
@@ -868,13 +851,45 @@
             </div>
           </div>
 
-          <!-- Close -->
           <button
             @click="toggleMenu"
             class="absolute text-3xl cursor-pointer top-6 right-6 lg:text-5xl hover:text-yellow-400"
           >
             &times;
           </button>
+
+          <div
+            class="fixed bottom-0 left-0 right-0 z-50 block lg:absolute lg:bottom-0 md:hidden lg:block bg-[#055732] lg:bg-transparent lg:z-0 pb-5"
+          >
+            <div class="w-full border-t border-white/20"></div>
+            <div class="max-w-[1820px] mx-auto px-4 py-3 sm:px-12 sm:py-4">
+              <div
+                class="flex flex-col px-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
+              >
+                <div
+                  class="hidden mb-2 font-semibold text-center text-yellow-300 sm:mb-0 sm:text-left md:block"
+                >
+                  gateway to farming
+                </div>
+                <div
+                  class="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left"
+                >
+                  <span class="whitespace-normal sm:whitespace-nowrap"
+                    >© 2026 FarmGate Africa & Industries Ltd. | All rights
+                    reserved.</span
+                  >
+                  <a
+                    href="https://butterflytech.io"
+                    target="_blank"
+                    class="text-yellow-300"
+                  >
+                    <span class="text-white">Powered by:</span> Butterfly
+                    Technologies</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </transition>
@@ -885,7 +900,7 @@
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
 import { useGlobalSearch } from "@/composables/useGlobalSearch";
-import patternBg from "@/assets/img/pattern-bg1.webp";
+import patternBg from "@/assets/img/footer-bg.jpg";
 import logoWhite1 from "@/assets/img/fg logo-white1.png";
 import logoWhite2 from "@/assets/img/fg logo-white2.png";
 
@@ -1026,5 +1041,15 @@ const navigateToVideo2 = () => {
 /* Arrow rotation */
 .rotate-90 {
   transform: rotate(90deg);
+}
+
+/* Header overlay dark overlay effect */
+.header-overlay-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 40, 20, 0.75);
+  backdrop-filter: blur(2px);
+  z-index: 0;
 }
 </style>

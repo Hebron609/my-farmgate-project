@@ -47,20 +47,8 @@
           sustainable agriculture forward.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -83,7 +71,7 @@
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
               <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold tracking-wider text-black"
+              <span class="text-sm font-semibold tracking-wider text-black"
                 >Our solutions</span
               >
             </span>
@@ -92,7 +80,7 @@
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
               <LeafIcon class="w-4 h-4 text-white" />
-              <span class="text-xs font-semibold leading-none text-white"
+              <span class="text-sm font-semibold leading-none text-white"
                 >Our solutions</span
               >
             </span>
@@ -162,12 +150,12 @@
             :aria-label="'View profile of ' + member.name"
           >
             <div
-              class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-gray-300"
+              class="relative overflow-hidden transition-all duration-300 rounded-full aspect-square hover:shadow-2xl hover:border-4 hover:border-gray-300"
             >
               <img
                 :src="member.photoUrl"
                 :alt="'Photo of ' + member.name"
-                class="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-110"
+                class="object-cover object-top w-full h-full transition-transform duration-500 scale-118 group-hover:scale-135"
                 loading="lazy"
               />
               <div
@@ -183,7 +171,7 @@
                   v-if="showNames"
                   class="text-[#F2CB00] text-xs sm:text-sm md:text-base font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-200 font-montserrat"
                 >
-                  {{ member.title.split(" ")[0] }}
+                  {{ member.hoverTitle || member.title.split(" ")[0] }}
                 </p>
               </div>
             </div>
@@ -192,7 +180,7 @@
                 {{ member.name.split(" ")[0] }}
               </h3>
               <p class="text-sm text-[#129C48]">
-                {{ member.title.split(" ")[0] }}
+                {{ member.hoverTitle || member.title.split(" ")[0] }}
               </p>
             </div>
           </div>
@@ -211,7 +199,7 @@
         ></div>
 
         <div
-          class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm sm:max-w-md md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh] md:max-h-none"
+          class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm sm:max-w-md md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh]"
         >
           <button
             @click="closeModal"
@@ -220,31 +208,36 @@
             close x
           </button>
 
-          <div class="w-full md:w-[45%] h-56 md:h-auto shrink-0">
+          <div
+            class="w-full md:w-[45%] h-72 sm:h-80 md:h-auto md:min-h-[450px] shrink-0"
+          >
             <img
-              :src="selectedMember.photoUrl"
+              :src="selectedMember.photoUrlModal || selectedMember.photoUrl"
               :alt="selectedMember.name"
-              class="object-cover w-full h-full"
+              class="object-cover object-top w-full h-full"
             />
           </div>
 
           <div
-            class="w-full md:w-[55%] p-4 sm:p-6 md:p-12 flex flex-col justify-center overflow-y-auto"
+            class="w-full md:w-[55%] p-4 sm:p-6 md:p-12 flex flex-col justify-between"
           >
-            <h3
-              v-if="showNames"
-              class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl"
-            >
-              {{ selectedMember.name }}
-            </h3>
-            <p
-              v-if="showNames"
-              class="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight text-[#035925]"
-            >
-              {{ selectedMember.title }}
-            </p>
+            <div class="shrink-0">
+              <h3
+                v-if="showNames"
+                class="text-xl font-bold leading-tight sm:text-2xl md:text-3xl"
+              >
+                {{ selectedMember.name }}
+              </h3>
+              <p
+                v-if="showNames"
+                class="mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight text-[#035925]"
+              >
+                {{ selectedMember.title }}
+              </p>
+            </div>
+
             <div
-              class="mt-3 md:mt-8 mb-4 md:mb-26 overflow-y-auto max-h-[150px] sm:max-h-[200px] md:max-h-[300px]"
+              class="mt-3 md:mt-6 mb-4 flex-1 overflow-y-auto pr-2 max-h-[180px] sm:max-h-[220px] md:max-h-[350px]"
             >
               <p
                 class="text-xs leading-relaxed sm:text-sm md:text-base text-stone-600"
@@ -253,11 +246,11 @@
               </p>
             </div>
 
-            <div>
+            <div class="pt-2 mt-auto shrink-0 md:pt-4">
               <a
                 :href="selectedMember.socialLinks.linkedin"
                 target="_blank"
-                class="inline-flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3.5 bg-[#0077b5] text-white text-xs sm:text-sm md:text-base font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95"
+                class="inline-flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3.5 bg-[#0077b5] text-white text-xs sm:text-sm md:text-base font-bold rounded-full hover:bg-[#006396] transition-all active:scale-95 w-fit"
               >
                 Connect on Linkedin
                 <svg
@@ -290,6 +283,7 @@ import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 import { TEAM_DATA } from "./teamData.js";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 import heroImage from "../assets/img/group-farm-image.jpg";
 
@@ -333,7 +327,7 @@ onMounted(() => {
 const isOpen = ref(false);
 const selectedMember = ref(null);
 const activeDepartment = ref("All");
-const showNames = ref(false);
+const showNames = ref(true);
 
 const openModal = (member) => {
   selectedMember.value = member;

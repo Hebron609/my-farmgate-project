@@ -48,20 +48,8 @@
           us make a big impact.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -104,7 +92,7 @@
           </p>
 
           <button
-            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-xl w-fit md:mt-0 reveal-slide-right"
+            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right"
           >
             <span
               class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -151,12 +139,12 @@
         </div>
 
         <div
-          class="grid grid-cols-2 gap-3 mt-6 sm:grid-cols-3 lg:grid-cols-6 sm:gap-4 md:gap-6 md:mt-0"
+          class="grid grid-cols-2 gap-3 mt-6 sm:grid-cols-3 lg:grid-cols-6 sm:gap-4 md:gap-6 lg:gap-3 xl:gap-6 md:mt-0"
         >
           <div
             v-for="stat in impactStats"
             :key="stat.label"
-            class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger flex flex-col justify-between"
+            class="group relative overflow-hidden rounded-lg md:rounded-2xl border border-white/10 bg-white/5 p-4 md:p-6 lg:p-3 xl:p-6 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-[#F2CB00]/50 hover:-translate-y-2 reveal-stagger flex flex-col justify-between"
           >
             <div>
               <div
@@ -164,16 +152,18 @@
               >
                 <span
                   v-if="stat.isPrefix && stat.unit"
-                  class="text-2xl font-bold md:text-5xl"
+                  class="text-2xl font-bold md:text-5xl lg:text-3xl xl:text-5xl"
                 >
                   {{ stat.unit }}
                 </span>
-                <span class="text-3xl font-bold leading-none md:text-5xl">
+                <span
+                  class="text-3xl font-bold leading-none md:text-5xl lg:text-3xl xl:text-5xl"
+                >
                   {{ stat.value }}
                 </span>
                 <span
                   v-if="!stat.isPrefix && stat.unit"
-                  class="ml-1 font-semibold tracking-wide text-md md:text-base opacity-80"
+                  class="ml-1 text-sm font-semibold tracking-wide md:text-base lg:text-xs xl:text-base opacity-80"
                 >
                   {{ stat.unit }}
                 </span>
@@ -183,7 +173,7 @@
               ></div>
             </div>
             <div
-              class="font-['Montserrat'] text-[12px] md:text-[13px] font-bold tracking-widest text-gray-300 group-hover:text-white leading-snug"
+              class="font-['Montserrat'] text-[12px] md:text-[13px] lg:text-[10px] xl:text-[13px] font-bold tracking-widest text-gray-300 group-hover:text-white leading-snug"
             >
               {{ stat.label }}
             </div>
@@ -201,38 +191,38 @@
 
       <div class="mx-auto max-w-[1440px] px-6 md:px-12 relative z-10">
         <div
-          class="flex flex-col gap-16 lg:flex-row lg:justify-between lg:items-center"
+          class="flex flex-col gap-10 lg:gap-8 xl:gap-16 lg:flex-row lg:justify-between lg:items-center"
         >
-          <div class="lg:max-w-2xl">
+          <div class="w-full lg:w-[50%] xl:max-w-2xl">
             <h3
-              class="font-['Livvic'] text-3xl md:text-5xl font-bold leading-tight mb-6 reveal-slide-left"
+              class="font-['Livvic'] text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 lg:mb-6 reveal-slide-left"
             >
               Committed to <br /><span class="text-[#F2CB00]"
                 >Global Impact</span
               >
             </h3>
             <p
-              class="mb-10 text-lg font-light leading-relaxed text-green-100 reveal-slide-up"
+              class="mb-8 text-base font-light leading-relaxed text-green-100 lg:mb-10 md:text-lg lg:text-base xl:text-lg reveal-slide-up"
             >
               We are partnering with stakeholders to address food insecurity in
               Africa, dedicated to achieving the UN Sustainable Development
               Goals in every community.
             </p>
 
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap gap-2 md:gap-3">
               <span
                 v-for="sdg in [1, 2, 5, 8, 9, 13, 17]"
                 :key="sdg"
-                class="reveal-stagger-tag px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-[#035925] transition-all duration-300 font-bold text-sm cursor-default"
+                class="reveal-stagger-tag px-4 py-2 md:px-6 md:py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-[#035925] transition-all duration-300 font-bold text-xs md:text-sm cursor-default"
               >
                 SDG {{ sdg }}
               </span>
             </div>
           </div>
 
-          <div class="z-30">
+          <div class="z-30 w-full lg:w-[45%] xl:w-auto">
             <div
-              class="relative w-full lg:w-[580px] h-64 lg:h-[350px] rounded-2xl"
+              class="relative w-full xl:w-[580px] h-64 lg:h-[280px] xl:h-[350px] rounded-2xl"
             >
               <div
                 ref="staticTurbineContainer"
@@ -399,6 +389,7 @@ import farmPic3 from "@/assets/img/farm-pic3.jpg";
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 import climateAnimationData from "@/assets/animations/climate-lottie.json";
 import windTurbineSvg from "@/assets/img/svgviewer-output1.svg?raw";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 const lottieContainer = ref(null);
 const staticTurbineContainer = ref(null);
@@ -745,10 +736,10 @@ function applyAdditionalAnimations() {
 // FORMATTED DATA TO SEPARATE UNITS FROM VALUES
 const impactStats = [
   { value: "6+", unit: "", isPrefix: false, label: "Projects Funded" },
-  { value: "3.5m+", unit: "₵", isPrefix: true, label: "Inputs Financed" },
-  { value: "200+", unit: "acres", isPrefix: false, label: "Land Cultivated" },
+  { value: "3.5m", unit: "₵", isPrefix: true, label: "Inputs Financed" },
+  { value: "200+", unit: "", isPrefix: false, label: "Acres Cultivated" },
   { value: "600+", unit: "", isPrefix: false, label: "Farmers Impacted" },
-  { value: "27+", unit: "", isPrefix: false, label: "Communities Transformed" },
+  { value: "4+", unit: "", isPrefix: false, label: "Regions Covered" },
   {
     value: "89%",
     unit: "",

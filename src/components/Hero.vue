@@ -8,19 +8,22 @@
       @play="videoPlaying = true"
       @waiting="buffering = true"
       @canplay="buffering = false"
+      @loadstart="videoLoading = true"
+      @loadeddata="videoLoading = false"
+      :poster="currentFallbackImage"
       autoplay
       muted
       loop
       playsinline
-      preload="auto"
+      preload="metadata"
     >
-      <source :src="currentVideo" type="video/mp4" />
+      <source :src="currentVideo" type="application/x-mpegURL" />
     </video>
 
-    <!-- Video Placeholder -->
+    <!-- Video Placeholder - Always show until video actually plays -->
     <transition name="fade">
       <div
-        v-if="!videoPlaying || buffering"
+        v-if="!videoPlaying || buffering || videoLoading"
         class="video-placeholder"
         :style="{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${currentFallbackImage})`,
@@ -57,43 +60,47 @@
       >
         {{ mainHeading }}
       </h1>
-      <div v-if="!showOptions" class="flex justify-center mt-10">
-        <button
-          @click="activateOptions"
-          class="relative flex items-center gap-2 px-6 py-3 overflow-hidden text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer group bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl animate-bounce-button"
-        >
-          <!-- Icon Circle -->
+      <div v-if="!showOptions" class="flex justify-center mt-15">
+        <div class="relative inline-flex group">
           <div
-            class="flex items-center justify-center bg-white rounded-full shadow-sm w-7 h-7"
+            class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-yellow-600 animate-solid-pulse"
+          ></div>
+
+          <button
+            @click="activateOptions"
+            class="relative z-10 flex items-center gap-2 px-6 py-3 text-base font-semibold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl"
           >
-            <svg
-              width="14"
-              height="18"
-              viewBox="0 0 5 7"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-3.5 h-4.5 rotate-[15deg]"
+            <div
+              class="flex items-center justify-center transition-all duration-300 ease-out bg-white rounded-full shadow-sm w-7 h-7 leaf-icon-container group-hover:shadow-md group-hover:scale-110"
             >
-              <path
-                d="M4.85 2.41003C4.53 3.81003 3.78 4.59003 2.61 4.75003V6.13003C2.49 6.19003 2.36 6.26003 2.24 6.33003V4.75003C1.07 4.59003 0.32 3.81003 0 2.41003C1.42 2.73003 2.21 3.49003 2.36 4.68003H2.49C2.65 3.48003 3.43 2.73003 4.85 2.41003Z"
-                fill="#129C48"
-              />
-              <path
-                d="M2.42987 0C1.62987 1.26 1.62987 2.37 2.41987 3.34C3.20987 2.37 3.21987 1.26 2.42987 0Z"
-                fill="#129C48"
-              />
-            </svg>
-          </div>
+              <svg
+                width="14"
+                height="18"
+                viewBox="0 0 5 7"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3.5 h-4.5 rotate-[15deg] transition-all duration-300 ease-out leaf-icon group-hover:fill-green-600"
+              >
+                <path
+                  d="M4.85 2.41003C4.53 3.81003 3.78 4.59003 2.61 4.75003V6.13003C2.49 6.19003 2.36 6.26003 2.24 6.33003V4.75003C1.07 4.59003 0.32 3.81003 0 2.41003C1.42 2.73003 2.21 3.49003 2.36 4.68003H2.49C2.65 3.48003 3.43 2.73003 4.85 2.41003Z"
+                  fill="#129C48"
+                />
+                <path
+                  d="M2.42987 0C1.62987 1.26 1.62987 2.37 2.41987 3.34C3.20987 2.37 3.21987 1.26 2.42987 0Z"
+                  fill="#129C48"
+                />
+              </svg>
+            </div>
 
-          <span class="relative z-10"> Start growing with us </span>
+            <span class="relative z-10"> Start growing with us </span>
 
-          <font-awesome-icon
-            :icon="['far', 'arrow-right']"
-            class="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </button>
+            <font-awesome-icon
+              :icon="['far', 'arrow-right']"
+              class="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </button>
+        </div>
       </div>
-
       <!-- Features Section -->
       <transition name="fade-up">
         <div
@@ -107,12 +114,13 @@
             class="flex flex-col items-center text-center text-white cursor-pointer group w-full sm:w-[45%] lg:w-[30%]"
           >
             <div
-              class="px-2 py-3 mb-4 transition-all duration-300 rounded-lg bg-white/15 backdrop-blur-xs group-hover:bg-black/40"
+              class="relative px-3 py-3 mb-4 text-white transition-all duration-300 rounded-[9px] bg-white/20 backdrop-blur-xs group-hover:bg-black/40"
             >
-              <!-- Custom SVG Icon -->
+              <div class="hidden group-hover:block large_ripple"></div>
+
               <div
                 v-html="option.svg"
-                class="text-white w-[38px] h-[38px]"
+                class="relative z-10 w-[38px] h-[38px]"
               ></div>
             </div>
 
@@ -135,7 +143,7 @@
     <!-- Modal -->
     <div
       v-if="showModal"
-      class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-lg"
       @click.self="closeModal"
     >
       <div
@@ -260,10 +268,10 @@ const props = defineProps({
 const emit = defineEmits(["update:videoVariant"]);
 
 import investImg from "@/assets/img/invest1.jpg";
-import farmerImg from "@/assets/img/farmer.webp";
+import farmerImg from "@/assets/img/faso-farm.jpg";
 import trackImg from "@/assets/img/track-with-us-img.webp";
-import fallbackImage1 from "@/assets/img/fallback-image1.png";
-import fallbackImage from "@/assets/img/fallback-image.png";
+import fallbackImage1 from "@/assets/img/fallback-image1.webp";
+import fallbackImage from "@/assets/img/fallback-image.webp";
 import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
 
 const localHls1 = "/videos/adaptive1/master.m3u8";
@@ -294,9 +302,9 @@ const showModal = ref(false);
 const selectedOption = ref({});
 const videoPlaying = ref(false);
 const buffering = ref(true);
+const videoLoading = ref(true);
 const currentFallbackImage = computed(() => {
   const img = videoVariant.value === 1 ? fallbackImage1 : fallbackImage;
-
   return img;
 });
 // OPTIONS LIST
@@ -485,7 +493,15 @@ function initPlayer() {
   triedFallback.value = false;
 
   if (Hls.isSupported()) {
-    hls.value = new Hls();
+    hls.value = new Hls({
+      // Optimize for slower networks
+      maxMaxBufferLength: 30,
+      maxBufferLength: 30,
+      maxBufferSize: 60 * 1000 * 1000,
+      enableWorker: true,
+      lowLatencyMode: false,
+      backBufferLength: 60,
+    });
     hls.value.loadSource(currentVideo.value);
     hls.value.attachMedia(video);
 
@@ -508,7 +524,11 @@ function initPlayer() {
           try {
             hls.value.destroy();
           } catch (e) {}
-          hls.value = new Hls();
+          hls.value = new Hls({
+            maxMaxBufferLength: 30,
+            maxBufferLength: 30,
+            enableWorker: true,
+          });
           currentVideo.value = localFallback;
           hls.value.loadSource(currentVideo.value);
           hls.value.attachMedia(video);
@@ -557,6 +577,13 @@ function initPlayer() {
 
 onMounted(() => {
   document.body.style.overflow = "hidden";
+
+  // Preload fallback images for instant display
+  const img1 = new Image();
+  const img2 = new Image();
+  img1.src = fallbackImage1;
+  img2.src = fallbackImage;
+
   initPlayer();
 });
 
@@ -591,6 +618,7 @@ function activateOptions() {
   videoVariant.value = 2;
   videoPlaying.value = false;
   buffering.value = true;
+  videoLoading.value = true;
   emit("update:videoVariant", 2);
 }
 
@@ -692,6 +720,43 @@ function closeModal() {
   animation: button-bounce 1.8s infinite ease-in-out;
 }
 
+/* Leaf icon pulse animation */
+@keyframes leaf-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0px rgba(18, 156, 72, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(18, 156, 72, 0.4));
+  }
+}
+
+/* Leaf icon rotation on hover */
+@keyframes leaf-rotate {
+  0% {
+    transform: rotate(15deg) scale(1);
+  }
+  50% {
+    transform: rotate(-8deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(15deg) scale(1);
+  }
+}
+
+.group:hover .leaf-icon {
+  animation: leaf-rotate 0.6s ease-out forwards;
+  filter: drop-shadow(0 2px 4px rgba(18, 156, 72, 0.3));
+}
+
+.leaf-icon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.group:hover .leaf-icon-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+}
+
 /* Video Placeholder */
 .video-placeholder {
   position: absolute;
@@ -768,5 +833,57 @@ function closeModal() {
 /* hide video2 logo when menu is open */
 :global(.menu-open .video2-logo) {
   display: none;
+}
+
+@keyframes pulseAnimateSolid {
+  0% {
+    /* scale(X, Y) */
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    /* X is 1.15 (15% wider) 
+      Y is 1.45 (45% taller) - this increases the height of the pulse! 
+    */
+    transform: scale(1.15, 1.45);
+    opacity: 0;
+  }
+}
+
+.animate-solid-pulse {
+  animation: pulseAnimateSolid 1.2s ease-out infinite;
+}
+
+/* Base styling for both ripples */
+.large_ripple,
+.small_ripple {
+  position: absolute;
+  border-radius: 0.5rem; /* Matches the 'rounded-lg' of your container */
+  background: transparent;
+  border: 1.5px solid currentColor; /* Inherits the white text color */
+  pointer-events: none; /* Ensures the ripples don't block clicks/hovers */
+}
+
+/* Large ripple styling */
+.large_ripple {
+  width: 110%;
+  height: 120%;
+  top: -10%;
+  left: -5%;
+  z-index: 2;
+  opacity: 0.5;
+  animation: pulseAnimateLargeXs 1s ease-out infinite;
+}
+
+/* The Keyframe Animation based on your snippet */
+@keyframes pulseAnimateLargeXs {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.18); /* Scales outwards */
+    opacity: 0; /* Fades to invisible */
+  }
 }
 </style>

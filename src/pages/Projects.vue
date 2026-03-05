@@ -41,26 +41,23 @@
         </div>
 
         <p
-          class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
+          class="mt-4 text-gray-300 max-w-[750px] text-sm md:text-base reveal-slide-up delay-300"
         >
-          Explore our ongoing projects that are making a difference in
-          agriculture.
+          At FGAI, we believe every interventions have the power to make a
+          difference, and we trust there is a solution to poverty, food
+          insecurity and sustainable impact.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <p
+          class="max-w-[750px] mt-4 text-sm text-gray-400 delay-300 md:text-base reveal-slide-up"
+        >
+          Our impactful projects and investments are aimed at enhancing food
+          systems and improving livelihoods. Explore our current projects that
+          are making a difference in agriculture.
+        </p>
+
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -81,7 +78,7 @@
                 class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
                 <LeafIcon class="w-4 h-4 text-black" />
-                <span class="text-xs font-semibold tracking-wider text-black"
+                <span class="text-sm font-semibold tracking-wider text-black"
                   >Start growing with us</span
                 >
               </span>
@@ -90,7 +87,7 @@
                 class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
               >
                 <LeafIcon class="w-4 h-4 text-white" />
-                <span class="text-xs font-semibold leading-none text-white"
+                <span class="text-sm font-semibold leading-none text-white"
                   >Start growing with us</span
                 >
               </span>
@@ -120,20 +117,30 @@
               trackIndex === 2 ? 'border-none' : 'border-[1px] border-white/20',
             ]"
           >
+            <!-- Removed top-right badge; indicator moved next to title -->
+
             <img
               :src="card.image"
               class="absolute inset-0 object-cover w-full h-full transition-transform duration-700 hover:scale-110"
             />
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"
+              class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
             ></div>
 
-            <div class="absolute bottom-0 left-0 w-full p-8 text-white md:p-10">
-              <h3 class="mb-3 text-2xl font-bold md:text-3xl font-['Livvic']">
-                {{ card.title }}
+            <div
+              class="absolute bottom-0 left-0 w-full p-5 md:py-4 md:px-6 backdrop-blur-xl rounded-b-[2.5rem] text-white"
+            >
+              <h3
+                class="mb-1 text-lg font-bold md:text-xl font-['Livvic'] relative pl-6"
+              >
+                <span
+                  class="ongoing-dot ongoing-dot-abs"
+                  aria-hidden="true"
+                ></span>
+                <span class="inline-block">{{ card.title }}</span>
               </h3>
               <p
-                class="text-sm leading-relaxed md:text-base text-stone-200 line-clamp-2 opacity-90 font-['Montserrat']"
+                class="text-xs leading-relaxed md:text-sm text-stone-200 opacity-90 font-['Montserrat'] whitespace-pre-line pl-5"
               >
                 {{ card.description }}
               </p>
@@ -198,28 +205,41 @@
           <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
         </div>
 
-        <div class="grid grid-cols-2 gap-12 text-center md:grid-cols-4">
+        <div
+          class="grid grid-cols-2 gap-4 text-center sm:gap-6 md:gap-4 lg:gap-8 md:grid-cols-4"
+        >
           <div
             v-for="stat in stats"
             :key="stat.label"
-            class="flex flex-col items-center reveal-stagger group"
+            class="flex flex-col items-center h-full group reveal-stagger"
           >
             <div
-              class="font-['Livvic'] text-5xl md:text-7xl font-bold text-white mb-4 group-hover:scale-110 transition-transform duration-300"
+              class="flex flex-col items-center justify-center w-full p-3 mb-2 transition-transform duration-300 border shadow-lg h-[170px] lg:h-[190px] rounded-2xl md:rounded-3xl bg-white/20 backdrop-blur-md border-white/30 sm:p-4 lg:p-6 group-hover:scale-105"
             >
-              {{ stat.number }}
-            </div>
-            <div
-              class="font-['Montserrat'] text-[#F2CB00] text-sm md:text-base font-bold uppercase tracking-widest"
-            >
-              {{ stat.label }}
+              <div
+                class="w-full px-2 mb-1 font-['Livvic'] text-white md:mb-2 drop-shadow-lg"
+              >
+                <span
+                  class="block w-full text-3xl font-bold tracking-tight text-center whitespace-nowrap sm:text-4xl md:text-3xl lg:text-4xl xl:text-6xl"
+                >
+                  {{ stat.number }}
+                </span>
+              </div>
+
+              <div
+                class="w-full px-2 font-['Montserrat'] text-[#F2CB00] font-bold uppercase tracking-widest drop-shadow flex items-start justify-center h-16 md:h-12 lg:h-14"
+              >
+                <span
+                  class="block w-full text-sm text-center whitespace-pre-line"
+                >
+                  {{ stat.label.replace(" ", "\n") }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <GrowWithUs />
 
     <Footer />
   </div>
@@ -231,15 +251,15 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import GrowWithUs from "../components/GrowWithUs.vue";
 
 import farmPic from "@/assets/img/farm-pic4.jpg";
-import farmCrops from "@/assets/img/farm-crops.jpg";
-import farmIrrigation from "@/assets/img/farm-irrigation.jpg";
-import farmPic9 from "@/assets/img/farm-pic9.jpg";
-import farmPic1 from "@/assets/img/farm-pic1.jpg";
-import farmPic6 from "@/assets/img/farm-pic6.jpg";
-import farmPic3 from "@/assets/img/farm-pic3.jpg";
+import farmCrops from "@/assets/img/okra.jpg";
+import farmIrrigation from "@/assets/img/tomato.jpg";
+import farmPic9 from "@/assets/img/farm-pic2.jpg";
+import farmPic1 from "@/assets/img/maize.jpg";
+import farmPic6 from "@/assets/img/cassava1.jpg";
+import farmPic3 from "@/assets/img/yam1.webp";
+import ScrollDownPage from "../components/ScrollDownPage.vue";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -280,45 +300,39 @@ onMounted(() => {
 const solutions = [
   {
     id: 1,
-    title: "AgriTech & Smart Farming",
+    title: "Danso Community 25-acre Okra Farming Project",
     image: farmCrops,
-    description:
-      "Leveraging cutting-edge technology and data analytics to optimize farming practices.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 2,
-    title: "Horticulture",
+    title: "Danso Community Tomato Block Farm project",
     image: farmIrrigation,
-    description:
-      "Modernizing your business with data-driven insights and technology.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 3,
-    title: "Animal Husbandry",
+    title: "Danso Community Rice Block Farm project",
     image: farmPic9,
-    description:
-      "Growth roadmaps and tailored strategies for agricultural expansion.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 4,
-    title: "Aquaculture",
+    title: "Danso Community Maize Block Farm project",
     image: farmPic1,
-    description:
-      "Streamlining workflows to boost productivity and reduce operational costs.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 5,
-    title: "Agri-Value Additions",
+    title: "Danso Community Cassava Block Farm project",
     image: farmPic6,
-    description:
-      "Sustainable fish and seafood farming in controlled environments promoting food security.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 6,
-    title: "Agri-Advisory & Training.",
+    title: "Danso Community Yam Block Farm project",
     image: farmPic3,
-    description:
-      "Equipping stakeholders with knowledge for better agricultural practices and decision-making.",
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
 ];
 
@@ -346,8 +360,8 @@ const handlePrev = () => {
 
 const stats = ref([
   { number: "550+", label: "Farmers Supported" },
-  { number: "4", label: "Regions Covered" },
-  { number: "2+", label: "Sponsored Partners" },
+  { number: "27+", label: "Communities Transformed" },
+  { number: "2", label: "Sponsored Partners" },
   { number: "₵2.72m", label: "Working Capital Raised" },
 ]);
 </script>
@@ -359,13 +373,59 @@ const stats = ref([
 .preserve-3d {
   transform-style: preserve-3d;
 }
+.ongoing-dot {
+  width: 10px;
+  height: 10px;
+  background: #16a34a; /* vivid green */
+  border-radius: 9999px;
+  box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12);
+  display: inline-block;
+  position: relative;
+}
+
+.ongoing-dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 163, 74, 0.55);
+  border-radius: 9999px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.95;
+  animation: ripple 1.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+.ongoing-dot-abs {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
 .translate-z-10 {
   transform: translateZ(60px);
 }
 
 .card-item {
   width: 600px;
-  height: 440px;
+  height: 500.09px;
   transform-style: preserve-3d;
   left: 50%;
   margin-left: -300px;
@@ -420,5 +480,17 @@ const stats = ref([
     opacity: 0;
     transform: translateX(0) scale(0.5);
   }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 2.5s linear infinite;
 }
 </style>

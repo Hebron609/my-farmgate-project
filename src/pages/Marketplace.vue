@@ -78,7 +78,11 @@ import MarketplaceHeader from "../components/MarketplaceHeader.vue";
 import { products } from "../data/products.js";
 
 const router = useRouter();
-const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+const { init: initScrollReveal } = useScrollReveal({
+  duration: 800,
+  delay: 100,
+  viewFactor: 0.12,
+});
 const cart = inject("cart");
 const addToCart = inject("addToCart");
 const openCart = inject("openCart");
@@ -110,14 +114,14 @@ const filteredProducts = computed(() => {
           .includes(filters.value.searchQuery.toLowerCase()) ||
         product.description
           .toLowerCase()
-          .includes(filters.value.searchQuery.toLowerCase())
+          .includes(filters.value.searchQuery.toLowerCase()),
     );
   }
 
   // Filter by category
   if (filters.value.selectedCategory !== "All") {
     filtered = filtered.filter(
-      (product) => product.category === filters.value.selectedCategory
+      (product) => product.category === filters.value.selectedCategory,
     );
   }
 
@@ -127,7 +131,7 @@ const filteredProducts = computed(() => {
       filtered = filtered.filter((product) => product.price < 50);
     } else if (filters.value.selectedPrice === "50-100") {
       filtered = filtered.filter(
-        (product) => product.price >= 50 && product.price <= 100
+        (product) => product.price >= 50 && product.price <= 100,
       );
     } else if (filters.value.selectedPrice === "over-100") {
       filtered = filtered.filter((product) => product.price > 100);
@@ -155,8 +159,16 @@ const filteredProducts = computed(() => {
 onMounted(() => {
   const api = initScrollReveal();
   if (!api) return;
-  api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900, delay: 200 });
-  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 750, delay: 200 });
+  api.reveal(".reveal-fade", {
+    ...revealEffects.fade,
+    duration: 900,
+    delay: 200,
+  });
+  api.reveal(".reveal-slide-up", {
+    ...revealEffects.slideUp,
+    duration: 750,
+    delay: 200,
+  });
 });
 </script>
 

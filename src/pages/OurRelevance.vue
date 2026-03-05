@@ -46,20 +46,8 @@
           We believe that the future can be grown.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -167,7 +155,7 @@
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
               <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold tracking-wider text-black"
+              <span class="text-sm font-semibold tracking-wider text-black"
                 >Start growing with us</span
               >
             </span>
@@ -176,7 +164,7 @@
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
               <LeafIcon class="w-4 h-4 text-white" />
-              <span class="text-xs font-semibold leading-none text-white"
+              <span class="text-sm font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
@@ -261,7 +249,7 @@
     </section>
 
     <section
-      class="relative h-[600px] w-full overflow-hidden flex items-center justify-center"
+      class="relative h-[600px] w-full overflow-hidden flex items-center justify-center mb-24"
     >
       <div
         class="absolute inset-0 bg-fixed bg-center bg-cover"
@@ -309,6 +297,7 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 import {
   faBullseye,
   faEye,

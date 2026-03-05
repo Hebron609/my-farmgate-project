@@ -47,20 +47,8 @@
           agricultural revolution.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -79,7 +67,7 @@
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
               <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold leading-none text-black"
+              <span class="text-sm font-semibold leading-none text-black"
                 >Start growing with us</span
               >
             </span>
@@ -88,7 +76,7 @@
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
               <LeafIcon class="w-4 h-4 text-white" />
-              <span class="text-xs font-semibold leading-none text-white"
+              <span class="text-sm font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
@@ -102,7 +90,7 @@
             <h3
               class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight"
             >
-              Our Footprint
+              Our <span class="text-[#129C48]">Footprint</span>
             </h3>
           </div>
 
@@ -227,8 +215,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faLeaf, faRecycle } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import footprintHeroPic from "@/assets/img/footprint-banner.webp";
-import farmPic9 from "@/assets/img/farm-pic9.jpg";
-import farmGateLogo from "@/assets/img/FarmGate Africa 1 1.png";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 library.add(faLeaf, faRecycle);
 

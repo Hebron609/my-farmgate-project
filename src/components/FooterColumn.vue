@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="font-semibold text-white mb-2">{{ title }}</p>
+    <h3 class="mb-2 font-semibold text-white font-livvic">{{ title }}</h3>
     <ul class="space-y-1">
       <li
         v-for="(item, index) in items"
@@ -8,7 +8,7 @@
         class="hover:text-[#F2CB00] transition-colors"
       >
         <!-- Use normal anchor for multipage -->
-        <a :href="item.href">{{ item.label }}</a>
+        <a :href="item.href" class="footer-underline-link">{{ item.label }}</a>
       </li>
     </ul>
   </div>
@@ -19,7 +19,7 @@ defineProps({
   title: String,
   items: {
     type: Array,
-    default: () => []
-  }
-})
+    default: () => [],
+  },
+});
 </script>
