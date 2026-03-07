@@ -698,7 +698,7 @@ function applyAdditionalAnimations() {
       animateFrame();
     };
 
-    // animate();
+    animate();
   });
 
   // Apply wave effect to wind/flowing lines (curved paths with stroke)

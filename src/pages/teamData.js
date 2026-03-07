@@ -2,7 +2,7 @@ export const TEAM_DATA = [
   {
     name: "Emmanuel G. Baiden",
     title: "CF, Investment & Strategy",
-    hoverTitle: "Chief Farmer",
+    hoverTitle: "Farmer",
     location: "Accra, Ghana",
     bio: "Emmanuel is a finance professional with over a decade of experience in business operations and project management. He leads financial management for major grants and impact-focused projects at Innohub including an SGB Climate Investment Fund. An MSc holder in Accounting and Finance, he strengthens Innohub's operations through robust financial leadership.",
     photoUrl: "/images/⁠Emanuel Galley Baiden.webp",
