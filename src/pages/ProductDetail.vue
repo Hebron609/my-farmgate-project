@@ -365,12 +365,20 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import { products } from "../data/products.js";
 
 const route = useRoute();
-const { init: initScrollReveal } = useScrollReveal({ duration: 800, delay: 100, viewFactor: 0.12 });
+const { init: initScrollReveal } = useScrollReveal({
+  duration: 800,
+  delay: 100,
+  viewFactor: 0.12,
+});
 
 onMounted(() => {
   const api = initScrollReveal();
   if (!api) return;
-  api.reveal(".reveal-slide-up", { ...revealEffects.slideUp, duration: 700, delay: 150 });
+  api.reveal(".reveal-slide-up", {
+    ...revealEffects.slideUp,
+    duration: 700,
+    delay: 150,
+  });
 });
 const router = useRouter();
 const addToCart = inject("addToCart");
@@ -407,7 +415,7 @@ watch(
         selectedFarm.value = newVal.farms[0];
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 // --- Actions ---
@@ -463,7 +471,5 @@ const addToBag = () => {
   };
 
   addToCart(cartItem);
-
-  
 };
 </script>

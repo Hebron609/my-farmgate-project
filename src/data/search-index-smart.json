@@ -1,0 +1,2336 @@
+[
+  {
+    "id": "span-0",
+    "content": "FarmGate\n        \n\n        \n          AFRICA\n        \n      \n\n      \n      \n        \n          \n          \n        \n\n        \n          FarmGate\n        \n\n        \n          AFRICA",
+    "tag": "span",
+    "file": "components/BrandLogo.vue"
+  },
+  {
+    "id": "cartdrawer_empty_text",
+    "content": "Your cart is empty",
+    "tag": "p",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "{{ item.selectedWeight }} - {{ item.selectedFarm }}",
+    "tag": "p",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "GHS{{ item.price.toFixed(2) }}",
+    "tag": "p",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "h2-0",
+    "content": "Shopping Cart",
+    "tag": "h2",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "{{ item.name }}",
+    "tag": "h3",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "{{\n                  item.quantity\n                }}",
+    "tag": "span",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Subtotal:",
+    "tag": "span",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "GHS{{ totalPrice.toFixed(2) }}",
+    "tag": "span",
+    "file": "components/CartDrawer.vue"
+  },
+  {
+    "id": "footer_gateway_text",
+    "content": "gateway to farming",
+    "tag": "span",
+    "file": "components/Footer.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "© 2026 FarmGate Africa & Industries Ltd. | All rights reserved.",
+    "tag": "span",
+    "file": "components/Footer.vue"
+  },
+  {
+    "id": "footer_copyright_text",
+    "content": "© 2026 FarmGate Africa & Industries Ltd. | All rights reserved.",
+    "tag": "span",
+    "file": "components/Footer.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Powered by:\n              Butterfly Technologies",
+    "tag": "span",
+    "file": "components/Footer.vue"
+  },
+  {
+    "id": "footer_poweredby_text",
+    "content": "Powered by:\n              Butterfly Technologies",
+    "tag": "span",
+    "file": "components/Footer.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "{{ title }}",
+    "tag": "p",
+    "file": "components/FooterColumn.vue"
+  },
+  {
+    "id": "footersocialbutton_text",
+    "content": "{{ label }}",
+    "tag": "span",
+    "file": "components/FooterSocialButton.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Whether you’re an organization, an NGO, a farmer, distributor, a\n            coporate body an individual, we’re here to partner you, to achieve\n            your sustainable farming goals.",
+    "tag": "p",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "h2-0",
+    "content": "Let grow something great together.",
+    "tag": "h2",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/GrowWithUs.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "{{ result.title }}",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "{{ result.category }}",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "No results found for",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "\"{{ searchQuery }}\"",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "Try searching for topics like \"farming\", \"solutions\", or\n                      \"products\"",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "{{ result.title }}",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "{{ result.category }}",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "No results found for",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-8",
+    "content": "\"{{ searchQuery }}\"",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-9",
+    "content": "Try searching for topics like \"farming\", \"solutions\", or\n                    \"products\"",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-10",
+    "content": "FarmGate Africa & Industries Ltd",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-11",
+    "content": "Office Location:",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-12",
+    "content": "No. 6 Nii Kotey Baale Ave, \n                  East Legon, Accra,\n                  Greater Accra Region (GA-414-1928)",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-13",
+    "content": "Registered Address:",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-14",
+    "content": "Aveyime Mangoase, Battor, \n                  Volta Region (VT-0320-8690)",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-15",
+    "content": "Postal Address:",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-16",
+    "content": "P. O. Box 2186, Adenta - Accra,\n                  Ghana, West Africa",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-17",
+    "content": "+233 30 398 0443",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-18",
+    "content": "+233 50 330 1132",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-19",
+    "content": "connect@farmgate.africa",
+    "tag": "p",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "h3-0",
+    "content": "About Us",
+    "tag": "h3",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "Our Initiatives",
+    "tag": "h3",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "Get in Touch",
+    "tag": "h3",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "Contact Us",
+    "tag": "h3",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-7",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-11",
+    "content": "{{ result.category }}",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-12",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-13",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-14",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "span-15",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/Header.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "{{ option.subtitle }}",
+    "tag": "p",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "{{ selectedOption.description }}",
+    "tag": "p",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "{{ mainHeading }}",
+    "tag": "h1",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "{{ option.title }}",
+    "tag": "h3",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "h2-2",
+    "content": "{{ selectedOption.title }}",
+    "tag": "h2",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "{{ social.name }}",
+    "tag": "span",
+    "file": "components/Hero.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Our mission is to redefine what’s possible in modern farming —\n            creating lasting value for communities, ecosystems, and future\n            generations. Rooted in tradition, driven by innovation — we grow\n            more than crops, we grow impact.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "We deliver end-to-end agricultural solutions that combine\n            traditional farming wisdom with modern innovation.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "We use data-driven insights and smart technology to help\n                  farmers monitor soil health.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "We provide tailored solutions for farmers to maximize crop\n                  yield and efficiency.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "Smart irrigation systems that conserve water and improve crop\n                  growth.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "We are dedicated to promoting sustainable farming practices that\n            protect the environment and ensure food security for future\n            generations.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "Reducing waste and returning nutrients to the soil",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "Smart irrigation that conserves every drop",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-8",
+    "content": "Years in Business",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-9",
+    "content": "Farmers Supported",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-10",
+    "content": "Satisfaction Rate",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-11",
+    "content": "We help farmers and agribusinesses embrace smart, sustainable\n                practices. Whether you’re beginning your journey or improving\n                existing methods, we’ll support you every step of the way.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-12",
+    "content": "Use water efficiently with precision systems for healthier crops\n                and less waste.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-13",
+    "content": "Boost soil fertility and track crop growth with smart,\n                data-driven insights.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-14",
+    "content": "Plan for long-term success with strategies that balance yield\n                and sustainability.",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-15",
+    "content": "{{ testimonial.text }}",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-16",
+    "content": "{{ testimonial.role }}",
+    "tag": "p",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "About us",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-1",
+    "content": "We are committed to advancing agriculture.",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-2",
+    "content": "Our solutions",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-3",
+    "content": "Transforming agriculture through innovation.",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-4",
+    "content": "Precision farming",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-5",
+    "content": "Personalized services",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-6",
+    "content": "Sustainable irrigation",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-7",
+    "content": "Sustainability at our core.",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-8",
+    "content": "Composting",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-9",
+    "content": "Water-saving systems",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-10",
+    "content": "Our track record speaks for itself",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-11",
+    "content": "20+",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-12",
+    "content": "1000+",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-13",
+    "content": "98%",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-14",
+    "content": "Why choose us",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-15",
+    "content": "Your partner in modern farming",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-16",
+    "content": "Smart Irrigation & Water Management",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-17",
+    "content": "Soil Health & Crop Monitoring",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-18",
+    "content": "Sustainable Farm Planning",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-19",
+    "content": "Founder & CEO",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-20",
+    "content": "“We started this journey with a simple belief — that farming can\n            feed the world without harming it. Every seed we plant, every\n            partnership we build, reflects our commitment to sustainability,\n            innovation, and people.”",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h3-21",
+    "content": "Dr. Jabez Linden",
+    "tag": "h3",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h1-22",
+    "content": "What our partners say",
+    "tag": "h1",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h2-23",
+    "content": "Trusted by farmers & businesses worldwide.",
+    "tag": "h2",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "h4-24",
+    "content": "{{ testimonial.name }}",
+    "tag": "h4",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "About us",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Our solutions",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "Discover our solutions",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-7",
+    "content": "Discover our solutions",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-8",
+    "content": "Discover our solutions",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-9",
+    "content": "Discover our solutions",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-10",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-11",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-12",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-13",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-14",
+    "content": "Why choose us",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-15",
+    "content": "Meet our team",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-16",
+    "content": "Meet our team",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-17",
+    "content": "Meet our team",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "span-18",
+    "content": "Meet our team",
+    "tag": "span",
+    "file": "components/MainContent.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Explore range of fresh and organic produce, where quality meets\n          affordability.",
+    "tag": "p",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "h2-0",
+    "content": "All Products",
+    "tag": "h2",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "{{\n                selectedCategory === \"All\"\n                  ? \"Select Category\"\n                  : selectedCategory\n              }}",
+    "tag": "span",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "{{\n                selectedPrice\n                  ? selectedPrice\n                      .replace(\"-\", \" - \")\n                      .replace(\"under\", \"Under\")\n                      .replace(\"over\", \"Over\")\n                      .replace(\"50\", \"GHS 50\")\n                      .replace(\"100\", \"100\")\n                  : \"Select Price\"\n              }}",
+    "tag": "span",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "{{\n                sortBy === \"latest\"\n                  ? \"Sort by: Latest\"\n                  : sortBy === \"price-low\"\n                  ? \"Price: Low to High\"\n                  : sortBy === \"price-high\"\n                  ? \"Price: High to Low\"\n                  : \"Rating\"\n              }}",
+    "tag": "span",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Show: {{ itemsPerPage }}",
+    "tag": "span",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "{{ cart.length }}",
+    "tag": "span",
+    "file": "components/MarketplaceHeader.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "We are busy constructing a unique digital space for fresh produce\n      commerce. Get ready for something special.",
+    "tag": "p",
+    "file": "components/MarketplaceUnderConstruction.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "Building a Market Experience\n      Like No Other",
+    "tag": "h1",
+    "file": "components/MarketplaceUnderConstruction.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Like No Other",
+    "tag": "span",
+    "file": "components/MarketplaceUnderConstruction.vue"
+  },
+  {
+    "id": "h3-0",
+    "content": "{{ product.name }}",
+    "tag": "h3",
+    "file": "components/ProductCard.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "GHS{{ Number(product.price).toFixed(2) }}",
+    "tag": "span",
+    "file": "components/ProductCard.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "/ {{ product.unit }}",
+    "tag": "span",
+    "file": "components/ProductCard.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "{{\n            product.rating\n          }}",
+    "tag": "span",
+    "file": "components/ProductCard.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "{{ activeContent.text }}",
+    "tag": "p",
+    "file": "components/Timeline.vue"
+  },
+  {
+    "id": "h2-0",
+    "content": "{{ activeContent.title }}",
+    "tag": "h2",
+    "file": "components/Timeline.vue"
+  },
+  {
+    "id": "toastnotification_text",
+    "content": "{{ message }}",
+    "tag": "span",
+    "file": "components/ToastNotification.vue"
+  },
+  {
+    "id": "underconstruction_text",
+    "content": "We're working hard to bring you new features. Check back soon!",
+    "tag": "p",
+    "file": "components/UnderConstruction.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "We are constructing this \n        page for you.",
+    "tag": "h1",
+    "file": "components/UnderConstruction.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "page for you",
+    "tag": "span",
+    "file": "components/UnderConstruction.vue"
+  },
+  {
+    "id": "about_intro_text",
+    "content": "Every seed we plant, every partnership we build, reflects our\n          commitment to sustainability, innovation, and people.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "Redefining agriculture at a global scale.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "We operate our own farms and also small-holder farmers in adopting\n              best practices to bring out quality high-yielding produce. We turn\n              these into quality value-added agricultural products for a ready\n              market and supply raw material to feed industries.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "Currently, we grow diverse varieties of farm products and work\n              hard to bring out the best value-added products from any produce\n              we can find.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "At FarmGate Africa, we create opportunities that enable\n              agribusinesses, food manufacturers, NGOs, Governments and Policy\n              Analysts globally to intelligently foster sustainable farming\n              initiatives while creating lasting gains for farmers everywhere\n              through our innovative agri-tech platforms.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "Currently, we are partnering with various stakeholders to address\n              food insecurity in Africa. Our focal areas are Smart Farming &\n              AgriTech, Horticulture, Animal Husbandry, Aquaculture, Food\n              Processing, Agri-Advisory and Training.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "Helping the farmers grow their wealth. We provide farmers with\n              access to quality inputs, tools, working capital financing,\n              training, agronomist technical assistance support, market access\n              and agritech solutions they can translate into sustainable gains\n              and decent living incomes.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "We partner with farmers across regions and beyond to help\n                improve livelihoods within local communities by helping farmers\n                to build capacity, grow more, sell more, sell for more, connect\n                more, and empower those behind each harvest while preserving the\n                environment that feeds us for the seasons ahead.",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-8",
+    "content": "{{ item.title }}",
+    "tag": "p",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            STORY.\n            STORY.",
+    "tag": "h1",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "\"We started this journey with a simple belief — that farming can feed\n          the world\n          without harming it.\"",
+    "tag": "h2",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "About Us",
+    "tag": "h3",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h4-3",
+    "content": "Producers of high-quality farm products across the value chain.",
+    "tag": "h4",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h4-4",
+    "content": "Our 5-Year Strategic Plan:\n              2030 Vision for Shared Prosperity",
+    "tag": "h4",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "h2-5",
+    "content": "What We Do",
+    "tag": "h2",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "STORY.",
+    "tag": "span",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "about_hero_text",
+    "content": "STORY.",
+    "tag": "span",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "without harming it.",
+    "tag": "span",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "2030 Vision for Shared Prosperity",
+    "tag": "span",
+    "file": "pages/About.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "GHS{{ item.price.toFixed(2) }}",
+    "tag": "p",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "Checkout",
+    "tag": "h1",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Payment Method",
+    "tag": "h2",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h2-2",
+    "content": "Delivery Method",
+    "tag": "h2",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h2-3",
+    "content": "Delivery Address",
+    "tag": "h2",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h2-4",
+    "content": "Order Summary",
+    "tag": "h2",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "h3-5",
+    "content": "{{ item.name }}",
+    "tag": "h3",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Back to Cart",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Cart",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Checkout",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Delivering",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "{{ method.name }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "OR",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "{{\n                    method.name\n                  }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-7",
+    "content": "{{ item.quantity }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-8",
+    "content": "Subtotal",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-9",
+    "content": "GHS{{ subtotal.toFixed(2) }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-10",
+    "content": "Delivery",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-11",
+    "content": "GHS{{ deliveryFee.toFixed(2) }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-12",
+    "content": "Tax",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-13",
+    "content": "GHS{{ tax.toFixed(2) }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-14",
+    "content": "Total",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "span-15",
+    "content": "GHS{{ total.toFixed(2) }}",
+    "tag": "span",
+    "file": "pages/CheckoutView.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Get in touch with FarmGate Africa. We're here to help advance\n          agriculture and connect with you.",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "We're here to help you grow",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "Ready to transform your agricultural journey?",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "Have questions or need assistance? We'd love to hear from you.",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "{{ errors.lastName }}",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "{{ errors.firstName }}",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "{{ errors.email }}",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "{{ errors.subject }}",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-8",
+    "content": "{{ errors.message }}",
+    "tag": "p",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "CONNECT WITH US",
+    "tag": "h1",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Get in Touch",
+    "tag": "h2",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "Email Us",
+    "tag": "h3",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "Call Us",
+    "tag": "h3",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h3-4",
+    "content": "WhatsApp Us",
+    "tag": "h3",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h3-5",
+    "content": "Visit Us",
+    "tag": "h3",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "h2-6",
+    "content": "Send us a Message",
+    "tag": "h2",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Touch",
+    "tag": "span",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Send",
+    "tag": "span",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "{{\n                  isSubmitting ? \"Submitting...\" : \"Submit Message\"\n                }}",
+    "tag": "span",
+    "file": "pages/Contact.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "We are not just farming, We are engineering thae backbone of Africa's\n          agricultural revolution.",
+    "tag": "p",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "footprint_overview",
+    "content": "FarmGate Africa & Industries strategically manages its\n              agricultural footprint to balance large-scale economic development\n              with essential social well-being. By operating across the entire\n              agricultural value chain, the organization produces high-quality\n              goods that serve two distinct purposes.",
+    "tag": "p",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "footprint_industrial_growth",
+    "content": "65% of what we produce is to drive industrial growth.\n                \n                \n                  We help boost local industrial expansion by supplying\n                  high-quality, value-added raw materials that strengthen regional supply chains and fuel manufacturing growth.",
+    "tag": "p",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "35% of whatever we grow is aimed at contributing to daily\n                  households' consumption.\n                We at FGAI ensure that a significant portion of our production\n                is funneled directly into households as our contribution to help\n                combat food insecurity and improve nutrition.",
+    "tag": "p",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            FOOTPRINT.",
+    "tag": "h1",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "Our Footprint",
+    "tag": "h3",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "Industrial Growth",
+    "tag": "h3",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "Household Consumption",
+    "tag": "h3",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "FOOTPRINT.",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Industrial Catalyst",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "footprint_industrial_growth_strong",
+    "content": "65% of what we produce is to drive industrial growth.",
+    "tag": "strong",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "footprint_industrial_growth_desc",
+    "content": "We help boost local industrial expansion by supplying\n                  high-quality, value-added raw materials that strengthen regional supply chains and fuel manufacturing growth.",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-8",
+    "content": "{{ displayValues[0] }}%",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-9",
+    "content": "Current Capacity",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-10",
+    "content": "Household Catalyst",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "strong-11",
+    "content": "35% of whatever we grow is aimed at contributing to daily\n                  households' consumption.",
+    "tag": "strong",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-12",
+    "content": "{{ displayValues[1] }}%",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "span-13",
+    "content": "Direct Reach",
+    "tag": "span",
+    "file": "pages/Footprint.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Discover our core principles that drive innovation and shared\n          prosperity in agriculture.",
+    "tag": "p",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "These are the deep-rooted principles that ensure every seed we sow\n              leads to a harvest of shared prosperity across the continent.",
+    "tag": "p",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            MANIFESTO.",
+    "tag": "h1",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Our Core Principles",
+    "tag": "h2",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "{{ point.title }}",
+    "tag": "h3",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "{{ manifestoPoints[expandedIndex].title }}",
+    "tag": "h3",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "MANIFESTO.",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Principles",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "Read More",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "span-7",
+    "content": "Principle {{ expandedIndex + 1 }}",
+    "tag": "span",
+    "file": "pages/Manifesto.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Connecting farmers and buyers.",
+    "tag": "p",
+    "file": "pages/Marketplace.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "Discover fresh produce and agricultural products in our digital\n          marketplace.",
+    "tag": "p",
+    "file": "pages/Marketplace.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "Marketplace",
+    "tag": "h1",
+    "file": "pages/Marketplace.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/Marketplace.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "FarmGate Africa is more than a company — we aim to contribute towards\n          achieving SDGs 1, 2, 5, 8, 9, 13 & 17 in every community we work. Join\n          us make a big impact.",
+    "tag": "p",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "Our conservation efforts include reforestation, wetland restoration,\n            and habitat preservation to enhance biodiversity and ecological\n            health.",
+    "tag": "p",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "We are partnering with stakeholders to address food insecurity in\n              Africa, dedicated to achieving the UN Sustainable Development\n              Goals in every community.",
+    "tag": "p",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "{{ item.description }}",
+    "tag": "p",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "{{ item.description }}",
+    "tag": "p",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            IMPACT.",
+    "tag": "h1",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Our Impact Stats.",
+    "tag": "h2",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "Committed to Global Impact",
+    "tag": "h3",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h2-3",
+    "content": "Strategic Initiatives",
+    "tag": "h2",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h4-4",
+    "content": "{{ item.title }}",
+    "tag": "h4",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "h4-5",
+    "content": "{{ item.title }}",
+    "tag": "h4",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "IMPACT.",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Stats.",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Send us a message",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Send us a message",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Send us a message",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Send us a message",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "{{ stat.unit }}",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-7",
+    "content": "{{ stat.value }}",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-8",
+    "content": "{{ stat.unit }}",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-9",
+    "content": "Global Impact",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-10",
+    "content": "SDG {{ sdg }}",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-11",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-12",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-13",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-14",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-17",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-18",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-19",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "span-20",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurImpact.vue"
+  },
+  {
+    "id": "ourrelevance_intro_text",
+    "content": "We believe that the future can be grown.",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "We exist to impact lives through sustainable agriculture and\n              shared prosperity.",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "To become a backbone for the agricultural revolution in Africa.",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "Our principles of integrity, accountability, and service guide\n              every decision and action we take. At FGAl, we share a set of core\n              values which underpin and shape the way we do our work. The FGAI\n              General Business Principles, Code of Conduct and Ethics and\n              Compliance Manual help everyone at FGAI to act in line with these\n              values and comply with relevant laws and regulations.",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "Strong moral principles, trustworthiness and honesty",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "Stewardship, answerable, discipline and focus",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "Respect for people, quality, excellence and going the extra mile",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "Our goal is practically simple – we aim to produce what we need from\n          what we have by innovatively deploying Africa’s technology to\n          contribute to solving Africa’s food insecurity and nutrition problems.",
+    "tag": "p",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            RELEVANCE.\n            RELEVANCE.",
+    "tag": "h1",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "MISSION",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "VISION",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "CORE VALUES",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h2-4",
+    "content": "Discover the values that \n            guide our mission.",
+    "tag": "h2",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-5",
+    "content": "Integrity",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-6",
+    "content": "Accountability",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-7",
+    "content": "Service",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "h3-8",
+    "content": "Our Goal",
+    "tag": "h3",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "RELEVANCE.",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "ourrelevance_hero_text",
+    "content": "RELEVANCE.",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "guide our mission.",
+    "tag": "span",
+    "file": "pages/OurRelevance.vue"
+  },
+  {
+    "id": "people_intro_text",
+    "content": "Meet the experts and innovators behind the mission towards driving\n          sustainable agriculture forward.",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "We are a team of agronomists, technologists, agripreneur, and\n              sustainability experts.",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "{{ member.title.split(\" \")[0] }}",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "{{ member.title.split(\" \")[0] }}",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "{{ selectedMember.title }}",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "{{ selectedMember.bio }}",
+    "tag": "p",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            PEOPLE.\n            PEOPLE.",
+    "tag": "h1",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Who We Are",
+    "tag": "h2",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "{{ member.name.split(\" \")[0] }}",
+    "tag": "h3",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "h3-3",
+    "content": "{{ member.name.split(\" \")[0] }}",
+    "tag": "h3",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "h3-4",
+    "content": "{{ selectedMember.name }}",
+    "tag": "h3",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "PEOPLE.",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "people_hero_text",
+    "content": "PEOPLE.",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Our solutions",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Our solutions",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Our solutions",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Our solutions",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "We Are",
+    "tag": "span",
+    "file": "pages/People.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Last Updated: Jan 17, 2026",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "At FarmGate Africa, we are committed to protecting your privacy and\n            ensuring the security of your personal information. This Privacy\n            Policy explains how we collect, use, and safeguard your data when\n            you interact with our sustainable agriculture technology platform\n            and services.",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "To provide and improve our services, we collect data necessary for\n            legitimate business purposes. This includes:",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "The data we collect is used to enhance your experience and support\n            our mission of sustainable farming. Specifically, we use it to:",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "We store data securely and comply with applicable data protection\n            laws, including GDPR and local Ghanaian regulations. We do not sell\n            your personal data to third parties. Access to your information is\n            restricted to authorized personnel who require it to perform their\n            duties.",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "We believe in transparency and give you full control over your\n            information. As a user, you have the right to:",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "We reserve the right to update this Privacy Policy at any time. Any\n            changes will be effective immediately upon posting to this page, and\n            we will update the \"Last Updated\" date at the top of this document\n            accordingly.",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "If you have any questions regarding this Privacy Policy or how your\n            data is handled, please contact our legal team at\n            legal@farmgateafrica.com.",
+    "tag": "p",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "Privacy Policy",
+    "tag": "h1",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Introduction.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-2",
+    "content": "Information We Collect.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-3",
+    "content": "How We Use Your Information.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-4",
+    "content": "Data Privacy and Protection.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-5",
+    "content": "Your Data Rights.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-6",
+    "content": "Changes to this Policy.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "h2-7",
+    "content": "Contact Us.",
+    "tag": "h2",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "legal@farmgateafrica.com",
+    "tag": "span",
+    "file": "pages/Privacy.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "{{\n                product.description ||\n                \"Fiber-rich, and protein-packed. Perfect for porridge, smoothies, or baking. Quick to cook, creamy, and keeps you energized all day.\"\n              }}",
+    "tag": "p",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "{{ product.name }}",
+    "tag": "h1",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "Traceability",
+    "tag": "h3",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "h1-2",
+    "content": "Product Not Found",
+    "tag": "h1",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "{{ product.reviews || 34 }} reviews",
+    "tag": "span",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Estimated delivery time:\n                Aug 20 - Aug 22",
+    "tag": "span",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Aug 20 - Aug 22",
+    "tag": "span",
+    "file": "pages/ProductDetail.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Explore our ongoing projects that are making a difference in\n          agriculture.",
+    "tag": "p",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "{{ card.description }}",
+    "tag": "p",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            PROJECTS.",
+    "tag": "h1",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Explore our ongoing projects.",
+    "tag": "h2",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "{{ card.title }}",
+    "tag": "h3",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "h2-3",
+    "content": "Our Year in Numbers",
+    "tag": "h2",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "PROJECTS.",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-1",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Start growing with us",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "ongoing projects.",
+    "tag": "span",
+    "file": "pages/Projects.vue"
+  },
+  {
+    "id": "solutions_intro_text",
+    "content": "Discover our comprehensive offerings for sustainable farming and\n          transforming agriculture through innovation.",
+    "tag": "p",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "FarmGate Africa & Industries is leading the way in partnership\n              with farmers and farmer group organizations (FGOs) to unlock the\n              transformative potential of sustainable agriculture and shared\n              prosperity.",
+    "tag": "p",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "{{ area.desc }}",
+    "tag": "p",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "OUR \n            SOLUTIONS.\n            SOLUTIONS.",
+    "tag": "h1",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "h3-1",
+    "content": "We believe sustainable farming\n              holds the answer.",
+    "tag": "h3",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "h3-2",
+    "content": "Our Core Mandate",
+    "tag": "h3",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "h4-3",
+    "content": "{{ area.name }}",
+    "tag": "h4",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "SOLUTIONS.",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "solutions_hero_text",
+    "content": "SOLUTIONS.",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-2",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-3",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-4",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-5",
+    "content": "Marketplace",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "span-6",
+    "content": "holds the answer.",
+    "tag": "span",
+    "file": "pages/Solutions.vue"
+  },
+  {
+    "id": "p-0",
+    "content": "Last Updated: Jan 17, 2026",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-1",
+    "content": "Welcome to FarmGate Africa, a sustainable agriculture technology\n            platform designed to provide a comprehensive and engaging farming\n            experience. By accessing or using FarmGate Africa, you agree to\n            comply with and be bound by the following Terms & Conditions. Please\n            read these terms carefully before using the platform.",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-2",
+    "content": "By registering for an account, accessing, or using FarmGate Africa,\n            you accept and agree to be bound by these Terms & Conditions, as\n            well as any additional terms, conditions, and policies referenced\n            herein or available by hyperlink. If you do not agree to all of\n            these terms, please do not use the platform.",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-3",
+    "content": "FarmGate Africa is intended for users who are at least 18 years old.\n            By using the platform, you represent that you meet this age\n            requirement and that you have the legal capacity to enter into these\n            Terms & Conditions. If you are under 18, you must obtain consent\n            from a parent or legal guardian before using FarmGate Africa.",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-4",
+    "content": "To access certain features of FarmGate Africa, you may be required\n            to create an account. When creating an account, you agree to:",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-5",
+    "content": "FarmGate Africa is dedicated to promoting sustainable agricultural\n            practices. Users are encouraged to engage in environmentally\n            responsible farming methods, including:",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-6",
+    "content": "To the maximum extent permitted by law, FarmGate Africa shall not be\n            liable for any indirect, incidental, special, or consequential\n            damages arising from your use of our Services. We provide our\n            Services \"as is\" without warranties of any kind, either express or\n            implied.",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "p-7",
+    "content": "For questions about these Terms and Conditions, please contact us at\n            connect@farmgate.africa.",
+    "tag": "p",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h1-0",
+    "content": "Terms & Conditions",
+    "tag": "h1",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-1",
+    "content": "Introduction.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-2",
+    "content": "Acceptance of Terms.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-3",
+    "content": "Eligibility.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-4",
+    "content": "Account Registration.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-5",
+    "content": "Sustainable Agriculture Commitment.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-6",
+    "content": "Limitation of Liability.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "h2-7",
+    "content": "Contact Information.",
+    "tag": "h2",
+    "file": "pages/TermsAndCondition.vue"
+  },
+  {
+    "id": "span-0",
+    "content": "connect@farmgate.africa",
+    "tag": "span",
+    "file": "pages/TermsAndCondition.vue"
+  }
+]

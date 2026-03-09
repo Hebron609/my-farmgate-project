@@ -1,5 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Livvic:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap");
 @import "tailwindcss";
+/* Footer underline animation for label links */
+.footer-underline-link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-underline-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #f2cb00;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-underline-link:hover::after,
+.footer-underline-link:focus::after {
+  transform: scaleX(1);
+}
 
 html {
   scroll-behavior: smooth;

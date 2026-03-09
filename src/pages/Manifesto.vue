@@ -47,20 +47,8 @@
           prosperity in agriculture.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -82,7 +70,7 @@
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
             >
               <LeafIcon class="w-4 h-4 text-black" />
-              <span class="text-xs font-semibold tracking-wider text-black"
+              <span class="text-sm font-semibold tracking-wider text-black"
                 >Start growing with us</span
               >
             </span>
@@ -91,7 +79,7 @@
               class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#129C48] group-hover:translate-y-0"
             >
               <LeafIcon class="w-4 h-4 text-white" />
-              <span class="text-xs font-semibold leading-none text-white"
+              <span class="text-sm font-semibold leading-none text-white"
                 >Start growing with us</span
               >
             </span>
@@ -111,7 +99,9 @@
 
           <div class="md:max-w-xl reveal-slide-left">
             <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
-            <p class="text-lg font-light leading-relaxed text-gray-600 max-w-[90%]">
+            <p
+              class="text-lg font-light leading-relaxed text-gray-600 max-w-[90%]"
+            >
               These are the deep-rooted principles that ensure every seed we sow
               leads to a harvest of shared prosperity across the continent.
             </p>
@@ -197,7 +187,7 @@
     <Transition name="modal">
       <div
         v-if="expandedIndex !== null"
-        class="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-sm"
+        class="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-lg"
         @click.self="closeExpand"
       >
         <div
@@ -268,10 +258,12 @@ import GrowWithUs from "../components/GrowWithUs.vue";
 import farmTractor1 from "@/assets/img/farm-tractor1.jpg";
 import farmTractor2 from "@/assets/img/farm-tractor2.jpg";
 import groupFarmImage from "@/assets/img/group-farm-image.jpg";
-import womenFarm from "@/assets/img/Women-farm.jpg";
-import invest1 from "@/assets/img/invest1.jpg";
+import womenFarm from "@/assets/img/farm-pic2.jpg";
+import invest1 from "@/assets/img/Vision-future-img.jpg";
 import SoilSample from "@/assets/img/soil-sampling.jpg";
-import farmCrops from "@/assets/img/farm-crops.jpg";
+import farmCrops from "@/assets/img/farm-pic5.jpg";
+import trackWithUsImg from "@/assets/img/farm-pic1.jpg";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 // Using one hero image consistent with theme, or select specifically
 const heroImage = farmTractor2;
@@ -353,6 +345,13 @@ const manifestoPoints = ref([
       "If you're happy. We're happy. While we mainly focus on 100% organic quality and traceability farming, we recognize that every farm produces a variety of different qualities. FGAI's specialty is derived from offering quality farm products; where we engaged and work closely with farmers to find lasting solutions to everyday farming challenges as soon as possible. And once produce is ready, we sort, grade, off-take and sell it, fresh from the farm to your table.",
     image: farmCrops,
     alt: "Quality is a specialty approach",
+  },
+  {
+    title: "Transparency is rooted in traceability",
+    description:
+      "We ensure every product’s journey from farm to table is visible and verifiable, building trust and confidence in the quality and origin of our produce.",
+    image: trackWithUsImg,
+    alt: "Traceability in agriculture",
   },
 ]);
 
