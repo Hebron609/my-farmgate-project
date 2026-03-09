@@ -43,23 +43,12 @@
         <p
           class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-300 delay-200 md:text-lg reveal-slide-up"
         >
-          Redefining agriculture at a global scale.
+          Every seed we plant, every partnership we build, reflects our
+          commitment to sustainability, innovation, and people.
         </p>
 
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            class="w-8 h-8 text-white opacity-50"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
         </div>
       </div>
     </div>
@@ -79,8 +68,7 @@
         <p
           class="max-w-3xl mx-auto mt-12 text-xl font-light leading-relaxed text-gray-400"
         >
-          Every seed we plant, every partnership we build, reflects our
-          commitment to sustainability, innovation, and people.
+          Redefining agriculture at a global scale.
         </p>
       </div>
     </section>
@@ -163,18 +151,28 @@
 
     <section class="w-full px-6 py-32 bg-gray-50 md:px-12">
       <div class="mx-auto max-w-[1440px]">
-        <div class="grid items-end grid-cols-1 gap-8 mb-20 md:grid-cols-2">
-          <div>
+        <div
+          class="flex flex-col items-center justify-center w-full gap-8 mb-20"
+        >
+          <div
+            class="flex flex-col items-center justify-center w-full text-center"
+          >
             <h2 class="font-['Livvic'] text-5xl font-bold text-black mb-6">
               What We Do
             </h2>
-            <div class="h-1 w-24 bg-[#F2CB00]"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
+            <div
+              class="flex flex-col items-center justify-center w-full mt-8 space-y-4 text-lg text-center text-gray-600"
+            >
+              <p class="mx-auto text-center md:max-w-[70%]">
+                We partner with farmers across regions and beyond to help
+                improve livelihoods within local communities by helping farmers
+                to build capacity, grow more, sell more, sell for more, connect
+                more, and empower those behind each harvest while preserving the
+                environment that feeds us for the seasons ahead.
+              </p>
+            </div>
           </div>
-          <p class="text-lg text-gray-600">
-            We partner with farmers and communities in Ghana to help the farmer
-            grow more, sell more, connect more, protect the planet, and empower
-            those behind each harvest.
-          </p>
         </div>
 
         <div
@@ -219,7 +217,7 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import GrowWithUs from "../components/GrowWithUs.vue";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
