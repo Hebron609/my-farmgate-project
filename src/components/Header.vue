@@ -66,7 +66,7 @@
               <transition name="slide">
                 <div
                   v-if="isSearchOpen"
-                  class="fixed flex items-center px-4 py-3 border shadow-2xl left-4 right-4 top-32 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400 sm:hidden"
+                  class="fixed flex items-center px-4 py-3 border shadow-2xl left-4 right-4 top-32 max-[360px]:top-24 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400 sm:hidden"
                 >
                   <font-awesome-icon
                     :icon="['fas', 'search']"
@@ -92,9 +92,9 @@
               <transition name="fade">
                 <div
                   v-if="isSearchOpen && (showResults || searchQuery)"
-                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72"
+                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 max-[360px]:top-36 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72 max-[360px]:max-h-56"
                 >
-                  <div v-if="hasResults" class="overflow-y-auto max-h-72">
+                  <div v-if="hasResults" class="overflow-y-auto max-h-72 max-[360px]:max-h-56">
                     <div
                       v-for="result in searchResults"
                       :key="result.id"
@@ -320,25 +320,25 @@
         ></div>
 
         <div
-          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:flex-row lg:gap-10 pb-32 overflow-y-auto lg:overflow-y-visible"
+          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:flex-row lg:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible"
         >
           <div
-            class="relative flex flex-col items-start mb-12 h-auto lg:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-24 lg:mb-0"
+            class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-24 lg:mb-0"
           >
             <a href="/">
               <img
-                class="drop-shadow-xl transition-all duration-300 w-[80px] sm:w-[200px] h-auto hover:scale-105"
+                class="drop-shadow-xl transition-all duration-300 w-[80px] max-[360px]:w-[60px] sm:w-[200px] h-auto hover:scale-105"
                 :src="logoWhite2"
                 alt="Logo"
               />
             </a>
           </div>
 
-          <div class="p-0 mt-0 mb-20 sm:mb-0 sm:flex-1">
+          <div class="p-0 mt-0 mb-20 max-[360px]:mb-6 sm:mb-0 sm:flex-1">
             <h3
               :class="[
-                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer mt-10 lg:mt-0',
-                activeSections.about ? 'mb-4' : 'mb-0',
+                'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer mt-10 max-[360px]:mt-2 lg:mt-0',
+                activeSections.about ? 'mb-4 max-[360px]:mb-2' : 'mb-0',
               ]"
               @click="toggleSection('about')"
             >
@@ -349,7 +349,7 @@
                 viewBox="0 0 12 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 transition-transform duration-300"
+                class="ml-2 transition-transform duration-300 max-[360px]:w-5 max-[360px]:h-5"
                 :class="{ 'rotate-90': activeSections.about }"
               >
                 <path
@@ -362,11 +362,11 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5" v-show="activeSections.about">
+              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.about">
                 <li>
                   <a
                     href="/about.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Story
                     <span
@@ -378,7 +378,7 @@
                 <li>
                   <a
                     href="/our-relevance.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Relevance
                     <span
@@ -390,7 +390,7 @@
                 <li>
                   <a
                     href="footprint.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Footprint
                     <span
@@ -402,7 +402,7 @@
                 <li>
                   <a
                     href="/manifesto.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Manifesto
                     <span
@@ -414,7 +414,7 @@
                 <li>
                   <a
                     href="/people.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our People
                     <span
@@ -426,11 +426,11 @@
             </transition>
           </div>
 
-          <div class="mt-0 mb-20 sm:mb-0 sm:flex-1">
+          <div class="mt-0 mb-20 max-[360px]:mb-6 sm:mb-0 sm:flex-1">
             <h3
               :class="[
-                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer',
-                activeSections.programs ? 'mb-4' : 'mb-0',
+                'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer',
+                activeSections.programs ? 'mb-4 max-[360px]:mb-2' : 'mb-0',
               ]"
               @click="toggleSection('programs')"
             >
@@ -441,7 +441,7 @@
                 viewBox="0 0 12 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 transition-transform duration-300"
+                class="ml-2 transition-transform duration-300 max-[360px]:w-5 max-[360px]:h-5"
                 :class="{ 'rotate-90': activeSections.programs }"
               >
                 <path
@@ -454,11 +454,11 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5" v-show="activeSections.programs">
+              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.programs">
                 <li>
                   <a
                     href="/solutions.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Solutions
                     <span
@@ -469,7 +469,7 @@
                 <li>
                   <a
                     href="/projects.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Projects
                     <span
@@ -480,7 +480,7 @@
                 <li>
                   <a
                     href="/our-impact.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Impact
                     <span
@@ -492,11 +492,11 @@
             </transition>
           </div>
 
-          <div class="mt-0 mb-20 sm:mb-0 sm:flex-1">
+          <div class="mt-0 mb-20 max-[360px]:mb-6 sm:mb-0 sm:flex-1">
             <h3
               :class="[
-                'flex items-center text-2xl font-semibold text-[#F2CB00] cursor-pointer',
-                activeSections.contact ? 'mb-4' : 'mb-0',
+                'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer',
+                activeSections.contact ? 'mb-4 max-[360px]:mb-2' : 'mb-0',
               ]"
               @click="toggleSection('contact')"
             >
@@ -507,7 +507,7 @@
                 viewBox="0 0 12 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 transition-transform duration-300"
+                class="ml-2 transition-transform duration-300 max-[360px]:w-5 max-[360px]:h-5"
                 :class="{ 'rotate-90': activeSections.contact }"
               >
                 <path
@@ -520,11 +520,11 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5" v-show="activeSections.contact">
+              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.contact">
                 <li class="block">
                   <a
                     href="/contact.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Connect with us
                     <span
@@ -536,7 +536,7 @@
                 <li>
                   <button
                     @click="navigateToVideo2"
-                    class="relative pb-2 text-xl font-medium text-left cursor-pointer group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium text-left cursor-pointer group"
                   >
                     Start growing with us
 
@@ -549,7 +549,7 @@
                 <li>
                   <a
                     href="/marketplace.html"
-                    class="relative pb-2 text-xl font-medium group"
+                    class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     ⁠Shop at marketplace
                     <span
@@ -738,7 +738,7 @@
                       d="m17.9 18.3c-.8 0-1.5.7-1.5 1.5v1.3h-7.2c-.7 0-1.2.4-1.4 1.1l-5.4 17.6c-.6 1.8-.4 3.7.7 5.3s2.9 2.5 4.8 2.5h32c1.9 0 3.7-.9 4.8-2.5 1.1-1.5 1.4-3.5.8-5.2l-5.3-17.6c-.2-.6-.8-1.1-1.4-1.1h-7.2v-1.3c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v1.3h-9.2v-1.3c0-.9-.7-1.6-1.5-1.6zm24.8 22.4c.3.9.2 1.8-.4 2.5-.6.8-1.4 1.2-2.4 1.2h-31.9c-1 0-1.8-.4-2.4-1.2-.5-.7-.7-1.7-.3-2.6l5-16.5h27.4z"
                     />
                     <path
-                      d="m19.6 28.5c0-.1-.1-.2-.1-.3-.1-.1-.1-.2-.2-.2-.3-.4-.9-.5-1.3-.4-.1 0-.2 0-.3.1-.1 0-.2.1-.3.1s-.2.1-.2.2c-.1.1-.1 .1-.2 .2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.2-.2-.2-.3z"
+                      d="m19.6 28.5c0-.1-.1-.2-.1-.3-.1-.1-.1-.2-.2-.2-.3-.4-.9-.5-1.3-.4-.1 0-.2 0-.3.1-.1 0-.2.1-.3.1s-.2.1-.2.2c-.1.1-.1 .1-.2 .2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
                     />
                     <path
                       d="m25.4 28.5c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.4-.4-.9-.5-1.4-.4-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1s-.2 .1-.2 .2c-.1 .1-.1 .1-.2 .2 0 .1-.1 .2-.1 .3s-.1 .2-.1 .3v.3c0 .2 0 .4.1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.1-.1.2-.3.3-.5s.1-.4.1-.6c0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
@@ -753,7 +753,7 @@
                       d="m25.4 33.8c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.4-.3-.9-.5-1.4-.4-.1 0-.2 .1-.3 .1s-.2 .1-.3 .1-.2 .1-.2 .2c-.3 .3-.4 .7-.4 1.1s.2 .8.4 1.1c.3 .3.7 .4 1.1 .4s.8-.2 1.1-.4c.3-.3.4-.7.4-1.1 0-.1 0-.2 0-.3-.1-.2-.1-.2-.1-.3z"
                     />
                     <path
-                      d="m31.2 33.8c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.1-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 .1-.3 .1s-.2 .1-.3 .1c-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1s.2 .8.4 1.1c.3 .3.7 .4 1.1 .4.2 0 .4 0 .6-.1s.3-.2.5-.3c.3-.3.4-.7.4-1.1 0-.1 0-.2 0-.3-.1-.2-.1-.2-.1-.3z"
+                      d="m31.2 33.8c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.1-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1s.2 .8.4 1.1c.3 .3.7 .4 1.1 .4.2 0 .4 0 .6-.1s.3-.2.5-.3c.3-.3.4-.7.4-1.1 0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
                     />
                     <path
                       d="m19.6 39c0-.1-.1-.2-.1-.3-.1-.1-.1-.2-.2-.2-.3-.3-.9-.5-1.3-.4-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2s-.2 .2-.2 .3-.1 .2-.1 .3-.1 .2-.1 .3v.3c0 .4.2 .8.4 1.1.1 .1.3 .3.5 .3.2 .1.4 .1.6 .1.4 0 .8-.1 1.1-.4s.4-.7.4-1.1c0-.1 0-.2 0-.3-.1-.2-.2-.3-.2-.4z"
@@ -764,63 +764,6 @@
                     <path
                       d="m31.2 39c0-.1-.1-.2-.1-.3s-.1-.2-.2-.2c-.1-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1s-.2-.1-.3-.1c-.2 0-.4 0-.6 0-.1 0-.2 0-.3 .1-.1 0-.2 .1-.3 .1-.1 .1-.2 .1-.2 .2-.3 .3-.4 .7-.4 1.1 0 .2 0 .4 .1 .6s.2 .3.3 .5c.3 .3.7 .4 1.1 .4.2 0 .4 0 .6-.1s.3-.2.5-.3c.1-.1.3-.3.3-.5.1-.2.1-.4.1-.6 0-.1 0-.2 0-.3-.1-.1-.1-.2-.1-.3z"
                     />
-                  </g>
-                </g>
-              </svg>
-
-              <p class="text-gray-300">+233 30 398 0443</p>
-            </div>
-
-            <div class="flex items-center gap-2 mb-4">
-              <svg
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 512.076 512.076"
-                xml:space="preserve"
-                width="20"
-                height="20"
-                class="flex-shrink-0 text-white"
-                fill="currentColor"
-              >
-                <g transform="translate(-1 -1)">
-                  <g>
-                    <g>
-                      <path
-                        d="M499.639,396.039l-103.646-69.12c-13.153-8.701-30.784-5.838-40.508,6.579l-30.191,38.818
-            c-3.88,5.116-10.933,6.6-16.546,3.482l-5.743-3.166c-19.038-10.377-42.726-23.296-90.453-71.04s-60.672-71.45-71.049-90.453
-            l-3.149-5.743c-3.161-5.612-1.705-12.695,3.413-16.606l38.792-30.182c12.412-9.725,15.279-27.351,6.588-40.508l-69.12-103.646
-            C109.12,1.056,91.25-2.966,77.461,5.323L34.12,31.358C20.502,39.364,10.511,52.33,6.242,67.539
-            c-15.607,56.866-3.866,155.008,140.706,299.597c115.004,114.995,200.619,145.92,259.465,145.92
-            c13.543,0.058,27.033-1.704,40.107-5.239c15.212-4.264,28.18-14.256,36.181-27.878l26.061-43.315
-            C517.063,422.832,513.043,404.951,499.639,396.039z M494.058,427.868l-26.001,43.341c-5.745,9.832-15.072,17.061-26.027,20.173
-            c-52.497,14.413-144.213,2.475-283.008-136.32S8.29,124.559,22.703,72.054c3.116-10.968,10.354-20.307,20.198-26.061
-            l43.341-26.001c5.983-3.6,13.739-1.855,17.604,3.959l37.547,56.371l31.514,47.266c3.774,5.707,2.534,13.356-2.85,17.579
-            l-38.801,30.182c-11.808,9.029-15.18,25.366-7.91,38.332l3.081,5.598c10.906,20.002,24.465,44.885,73.967,94.379
-            c49.502,49.493,74.377,63.053,94.37,73.958l5.606,3.089c12.965,7.269,29.303,3.898,38.332-7.91l30.182-38.801
-            c4.224-5.381,11.87-6.62,17.579-2.85l103.637,69.12C495.918,414.126,497.663,421.886,494.058,427.868z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M291.161,86.39c80.081,0.089,144.977,64.986,145.067,145.067c0,4.713,3.82,8.533,8.533,8.533s8.533-3.82,8.533-8.533
-            c-0.099-89.503-72.63-162.035-162.133-162.133c-4.713,0-8.533,3.82-8.533,8.533S286.448,86.39,291.161,86.39z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M291.161,137.59c51.816,0.061,93.806,42.051,93.867,93.867c0,4.713,3.821,8.533,8.533,8.533
-            c4.713,0,8.533-3.82,8.533-8.533c-0.071-61.238-49.696-110.863-110.933-110.933c-4.713,0-8.533,3.82-8.533,8.533
-            S286.448,137.59,291.161,137.59z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M291.161,188.79c23.552,0.028,42.638,19.114,42.667,42.667c0,4.713,3.821,8.533,8.533,8.533s8.533-3.82,8.533-8.533
-            c-0.038-32.974-26.759-59.696-59.733-59.733c-4.713,0-8.533,3.82-8.533,8.533S286.448,188.79,291.161,188.79z"
-                        fill="currentColor"
-                      />
-                    </g>
                   </g>
                 </g>
               </svg>
@@ -852,18 +795,18 @@
 
           <button
             @click="toggleMenu"
-            class="absolute text-3xl cursor-pointer top-6 right-6 lg:text-5xl hover:text-yellow-400"
+            class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-yellow-400"
           >
             &times;
           </button>
 
           <div
-            class="fixed bottom-0 left-0 right-0 z-50 block lg:absolute lg:bottom-0 md:hidden lg:block bg-[#055732] lg:bg-transparent lg:z-0 pb-5"
+            class="fixed bottom-0 left-0 right-0 z-50 block lg:absolute lg:bottom-0 md:hidden lg:block bg-[#055732] lg:bg-transparent lg:z-0 pb-5 max-[360px]:pb-3"
           >
             <div class="w-full border-t border-white/20"></div>
-            <div class="max-w-[1820px] mx-auto px-4 py-3 sm:px-12 sm:py-4">
+            <div class="max-w-[1820px] mx-auto px-4 py-3 max-[360px]:py-2 sm:px-12 sm:py-4">
               <div
-                class="flex flex-col px-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
+                class="flex flex-col px-6 max-[360px]:px-2 text-xs max-[360px]:text-[10px] sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
               >
                 <div
                   class="hidden mb-2 font-semibold text-center text-yellow-300 sm:mb-0 sm:text-left md:block"
@@ -871,7 +814,7 @@
                   gateway to farming
                 </div>
                 <div
-                  class="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left"
+                  class="flex flex-col items-center gap-2 max-[360px]:gap-1 text-center sm:flex-row sm:gap-4 sm:text-left"
                 >
                   <span class="whitespace-normal sm:whitespace-nowrap"
                     >© 2026 FarmGate Africa & Industries Ltd. | All rights

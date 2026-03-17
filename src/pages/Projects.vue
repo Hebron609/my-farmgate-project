@@ -200,7 +200,7 @@
           <h2
             class="font-['Livvic'] text-3xl font-bold tracking-widest uppercase mb-4"
           >
-            Our Year in Numbers
+            Our impact in Numbers
           </h2>
           <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
         </div>
@@ -256,7 +256,7 @@ import farmPic from "@/assets/img/farm-pic4.jpg";
 import farmCrops from "@/assets/img/okra.jpg";
 import farmIrrigation from "@/assets/img/tomato.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
-import farmPic1 from "@/assets/img/maize.jpg";
+import farmPic1 from "@/assets/img/pepper-farm.jpg";
 import farmPic6 from "@/assets/img/cassava1.jpg";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
@@ -312,13 +312,13 @@ const solutions = [
   },
   {
     id: 3,
-    title: "Danso Community Rice Block Farm project",
+    title: "⁠Asutsuare Rice farm project",
     image: farmPic9,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 4,
-    title: "Danso Community Maize Block Farm project",
+    title: "Ahafo pepper Farm project",
     image: farmPic1,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
@@ -362,7 +362,7 @@ const stats = ref([
   { number: "550+", label: "Farmers Supported" },
   { number: "27+", label: "Communities Transformed" },
   { number: "2", label: "Sponsored Partners" },
-  { number: "₵2.72m", label: "Working Capital Raised" },
+  { number: "₵2.72m", label: "Working Capital Provided" },
 ]);
 </script>
 

@@ -43,7 +43,7 @@
         <p
           class="max-w-2xl mt-8 text-lg font-light leading-relaxed text-gray-400 delay-200 md:text-lg reveal-slide-up"
         >
-          We are not just farming, We are engineering thae backbone of Africa's
+          We are not just farming, We are engineering the backbone of Africa's
           agricultural revolution.
         </p>
 

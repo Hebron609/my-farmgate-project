@@ -1,10 +1,14 @@
 export const TEAM_DATA = [
   {
     name: "Emmanuel G. Baiden",
-    title: "CF, Investment & Strategy",
+    title: "VP, Investment & Strategy",
     hoverTitle: "Farmer",
     location: "Accra, Ghana",
-    bio: "Emmanuel is a finance professional with over a decade of experience in business operations and project management. He leads financial management for major grants and impact-focused projects at Innohub including an SGB Climate Investment Fund. An MSc holder in Accounting and Finance, he strengthens Innohub's operations through robust financial leadership.",
+    bio: `Emmanuel is an enthusiatic farmer and a business executive professional with over a decade of extensive expertise in agribusiness, financial leadership, business development, strategy execution and project management.
+
+  He provides finance specialist, business partnering and advisory support for major grants and impact-focused projects across Africa and beyond including a $3.2 million World Bank SGB Climate Investment Fund, a $2.0 million eTransform mLab GoG initiative sponsored by the World Bank, and has also managed many key enterprise support programs across Ghana such as the $1.6 million Tullow Agriventure Program (TAP), and the GHS 6.33 million ESO program by MTN Ghana Foundation.
+
+  Emmanuel is a Chartered Accountant and a Risk Management Specialist. He also holds an MSc in Accounting and Finance from UGBS.`,
     photoUrl: "/images/⁠Emanuel Galley Baiden.webp",
     photoUrlModal: "/images/Emanuel Galley Baiden modal.webp",
     email: "",
@@ -27,7 +31,7 @@ export const TEAM_DATA = [
   },
   {
     name: "Linda Amankwah",
-    title: "Strategic Advisor, Human Capital",
+    title: "Strategic Advisor, Talent Capital & Culture",
     hoverTitle: "Advisor",
     location: "Accra, Ghana",
     bio: "Linda is an HR professional with experience in banking, insurance, and non-profit sectors. She has successfully managed projects in organizational restructuring and talent acquisition as an Associate Consultant at Excel HR Consult. Linda holds an MBA in Human Resource Management and a Bachelor’s in English and Psychology from the University of Ghana.",
@@ -35,7 +39,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Linda Amankwah modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "Strategic Advisors",
     order: 4,
   },
   {
@@ -86,7 +90,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Nancy Otibo Tamakoe modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "Strategic Advisors",
     order: 7,
   },
   {

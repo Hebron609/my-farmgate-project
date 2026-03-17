@@ -155,7 +155,7 @@
               <img
                 :src="member.photoUrl"
                 :alt="'Photo of ' + member.name"
-                class="object-cover object-top w-full h-full transition-transform duration-500 scale-118 group-hover:scale-135"
+                class="object-cover object-top w-full h-full transition-transform duration-500 scale-120 group-hover:scale-135 will-change-transform"
                 loading="lazy"
               />
               <div
@@ -269,7 +269,6 @@
       </div>
     </Transition>
 
-    <GrowWithUs />
 
     <Footer />
   </div>
@@ -281,7 +280,6 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import GrowWithUs from "../components/GrowWithUs.vue";
 import { TEAM_DATA } from "./teamData.js";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 

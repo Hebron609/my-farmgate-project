@@ -4,24 +4,22 @@
   >
     <Header :videoVariant="2" />
 
-    <div
-      class="relative overflow-hidden h-[500px] md:h-[600px] bg-gradient-to-br from-slate-900 via-green-900 to-slate-800"
-    >
+    <div class="relative w-full h-screen overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-[url('/src/assets/img/farm-pic1.jpg')] bg-cover bg-center opacity-20"
+        class="bg-[url('/src/assets/img/contact-banner.webp')] absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
       ></div>
       <div
-        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80"
       ></div>
 
       <div
-        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/30 animate-pulse"
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/30 animate-pulse max-[360px]:w-20 max-[360px]:h-20"
       ></div>
       <div
-        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/50 animate-ping"
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/50 animate-ping max-[360px]:w-10 max-[360px]:h-10"
       ></div>
       <div
-        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/40 animate-pulse"
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/40 animate-pulse max-[360px]:w-16 max-[360px]:h-16"
       ></div>
 
       <div
@@ -29,55 +27,67 @@
       >
         <div class="reveal-slide-up">
           <LeafIcon
-            class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse"
+            class="mx-auto mb-6 max-[360px]:mb-4 h-16 w-16 max-[360px]:h-12 max-[360px]:w-12 text-[#F2CB00] animate-pulse"
           />
           <h1
-            class="mb-4 text-3xl font-bold tracking-wider text-white md:text-6xl font-livvic"
+            class="font-['Livvic'] text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl tracking-tight"
           >
-            CONNECT WITH US
+            CONNECT WITH <span class="text-[#129C48]">US</span>
           </h1>
         </div>
         <p
-          class="md:max-w-[30%] text-md md:text-base text-gray-300 mb-4 font-light reveal-slide-up"
+          class="md:max-w-[33%] text-md max-[360px]:text-sm md:text-base text-gray-300 mb-4 max-[360px]:mb-8 font-light reveal-slide-up px-2"
         >
           Get in touch with FarmGate Africa. We're here to help advance
           agriculture and connect with you.
         </p>
+
+        <div class="absolute bottom-10 max-[360px]:bottom-6">
+          <ScrollDownPage />
+        </div>
       </div>
     </div>
 
-    <section class="relative z-20 w-full px-6 pb-24 bg-white mt-15 md:px-12">
+    <section
+      class="relative z-20 w-full px-6 max-[360px]:px-3 pb-24 max-[360px]:pb-12 bg-white mt-15 max-[360px]:mt-8 md:px-12"
+    >
       <div
-        class="max-w-[1440px] mx-auto shadow-2xl rounded-[3rem] overflow-hidden bg-white"
+        class="max-w-[1440px] mx-auto shadow-2xl rounded-[3rem] max-[360px]:rounded-[1.5rem] overflow-hidden bg-white"
       >
-        <div class="grid grid-cols-1 lg:grid-cols-3 min-h-[700px]">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 min-h-[700px] max-[360px]:min-h-auto"
+        >
           <div
-            class="relative bg-[#129C48] p-10 md:p-14 text-white flex flex-col justify-between overflow-hidden"
+            class="relative bg-[#129C48] p-10 max-[360px]:p-6 md:p-14 text-white flex flex-col justify-between overflow-hidden"
           >
             <div class="absolute top-0 right-0 pointer-events-none opacity-10">
-              <LeafIcon class="w-[300px] h-[300px] text-white" />
+              <LeafIcon
+                class="w-[300px] h-[300px] max-[360px]:w-[150px] max-[360px]:h-[150px] text-white"
+              />
             </div>
 
             <div class="relative z-10">
-              <div class="mb-12">
+              <div class="mb-12 max-[360px]:mb-6">
                 <h2
-                  class="font-['Livvic'] text-4xl md:text-5xl font-bold leading-tight mb-2"
+                  class="font-['Livvic'] text-4xl max-[360px]:text-3xl md:text-5xl font-bold leading-tight mb-2"
                 >
                   Get in <span class="text-[#F2CB00]">Touch</span>
                 </h2>
-                <p class="text-lg font-light text-green-100">
+                <p
+                  class="text-lg max-[360px]:text-base font-light text-green-100"
+                >
                   We're here to help you grow
                 </p>
               </div>
 
-              <div class="space-y-8">
-                <div class="flex items-start gap-6 group">
+              <div class="space-y-8 max-[360px]:space-y-5">
+                <div class="flex items-start gap-6 max-[360px]:gap-4 group">
                   <a
                     href="mailto:connect@farmgate.africa"
-                    class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
+                    class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
                   >
                     <svg
-                      class="w-6 h-6"
+                      class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -90,26 +100,28 @@
                       ></path>
                     </svg>
                   </a>
-                  <div>
-                    <h3 class="font-['Livvic'] text-xl font-bold mb-1">
+                  <div class="break-all sm:break-normal">
+                    <h3
+                      class="font-['Livvic'] text-xl max-[360px]:text-lg font-bold mb-1 max-[360px]:mb-0"
+                    >
                       Email Us
                     </h3>
                     <a
                       href="mailto:connect@farmgate.africa"
-                      class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white"
+                      class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white"
                     >
                       connect@farmgate.africa
                     </a>
                   </div>
                 </div>
 
-                <div class="flex items-start gap-6 group">
+                <div class="flex items-start gap-6 max-[360px]:gap-4 group">
                   <a
                     href="tel:+233303980443"
-                    class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
+                    class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
                   >
                     <svg
-                      class="w-6 h-6"
+                      class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -123,27 +135,29 @@
                     </svg>
                   </a>
                   <div>
-                    <h3 class="font-['Livvic'] text-xl font-bold mb-1">
+                    <h3
+                      class="font-['Livvic'] text-xl max-[360px]:text-lg font-bold mb-1 max-[360px]:mb-0"
+                    >
                       Call Us
                     </h3>
                     <div class="flex flex-col space-y-1">
                       <a
                         href="tel:+233303980443"
-                        class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                         >+233 30 398 0443</a
                       >
                     </div>
                   </div>
                 </div>
 
-                <div class="flex items-start gap-6 group">
+                <div class="flex items-start gap-6 max-[360px]:gap-4 group">
                   <a
                     href="https://wa.me/233503301132"
                     target="_blank"
-                    class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
+                    class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
                   >
                     <svg
-                      class="w-6 h-6"
+                      class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -153,26 +167,28 @@
                     </svg>
                   </a>
                   <div>
-                    <h3 class="font-['Livvic'] text-xl font-bold mb-1">
+                    <h3
+                      class="font-['Livvic'] text-xl max-[360px]:text-lg font-bold mb-1 max-[360px]:mb-0"
+                    >
                       WhatsApp Us
                     </h3>
                     <a
                       href="https://wa.me/233503301132"
                       target="_blank"
-                      class="text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                      class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                       >+233 50 330 1132</a
                     >
                   </div>
                 </div>
 
-                <div class="flex items-start gap-6 group">
+                <div class="flex items-start gap-6 max-[360px]:gap-4 group">
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=P.+O.+Box+2186,+Adenta+-+Accra,+Ghana,+West+Africa"
                     target="_blank"
-                    class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
+                    class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
                   >
                     <svg
-                      class="w-6 h-6"
+                      class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -192,13 +208,15 @@
                     </svg>
                   </a>
                   <div>
-                    <h3 class="font-['Livvic'] text-xl font-bold mb-1">
+                    <h3
+                      class="font-['Livvic'] text-xl max-[360px]:text-lg font-bold mb-1 max-[360px]:mb-0"
+                    >
                       Visit Us
                     </h3>
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=P.+O.+Box+2186,+Adenta+-+Accra,+Ghana,+West+Africa"
                       target="_blank"
-                      class="block leading-relaxed text-green-100 transition-colors border-b border-transparent hover:text-white hover:border-white"
+                      class="block leading-relaxed max-[360px]:leading-snug text-green-100 max-[360px]:text-xs transition-colors border-b border-transparent hover:text-white hover:border-white"
                     >
                       No. 6 Nii Kotey Baale Ave, <br />
                       East Legon, Accra, <br />
@@ -209,23 +227,27 @@
               </div>
             </div>
 
-            <div class="pt-8 mt-12 border-t border-white/20">
+            <div
+              class="pt-8 mt-12 max-[360px]:mt-6 max-[360px]:pt-5 border-t border-white/20"
+            >
               <p
-                class="mb-4 text-sm font-medium tracking-widest text-green-100"
+                class="mb-4 text-sm max-[360px]:text-xs max-[360px]:mb-3 font-medium tracking-widest text-green-100"
               >
                 Ready to transform your agricultural journey?
               </p>
               <button
                 @click="navigateToVideo2"
-                class="w-full py-3 bg-[#F2CB00] text-black font-bold tracking-widest rounded-full hover:bg-white hover:text-[#129C48] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group cursor-pointer"
+                class="w-full py-3 max-[360px]:py-2.5 max-[360px]:text-sm bg-[#F2CB00] text-black font-bold tracking-widest rounded-full hover:bg-white hover:text-[#129C48] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 max-[360px]:gap-2 group cursor-pointer"
               >
-                <LeafIcon class="w-4 h-4" />
+                <LeafIcon class="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3" />
                 <span>Start growing with us</span>
               </button>
             </div>
           </div>
 
-          <div class="relative bg-gray-100 lg:col-span-2 h-[400px] lg:h-auto">
+          <div
+            class="relative bg-gray-100 lg:col-span-2 h-[400px] max-[360px]:h-[250px] lg:h-auto"
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3970.4780781420377!2d-0.160769!3d5.643748!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9be02ef482a7%3A0xe01c96c836aff70f!2sInnohub%20Growth%20Centre!5e0!3m2!1sen!2sgh!4v1769367233372!5m2!1sen!2sgh"
               width="100%"
@@ -242,33 +264,43 @@
       </div>
     </section>
 
-    <section class="px-6 py-24 bg-white md:px-12">
+    <section
+      class="px-6 max-[360px]:px-4 py-24 max-[360px]:py-12 bg-white md:px-12"
+    >
       <div class="max-w-[1000px] mx-auto relative overflow-visible">
-        <!-- Decorative Leaf Pattern Beneath Right Side -->
         <LeafIcon
           class="hidden md:block absolute right-[-150px] top-30 z-10 w-[380px] h-[380px] text-[#129C48] opacity-4"
         />
-        <div class="relative mb-16 text-center reveal-slide-up">
-          <!-- Decorative Leaf Pattern -->
-
+        <div
+          class="relative mb-16 max-[360px]:mb-8 text-center reveal-slide-up"
+        >
           <h2
-            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-4"
+            class="font-['Livvic'] text-4xl max-[360px]:text-[1.75rem] max-[360px]:leading-tight md:text-5xl font-bold text-black mb-4 max-[360px]:mb-2"
           >
             Send us a <span class="text-[#129C48]">message</span>
           </h2>
-          <div class="h-1 w-24 bg-[#F2CB00] mx-auto mb-6"></div>
-          <p class="text-xl font-light text-gray-600">
+          <div
+            class="h-1 w-24 bg-[#F2CB00] mx-auto mb-6 max-[360px]:mb-4"
+          ></div>
+          <p
+            class="text-xl max-[360px]:text-base font-light text-gray-600 px-2"
+          >
             Have questions or need assistance? We'd love to hear from you.
           </p>
         </div>
 
         <div class="p-2 bg-white reveal-slide-up">
-          <form @submit.prevent="submitForm" class="space-y-8">
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <form
+            @submit.prevent="submitForm"
+            class="space-y-8 max-[360px]:space-y-5"
+          >
+            <div
+              class="grid grid-cols-1 gap-8 max-[360px]:gap-5 md:grid-cols-2"
+            >
               <div class="relative group">
                 <label
                   for="lastName"
-                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#129C48]"
+                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
                   >Last Name *</label
                 >
                 <input
@@ -276,7 +308,7 @@
                   v-model="form.lastName"
                   type="text"
                   required
-                  class="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
                   placeholder="Osei"
                   :class="{ 'border-red-500': errors.lastName }"
                 />
@@ -288,7 +320,7 @@
               <div class="relative group">
                 <label
                   for="firstName"
-                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#129C48]"
+                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
                   >First Name *</label
                 >
                 <input
@@ -296,7 +328,7 @@
                   v-model="form.firstName"
                   type="text"
                   required
-                  class="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
                   placeholder="Kwame"
                   :class="{ 'border-red-500': errors.firstName }"
                 />
@@ -306,11 +338,13 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div
+              class="grid grid-cols-1 gap-8 max-[360px]:gap-5 md:grid-cols-2"
+            >
               <div class="relative group">
                 <label
                   for="email"
-                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#129C48]"
+                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
                   >Email *</label
                 >
                 <input
@@ -318,7 +352,7 @@
                   v-model="form.email"
                   type="email"
                   required
-                  class="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
                   placeholder="kwame.osei@gmail.com"
                   :class="{ 'border-red-500': errors.email }"
                 />
@@ -330,14 +364,14 @@
               <div class="relative group">
                 <label
                   for="phone"
-                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#129C48]"
+                  class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
                   >Phone</label
                 >
                 <input
                   id="phone"
                   v-model="form.phone"
                   type="tel"
-                  class="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
                   placeholder="+233 54 123 4567"
                 />
               </div>
@@ -345,10 +379,10 @@
 
             <div>
               <label
-                class="block mb-4 text-xs font-bold tracking-widest text-gray-500 uppercase"
+                class="block mb-4 max-[360px]:mb-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
                 >Subject *</label
               >
-              <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
                 <label
                   v-for="option in subjectOptions"
                   :key="option.value"
@@ -363,13 +397,16 @@
                     required
                   />
                   <div
-                    class="px-6 py-3 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm font-medium"
+                    class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium"
                   >
                     {{ option.label }}
                   </div>
                 </label>
               </div>
-              <p v-if="errors.subject" class="mt-2 text-xs text-red-500">
+              <p
+                v-if="errors.subject"
+                class="mt-2 max-[360px]:mt-1 text-xs text-red-500"
+              >
                 {{ errors.subject }}
               </p>
             </div>
@@ -377,7 +414,7 @@
             <div class="relative group">
               <label
                 for="message"
-                class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 group-focus-within:text-[#129C48]"
+                class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
                 >Message *</label
               >
               <textarea
@@ -385,7 +422,7 @@
                 v-model="form.message"
                 rows="4"
                 required
-                class="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300 resize-none"
+                class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300 resize-none max-[360px]:min-h-[80px]"
                 placeholder="How can we help you?"
                 :class="{ 'border-red-500': errors.message }"
               ></textarea>
@@ -394,21 +431,23 @@
               </p>
             </div>
 
-            <div class="pt-8 text-center">
+            <div class="pt-8 max-[360px]:pt-4 text-center">
               <button
                 type="submit"
-                class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                class="relative inline-flex items-center px-4 py-4 max-[360px]:py-3 max-[360px]:px-5 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right disabled:opacity-50 disabled:cursor-not-allowed text-sm max-[360px]:text-xs"
                 :disabled="isSubmitting"
               >
                 <span
-                  class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                  class="flex items-center gap-3 max-[360px]:gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
                 >
-                  <span class="text-sm font-bold tracking-widest text-white">
+                  <span
+                    class="text-sm max-[360px]:text-xs font-bold tracking-widest text-white"
+                  >
                     {{ isSubmitting ? "Submitting..." : "Submit Message" }}
                   </span>
                   <svg
                     v-if="!isSubmitting"
-                    class="w-4 h-4 text-white"
+                    class="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -423,14 +462,16 @@
                 </span>
 
                 <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 max-[360px]:gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
                 >
-                  <span class="text-sm font-bold tracking-widest">
+                  <span
+                    class="text-sm max-[360px]:text-xs font-bold tracking-widest"
+                  >
                     {{ isSubmitting ? "Submitting..." : "Submit Message" }}
                   </span>
                   <svg
                     v-if="!isSubmitting"
-                    class="w-4 h-4 text-black"
+                    class="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3 text-black"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -460,6 +501,7 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import Footer from "../components/Footer.vue";
+import ScrollDownPage from "../components/ScrollDownPage.vue";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
