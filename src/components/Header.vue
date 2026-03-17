@@ -94,7 +94,10 @@
                   v-if="isSearchOpen && (showResults || searchQuery)"
                   class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 max-[360px]:top-36 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72 max-[360px]:max-h-56"
                 >
-                  <div v-if="hasResults" class="overflow-y-auto max-h-72 max-[360px]:max-h-56">
+                  <div
+                    v-if="hasResults"
+                    class="overflow-y-auto max-h-72 max-[360px]:max-h-56"
+                  >
                     <div
                       v-for="result in searchResults"
                       :key="result.id"
@@ -362,7 +365,10 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.about">
+              <ul
+                class="space-y-5 max-[360px]:space-y-3"
+                v-show="activeSections.about"
+              >
                 <li>
                   <a
                     href="/about.html"
@@ -454,7 +460,10 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.programs">
+              <ul
+                class="space-y-5 max-[360px]:space-y-3"
+                v-show="activeSections.programs"
+              >
                 <li>
                   <a
                     href="/solutions.html"
@@ -520,7 +529,10 @@
               </svg>
             </h3>
             <transition name="slide">
-              <ul class="space-y-5 max-[360px]:space-y-3" v-show="activeSections.contact">
+              <ul
+                class="space-y-5 max-[360px]:space-y-3"
+                v-show="activeSections.contact"
+              >
                 <li class="block">
                   <a
                     href="/contact.html"
@@ -768,7 +780,10 @@
                 </g>
               </svg>
 
-              <p class="text-gray-300">+233 50 330 1132</p>
+              <div>
+                <p class="text-gray-300">+233 50 330 1132</p>
+                <p class="text-gray-300">+233 59 672 6914</p>
+              </div>
             </div>
 
             <div class="flex items-center gap-2 mb-4">
@@ -804,7 +819,9 @@
             class="fixed bottom-0 left-0 right-0 z-50 block lg:absolute lg:bottom-0 md:hidden lg:block bg-[#055732] lg:bg-transparent lg:z-0 pb-5 max-[360px]:pb-3"
           >
             <div class="w-full border-t border-white/20"></div>
-            <div class="max-w-[1820px] mx-auto px-4 py-3 max-[360px]:py-2 sm:px-12 sm:py-4">
+            <div
+              class="max-w-[1820px] mx-auto px-4 py-3 max-[360px]:py-2 sm:px-12 sm:py-4"
+            >
               <div
                 class="flex flex-col px-6 max-[360px]:px-2 text-xs max-[360px]:text-[10px] sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
               >
