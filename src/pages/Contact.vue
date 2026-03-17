@@ -116,24 +116,47 @@
                 </div>
 
                 <div class="flex items-start gap-6 max-[360px]:gap-4 group">
-                  <a
-                    href="tel:+233303980443"
-                    class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
-                  >
-                    <svg
-                      class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  <div ref="phonePickerRef" class="relative shrink-0">
+                    <button
+                      type="button"
+                      @click.stop="showPhonePicker = !showPhonePicker"
+                      :aria-expanded="showPhonePicker"
+                      aria-label="Choose a number to call"
+                      class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      ></path>
-                    </svg>
-                  </a>
+                      <svg
+                        class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <div
+                      v-if="showPhonePicker"
+                      class="absolute left-0 z-20 flex flex-col gap-2 p-3 mt-2 rounded-xl bg-white/95 min-w-[190px] shadow-lg"
+                    >
+                      <a
+                        href="tel:+233303980443"
+                        @click="showPhonePicker = false"
+                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
+                        >+233 30 398 0443</a
+                      >
+                      <a
+                        href="tel:+233596726914"
+                        @click="showPhonePicker = false"
+                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
+                        >+233 59 672 6914</a
+                      >
+                    </div>
+                  </div>
                   <div>
                     <h3
                       class="font-['Livvic'] text-xl max-[360px]:text-lg font-bold mb-1 max-[360px]:mb-0"
@@ -145,6 +168,11 @@
                         href="tel:+233303980443"
                         class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                         >+233 30 398 0443</a
+                      >
+                      <a
+                        href="tel:+233596726914"
+                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                        >+233 59 672 6914</a
                       >
                     </div>
                   </div>
@@ -496,7 +524,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -538,6 +566,8 @@ const errors = reactive({
 
 // Submission state
 const isSubmitting = ref(false);
+const showPhonePicker = ref(false);
+const phonePickerRef = ref(null);
 
 // Email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -615,7 +645,15 @@ const navigateToVideo2 = () => {
   window.location.href = "/";
 };
 
+const handleDocumentClick = (event) => {
+  if (!phonePickerRef.value?.contains(event.target)) {
+    showPhonePicker.value = false;
+  }
+};
+
 onMounted(() => {
+  document.addEventListener("click", handleDocumentClick);
+
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {
@@ -638,5 +676,9 @@ onMounted(() => {
     duration: 700,
     delay: 200,
   });
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleDocumentClick);
 });
 </script>

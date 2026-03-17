@@ -55,7 +55,6 @@
               title="Quick Links"
               :items="[
                 { label: 'Book a farm visit', href: 'contact.html' },
-                { label: 'Schedule a quick call', href: 'contact.html' },
               ]"
             />
           </div>
