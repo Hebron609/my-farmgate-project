@@ -1,32 +1,41 @@
 export const TEAM_DATA = [
   {
-    name: "Emmanuel G. Baiden",
+    name: "Nelson Madiba Amo",
+    title: "President",
+    hoverTitle: "President",
+    location: "Accra, Ghana",
+    bio: `Nelson is a seasoned business executive with over 15 years of experience in the agricultural sector. He has a proven track record of leading successful agribusiness ventures and driving sustainable growth. Nelson holds an MBA from the University of Ghana Business School and has been instrumental in shaping the strategic direction of FarmGate Africa.`,
+    photoUrl: "/images/nelson.webp",
+    photoUrlModal: "/images/nelson modal.webp",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Leadership & Governance",
+    order: 9,
+  },
+  {
+    name: "Emmanuel Galley Baiden",
     title: "VP, Investment & Strategy",
     hoverTitle: "Farmer",
     location: "Accra, Ghana",
-    bio: `Emmanuel is an enthusiatic farmer and a business executive professional with over a decade of extensive expertise in agribusiness, financial leadership, business development, strategy execution and project management.
-
-  He provides finance specialist, business partnering and advisory support for major grants and impact-focused projects across Africa and beyond including a $3.2 million World Bank SGB Climate Investment Fund, a $2.0 million eTransform mLab GoG initiative sponsored by the World Bank, and has also managed many key enterprise support programs across Ghana such as the $1.6 million Tullow Agriventure Program (TAP), and the GHS 6.33 million ESO program by MTN Ghana Foundation.
-
-  Emmanuel is a Chartered Accountant and a Risk Management Specialist. He also holds an MSc in Accounting and Finance from UGBS.`,
-    photoUrl: "/images/⁠Emanuel Galley Baiden.webp",
+    bio: `Emmanuel is an enthusiatic farmer and a business executive professional with over a decade of extensive expertise in agribusiness, financial leadership, business development, strategy execution and project management. He provides finance specialist, business partnering and advisory support for major grants and impact-focused projects across Africa and beyond including a $3.2 million World Bank SGB Climate Investment Fund, a $2.0 million eTransform mLab GoG initiative sponsored by the World Bank, and has also managed many key enterprise support programs across Ghana such as the $1.6 million Tullow Agriventure Program (TAP), and the GHS 6.33 million ESO program by MTN Ghana Foundation. Emmanuel is a Chartered Accountant and a Risk Management Specialist. He also holds an MSc in Accounting and Finance from UGBS.`,
+    photoUrl: "/images/Emanuel Galley Baiden.webp",
     photoUrlModal: "/images/Emanuel Galley Baiden modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Governance & Leadership",
+    department: "Leadership & Governance",
     order: 8,
   },
   {
     name: "Rachael Effah-Frempah",
-    title: "CFO, Chief Financial Officern",
+    title: "CFO, Chief Financial Officer",
     hoverTitle: "CFO",
     location: "Accra, Ghana",
-    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before Innohub, she worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is pursuing ACCA certification to become a Chartered Accountant.",
+    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before FGAI, she provides key financial management and administration support at Innohub. She also worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is a Chartered Accountant from ACCA.",
     photoUrl: "/images/Rachael Effah-Frempah.webp",
     photoUrlModal: "/images/Rachael Effah-Frempah modal.webp",
     email: "",
     socialLinks: { linkedin: "" },
-    department: "Strategic Advisors",
+    department: "Leadership & Governance",
     order: 3,
   },
   {
@@ -52,7 +61,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Jude Appoh Obeng modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "General Management",
     order: 1,
   },
   {
@@ -65,7 +74,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Nana Ama modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "General Management",
     order: 2,
   },
   {
@@ -102,7 +111,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Jacob Korley modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "General Management",
+    department: "Operations Management",
     order: 6,
   },
 ];
