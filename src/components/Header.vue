@@ -9,8 +9,10 @@
     >
       <nav
         :class="[
-          'text-white flex flex-col lg:flex-row lg:justify-between items-center lg:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
-          isScrolled ? 'pt-4 pb-0 lg:pb-0' : 'pt-4 pb-6 lg:pb-0',
+          'text-white flex flex-col min-[644px]:flex-row min-[644px]:justify-between items-center min-[644px]:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
+          isScrolled
+            ? 'pt-4 pb-0 min-[644px]:pb-0'
+            : 'pt-4 pb-6 min-[644px]:pb-0',
         ]"
       >
         <div class="flex items-start justify-between w-full mb-4 sm:hidden">
@@ -323,7 +325,7 @@
         ></div>
 
         <div
-          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:flex-row lg:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible"
+          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible"
         >
           <div
             class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-24 lg:mb-0"

@@ -30,13 +30,14 @@
             class="mx-auto mb-6 max-[360px]:mb-4 h-16 w-16 max-[360px]:h-12 max-[360px]:w-12 text-[#F2CB00] animate-pulse"
           />
           <h1
-            class="font-['Livvic'] text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl tracking-tight"
+            class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
-            CONNECT WITH <span class="text-[#129C48]">US</span>
+            CONNECT WITH 
+            <span class="text-[#129C48]">US</span>
           </h1>
         </div>
         <p
-          class="md:max-w-[33%] text-md max-[360px]:text-sm md:text-base text-gray-300 mb-4 max-[360px]:mb-8 font-light reveal-slide-up px-2"
+          class="mt-4 text-gray-400 max-w-[600px] text-sm md:text-base reveal-slide-up delay-300"
         >
           Get in touch with FarmGate Africa. We're here to help advance
           agriculture and connect with you.

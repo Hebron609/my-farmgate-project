@@ -52,9 +52,12 @@
             />
 
             <FooterColumn
-              title="Quick Links"
+              title="Strategic Initiatives"
               :items="[
-                { label: 'Book a farm visit', href: 'contact.html' },
+                { label: 'Sustainable Growth', href: 'contact.html' },
+                { label: 'Community Empowerment', href: 'contact.html' },
+                { label: 'Future Innovations', href: 'contact.html' },
+                { label: 'Urban Farming & Agri-Tourism', href: 'contact.html' },
               ]"
             />
           </div>

@@ -110,25 +110,39 @@
         </div>
 
         <div
-          class="flex items-start justify-center gap-8 sm:gap-16 max-[380px]:gap-4 mt-2 md:mt-5 lg:mt-7 max-[380px]:mt-0 animate-fadeIn"
+          class="flex items-start justify-center gap-8 sm:gap-16 max-[380px]:gap-4 mt-2 md:mt-12 lg:mt-14 max-[380px]:mt-0 animate-fadeIn"
         >
           <a
             href="/contact.html"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
-              class="w-16 h-16 sm:w-20 sm:h-20 max-[380px]:w-12 max-[380px]:h-12 rounded-full backdrop-blur-md bg-black/40 border border-transparent flex items-center justify-center mb-3 max-[380px]:mb-2 group-hover:bg-black/5 shadow-lg group-hover:shadow-xl transition-all duration-300 short-screen-lottie-container"
+              class="relative overflow-hidden w-14 h-14 sm:w-16 sm:h-16 max-[380px]:w-10 max-[380px]:h-10 rounded-full backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 flex items-center justify-center mb-3 max-[380px]:mb-2 shadow-lg group-hover:shadow-xl transition-all duration-300 short-screen-lottie-container"
             >
-              <img
-                src="/images/location-add 1.png"
-                alt="Book farm visit"
-                class="w-8 h-8 sm:w-10 sm:h-10 max-[380px]:w-6 max-[380px]:h-6 opacity-90 group-hover:opacity-100 transition-opacity duration-300 short-screen-lottie"
-              />
+              <span
+                class="relative z-10 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
+                <img
+                  src="/images/flag.png"
+                  alt="Book farm visit"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-90 transition-opacity duration-300 short-screen-lottie"
+                />
+              </span>
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              >
+                <img
+                  src="/images/flag.png"
+                  alt="Book farm visit"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                />
+              </span>
             </div>
-            <span
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap"
-              >Book to tour our farms
-            </span>
+            <p
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+            >
+              Book to tour our farms
+            </p>
           </a>
 
           <a
@@ -136,18 +150,32 @@
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
-              class="w-16 h-16 sm:w-20 sm:h-20 max-[380px]:w-12 max-[380px]:h-12 rounded-full flex items-center justify-center mb-3 max-[380px]:mb-2 group-hover:bg-black/5 shadow-lg group-hover:shadow-xl transition-all duration-300 backdrop-blur-md bg-black/40 border border-transparent short-screen-lottie-container"
+              class="relative overflow-hidden w-14 h-14 sm:w-16 sm:h-16 max-[380px]:w-10 max-[380px]:h-10 rounded-full flex items-center justify-center mb-3 max-[380px]:mb-2 shadow-lg group-hover:shadow-xl transition-all duration-300 backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 short-screen-lottie-container"
             >
-              <img
-                src="/images/telephone 1.png"
-                alt="Schedule quick call"
-                class="w-8 h-8 sm:w-10 sm:h-10 max-[380px]:w-6 max-[380px]:h-6 opacity-90 group-hover:opacity-100 transition-opacity duration-300 short-screen-lottie"
-              />
+              <span
+                class="relative z-10 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
+                <img
+                  src="/images/call.png"
+                  alt="Schedule quick call"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-90 transition-opacity duration-300 short-screen-lottie"
+                />
+              </span>
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              >
+                <img
+                  src="/images/call.png"
+                  alt="Schedule quick call"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                />
+              </span>
             </div>
-            <span
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-bold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap"
-              >Schedule a quick call</span
+            <p
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
             >
+              Schedule a quick call
+            </p>
           </a>
         </div>
       </div>
@@ -936,8 +964,8 @@ function closeModal() {
   }
 }
 
-/* Specific fix to stop options from wrapping awkwardly on 500px width */
-@media (max-width: 500px) and (min-width: 381px) {
+/* Keep this compact card override only for very small screens */
+@media (max-width: 375px) {
   .options-container-short > div {
     width: 100% !important; /* Force them to stack on small tablets */
     flex-direction: row !important;
