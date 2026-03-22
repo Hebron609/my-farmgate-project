@@ -4,7 +4,18 @@ export const TEAM_DATA = [
     title: "President",
     hoverTitle: "President",
     location: "Accra, Ghana",
-    bio: `Nelson is a seasoned business executive with over 15 years of experience in the agricultural sector. He has a proven track record of leading successful agribusiness ventures and driving sustainable growth. Nelson holds an MBA from the University of Ghana Business School and has been instrumental in shaping the strategic direction of FarmGate Africa.`,
+    bio: `Nelson Amo is business growth expert with experience across several African countries and sectors. 
+
+He is the President of FarmGate Africa, Founder and Executive Director of Innohub Foundation, an enterprise support organization that supports Small and Growing Businesses (SGBs) to pursue scale and impact. Innohub supports businesses that demonstrate clear impact along the triple bottom-line: PEOPLE, PLANET AND SHARED PROSPERITY. 
+
+Since 2015, he has led the Innohub team to design and execute diverse business scaling projects across various industries. He served as Grant Manager for the $3.2m Ghana Climate Venture Facility with funding from the World Bank, leading to the set-up of a climate focused SME fund and a technical assistance program to support the growth of SMEs in the climate and green sectors. Nelson has led the Innohub team to design and manage impactful projects such as the Tullow Agriventures program (with $1.6m funding from Tullow Ghana Limited), MTN Enterprise Support Program (with Gh9m of funding commitment from MTN Ghana Foundation), among several others. 
+
+
+Nelson has also led consulting projects across several industries including health, medical drones, renewable energy, agribusiness, and sits on the boards of several businesses.  
+
+Nelson is an alumnus of the Oxford Social Finance Program from the Oxford University Said Business School and holds a Certificate in “Development Programme in Entrepreneurship” from the Leeds University Business School. He also has an MSc. in Development Studies from LSE, with a special interest in Business Model Innovation at the bottom of the Pyramid. Nelson holds a certificate in “Unlocking Finance for Emerging Markets and Developing Economies”, a World Bank course, as well as a certificate in “Startup Accelerators in the Entrepreneurial Ecosystem” from the Golda Meir MASHAV Carmel International Training Center in Israel.
+
+Nelson is driven by the passion to promote social innovation and enterprising solutions to poverty and underdevelopment.`,
     photoUrl: "/images/nelson.webp",
     photoUrlModal: "/images/nelson modal.webp",
     email: "",
