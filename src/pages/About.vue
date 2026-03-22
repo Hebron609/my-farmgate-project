@@ -250,8 +250,8 @@ const impacts = ref([
   { title: "Increase incomes", iconName: "money-bill-wave" },
   { title: "Connect farmers to markets", iconName: "handshake" },
   { title: "Increase access to finance", iconName: "university" },
-  { title: "Protect ecosystem", iconName: "shield-alt" },
-  { title: "Act on climate changes", iconName: "cloud-sun" },
+  { title: "Protect ecosystems", iconName: "shield-alt" },
+  { title: "Act on climate change", iconName: "cloud-sun" },
   { title: "Empower women & youth for job creation", iconName: "users" },
   {
     title: "Boost food security & Strengthen supply chain systems",

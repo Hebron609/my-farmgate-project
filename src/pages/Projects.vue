@@ -134,7 +134,10 @@
                 class="mb-1 text-lg font-bold md:text-xl font-['Livvic'] relative pl-6"
               >
                 <span
-                  class="ongoing-dot ongoing-dot-abs"
+                  :class="[
+                    'ongoing-dot ongoing-dot-abs',
+                    card.id === 4 ? 'completed-dot' : '',
+                  ]"
                   aria-hidden="true"
                 ></span>
                 <span class="inline-block">{{ card.title }}</span>
@@ -200,7 +203,7 @@
           <h2
             class="font-['Livvic'] text-3xl font-bold tracking-widest uppercase mb-4"
           >
-            Our Year in Numbers
+            Our impact in Numbers
           </h2>
           <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
         </div>
@@ -253,10 +256,10 @@ import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 
 import farmPic from "@/assets/img/farm-pic4.jpg";
-import farmCrops from "@/assets/img/okra.jpg";
-import farmIrrigation from "@/assets/img/tomato.jpg";
+import farmCrops from "@/assets/img/okra1.jpg";
+import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
-import farmPic1 from "@/assets/img/maize.jpg";
+import farmPic1 from "@/assets/img/pepper-farm.jpg";
 import farmPic6 from "@/assets/img/cassava1.jpg";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
@@ -300,38 +303,38 @@ onMounted(() => {
 const solutions = [
   {
     id: 1,
-    title: "Danso Community 25-acre Okra Farming Project",
+    title: "Danso Community 20-acre Lady's Finger Okra Farming Project",
     image: farmCrops,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 2,
-    title: "Danso Community Tomato Block Farm project",
+    title: "15-acre Onion Farming Project at Danso Village",
     image: farmIrrigation,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 3,
-    title: "Danso Community Rice Block Farm project",
+    title: "⁠Asutsuare Rice farm project",
     image: farmPic9,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 4,
-    title: "Danso Community Maize Block Farm project",
+    title: "201-acre Ahafo Pepper Farm Project",
     image: farmPic1,
-    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Ahafo Region, Ghana`,
   },
   {
     id: 5,
-    title: "Danso Community Cassava Block Farm project",
-    image: farmPic6,
+    title: "Topease No. 2 Community 100-acre Block Cassava Farming",
+    image: farmPic3,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 6,
     title: "Danso Community Yam Block Farm project",
-    image: farmPic3,
+    image: farmPic6,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
 ];
@@ -362,7 +365,7 @@ const stats = ref([
   { number: "550+", label: "Farmers Supported" },
   { number: "27+", label: "Communities Transformed" },
   { number: "2", label: "Sponsored Partners" },
-  { number: "₵2.72m", label: "Working Capital Raised" },
+  { number: "₵2.72m", label: "Working Capital Provided" },
 ]);
 </script>
 
@@ -419,6 +422,19 @@ const stats = ref([
   transform: translateY(-50%);
   display: inline-block;
 }
+
+.completed-dot {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.completed-dot::after {
+  content: none;
+  animation: none;
+}
+
 .translate-z-10 {
   transform: translateZ(60px);
 }

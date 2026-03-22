@@ -1,33 +1,57 @@
 export const TEAM_DATA = [
   {
-    name: "Emmanuel G. Baiden",
-    title: "CF, Investment & Strategy",
+    name: "Nelson Madiba Amo",
+    title: "President",
+    hoverTitle: "President",
+    location: "Accra, Ghana",
+    bio: `Nelson Amo is business growth expert with experience across several African countries and sectors. 
+
+He is the President of FarmGate Africa, Founder and Executive Director of Innohub Foundation, an enterprise support organization that supports Small and Growing Businesses (SGBs) to pursue scale and impact. Innohub supports businesses that demonstrate clear impact along the triple bottom-line: PEOPLE, PLANET AND SHARED PROSPERITY. 
+
+Since 2015, he has led the Innohub team to design and execute diverse business scaling projects across various industries. He served as Grant Manager for the $3.2m Ghana Climate Venture Facility with funding from the World Bank, leading to the set-up of a climate focused SME fund and a technical assistance program to support the growth of SMEs in the climate and green sectors. Nelson has led the Innohub team to design and manage impactful projects such as the Tullow Agriventures program (with $1.6m funding from Tullow Ghana Limited), MTN Enterprise Support Program (with Gh9m of funding commitment from MTN Ghana Foundation), among several others. 
+
+
+Nelson has also led consulting projects across several industries including health, medical drones, renewable energy, agribusiness, and sits on the boards of several businesses.  
+
+Nelson is an alumnus of the Oxford Social Finance Program from the Oxford University Said Business School and holds a Certificate in “Development Programme in Entrepreneurship” from the Leeds University Business School. He also has an MSc. in Development Studies from LSE, with a special interest in Business Model Innovation at the bottom of the Pyramid. Nelson holds a certificate in “Unlocking Finance for Emerging Markets and Developing Economies”, a World Bank course, as well as a certificate in “Startup Accelerators in the Entrepreneurial Ecosystem” from the Golda Meir MASHAV Carmel International Training Center in Israel.
+
+Nelson is driven by the passion to promote social innovation and enterprising solutions to poverty and underdevelopment.`,
+    photoUrl: "/images/nelson.webp",
+    photoUrlModal: "/images/nelson modal.webp",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Leadership & Governance",
+    order: 9,
+  },
+  {
+    name: "Emmanuel Galley Baiden",
+    title: "VP, Investment & Strategy",
     hoverTitle: "Farmer",
     location: "Accra, Ghana",
-    bio: "Emmanuel is a finance professional with over a decade of experience in business operations and project management. He leads financial management for major grants and impact-focused projects at Innohub including an SGB Climate Investment Fund. An MSc holder in Accounting and Finance, he strengthens Innohub's operations through robust financial leadership.",
-    photoUrl: "/images/⁠Emanuel Galley Baiden.webp",
+    bio: `Emmanuel is an enthusiatic farmer and a business executive professional with over a decade of extensive expertise in agribusiness, financial leadership, business development, strategy execution and project management. He provides finance specialist, business partnering and advisory support for major grants and impact-focused projects across Africa and beyond including a $3.2 million World Bank SGB Climate Investment Fund, a $2.0 million eTransform mLab GoG initiative sponsored by the World Bank, and has also managed many key enterprise support programs across Ghana such as the $1.6 million Tullow Agriventure Program (TAP), and the GHS 6.33 million ESO program by MTN Ghana Foundation. Emmanuel is a Chartered Accountant and a Risk Management Specialist. He also holds an MSc in Accounting and Finance from UGBS.`,
+    photoUrl: "/images/Emanuel Galley Baiden.webp",
     photoUrlModal: "/images/Emanuel Galley Baiden modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Governance & Leadership",
+    department: "Leadership & Governance",
     order: 8,
   },
   {
     name: "Rachael Effah-Frempah",
-    title: "CFO, Chief Financial Officern",
+    title: "CFO, Chief Financial Officer",
     hoverTitle: "CFO",
     location: "Accra, Ghana",
-    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before Innohub, she worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is pursuing ACCA certification to become a Chartered Accountant.",
+    bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before FGAI, she provides key financial management and administration support at Innohub. She also worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is a Chartered Accountant from ACCA.",
     photoUrl: "/images/Rachael Effah-Frempah.webp",
     photoUrlModal: "/images/Rachael Effah-Frempah modal.webp",
     email: "",
     socialLinks: { linkedin: "" },
-    department: "Strategic Advisors",
+    department: "Leadership & Governance",
     order: 3,
   },
   {
     name: "Linda Amankwah",
-    title: "Strategic Advisor, Human Capital",
+    title: "Strategic Advisor, Talent Capital & Culture",
     hoverTitle: "Advisor",
     location: "Accra, Ghana",
     bio: "Linda is an HR professional with experience in banking, insurance, and non-profit sectors. She has successfully managed projects in organizational restructuring and talent acquisition as an Associate Consultant at Excel HR Consult. Linda holds an MBA in Human Resource Management and a Bachelor’s in English and Psychology from the University of Ghana.",
@@ -35,7 +59,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Linda Amankwah modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "Strategic Advisors",
     order: 4,
   },
   {
@@ -48,7 +72,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Jude Appoh Obeng modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "General Management",
     order: 1,
   },
   {
@@ -61,7 +85,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Nana Ama modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "General Management",
     order: 2,
   },
   {
@@ -86,7 +110,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Nancy Otibo Tamakoe modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
+    department: "Strategic Advisors",
     order: 7,
   },
   {
@@ -98,7 +122,7 @@ export const TEAM_DATA = [
     photoUrlModal: "/images/Jacob Korley modal.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
-    department: "General Management",
+    department: "Operations Management",
     order: 6,
   },
 ];
