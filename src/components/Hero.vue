@@ -51,7 +51,7 @@
         <img
           :src="fgLogoWhite2"
           alt="FarmGate Africa Logo"
-          class="block w-32 mx-auto sm:w-40 sm:hidden hero-logo-img"
+          class="block w-32 mx-auto -translate-y-12 sm:translate-y-0 sm:w-40 sm:hidden hero-logo-img"
         />
       </a>
 
@@ -141,7 +141,7 @@
             <p
               class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
             >
-              Book to tour our farms
+              Book to tour <span class="block sm:inline">our farms</span>
             </p>
           </a>
 
@@ -943,6 +943,13 @@ function closeModal() {
   .short-screen-lottie {
     width: 20px !important;
     height: 20px !important;
+  }
+}
+
+/* 320px phones: nudge logo down a bit for better vertical balance */
+@media (max-width: 320px) {
+  .hero-logo-img {
+    transform: translateY(40px) !important;
   }
 }
 
