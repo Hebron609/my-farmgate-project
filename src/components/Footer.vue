@@ -21,7 +21,7 @@
         <!-- Right Content -->
         <div>
           <div
-            class="grid grid-cols-2 text-sm sm:grid-cols-4 gap-x-6 gap-y-6 sm:gap-x-10 sm:text-base"
+            class="grid grid-cols-2 text-sm sm:grid-cols-3 gap-x-6 gap-y-6 sm:gap-x-10 sm:text-base"
           >
             <FooterColumn
               title="Company"
@@ -48,16 +48,6 @@
                 { label: 'Privacy Policy', href: 'privacy.html' },
                 { label: 'Risk Policy', href: 'index.html' },
                 { label: 'Cookies Policy', href: 'Terms.html' },
-              ]"
-            />
-
-            <FooterColumn
-              title="Strategic Initiatives"
-              :items="[
-                { label: 'Sustainable Growth', href: 'contact.html' },
-                { label: 'Community Empowerment', href: 'contact.html' },
-                { label: 'Future Innovations', href: 'contact.html' },
-                { label: 'Urban Farming & Agri-Tourism', href: 'contact.html' },
               ]"
             />
           </div>

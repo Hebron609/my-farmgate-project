@@ -331,12 +331,7 @@ const solutions = [
     image: farmPic3,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
-  {
-    id: 6,
-    title: "Danso Community Yam Block Farm project",
-    image: farmPic6,
-    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
-  },
+  
 ];
 
 const displayOrder = ref([...solutions]);
