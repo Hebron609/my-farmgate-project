@@ -16,8 +16,8 @@ Nelson has also led consulting projects across several industries including heal
 Nelson is an alumnus of the Oxford Social Finance Program from the Oxford University Said Business School and holds a Certificate in “Development Programme in Entrepreneurship” from the Leeds University Business School. He also has an MSc. in Development Studies from LSE, with a special interest in Business Model Innovation at the bottom of the Pyramid. Nelson holds a certificate in “Unlocking Finance for Emerging Markets and Developing Economies”, a World Bank course, as well as a certificate in “Startup Accelerators in the Entrepreneurial Ecosystem” from the Golda Meir MASHAV Carmel International Training Center in Israel.
 
 Nelson is driven by the passion to promote social innovation and enterprising solutions to poverty and underdevelopment.`,
-    photoUrl: "/images/nelson.webp",
-    photoUrlModal: "/images/nelson modal.webp",
+    photoUrl: "/images/nelson modal.webp",
+    photoUrlModal: "/images/nelson.webp",
     email: "",
     socialLinks: { linkedin: "https://linkedin.com" },
     department: "Leadership & Governance",

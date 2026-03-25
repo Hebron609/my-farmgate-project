@@ -298,76 +298,94 @@
         </div>
 
         <div
-          class="hidden md:flex h-[400px] md:h-[500px] w-full flex-col md:flex-row gap-4 md:gap-6"
+          class="relative hidden w-screen overflow-hidden -translate-x-1/2 md:block left-1/2 right-1/2"
+          @mouseleave="edgeHoverSide = null"
         >
           <div
-            v-for="(item, index) in galleryItems"
-            :key="index"
-            class="group/card relative flex-1 overflow-hidden rounded-[2rem] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3]"
+            class="initiatives-edge-track h-[400px] md:h-[500px]"
+            :class="{
+              'initiatives-edge-track--left': edgeHoverSide === 'left',
+              'initiatives-edge-track--right': edgeHoverSide === 'right',
+            }"
           >
             <div
-              class="absolute inset-0 h-full w-full bg-cover bg-center transition-all duration-700 group-hover/card:scale-110 group-hover/card:blur-[3px]"
-              :style="{ backgroundImage: `url(${item.image})` }"
-            ></div>
-
-            <div
-              class="absolute inset-0 transition-colors duration-500 bg-black/20 group-hover/card:bg-black/50"
-            ></div>
-
-            <div
-              class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
+              v-for="(item, index) in galleryItems"
+              :key="index"
+              class="group/card relative flex-1 overflow-hidden rounded-[2rem] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3]"
+              @mouseenter="
+                edgeHoverSide =
+                  index === 0
+                    ? 'left'
+                    : index === galleryItems.length - 1
+                      ? 'right'
+                      : null
+              "
             >
-              <h4
-                class="translate-y-0 transform font-['Livvic'] text-xl md:text-2xl font-bold text-white uppercase tracking-widest drop-shadow-lg transition-transform duration-500 group-hover/card:-translate-y-4"
-              >
-                {{ item.title }}
-              </h4>
+              <div
+                class="absolute inset-0 h-full w-full bg-cover bg-center transition-all duration-700 group-hover/card:scale-110 group-hover/card:blur-[3px]"
+                :style="{ backgroundImage: `url(${item.image})` }"
+              ></div>
 
               <div
-                class="max-w-md transition-all duration-500 delay-100 translate-y-8 opacity-0 group-hover/card:translate-y-0 group-hover/card:opacity-100"
+                class="absolute inset-0 transition-colors duration-500 bg-black/20 group-hover/card:bg-black/50"
+              ></div>
+
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
               >
-                <p
-                  class="font-['Montserrat'] text-sm md:text-base font-medium text-gray-100"
+                <h4
+                  class="translate-y-0 transform font-['Livvic'] text-xl md:text-2xl font-bold text-white uppercase tracking-widest drop-shadow-lg transition-transform duration-500 group-hover/card:-translate-y-4"
                 >
-                  {{ item.description }}
-                </p>
-                <button
-                  @click="navigateToVideo2"
-                  class="relative items-center px-4 py-2 mx-auto mt-4 overflow-hidden cursor-pointer group/button button-group rounded-4xl"
-                  style="display: inline-flex; align-items: center"
+                  {{ item.title }}
+                </h4>
+
+                <div
+                  class="max-w-md transition-all duration-500 delay-100 translate-y-8 opacity-0 group-hover/card:translate-y-0 group-hover/card:opacity-100"
                 >
-                  <span
-                    class="absolute inset-0 transition-opacity duration-300 opacity-100 white-bg bg-white/25 backdrop-blur-md rounded-4xl group-hover/button:opacity-0"
-                  ></span>
-                  <span
-                    class="absolute inset-0 transition-opacity duration-300 bg-yellow-400 opacity-0 yellow-bg rounded-4xl group-hover/button:opacity-100"
-                  ></span>
-
-                  <span
-                    class="relative z-10 flex items-center gap-2 transition-opacity duration-300 opacity-100 white-text group-hover/button:opacity-0"
+                  <p
+                    class="font-['Montserrat'] text-sm md:text-base font-medium text-gray-100"
                   >
-                    <LeafIcon class="w-4 h-4 text-white" />
-                    <span class="text-xs font-semibold leading-none text-white"
-                      >Start growing with us</span
-                    >
-                  </span>
-
-                  <span
-                    class="absolute inset-0 z-20 flex items-center justify-center gap-2 text-black transition-opacity duration-300 opacity-0 black-text rounded-4xl group-hover/button:opacity-100"
+                    {{ item.description }}
+                  </p>
+                  <button
+                    @click="navigateToVideo2"
+                    class="relative items-center px-4 py-2 mx-auto mt-4 overflow-hidden cursor-pointer group/button button-group rounded-4xl"
+                    style="display: inline-flex; align-items: center"
                   >
-                    <LeafIcon class="w-4 h-4 text-black" />
-                    <span class="text-xs font-semibold leading-none"
-                      >Start growing with us</span
+                    <span
+                      class="absolute inset-0 transition-opacity duration-300 opacity-100 white-bg bg-white/25 backdrop-blur-md rounded-4xl group-hover/button:opacity-0"
+                    ></span>
+                    <span
+                      class="absolute inset-0 transition-opacity duration-300 bg-yellow-400 opacity-0 yellow-bg rounded-4xl group-hover/button:opacity-100"
+                    ></span>
+
+                    <span
+                      class="relative z-10 flex items-center gap-2 transition-opacity duration-300 opacity-100 white-text group-hover/button:opacity-0"
                     >
-                  </span>
-                </button>
+                      <LeafIcon class="w-4 h-4 text-white" />
+                      <span
+                        class="text-xs font-semibold leading-none text-white"
+                        >Start growing with us</span
+                      >
+                    </span>
+
+                    <span
+                      class="absolute inset-0 z-20 flex items-center justify-center gap-2 text-black transition-opacity duration-300 opacity-0 black-text rounded-4xl group-hover/button:opacity-100"
+                    >
+                      <LeafIcon class="w-4 h-4 text-black" />
+                      <span class="text-xs font-semibold leading-none"
+                        >Start growing with us</span
+                      >
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <GrowWithUs />
 
     <Footer />
@@ -385,6 +403,7 @@ import ImpactImg from "@/assets/img/Women-farm.jpg";
 import farmPic1 from "@/assets/img/farm-pic1.jpg";
 import farmPic2 from "@/assets/img/farm-pic2.jpg";
 import farmPic3 from "@/assets/img/farm-pic3.jpg";
+import farmPic4 from "@/assets/img/farm-pic4.jpg";
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 import climateAnimationData from "@/assets/animations/climate-lottie.json";
@@ -393,6 +412,7 @@ import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 const lottieContainer = ref(null);
 const staticTurbineContainer = ref(null);
+const edgeHoverSide = ref(null);
 let lottieInstance = null;
 
 const { init: initScrollReveal } = useScrollReveal({
@@ -767,6 +787,12 @@ const galleryItems = ref([
       "Leveraging technology to revolutionize food production across Africa.",
     image: farmPic3,
   },
+  {
+    title: "Urban Farming & Agri-Tourism",
+    description:
+      "Building vibrant city farms and immersive agri-tourism experiences that connect communities to sustainable food systems.",
+    image: farmPic4,
+  },
 ]);
 </script>
 
@@ -774,5 +800,28 @@ const galleryItems = ref([
 /* Ensure smooth font rendering */
 .font-livvic {
   font-family: "Livvic", sans-serif;
+}
+
+.initiatives-edge-track {
+  --edge-peek: clamp(5rem, 10vw, 9rem);
+  --edge-focus-inset: clamp(1.1rem, 2.6vw, 2.4rem);
+  --edge-gap: clamp(1rem, 1.8vw, 1.5rem);
+  width: calc(100vw + (var(--edge-peek) * 2));
+  margin-left: calc(var(--edge-peek) * -1);
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem);
+  display: flex;
+  gap: var(--edge-gap);
+  transform: translateX(0);
+  transition: transform 700ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.initiatives-edge-track--left {
+  transform: translateX(calc(var(--edge-peek) + var(--edge-focus-inset)));
+}
+
+.initiatives-edge-track--right {
+  transform: translateX(
+    calc((var(--edge-peek) * -1) - var(--edge-focus-inset))
+  );
 }
 </style>
