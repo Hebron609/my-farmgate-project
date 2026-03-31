@@ -4,6 +4,7 @@
 <head>
   <script src="https://unpkg.com/scrollreveal"></script>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/images/FarmGate Africa 1 1.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Farm Visit | FarmGate Africa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -136,9 +137,14 @@
     }
 
     .hero-img {
-      background: url('images/farm-visit1.png') center center/cover no-repeat;
+      background: url('images/farm-visit1.webp') center center/cover no-repeat;
       min-height: 100vh;
       position: relative;
+    }
+    @supports not (background-image: url('images/farm-visit1.webp')) {
+      .hero-img {
+        background: url('images/farm-visit1.png') center center/cover no-repeat;
+      }
     }
 
     .hero-overlay {
