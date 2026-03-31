@@ -136,9 +136,14 @@
     }
 
     .hero-img {
-      background: url('images/farm-visit1.png') center center/cover no-repeat;
+      background: url('images/farm-visit1.webp') center center/cover no-repeat;
       min-height: 100vh;
       position: relative;
+    }
+    @supports not (background-image: url('images/farm-visit1.webp')) {
+      .hero-img {
+        background: url('images/farm-visit1.png') center center/cover no-repeat;
+      }
     }
 
     .hero-overlay {
