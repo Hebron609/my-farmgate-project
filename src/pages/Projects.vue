@@ -260,7 +260,9 @@ import farmCrops from "@/assets/img/okra1.jpg";
 import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
 import farmPic1 from "@/assets/img/pepper-farm.jpg";
-import farmPic6 from "@/assets/img/cassava1.jpg";
+import farmPic6 from "@/assets/img/catfish1.png";
+import farmPic10 from "@/assets/img/hot-pepper.webp";
+import farmPic7 from "@/assets/img/tilapia.jpg";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
 
@@ -321,7 +323,7 @@ const solutions = [
   },
   {
     id: 4,
-    title: "201-acre Ahafo Pepper Farm Project",
+    title: "201-acre Chilli Pepper Farming Project at Ahafo",
     image: farmPic1,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Ahafo Region, Ghana`,
   },
@@ -329,6 +331,24 @@ const solutions = [
     id: 5,
     title: "Topease No. 2 Community 100-acre Block Cassava Farming",
     image: farmPic3,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+  },
+  {
+    id: 6,
+    title: "Aveyime dug-out pond catfish farming ",
+    image: farmPic6,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+  },
+  {
+    id: 7,
+    title: "Tilapia fish farming on the volta lake at Akuse",
+    image: farmPic7,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+  },
+  {
+    id: 8,
+    title: "100-acre Habanero &  scotch bonnet pepper farming at Tamale",
+    image: farmPic10,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   
