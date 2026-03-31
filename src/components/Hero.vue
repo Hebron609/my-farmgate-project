@@ -113,7 +113,7 @@
           class="flex items-start justify-center gap-8 sm:gap-16 max-[380px]:gap-4 mt-2 md:mt-12 lg:mt-14 max-[380px]:mt-0 animate-fadeIn"
         >
           <a
-            href="/contact.html"
+            href="/book-farm-visit.html"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -326,6 +326,7 @@
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref, computed, watch, nextTick } from "vue";
 import Hls from "hls.js";
+import { useRouter } from "vue-router";
 
 import fallbackMp4A from "@/assets/video/farm-hero-video.mp4";
 import fallbackMp4B from "@/assets/video/farm-hero-video1.mp4";
@@ -649,6 +650,12 @@ function openModal(option) {
 function closeModal() {
   showModal.value = false;
   document.body.style.overflow = "auto";
+}
+
+const router = useRouter();
+
+function goToBookFarmVisit() {
+  router.push("/book-farm-visit");
 }
 </script>
 
