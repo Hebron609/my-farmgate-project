@@ -32,8 +32,8 @@
           <h1
             class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
-            CONNECT WITH 
-            <span class="text-[#129C48]">US</span>
+            CONNECT WITH <br />
+            <span class="text-[#129C48]">US.</span>
           </h1>
         </div>
         <p
@@ -212,7 +212,7 @@
 
                 <div class="flex items-start gap-6 max-[360px]:gap-4 group">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=P.+O.+Box+2186,+Adenta+-+Accra,+Ghana,+West+Africa"
+                    href="https://www.google.com/maps/search/?api=1&query=Innohub+Growth+Centre+Accra"
                     target="_blank"
                     class="h-12 w-12 max-[360px]:h-10 max-[360px]:w-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#F2CB00] group-hover:bg-[#F2CB00] group-hover:text-black transition-all duration-300 shrink-0"
                   >
@@ -243,11 +243,11 @@
                       Visit Us
                     </h3>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=P.+O.+Box+2186,+Adenta+-+Accra,+Ghana,+West+Africa"
+                      href="https://www.google.com/maps/search/?api=1&query=Innohub+Growth+Centre+Accra"
                       target="_blank"
                       class="block leading-relaxed max-[360px]:leading-snug text-green-100 max-[360px]:text-xs transition-colors border-b border-transparent hover:text-white hover:border-white"
                     >
-                      No. 6 Nii Kotey Baale Ave, <br />
+                      Innohub Growth Centre, <br />
                       East Legon, Accra, <br />
                       Greater Accra Region (GA-414-1928)
                     </a>

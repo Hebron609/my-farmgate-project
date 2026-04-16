@@ -30,7 +30,7 @@
           </div>
           <div v-else class="flex items-start h-[50px]">
             <a
-              href="/marketplace.html"
+              href="/marketplace"
               class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
               <span
@@ -134,7 +134,7 @@
 
             <a
               v-if="videoVariant === 2"
-              href="/marketplace.html"
+              href="/marketplace"
               class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
               <span
@@ -275,7 +275,7 @@
           </div>
 
           <a
-            href="/marketplace.html"
+            href="/marketplace"
             class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
           >
             <span
@@ -373,7 +373,7 @@
               >
                 <li>
                   <a
-                    href="/about.html"
+                    href="/about"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Story
@@ -385,7 +385,7 @@
 
                 <li>
                   <a
-                    href="/our-relevance.html"
+                    href="/our-relevance"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Relevance
@@ -397,7 +397,7 @@
 
                 <li>
                   <a
-                    href="footprint.html"
+                    href="/footprint"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Footprint
@@ -409,7 +409,7 @@
 
                 <li>
                   <a
-                    href="/manifesto.html"
+                    href="/manifesto"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our Manifesto
@@ -421,7 +421,7 @@
 
                 <li>
                   <a
-                    href="/people.html"
+                    href="/people"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Our People
@@ -435,6 +435,18 @@
           </div>
 
           <div class="mt-0 mb-20 max-[360px]:mb-6 sm:mb-0 sm:flex-1">
+            <a
+              href="/our-edge"
+              class="inline-flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer relative pb-2 max-[360px]:pb-1 group"
+            >
+              Our Edge
+              <span
+                class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+          </div>
+
+          <div class="mt-0 mb-20 max-[360px]:mb-6 sm:mb-0 sm:flex-1">
             <h3
               :class="[
                 'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer',
@@ -442,7 +454,7 @@
               ]"
               @click="toggleSection('programs')"
             >
-              Our Initiatives
+              Our Initiative
               <svg
                 width="25"
                 height="25"
@@ -468,7 +480,7 @@
               >
                 <li>
                   <a
-                    href="/solutions.html"
+                    href="/solutions"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Solutions
@@ -479,7 +491,7 @@
                 </li>
                 <li>
                   <a
-                    href="/projects.html"
+                    href="/projects"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Projects
@@ -490,7 +502,7 @@
                 </li>
                 <li>
                   <a
-                    href="/our-impact.html"
+                    href="/our-impact"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Impact
@@ -537,7 +549,7 @@
               >
                 <li class="block">
                   <a
-                    href="/contact.html"
+                    href="/contact"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     Connect with us
@@ -562,7 +574,7 @@
 
                 <li>
                   <a
-                    href="/marketplace.html"
+                    href="/marketplace"
                     class="relative pb-2 max-[360px]:pb-1 text-xl max-[360px]:text-lg font-medium group"
                   >
                     ⁠Shop at marketplace
@@ -631,7 +643,7 @@
               <div>
                 <p class="font-semibold text-white">Office Location:</p>
                 <p class="text-gray-300">
-                  No. 6 Nii Kotey Baale Ave, <br />
+                  Innohub Growth Centre, <br />
                   East Legon, Accra,<br />
                   Greater Accra Region (GA-414-1928)
                 </p>

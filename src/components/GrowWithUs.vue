@@ -29,7 +29,7 @@
           </p>
 
           <a
-            href="/marketplace.html"
+            href="/marketplace"
             class="relative flex items-center px-4 py-2 overflow-hidden bg-yellow-400 cursor-pointer group rounded-4xl"
           >
             <span

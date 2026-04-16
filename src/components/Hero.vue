@@ -32,7 +32,7 @@
     <div
       class="absolute z-20 mt-12 transform -translate-x-1/2 bottom-6 left-1/2"
     >
-      <a href="/solutions.html">
+      <a href="/solutions">
         <ScrollDown />
       </a>
     </div>
@@ -113,7 +113,7 @@
           class="flex items-start justify-center gap-8 sm:gap-16 max-[380px]:gap-4 mt-2 md:mt-12 lg:mt-14 max-[380px]:mt-0 animate-fadeIn"
         >
           <a
-            href="/book-farm-visit.html"
+            href="/book-farm-visit"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -134,7 +134,7 @@
                 <img
                   src="/images/flag.png"
                   alt="Book farm visit"
-                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie book-farm-hover-icon"
                 />
               </span>
             </div>
@@ -146,7 +146,7 @@
           </a>
 
           <a
-            href="/contact.html"
+            href="/contact"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -167,7 +167,7 @@
                 <img
                   src="/images/call.png"
                   alt="Schedule quick call"
-                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie quick-call-hover-icon"
                 />
               </span>
             </div>
@@ -875,6 +875,14 @@ function goToBookFarmVisit() {
   background: transparent;
   border: 1.5px solid currentColor;
   pointer-events: none;
+}
+
+.book-farm-hover-icon {
+  filter: brightness(0) saturate(100%);
+}
+
+.quick-call-hover-icon {
+  filter: brightness(0) saturate(100%);
 }
 
 .large_ripple {

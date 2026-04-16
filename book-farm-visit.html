@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/images/FarmGate Africa 1 1.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Farm Visit | FarmGate Africa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Livvic:wght@700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    /* Custom flatpickr theme for FarmGate */
+    .flatpickr-calendar {
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 1.25rem;
+      box-shadow: 0 8px 32px 0 rgba(18, 156, 72, 0.18);
+      border: 2px solid #129C48;
+      overflow: hidden;
+      background: #fff;
+      min-width: 320px;
+    }
+
+    .flatpickr-months .flatpickr-month {
+      background: linear-gradient(90deg, #129C48 60%, #F2CB00 100%);
+      color: #fff;
+      font-weight: bold;
+      border-bottom: 1px solid #129C48;
+    }
+
+    .flatpickr-weekdays {
+      background: #f1f5f9;
+      color: #129C48;
+      font-weight: 600;
+    }
+
+    .flatpickr-day {
+      border-radius: 0.5rem;
+      font-weight: 500;
+      color: #129C48;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .flatpickr-day.selected,
+    .flatpickr-day.startRange,
+    .flatpickr-day.endRange {
+      background: linear-gradient(90deg, #129C48 60%, #F2CB00 100%);
+      color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px 0 rgba(18, 156, 72, 0.10);
+    }
+
+    .flatpickr-day.today {
+      border: 2px solid #F2CB00;
+      background: #fffbe6;
+      color: #129C48;
+    }
+
+    .flatpickr-day:hover,
+    .flatpickr-day:focus {
+      background: #129C48;
+      color: #fff;
+    }
+
+    .flatpickr-current-month input.cur-year {
+      color: #fff;
+      font-weight: bold;
+      background: transparent;
+    }
+
+    .flatpickr-monthDropdown-months,
+    .flatpickr-current-month input.cur-year {
+      background: transparent;
+      color: #fff;
+    }
+
+    .flatpickr-input[readonly] {
+      background: #fff;
+      cursor: pointer;
+      border: 2px solid #129C48;
+      color: #129C48;
+      font-weight: 600;
+    }
+
+    .flatpickr-calendar.arrowTop:before,
+    .flatpickr-calendar.arrowTop:after {
+      border-top-color: #129C48;
+    }
+
+    .flatpickr-calendar.arrowBottom:before,
+    .flatpickr-calendar.arrowBottom:after {
+      border-bottom-color: #129C48;
+    }
+
+    .flatpickr-time {
+      background: #f1f5f9;
+      border-top: 1px solid #129C48;
+    }
+
+    .flatpickr-time input,
+    .flatpickr-time .flatpickr-am-pm {
+      color: #129C48;
+      font-weight: 600;
+    }
+
+    .flatpickr-day.flatpickr-disabled,
+    .flatpickr-day.prevMonthDay,
+    .flatpickr-day.nextMonthDay {
+      color: #b0b0b0;
+      background: #f8fafc;
+      opacity: 0.7;
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f1f5f9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    legend,
+    .font-livvic {
+      font-family: 'Livvic', sans-serif;
+    }
+
+    .split-bg {
+      background: linear-gradient(120deg, #129C48 60%, #F2CB00 100%);
+    }
+
+    .hero-img {
+      background: url('images/farm-visit1.png') center center/cover no-repeat;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, #129C48cc 60%, #F2CB00cc 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: left;
+      max-width: 650px;
+      margin-left: 3.5rem;
+    }
+
+    .hero-check {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(242, 203, 0, 0.16);
+      border: 1.5px solid #F2CB00;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .hero-check svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      color: #F2CB00;
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 1.25rem 1rem 1.75rem;
+      margin: 2rem 0;
+      max-width: none;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 1s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    @media (min-width: 768px) {
+      .form-card {
+        padding: 2rem 1.5rem 2.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .form-card {
+        padding: 2.5rem 2rem 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .form-card.w-full {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+      }
+    }
+
+    .form-progress {
+      position: absolute;
+      left: -2.5rem;
+      top: 2.5rem;
+      width: 6px;
+      height: calc(100% - 5rem);
+      background: #f1f5f9;
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    /* Removed orphaned CSS properties above */
+
+    .fadeIn {
+      animation: fadeIn 1s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    /* Removed more orphaned CSS and invalid HTML in style block */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .fadeInUp {
+      animation: fadeInUp 1s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .form-card-fixed {
+      max-width: none;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    .form-card label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #6b7280;
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .form-card label.cursor-pointer {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 0;
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-transform: none;
+    }
+
+    .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea) {
+      width: 100%;
+      padding: 0.75rem 0;
+      background: transparent;
+      border: 0 !important;
+      border-bottom: 2px solid #e5e7eb !important;
+      border-radius: 0 !important;
+      outline: none;
+      box-shadow: none !important;
+      color: #111827;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      transition: border-color 150ms ease, color 150ms ease;
+    }
+
+    .form-card textarea {
+      resize: none;
+    }
+
+    .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea)::placeholder {
+      color: #d1d5db;
+    }
+
+    .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea):focus {
+      border-bottom-color: #129C48 !important;
+    }
+
+    .form-card button[type="submit"] {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 1rem 1rem;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      background: #129C48;
+      color: #fff;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: none;
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+
+    .form-card button[type="submit"]:hover {
+      background: #f2cb00;
+      color: #000;
+    }
+
+    .form-card button[type="submit"]:focus {
+      outline: 4px solid rgba(18, 156, 72, 0.4);
+      outline-offset: 2px;
+    }
+
+    .form-section-fixed {
+      max-height: 100vh;
+      min-height: 100vh;
+      padding: 3vh 2.5vw;
+    }
+
+    .confirmation {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 156, 72, 0.12);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .confirmation.active {
+      display: flex;
+    }
+
+    .confirmation {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 156, 72, 0.12);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .confirmation.active {
+      display: flex;
+    }
+
+    .confirmation-box {
+      background: #fff;
+      border-radius: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(18, 156, 72, 0.18);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90vw;
+      animation: fadeIn 0.7s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .help-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      background: linear-gradient(120deg, #129C48 60%, #F2CB00 100%);
+      color: #fff;
+      border-radius: 9999px;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px 0 rgba(18, 156, 72, 0.18);
+      font-size: 2rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .help-btn:hover {
+      background: #129C48;
+      color: #F2CB00;
+    }
+
+    @media (max-width: 900px) {
+      .split-layout {
+        flex-direction: column;
+      }
+
+      .hero-img,
+      .form-card {
+        min-height: unset;
+        max-width: 100vw;
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .form-progress,
+      .form-progress-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-gray-900">
+  <div class="flex min-h-screen split-layout">
+    <!-- Left: Hero Visual (Sticky) -->
+    <div class="relative hidden hero-img lg:flex max-w-[40%]">
+      <div class="hero-overlay"></div>
+      <!-- Go Back Home Button -->
+      <a href="/"
+        class="absolute top-8 left-8 z-20 flex items-center gap-2 px-5 py-2 bg-white/90 text-[#129C48] font-bold rounded-full shadow-lg border-2 border-[#F2CB00] hover:bg-[#F2CB00] hover:text-black transition text-base group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#129C48] group-hover:text-black" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+        </svg>
+        Homepage
+      </a>
+      <div class="sticky top-0 flex flex-col justify-center h-screen hero-content">
+        <!-- Scroll Reveal: Add class for animation -->
+        <!-- Decorative Animated Circles -->
+        <div class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"></div>
+        <div class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"></div>
+        <div class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"></div>
+        <h1 class="mb-4 text-4xl font-extrabold leading-tight md:text-5xl font-livvic drop-shadow-lg">FarmGate
+          Africa<br><span class="text-[#F2CB00]">Farm Visit Application</span></h1>
+        <div class="mb-6 border-b-2 border-[#F2CB00] w-16"></div>
+        <p class="mb-6 text-lg font-medium md:text-2xl">Experience <span
+            class="text-[#F2CB00] font-bold">innovation</span>, <span
+            class="text-[#F2CB00] font-bold">sustainability</span>, and <span
+            class="text-[#F2CB00] font-bold">community</span> up close.<br>Book your visit today!</p>
+        <ul class="mb-10 space-y-4 text-lg">
+          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="font-semibold">Guided farm tours</span>
+          </li>
+          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="font-semibold">Meet our experts</span>
+          </li>
+          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="font-semibold">Learn sustainable practices</span>
+          </li>
+        </ul>
+        <!-- Start Application button removed -->
+      </div>
+    </div>
+    <!-- Right: Booking Form (Scrollable) -->
+    <div class="block bg-[#f1f5f9] relative overflow-y-auto lg:max-w-[60%] lg:flex-[0_0_60%] form-section-fixed"
+      id="form-section">
+      <div class="w-full form-card form-card-fixed">
+        <!-- Scroll Reveal: Add class for animation -->
+        <!-- Progress bar removed -->
+        <form id="bookingForm" class="space-y-8 max-[360px]:space-y-5">
+          <div class="mb-6 p-4 bg-[#F2CB00]/10 border-l-4 border-[#129C48] rounded-lg">
+            <p class="mb-2 text-base font-medium text-gray-800 md:text-lg">We'd love to know more about the purpose of
+              your visit. Help us make your visit a meaningful journey by completing these questions below?</p>
+            <p class="mb-2 text-base text-gray-800 md:text-lg">Thank you for your interest in booking a farm visit and
+              our team at FGAI would love to hear from you.</p>
+            <p class="text-sm text-gray-700 md:text-base">This survey is made up of 2 short sections, the entire form
+              should take no more than approximately 3 minutes to complete.</p>
+          </div>
+          <h2
+            class="font-['Livvic'] text-4xl max-[360px]:text-[1.75rem] max-[360px]:leading-tight md:text-5xl font-bold text-black mb-4 max-[360px]:mb-2">
+            Book Your Visit</h2>
+          <div>
+            <label for="visitDate">Proposed Date of Visit <span class="text-red-700">*</span></label>
+            <input id="visitDate" name="date" type="text" placeholder="Select a date" required readonly />
+          </div>
+          <div>
+            <label>Visited FarmGate Africa before? <span class="text-red-700">*</span></label>
+            <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
+              <label class="relative cursor-pointer group">
+                <input type="radio" name="visitedBefore" value="Yes" required class="sr-only peer" />
+                <div
+                  class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
+                  Yes
+                </div>
+              </label>
+              <label class="relative cursor-pointer group">
+                <input type="radio" name="visitedBefore" value="No" required class="sr-only peer" />
+                <div
+                  class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
+                  No
+                </div>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label for="sector">Farming Sector <span class="text-red-700">*</span></label>
+            <select id="sector" name="sector" required>
+              <option value="" disabled selected>Select a sector</option>
+              <option>Aquaculture (Volta, Ghana)</option>
+              <option>Horticulture (Eastern, Ghana)</option>
+              <option>Livestock (Eastern, Ghana)</option>
+              <option>All Sectors</option>
+            </select>
+          </div>
+          <div>
+            <label for="groupSize">Total Party Size</label>
+            <input id="groupSize" name="groupSize" type="number" min="1" placeholder="e.g. 3" />
+          </div>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label for="lastName">Last Name <span class="text-red-700">*</span></label>
+              <input id="lastName" name="lastName" type="text" required />
+            </div>
+            <div>
+              <label for="otherNames">First / Given Name(s)</label>
+              <input id="otherNames" name="otherNames" type="text" />
+            </div>
+          </div>
+          <div>
+            <label for="email">Email Address <span class="text-red-700">*</span></label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label for="phone">Primary Phone <span class="text-red-700">*</span></label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+            <div>
+              <label for="whatsapp">WhatsApp Number</label>
+              <input id="whatsapp" name="whatsapp" type="tel" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label for="countryCity">Country & City <span class="text-red-700">*</span></label>
+              <input id="countryCity" name="countryCity" type="text" required />
+            </div>
+            <div>
+              <label for="nationality">Nationality</label>
+              <input id="nationality" name="nationality" type="text" />
+            </div>
+          </div>
+          <div>
+            <label for="emergencyContact">Emergency Contact</label>
+            <input id="emergencyContact" name="emergencyContact" type="text" placeholder="Full name & phone" />
+          </div>
+          <div>
+            <label for="medical">Medical Conditions or Allergies</label>
+            <textarea id="medical" name="medical" rows="2" placeholder="e.g. Asthma, peanuts"></textarea>
+          </div>
+          <div>
+            <label for="message">Tour Goals or Questions</label>
+            <textarea id="message" name="message" rows="3" placeholder="What do you hope to learn or see?"></textarea>
+          </div>
+          <button type="submit" class="w-full mt-4 px-8 py-4">Submit
+            Booking</button>
+        </form>
+        <!-- Go Back Home button moved to hero section -->
+      </div>
+    </div>
+  </div>
+  <!-- Confirmation Modal -->
+  <div class="confirmation" id="confirmationBox">
+    <div class="confirmation-box">
+      <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full">
+        <svg class="h-8 w-8 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="mb-2 text-2xl font-bold text-gray-900 font-livvic">Application Received</h3>
+      <p class="mb-8 text-gray-600">
+        Thank you for applying! Your request has been securely logged. Our team will contact you soon to confirm your
+        visit.
+      </p>
+      <button onclick="closeModal()"
+        class="w-full px-6 py-3 font-bold text-white transition-colors duration-200 bg-[#129C48] rounded-full hover:bg-[#0c7033]">Book
+        Another Visit</button>
+    </div>
+  </div>
+  <!-- Floating Help Button -->
+  <button class="help-btn" title="Need help?" onclick="window.open('mailto:connect@farmgate.africa','_blank')"
+    aria-label="Contact support">
+    ?
+  </button>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    // ScrollReveal animation for hero and form card
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.ScrollReveal) {
+        ScrollReveal().reveal('.hero-content', {
+          duration: 900,
+          distance: '60px',
+          origin: 'left',
+          easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          opacity: 0,
+          reset: false
+        });
+        ScrollReveal().reveal('.form-card', {
+          duration: 900,
+          distance: '60px',
+          origin: 'bottom',
+          easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          opacity: 0,
+          reset: false,
+          delay: 200
+        });
+      }
+    });
+  </script>
+  <script>
+    // Progress bar removed
+    // Flatpickr
+    document.addEventListener('DOMContentLoaded', function () {
+      flatpickr('#visitDate', {
+        minDate: 'today',
+        dateFormat: 'Y-m-d',
+        disableMobile: true,
+        allowInput: false,
+        locale: { firstDayOfWeek: 1 },
+        onReady: function (selectedDates, dateStr, instance) {
+          instance.calendarContainer.classList.add('farmgate-calendar');
+        }
+      });
+      // Always hide confirmation modal on load
+      document.getElementById('confirmationBox').classList.remove('active');
+      // Progress bar removed
+      document.getElementById('bookingForm').onsubmit = function (e) {
+        e.preventDefault();
+        document.getElementById('confirmationBox').classList.add('active');
+      };
+    });
+    function closeModal() {
+      document.getElementById('confirmationBox').classList.remove('active');
+      document.getElementById('bookingForm').reset();
+      // Progress bar removed
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>

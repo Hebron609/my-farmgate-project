@@ -64,7 +64,7 @@
       <div class="mx-auto max-w-[1440px] relative z-10">
         <div class="inline-flex">
           <a
-            href="/solutions.html"
+            href="/solutions"
             class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
