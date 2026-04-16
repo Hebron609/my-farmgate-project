@@ -260,9 +260,9 @@ import farmCrops from "@/assets/img/okra1.jpg";
 import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
 import farmPic1 from "@/assets/img/pepper-farm.jpg";
-import farmPic6 from "@/assets/img/catfish1.png";
+import farmPic6 from "@/assets/img/catfish2.avif";
 import farmPic10 from "@/assets/img/hot-pepper.webp";
-import farmPic7 from "@/assets/img/tilapia.jpg";
+import farmPic7 from "@/assets/img/tilapia1.avif";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
 

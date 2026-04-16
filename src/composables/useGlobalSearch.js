@@ -7,7 +7,7 @@ const searchIndex = [
   {
     id: "s1",
     title: "Sustainable Farming Solutions",
-    page: "/solutions.html",
+    page: "/solutions",
     category: "Solutions",
     keywords: [
       "sustainable",
@@ -21,7 +21,7 @@ const searchIndex = [
   {
     id: "s2",
     title: "Partnership with Farmer Groups",
-    page: "/solutions.html",
+    page: "/solutions",
     category: "Solutions",
     keywords: [
       "partnership",
@@ -35,7 +35,7 @@ const searchIndex = [
   {
     id: "s3",
     title: "Agricultural Innovation",
-    page: "/solutions.html",
+    page: "/solutions",
     category: "Solutions",
     keywords: ["innovation", "technology", "farming", "modern", "techniques"],
   },
@@ -44,7 +44,7 @@ const searchIndex = [
   {
     id: "p1",
     title: "Community Development Projects",
-    page: "/projects.html",
+    page: "/projects",
     category: "Projects",
     keywords: [
       "projects",
@@ -58,7 +58,7 @@ const searchIndex = [
   {
     id: "p2",
     title: "Farm Transformation Initiatives",
-    page: "/projects.html",
+    page: "/projects",
     category: "Projects",
     keywords: [
       "farm",
@@ -73,7 +73,7 @@ const searchIndex = [
   {
     id: "i1",
     title: "Our Impact on Farming",
-    page: "/our-impact.html",
+    page: "/our-impact",
     category: "Impact",
     keywords: [
       "impact",
@@ -87,7 +87,7 @@ const searchIndex = [
   {
     id: "i2",
     title: "Environmental Footprint",
-    page: "/footprint.html",
+    page: "/footprint",
     category: "Footprint",
     keywords: [
       "footprint",
@@ -103,21 +103,21 @@ const searchIndex = [
   {
     id: "a1",
     title: "Our Story",
-    page: "/about.html",
+    page: "/about",
     category: "About",
     keywords: ["story", "about", "mission", "vision", "farmgate", "africa"],
   },
   {
     id: "a2",
     title: "Our People",
-    page: "/people.html",
+    page: "/people",
     category: "People",
     keywords: ["people", "team", "staff", "leadership", "experts", "community"],
   },
   {
     id: "a3",
     title: "Our Relevance",
-    page: "/our-relevance.html",
+    page: "/our-relevance",
     category: "About",
     keywords: [
       "relevance",
@@ -131,7 +131,7 @@ const searchIndex = [
   {
     id: "a4",
     title: "Our Manifesto",
-    page: "/manifesto.html",
+    page: "/manifesto",
     category: "About",
     keywords: ["manifesto", "values", "beliefs", "commitment", "philosophy"],
   },
@@ -140,7 +140,7 @@ const searchIndex = [
   {
     id: "m1",
     title: "Marketplace",
-    page: "/marketplace.html",
+    page: "/marketplace",
     category: "Marketplace",
     keywords: [
       "marketplace",
@@ -154,7 +154,7 @@ const searchIndex = [
   {
     id: "m2",
     title: "Direct Farm to Market",
-    page: "/marketplace.html",
+    page: "/marketplace",
     category: "Marketplace",
     keywords: ["farm", "direct", "market", "fresh", "farmers", "products"],
   },
@@ -163,7 +163,7 @@ const searchIndex = [
   {
     id: "sv1",
     title: "Farming Support Services",
-    page: "/solutions.html",
+    page: "/solutions",
     category: "Services",
     keywords: [
       "support",
@@ -177,7 +177,7 @@ const searchIndex = [
   {
     id: "sv2",
     title: "Agricultural Training",
-    page: "/solutions.html",
+    page: "/solutions",
     category: "Services",
     keywords: [
       "training",
@@ -193,7 +193,7 @@ const searchIndex = [
   {
     id: "g1",
     title: "Contact Us",
-    page: "/contact.html",
+    page: "/contact",
     category: "Contact",
     keywords: ["contact", "reach", "get in touch", "email", "phone", "connect"],
   },

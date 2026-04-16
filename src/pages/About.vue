@@ -81,7 +81,7 @@
           <h3
             class="font-['Livvic'] text-[#129C48] text-xl font-bold uppercase tracking-widest mb-4"
           >
-            About Us
+            Our Company
           </h3>
           <h4
             class="font-['Livvic'] text-3xl md:text-4xl font-bold text-black leading-tight mb-8"
@@ -92,7 +92,7 @@
           <div
             class="space-y-6 font-normal leading-relaxed prose prose-lg text-gray-600"
           >
-            <p>
+            <p>   
               We operate our own farms and also small-holder farmers in adopting
               best practices to bring out quality high-yielding produce. We turn
               these into quality value-added agricultural products for a ready

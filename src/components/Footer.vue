@@ -26,28 +26,28 @@
             <FooterColumn
               title="Company"
               :items="[
-                { label: 'About Us', href: 'about.html' },
-                { label: 'Our Relevance', href: 'our-relevance.html' },
-                { label: 'Investor Relations', href: 'index.html' },
-                { label: 'Marketplace', href: 'marketplace.html' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Our Relevance', href: '/our-relevance' },
+                { label: 'Investor Relations', href: '/' },
+                { label: 'Marketplace', href: '/marketplace' },
               ]"
             />
             <FooterColumn
               title="Governance"
               :items="[
-                { label: 'Grievances', href: 'index.html' },
-                { label: 'Financials', href: 'index.html' },
-                { label: 'Anti-corruption policy', href: 'index.html' },
+                { label: 'Grievances', href: '/' },
+                { label: 'Financials', href: '/' },
+                { label: 'Anti-corruption policy', href: '/' },
               ]"
             />
             <FooterColumn
               title="Legal"
               :items="[
-                { label: 'Terms & Conditions', href: 'Terms.html' },
-                { label: 'Refund & Return Policy', href: 'index.html' },
-                { label: 'Privacy Policy', href: 'privacy.html' },
-                { label: 'Risk Policy', href: 'index.html' },
-                { label: 'Cookies Policy', href: 'Terms.html' },
+                { label: 'Terms & Conditions', href: '/terms' },
+                { label: 'Refund & Return Policy', href: '/' },
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Risk Policy', href: '/' },
+                { label: 'Cookies Policy', href: '/terms' },
               ]"
             />
           </div>
