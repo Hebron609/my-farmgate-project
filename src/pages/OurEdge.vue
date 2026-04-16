@@ -6,7 +6,7 @@
 
     <section class="relative w-full h-screen overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-[url('/images/farm-visit1.png')] bg-cover bg-center bg-no-repeat opacity-55"
+        class="absolute inset-0 bg-[url('/images/farm-visit1.webp')] bg-cover bg-center bg-no-repeat opacity-55"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/30 to-black/80"
