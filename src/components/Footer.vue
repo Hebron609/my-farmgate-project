@@ -64,12 +64,14 @@
           <span class="font-semibold text-yellow-300">gateway to farming</span>
         </div>
         <div
-          class="flex flex-col items-center w-full sm:w-auto sm:flex-row sm:justify-end gap-y-2 gap-x-4"
+          class="flex flex-col items-center w-full sm:w-auto sm:items-end gap-y-2"
         >
-          <span class="text-center break-words sm:text-right">
-            © 2026 FarmGate Africa & Industries Ltd. | All rights reserved.
+          <span class="text-center sm:text-right sm:whitespace-nowrap">
+            © 2025-2026 FarmGate Africa & Industries Ltd.
+            <span class="hidden sm:inline"> | All rights reserved.</span>
           </span>
-          <span class="text-center break-words sm:text-right">
+          <span class="text-center sm:hidden">All rights reserved.</span>
+          <span class="text-center sm:text-right sm:whitespace-nowrap">
             Powered by:
             <a
               href="https://butterflytech.io"

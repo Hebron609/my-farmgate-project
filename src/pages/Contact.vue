@@ -32,8 +32,8 @@
           <h1
             class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
-            CONNECT WITH <br />
-            <span class="text-[#129C48]">US.</span>
+            CONNECT<br />
+            <span class="text-[#129C48]">WITH US.</span>
           </h1>
         </div>
         <p
@@ -144,17 +144,19 @@
                       v-if="showPhonePicker"
                       class="absolute left-0 z-20 flex flex-col gap-2 p-3 mt-2 rounded-xl bg-white/95 min-w-[190px] shadow-lg"
                     >
-                      <a
-                        href="tel:+233303980443"
-                        @click="showPhonePicker = false"
-                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
-                        >+233 30 398 0443</a
-                      >
+                      
                       <a
                         href="tel:+233596726914"
                         @click="showPhonePicker = false"
                         class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
                         >+233 59 672 6914</a
+                      >
+
+                      <a
+                        href="tel:+233303980443"
+                        @click="showPhonePicker = false"
+                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
+                        >+233 30 398 0443</a
                       >
                     </div>
                   </div>
@@ -165,16 +167,18 @@
                       Call Us
                     </h3>
                     <div class="flex flex-col space-y-1">
+                    <a
+                        href="tel:+233596726914"
+                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                        >+233 59 672 6914</a
+                      >
+                      
                       <a
                         href="tel:+233303980443"
                         class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                         >+233 30 398 0443</a
                       >
-                      <a
-                        href="tel:+233596726914"
-                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
-                        >+233 59 672 6914</a
-                      >
+                      
                     </div>
                   </div>
                 </div>
@@ -294,7 +298,7 @@
     </section>
 
     <section
-      class="px-6 max-[360px]:px-4 py-24 max-[360px]:py-12 bg-white md:px-12"
+      class="px-6 max-[360px]:px-4 pt-12 pb-24 max-[360px]:pt-8 max-[360px]:pb-12 bg-white md:px-12 md:py-24"
     >
       <div class="max-w-[1000px] mx-auto relative overflow-visible">
         <LeafIcon
@@ -460,7 +464,7 @@
               </p>
             </div>
 
-            <div class="pt-8 max-[360px]:pt-4 text-center">
+            <div class="pt-4 text-center sm:pt-8">
               <button
                 type="submit"
                 class="relative inline-flex items-center px-4 py-4 max-[360px]:py-3 max-[360px]:px-5 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right disabled:opacity-50 disabled:cursor-not-allowed text-sm max-[360px]:text-xs"
@@ -554,6 +558,15 @@ const subjectOptions = [
   { value: "consulting", label: "Consulting" },
   { value: "programmes", label: "Programmes" },
   { value: "project-management", label: "Project Management" },
+  { value: "book-farm-visit", label: "Book a farm visit" },
+  {
+    value: "request-farm-produce-pre-order",
+    label: "Request farm produce pre-order",
+  },
+  { value: "off-taker-arrangement", label: "Off-taker arrangement" },
+  { value: "book-appointment", label: "Book an appointment" },
+  { value: "service", label: "Service" },
+  { value: "others", label: "Others" },
 ];
 
 // Validation errors

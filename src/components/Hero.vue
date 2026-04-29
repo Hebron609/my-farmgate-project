@@ -139,7 +139,7 @@
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
               Book to tour <span class="block sm:inline">our farms</span>
             </p>
@@ -172,7 +172,7 @@
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
               Schedule a quick call
             </p>

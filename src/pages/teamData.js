@@ -125,4 +125,17 @@ Nelson is driven by the passion to promote social innovation and enterprising so
     department: "Operations Management",
     order: 6,
   },
+  {
+    name: "David Ndanu",
+    title: "CTO, Advisor",
+    hoverTitle: "Advisor",
+    location: "Accra, Ghana",
+    bio: "David Ndanu is a Software Engineer and Systems Architect with over 7 years of experience building enterprise platforms and scalable digital solutions across multiple industries. He currently serves as the Chief Technology Officer at Farmgate Africa, where he leads the design and development of data-driven systems aimed at improving agricultural operations and productivity.With a strong background in building ERP systems, financial platforms, and operational tools used by real businesses, David focuses on creating practical solutions that support decision-making and efficiency. His work combines software engineering with a growing interest in data systems and emerging geospatial applications within agriculture.At Farmgate, he is committed to developing technology that empowers farmers, improves resource management, and supports the long-term growth of agriculture across Africa.",
+    photoUrl: "/images/David-Ndanu.webp",
+    photoUrlModal: "/images/David-Ndanu-modal.webp",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Strategic Advisors",
+    order: 6,
+  },
 ];

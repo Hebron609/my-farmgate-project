@@ -57,7 +57,7 @@
       class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
       aria-label="Our Team"
     >
-      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
+      <div class="absolute top-0 right-0 pointer-events-none opacity-3">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
       </div>
 
@@ -180,11 +180,86 @@
                 {{ member.name.split(" ")[0] }}
               </h3>
               <p class="text-sm text-[#129C48]">
-                {{ member.hoverTitle || member.title.split(" ")[0] }}
+                {{
+                  member.name === "Linda Amankwah"
+                    ? "Talent Advisor"
+                    : member.name === "Nancy Otibo Tamakoe"
+                      ? "Agronomist Advisor"
+                      : member.name === "David Ndanu"
+                        ? "CTO Advisor"
+                        : member.hoverTitle || member.title.split(" ")[0]
+                }}
               </p>
             </div>
           </div>
         </div>
+
+        <section
+          class="relative mt-16 overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0a3f1f] via-[#055732] to-[#129C48] px-6 py-12 text-white shadow-2xl sm:px-10 sm:py-16 md:px-14 reveal-slide-up"
+        >
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[360px] xl:w-[460px] opacity-8"
+          >
+            <img
+              class="absolute right-[-40px] top-12 h-[340px] w-auto text-white rotate-12"
+              :src="farmGateLogo"
+              alt=""
+            />
+          </div>
+
+          <div class="relative z-10 max-w-4xl">
+            <p
+              class="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#F2CB00]"
+            >
+              Grow with us
+            </p>
+            <h2
+              class="font-['Livvic'] text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
+            >
+              We’re building, and this is your chance to shape your career with us..
+            </h2>
+
+            <p class="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
+            At FGAI, we don't loose, we don't win , we learn.
+            </p>
+
+            <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+              Bring your talent, explore opportunities, and drive value with purpose.
+            </p>
+
+            <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+              Together, we’ll shape the future and transform lives in ways that
+              truly matter.
+            </p>
+
+            <div class="mt-8">
+              <a
+                :href="getStartedHref"
+                class="flex group relative overflow-hidden px-6 py-3 rounded-full items-center cursor-pointer w-fit bg-[#F2CB00]"
+              >
+                <span
+                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                >
+                  <LeafIcon class="w-4 h-4 text-black" />
+                  <span
+                    class="text-sm font-semibold leading-none tracking-wider text-black"
+                    >Join Us</span
+                  >
+                </span>
+
+                <span
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-white group-hover:translate-y-0"
+                >
+                  <LeafIcon class="w-4 h-4 text-[#129C48]" />
+                  <span
+                    class="text-sm font-semibold leading-none tracking-wider"
+                    >Join Us</span
+                  >
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -269,7 +344,6 @@
       </div>
     </Transition>
 
-
     <Footer />
   </div>
 </template>
@@ -284,6 +358,7 @@ import { TEAM_DATA } from "./teamData.js";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 import heroImage from "../assets/img/group-farm-image.jpg";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -326,6 +401,7 @@ const isOpen = ref(false);
 const selectedMember = ref(null);
 const activeDepartment = ref("All");
 const showNames = ref(true);
+const getStartedHref = ref("#");
 
 const openModal = (member) => {
   selectedMember.value = member;

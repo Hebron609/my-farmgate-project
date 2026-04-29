@@ -166,8 +166,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(242, 203, 0, 0.16);
-      border: 1.5px solid #F2CB00;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1.5px solid #ffffff;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
       flex-shrink: 0;
     }
@@ -175,7 +175,7 @@
     .hero-check svg {
       width: 0.95rem;
       height: 0.95rem;
-      color: #F2CB00;
+      color: #ffffff;
     }
 
     .form-card {
@@ -433,7 +433,7 @@
       <div class="hero-overlay"></div>
       <!-- Go Back Home Button -->
       <a href="/"
-        class="absolute top-8 left-8 z-20 flex items-center gap-2 px-5 py-2 bg-white/90 text-[#129C48] font-bold rounded-full shadow-lg border-2 border-[#F2CB00] hover:bg-[#F2CB00] hover:text-black transition text-base group">
+        class="absolute top-8 left-8 z-20 flex items-center gap-2 px-4 py-2 bg-white/90 text-[#129C48] font-bold rounded-full shadow-lg border-2 border-[#F2CB00] hover:bg-[#F2CB00] hover:text-black transition text-sm group">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#129C48] group-hover:text-black" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -584,8 +584,9 @@
             <label for="message">Tour Goals or Questions</label>
             <textarea id="message" name="message" rows="3" placeholder="What do you hope to learn or see?"></textarea>
           </div>
-          <button type="submit" class="w-full mt-4 px-8 py-4">Submit
-            Booking</button>
+          <div class="flex justify-center w-full mt-8">
+            <button type="submit" class="px-12 py-4">Submit Booking</button>
+          </div>
         </form>
         <!-- Go Back Home button moved to hero section -->
       </div>

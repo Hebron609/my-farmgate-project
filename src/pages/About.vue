@@ -92,7 +92,7 @@
           <div
             class="space-y-6 font-normal leading-relaxed prose prose-lg text-gray-600"
           >
-            <p>   
+            <p>
               We operate our own farms and also small-holder farmers in adopting
               best practices to bring out quality high-yielding produce. We turn
               these into quality value-added agricultural products for a ready
@@ -149,70 +149,13 @@
       </div>
     </section>
 
-    <section class="w-full px-6 py-32 bg-gray-50 md:px-12">
-      <div class="mx-auto max-w-[1440px]">
-        <div
-          class="flex flex-col items-center justify-center w-full gap-8 mb-20"
-        >
-          <div
-            class="flex flex-col items-center justify-center w-full text-center"
-          >
-            <h2 class="font-['Livvic'] text-5xl font-bold text-black mb-6">
-              What We Do
-            </h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
-            <div
-              class="flex flex-col items-center justify-center w-full mt-8 space-y-4 text-lg text-center text-gray-600"
-            >
-              <p class="mx-auto text-center md:max-w-[70%]">
-                We partner with farmers across regions and beyond to help
-                improve livelihoods within local communities by helping farmers
-                to build capacity, grow more, sell more, sell for more, connect
-                more, and empower those behind each harvest while preserving the
-                environment that feeds us for the seasons ahead.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger"
-        >
-          <div
-            v-for="(item, index) in impacts"
-            :key="index"
-            class="relative p-8 overflow-hidden transition-all duration-300 bg-white shadow-sm group rounded-2xl hover:-translate-y-2 hover:shadow-xl"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-[#129C48] to-[#0a3f1f] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            ></div>
-            <div class="relative z-10">
-              <div
-                class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-50 text-[#129C48] transition-colors group-hover:bg-white group-hover:text-[#129C48]"
-              >
-                <font-awesome-icon :icon="['fas', item.iconName]" size="lg" />
-              </div>
-              <p
-                class="font-['Montserrat'] text-xl font-medium text-gray-900 transition-colors group-hover:text-white"
-              >
-                {{ item.title }}
-              </p>
-              <div
-                class="mt-4 h-1 w-12 bg-[#F2CB00] transition-all group-hover:w-full"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!--<GrowWithUs />-->
     <Footer />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
@@ -244,24 +187,6 @@ onMounted(() => {
     interval: 100,
   });
 });
-
-const impacts = ref([
-  { title: "Enhance Productivity", iconName: "chart-line" },
-  { title: "Increase incomes", iconName: "money-bill-wave" },
-  { title: "Connect farmers to markets", iconName: "handshake" },
-  { title: "Increase access to finance", iconName: "university" },
-  { title: "Protect ecosystems", iconName: "shield-alt" },
-  { title: "Act on climate change", iconName: "cloud-sun" },
-  { title: "Empower women & youth for job creation", iconName: "users" },
-  {
-    title: "Boost food security & Strengthen supply chain systems",
-    iconName: "truck",
-  },
-  {
-    title: "Provide CBTM support for FBO and co-operatives/FGO",
-    iconName: "chalkboard-teacher",
-  },
-]);
 
 // Image Imports
 import aboutUsBanner from "@/assets/img/about-us-banner.jpg";

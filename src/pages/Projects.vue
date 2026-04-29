@@ -136,7 +136,7 @@
                 <span
                   :class="[
                     'ongoing-dot ongoing-dot-abs',
-                    card.id === 4 ? 'completed-dot' : '',
+                    [1, 2, 3, 4].includes(card.id) ? 'completed-dot' : '',
                   ]"
                   aria-hidden="true"
                 ></span>
@@ -317,7 +317,7 @@ const solutions = [
   },
   {
     id: 3,
-    title: "⁠Asutsuare Rice farm project",
+    title: "⁠Asutsuare Rice Farm Project",
     image: farmPic9,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
@@ -335,23 +335,22 @@ const solutions = [
   },
   {
     id: 6,
-    title: "Aveyime dug-out pond catfish farming ",
+    title: "150k-cc Catfish Dug-out Pond Farming Project at Aveyime",
     image: farmPic6,
-    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Volta Region, Ghana`,
   },
   {
     id: 7,
-    title: "Tilapia fish farming on the volta lake at Akuse",
+    title: "448k-cc Talipia Cage Farm on the Volta Lake at Akuse",
     image: farmPic7,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 8,
-    title: "100-acre Habanero &  scotch bonnet pepper farming at Tamale",
+    title: "100-acre Habanero &  Scotch Bonnet Pepper Farming at Tamale",
     image: farmPic10,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
-  
 ];
 
 const displayOrder = ref([...solutions]);
