@@ -156,6 +156,7 @@
                 :src="member.photoUrl"
                 :alt="'Photo of ' + member.name"
                 class="object-cover object-top w-full h-full transition-transform duration-500 scale-120 group-hover:scale-135 will-change-transform"
+                :style="member.imagePosition ? { objectPosition: member.imagePosition } : {}"
                 loading="lazy"
               />
               <div
@@ -216,7 +217,7 @@
             <h2
               class="font-['Livvic'] text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
             >
-              We’re building, and this is your chance to shape your career with us..
+              We’re building, and this is your chance to shape your career with us.
             </h2>
 
             <p class="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
@@ -290,6 +291,7 @@
               :src="selectedMember.photoUrlModal || selectedMember.photoUrl"
               :alt="selectedMember.name"
               class="object-cover object-top w-full h-full"
+              :style="selectedMember.imagePosition ? { objectPosition: selectedMember.imagePosition } : {}"
             />
           </div>
 
