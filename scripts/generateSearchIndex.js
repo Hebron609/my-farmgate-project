@@ -75,9 +75,17 @@ function buildIndex() {
     const relPath = filePath.includes('/public/')
       ? filePath.split('/public/')[1]
       : filePath.split('/src/pages/')[1];
-    const url = relPath
-      ? '/' + relPath.replace(/\\/g, '/').replace(/\.vue$/, '.html')
+    let url = relPath
+      ? '/' + relPath.replace(/\\/g, '/').replace(/\.(vue|html)$/i, '')
       : '/';
+
+    // Handle index or Home cases to point to root
+    if (url.toLowerCase() === '/index' || url.toLowerCase() === '/home') {
+      url = '/';
+    }
+
+    // Lowercase for consistency with clean URLs
+    url = url.toLowerCase();
     const blocks = extractBlocks(filePath);
     blocks.forEach(block => {
       index.push({

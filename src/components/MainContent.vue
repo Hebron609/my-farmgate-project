@@ -36,7 +36,7 @@
 
           <!--About-Btn-->
           <a
-            href="/marketplace.html"
+            href="/marketplace"
             class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-5 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
           >
             <span
@@ -269,7 +269,7 @@
           </div>
 
           <a
-            href="/marketplace.html"
+            href="/marketplace"
             class="md:flex group relative overflow-hidden p-3 sm:p-4 lg:p-5 rounded-4xl items-center gap-2 cursor-pointer bg-[rgb(3,89,37)] text-white font-semibold text-xs sm:text-sm md:text-base"
           >
             <span

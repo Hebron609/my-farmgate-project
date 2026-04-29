@@ -32,7 +32,7 @@
     <div
       class="absolute z-20 mt-12 transform -translate-x-1/2 bottom-6 left-1/2"
     >
-      <a href="/solutions.html">
+      <a href="/solutions">
         <ScrollDown />
       </a>
     </div>
@@ -113,7 +113,7 @@
           class="flex items-start justify-center gap-8 sm:gap-16 max-[380px]:gap-4 mt-2 md:mt-12 lg:mt-14 max-[380px]:mt-0 animate-fadeIn"
         >
           <a
-            href="/contact.html"
+            href="/book-farm-visit"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -134,19 +134,19 @@
                 <img
                   src="/images/flag.png"
                   alt="Book farm visit"
-                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie book-farm-hover-icon"
                 />
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
               Book to tour <span class="block sm:inline">our farms</span>
             </p>
           </a>
 
           <a
-            href="/contact.html"
+            href="/contact"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -167,12 +167,12 @@
                 <img
                   src="/images/call.png"
                   alt="Schedule quick call"
-                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie"
+                  class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie quick-call-hover-icon"
                 />
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
               Schedule a quick call
             </p>
@@ -326,6 +326,7 @@
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref, computed, watch, nextTick } from "vue";
 import Hls from "hls.js";
+import { useRouter } from "vue-router";
 
 import fallbackMp4A from "@/assets/video/farm-hero-video.mp4";
 import fallbackMp4B from "@/assets/video/farm-hero-video1.mp4";
@@ -650,6 +651,12 @@ function closeModal() {
   showModal.value = false;
   document.body.style.overflow = "auto";
 }
+
+const router = useRouter();
+
+function goToBookFarmVisit() {
+  router.push("/book-farm-visit");
+}
 </script>
 
 <style scoped>
@@ -868,6 +875,14 @@ function closeModal() {
   background: transparent;
   border: 1.5px solid currentColor;
   pointer-events: none;
+}
+
+.book-farm-hover-icon {
+  filter: brightness(0) saturate(100%);
+}
+
+.quick-call-hover-icon {
+  filter: brightness(0) saturate(100%);
 }
 
 .large_ripple {

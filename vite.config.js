@@ -35,6 +35,8 @@ export default defineConfig({
         privacy: path.resolve(__dirname, "privacy.html"),
         Contact: path.resolve(__dirname, "contact.html"),
         footprint: path.resolve(__dirname, "footprint.html"),
+        bookFarmVisit: path.resolve(__dirname, "book-farm-visit.html"),
+        ourEdge: path.resolve(__dirname, "our-edge.html"),
       },
     },
   },

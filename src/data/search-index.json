@@ -562,7 +562,7 @@
   {
     "id": "a-html-body-div-header-section-div-div-div-div-div-div-div-a-0",
     "title": "",
-    "content": "No. 6 Nii Kotey Baale Ave,",
+    "content": "Innohub Growth Centre,",
     "url": "/contact#a-html-body-div-header-section-div-div-div-div-div-div-div-a-0",
     "tag": "a",
     "file": "pages/Contact.vue"
@@ -2491,7 +2491,7 @@
     "id": "header_marketplace_btn",
     "title": "Marketplace",
     "content": "Marketplace",
-    "url": "/marketplace.html#header_marketplace_btn",
+    "url": "/marketplace#header_marketplace_btn",
     "tag": "button",
     "file": "fullTextSearchIndex.js"
   },

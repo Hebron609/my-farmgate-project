@@ -136,7 +136,7 @@
                 <span
                   :class="[
                     'ongoing-dot ongoing-dot-abs',
-                    card.id === 4 ? 'completed-dot' : '',
+                    [1, 2, 3, 4].includes(card.id) ? 'completed-dot' : '',
                   ]"
                   aria-hidden="true"
                 ></span>
@@ -260,7 +260,9 @@ import farmCrops from "@/assets/img/okra1.jpg";
 import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
 import farmPic1 from "@/assets/img/pepper-farm.jpg";
-import farmPic6 from "@/assets/img/cassava1.jpg";
+import farmPic6 from "@/assets/img/catfish2.avif";
+import farmPic10 from "@/assets/img/hot-pepper.webp";
+import farmPic7 from "@/assets/img/tilapia1.avif";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
 
@@ -315,13 +317,13 @@ const solutions = [
   },
   {
     id: 3,
-    title: "⁠Asutsuare Rice farm project",
+    title: "⁠Asutsuare Rice Farm Project",
     image: farmPic9,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
   {
     id: 4,
-    title: "201-acre Ahafo Pepper Farm Project",
+    title: "201-acre Chilli Pepper Farming Project at Ahafo",
     image: farmPic1,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Ahafo Region, Ghana`,
   },
@@ -331,7 +333,24 @@ const solutions = [
     image: farmPic3,
     description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
   },
-  
+  {
+    id: 6,
+    title: "150k-cc Catfish Dug-out Pond Farming Project at Aveyime",
+    image: farmPic6,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Volta Region, Ghana`,
+  },
+  {
+    id: 7,
+    title: "448k-cc Talipia Cage Farm on the Volta Lake at Akuse",
+    image: farmPic7,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+  },
+  {
+    id: 8,
+    title: "100-acre Habanero &  Scotch Bonnet Pepper Farming at Tamale",
+    image: farmPic10,
+    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+  },
 ];
 
 const displayOrder = ref([...solutions]);

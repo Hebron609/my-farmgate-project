@@ -26,28 +26,28 @@
             <FooterColumn
               title="Company"
               :items="[
-                { label: 'About Us', href: 'about.html' },
-                { label: 'Our Relevance', href: 'our-relevance.html' },
-                { label: 'Investor Relations', href: 'index.html' },
-                { label: 'Marketplace', href: 'marketplace.html' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Our Relevance', href: '/our-relevance' },
+                { label: 'Investor Relations', href: '/' },
+                { label: 'Marketplace', href: '/marketplace' },
               ]"
             />
             <FooterColumn
               title="Governance"
               :items="[
-                { label: 'Grievances', href: 'index.html' },
-                { label: 'Financials', href: 'index.html' },
-                { label: 'Anti-corruption policy', href: 'index.html' },
+                { label: 'Grievances', href: '/' },
+                { label: 'Financials', href: '/' },
+                { label: 'Anti-corruption policy', href: '/' },
               ]"
             />
             <FooterColumn
               title="Legal"
               :items="[
-                { label: 'Terms & Conditions', href: 'Terms.html' },
-                { label: 'Refund & Return Policy', href: 'index.html' },
-                { label: 'Privacy Policy', href: 'privacy.html' },
-                { label: 'Risk Policy', href: 'index.html' },
-                { label: 'Cookies Policy', href: 'Terms.html' },
+                { label: 'Terms & Conditions', href: '/terms' },
+                { label: 'Refund & Return Policy', href: '/' },
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Risk Policy', href: '/' },
+                { label: 'Cookies Policy', href: '/terms' },
               ]"
             />
           </div>
@@ -64,12 +64,14 @@
           <span class="font-semibold text-yellow-300">gateway to farming</span>
         </div>
         <div
-          class="flex flex-col items-center w-full sm:w-auto sm:flex-row sm:justify-end gap-y-2 gap-x-4"
+          class="flex flex-col items-center w-full sm:w-auto sm:items-end gap-y-2"
         >
-          <span class="text-center break-words sm:text-right">
-            © 2026 FarmGate Africa & Industries Ltd. | All rights reserved.
+          <span class="text-center sm:text-right sm:whitespace-nowrap">
+            © 2025-2026 FarmGate Africa & Industries Ltd.
+            <span class="hidden sm:inline"> | All rights reserved.</span>
           </span>
-          <span class="text-center break-words sm:text-right">
+          <span class="text-center sm:hidden">All rights reserved.</span>
+          <span class="text-center sm:text-right sm:whitespace-nowrap">
             Powered by:
             <a
               href="https://butterflytech.io"

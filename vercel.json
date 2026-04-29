@@ -14,7 +14,9 @@
     { "source": "/footprint", "destination": "/footprint.html" },
     { "source": "/our-impact", "destination": "/our-impact.html" },
     { "source": "/our-relevance", "destination": "/our-relevance.html" },
-    { "source": "/terms", "destination": "/Terms.html" }
+    { "source": "/our-edge", "destination": "/our-edge.html" },
+    { "source": "/terms", "destination": "/Terms.html" },
+    { "source": "/book-farm-visit", "destination": "/book-farm-visit.html" }
   ],
   "redirects": [
     { "source": "/about.html", "destination": "/about", "statusCode": 301 },
@@ -43,9 +45,31 @@
     },
     { "source": "/index.html", "destination": "/", "statusCode": 301 },
     { "source": "/contact.html", "destination": "/contact", "statusCode": 301 },
-    { "source": "/footprint.html", "destination": "/footprint", "statusCode": 301 },
-    { "source": "/our-impact.html", "destination": "/our-impact", "statusCode": 301 },
-    { "source": "/our-relevance.html", "destination": "/our-relevance", "statusCode": 301 },
-    { "source": "/Terms.html", "destination": "/terms", "statusCode": 301 }
+    {
+      "source": "/footprint.html",
+      "destination": "/footprint",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-impact.html",
+      "destination": "/our-impact",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-relevance.html",
+      "destination": "/our-relevance",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-edge.html",
+      "destination": "/our-edge",
+      "statusCode": 301
+    },
+    { "source": "/Terms.html", "destination": "/terms", "statusCode": 301 },
+    {
+      "source": "/book-farm-visit.html",
+      "destination": "/book-farm-visit",
+      "statusCode": 301
+    }
   ]
 }
