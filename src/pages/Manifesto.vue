@@ -158,7 +158,7 @@
               >
                 <span
                   class="text-xs font-bold uppercase tracking-widest text-[#129C48]"
-                  >Read More</span
+                  >Learn More</span
                 >
                 <div
                   class="h-8 w-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#129C48] group-hover:text-white transition-all duration-300"

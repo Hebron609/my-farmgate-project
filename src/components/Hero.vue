@@ -174,7 +174,7 @@
             <p
               class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
-              Schedule a quick call
+              Schedule a <span class="block sm:inline">quick call</span>
             </p>
           </a>
         </div>

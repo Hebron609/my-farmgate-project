@@ -140,7 +140,7 @@
         </div>
 
         <div
-          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 sm:gap-6"
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:gap-6 lg:gap-8"
         >
           <div
             v-for="member in filteredTeam"
