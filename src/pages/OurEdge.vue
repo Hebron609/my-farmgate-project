@@ -139,7 +139,7 @@
           <div class="h-1 w-24 bg-[#F2CB00]"></div>
         </div>
 
-        <div class="grid grid-cols-1 gap-6 md:hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 2xl:hidden">
           <div
             v-for="(item, index) in galleryItems"
             :key="index"
@@ -187,7 +187,7 @@
         </div>
 
         <div
-          class="relative hidden w-screen overflow-hidden -translate-x-1/2 md:block left-1/2 right-1/2"
+          class="relative hidden w-screen overflow-hidden -translate-x-1/2 2xl:block left-1/2 right-1/2"
           @mouseleave="edgeHoverSide = null"
         >
           <div

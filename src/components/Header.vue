@@ -9,10 +9,10 @@
     >
       <nav
         :class="[
-          'text-white flex flex-col min-[644px]:flex-row min-[644px]:justify-between items-center min-[644px]:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
+          'text-white flex flex-col sm:flex-row sm:justify-between items-center sm:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
           isScrolled
-            ? 'pt-4 pb-0 min-[644px]:pb-0'
-            : 'pt-4 pb-6 min-[644px]:pb-0',
+            ? 'pt-4 pb-0 sm:pb-0'
+            : 'pt-4 pb-6 sm:pb-0',
         ]"
       >
         <div class="flex items-start justify-between w-full mb-4 sm:hidden">
@@ -314,7 +314,7 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
+        class="fixed inset-0 w-full h-[100dvh] z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
         :style="{
           backgroundImage: `url(${patternBg})`,
           backgroundPosition: 'left center',
@@ -325,14 +325,14 @@
         ></div>
 
         <div
-          class="relative min-h-screen flex flex-col lg:flex-row lg:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-28 max-w-[1820px] mx-auto h-full space-y-0 lg:space-y-0 lg:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible"
+          class="relative min-h-[100dvh] flex flex-col xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto xl:overflow-y-visible"
         >
           <div
-            class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-24 lg:mb-0"
+            class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto xl:w-[260px] z-10 xl:absolute xl:left-12 xl:bottom-24 xl:mb-0"
           >
             <a href="/">
               <img
-                class="drop-shadow-xl transition-all duration-300 w-[80px] max-[360px]:w-[60px] sm:w-[200px] h-auto hover:scale-105"
+                class="drop-shadow-xl transition-all duration-300 w-[80px] max-[360px]:w-[60px] sm:w-[120px] lg:w-[150px] xl:w-[200px] h-auto hover:scale-105"
                 :src="logoWhite2"
                 alt="Logo"
               />
@@ -340,7 +340,7 @@
           </div>
 
           <div
-            class="grid w-full grid-cols-1 gap-y-8 lg:flex lg:flex-1 lg:items-start lg:justify-between lg:gap-y-0"
+            class="grid w-full grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8 xl:flex xl:flex-1 xl:items-start xl:justify-between xl:gap-y-0"
           >
             <div class="p-0 mt-0">
               <h3
@@ -590,7 +590,7 @@
               </transition>
             </div>
 
-            <div class="hidden mt-0 sm:block lg:w-[360px] xl:w-[400px]">
+            <div class="hidden mt-0 xl:block xl:w-[400px]">
               <h3
                 :class="[
                   'text-2xl font-semibold text-[#F2CB00] mb-4',
@@ -855,7 +855,7 @@
           </button>
 
           <div
-            class="fixed bottom-0 left-0 right-0 z-50 block lg:absolute lg:bottom-0 md:hidden lg:block bg-[#055732] lg:bg-transparent lg:z-0 pb-5 max-[360px]:pb-3"
+            class="fixed bottom-0 left-0 w-full z-50 block xl:absolute xl:bottom-0 bg-[#055732] xl:bg-transparent xl:z-0 pb-[calc(1.25rem+env(safe-area-inset-bottom))] max-[360px]:pb-[calc(0.75rem+env(safe-area-inset-bottom))]"
           >
             <div class="w-full border-t border-white/20"></div>
             <div
@@ -865,7 +865,7 @@
                 class="flex flex-col px-6 max-[360px]:px-2 text-xs max-[360px]:text-[10px] sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
               >
                 <div
-                  class="hidden mb-2 font-semibold text-center text-yellow-300 sm:mb-0 sm:text-left md:block"
+                  class="hidden mb-2 font-semibold text-center text-yellow-300 sm:mb-0 sm:text-left lg:block"
                 >
                   gateway to farming
                 </div>

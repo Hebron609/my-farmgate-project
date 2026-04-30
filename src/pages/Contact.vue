@@ -56,7 +56,7 @@
         class="max-w-[1440px] mx-auto shadow-2xl rounded-[3rem] max-[360px]:rounded-[1.5rem] overflow-hidden bg-white"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-3 min-h-[700px] max-[360px]:min-h-auto"
+          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 min-h-[700px] max-[360px]:min-h-auto"
         >
           <div
             class="relative bg-[#129C48] p-10 max-[360px]:p-6 md:p-14 text-white flex flex-col justify-between overflow-hidden"
@@ -279,7 +279,7 @@
           </div>
 
           <div
-            class="relative bg-gray-100 lg:col-span-2 h-[400px] max-[360px]:h-[250px] lg:h-auto"
+            class="relative bg-gray-100 lg:col-span-1 xl:col-span-2 h-[400px] max-[360px]:h-[250px] lg:h-auto"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3970.4780781420377!2d-0.160769!3d5.643748!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9be02ef482a7%3A0xe01c96c836aff70f!2sInnohub%20Growth%20Centre!5e0!3m2!1sen!2sgh!4v1769367233372!5m2!1sen!2sgh"
