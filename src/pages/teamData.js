@@ -142,4 +142,19 @@ Nelson is driven by the passion to promote social innovation and enterprising so
     department: "Strategic Advisors",
     order: 6,
   },
+  
+  {
+    name: "Juliet Yayra Dzasi",
+    title: "GM, Chief Farmer",
+    hoverTitle: "Chief Farmer",
+    location: "Accra, Ghana",
+    bio: "Juliet is an accomplished agripreneur and the General Manager of Farmgate Africa. Known as our Chief Farmer, she spearheads the company’s mission to drive agricultural innovation and sustainable farming practices across the region. With a passion for food security and a deep understanding of market dynamics, Juliet leads Farmgate Africa’s teams in developing cutting-edge solutions that empower farmers, enhance productivity, and foster long-term growth in the agricultural sector.",
+    photoUrl: "/images/Juliet-Yayra-Dzasi.webp",
+    photoUrlModal: "/images/Juliet-Yayra-Dzasi-modal.webp",
+    imagePosition: "center -15%",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Leadership & Governance",
+    order: 6,
+  },
 ];

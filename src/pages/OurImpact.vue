@@ -183,7 +183,7 @@
     </section>
 
     <section
-      class="w-full bg-[#035925] text-white relative overflow-hidden py-24"
+      class="w-full bg-[#035925] text-white relative overflow-hidden py-16 md:py-24"
     >
       <div
         class="absolute top-0 right-0 w-1/2 h-full bg-white/[0.03] -skew-x-12 transform translate-x-1/4"
@@ -195,7 +195,7 @@
         >
           <div class="w-full lg:w-[50%] xl:max-w-2xl">
             <h3
-              class="font-['Livvic'] text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 lg:mb-6 reveal-slide-left"
+              class="font-['Livvic'] text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 md:mb-6 text-center md:text-left reveal-slide-left"
             >
               Committed to <br /><span class="text-[#F2CB00]"
                 >Global Impact</span
@@ -210,13 +210,21 @@
             </p>
 
             <div class="flex flex-wrap gap-2 md:gap-3">
-              <span
+            <div class="flex flex-wrap gap-2 md:gap-3">
+              <button
                 v-for="sdg in [1, 2, 5, 8, 9, 13, 17]"
                 :key="sdg"
-                class="reveal-stagger-tag px-4 py-2 md:px-6 md:py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-[#035925] transition-all duration-300 font-bold text-xs md:text-sm cursor-default"
+                @click="handleSdgClick(sdg)"
+                class="reveal-stagger-tag px-4 py-2 md:px-6 md:py-3 rounded-full border transition-all duration-300 font-bold text-xs md:text-sm cursor-pointer"
+                :class="[
+                  selectedSdgHub && selectedSdgHub.number === sdg
+                    ? 'bg-[#F2CB00] text-black border-[#F2CB00] shadow-[0_0_15px_rgba(242,203,0,0.3)]'
+                    : 'bg-white/5 text-white border-white/20 hover:bg-white/10'
+                ]"
               >
                 SDG {{ sdg }}
-              </span>
+              </button>
+            </div>
             </div>
           </div>
 
@@ -241,7 +249,7 @@
 
     <!-- Interactive Impact Hub Section -->
     <section
-      class="w-full bg-gradient-to-b from-white via-[#f8faf7] to-[#f0f5ee] py-20 md:py-32 relative overflow-hidden"
+      class="w-full bg-gradient-to-b from-white via-[#f8faf7] to-[#f0f5ee] py-16 md:py-32 relative overflow-hidden"
     >
       <!-- Background Pattern -->
       <div
@@ -250,14 +258,14 @@
 
       <div class="mx-auto max-w-[1440px] px-6 md:px-12 relative z-10">
         <!-- Section Header -->
-        <div class="mb-16 text-center md:mb-20">
+        <div class="mb-10 text-center md:mb-20">
           <p
             class="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-[#129C48]"
           >
-            Explore Impact
+            Explore Our Impact
           </p>
           <h2
-            class="font-['Livvic'] text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6"
+            class="font-['Livvic'] text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-3 md:mb-6"
           >
             Transforming Africa's<span class="text-[#129C48]">
               Farming Future.</span
@@ -274,49 +282,47 @@
         <div class="grid gap-8 lg:grid-cols-3 md:gap-10">
           <!-- SDG Grid (Left) -->
           <div class="lg:col-span-1">
-            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 lg:gap-4">
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 lg:grid-cols-3 lg:gap-3 max-w-[420px] mx-auto lg:mx-0">
               <button
                 v-for="sdg in sdgItems"
                 :key="sdg.number"
                 @click="handleSdgClick(sdg.number)"
                 @mouseenter="selectSdgHub(sdg.number)"
                 type="button"
-                class="relative p-2 overflow-hidden transition-all duration-300 transform group rounded-xl md:p-3 hover:scale-105 hover:-translate-y-1 cursor-pointer"
+                class="relative aspect-square overflow-hidden transition-all duration-500 transform group rounded-2xl cursor-pointer bg-[#f0f5ee] border border-white/50"
                 :class="[
                   selectedSdgHub && selectedSdgHub.number === sdg.number
-                    ? 'bg-white shadow-[0_20px_40px_rgba(18,156,72,0.15)] ring-2'
-                    : 'bg-white/70 hover:bg-white shadow-none hover:shadow-lg border border-white/50',
+                    ? 'shadow-[0_20px_40px_rgba(18,156,72,0.15)] ring-2'
+                    : 'shadow-sm hover:shadow-lg hover:-translate-y-1',
                 ]"
                 :style="
                   selectedSdgHub && selectedSdgHub.number === sdg.number
-                    ? { '--tw-ring-color': sdg.color }
+                    ? { '--tw-ring-color': sdg.color, backgroundColor: 'white' }
                     : {}
                 "
               >
-                <!-- Animated Background Gradient -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                  :style="{ backgroundColor: sdg.color, opacity: '0.05' }"
-                ></div>
+                <!-- Icon Container (Dead Centered - Compact Proportions) -->
+                <div class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                  <img
+                    :src="sdg.image"
+                    :alt="sdg.title"
+                    class="object-contain w-full h-full transition-all duration-500 transform group-hover:scale-75 group-hover:-translate-y-4 drop-shadow-md"
+                  />
+                </div>
 
-                <div
-                  class="relative z-10 w-full h-full flex items-center justify-center min-h-[5.5rem] md:min-h-[6.5rem]"
-                >
-                  <div
-                    class="flex items-center justify-center transition-transform duration-300 group-hover:scale-[0.80] group-hover:-translate-y-3 md:group-hover:-translate-y-4"
-                  >
-                    <img
-                      :src="sdg.image"
-                      :alt="sdg.title"
-                      class="object-contain w-16 h-16 md:h-20 md:w-20 drop-shadow-lg"
-                    />
-                  </div>
-                  <h3
-                    class="absolute bottom-0 w-full px-1 text-center font-['Livvic'] font-bold text-[11px] md:text-xs text-gray-900 leading-tight line-clamp-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
-                  >
+                <!-- Label (Bottom Anchored) -->
+                <div class="absolute bottom-0 left-0 right-0 p-3 text-center transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <h3 class="font-['Livvic'] font-bold text-[10px] md:text-xs text-gray-900 leading-tight line-clamp-1">
                     {{ sdg.title }}
                   </h3>
                 </div>
+
+                <!-- Subtle Overlay on Selection -->
+                <div
+                  v-if="selectedSdgHub && selectedSdgHub.number === sdg.number"
+                  class="absolute inset-0 pointer-events-none"
+                  :style="{ backgroundColor: sdg.color, opacity: '0.03' }"
+                ></div>
               </button>
             </div>
           </div>
@@ -883,15 +889,14 @@ const selectSdgHub = (number) => {
 
 const handleSdgClick = (number) => {
   selectSdgHub(number);
-  if (window.innerWidth < 1024) {
-    setTimeout(() => {
-      const panel = document.getElementById("sdg-detail-panel");
-      if (panel) {
-        const y = panel.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 50);
-  }
+  // Universal smooth scroll to the detail panel
+  setTimeout(() => {
+    const panel = document.getElementById("sdg-detail-panel");
+    if (panel) {
+      const y = panel.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, 100);
 };
 
 const sdgItems = [

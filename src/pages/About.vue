@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <section class="w-full px-6 py-24 bg-black md:py-40">
+    <section class="w-full px-6 py-16 bg-black md:py-40">
       <div class="max-w-5xl mx-auto text-center reveal-fade">
         <h2
           class="font-['Livvic'] text-3xl font-bold leading-tight text-white md:text-5xl"
@@ -61,7 +61,7 @@
           "We started this journey with a simple belief — that farming can feed
           the world
           <span
-            class="text-[#129C48] decoration-[#F2CB00] underline decoration-4 underline-offset-8"
+            class="text-[#129C48] decoration-[#F2CB00] underline decoration-4 underline-offset-4 md:underline-offset-8"
             >without harming it.</span
           >"
         </h2>
@@ -73,18 +73,18 @@
       </div>
     </section>
 
-    <section class="w-full px-6 py-24 bg-white md:px-12">
+    <section class="w-full px-6 py-16 bg-white md:px-12 md:py-24">
       <div
         class="mx-auto grid max-w-[1440px] grid-cols-1 gap-16 md:grid-cols-2 lg:gap-24 items-start"
       >
         <div class="reveal-slide-right">
           <h3
-            class="font-['Livvic'] text-[#129C48] text-xl font-bold uppercase tracking-widest mb-4"
+            class="font-['Livvic'] text-[#129C48] text-xl font-bold uppercase tracking-widest mb-4 text-center md:text-left"
           >
             Our Company
           </h3>
           <h4
-            class="font-['Livvic'] text-3xl md:text-4xl font-bold text-black leading-tight mb-8"
+            class="font-['Livvic'] text-3xl md:text-4xl font-bold text-black leading-tight mb-8 text-center md:text-left"
           >
             Producers of high-quality farm products across the value chain.
           </h4>

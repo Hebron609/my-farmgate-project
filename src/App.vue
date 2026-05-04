@@ -8,6 +8,7 @@
     @remove-item="removeFromCart"
   />
   <ToastNotification :show="showToast" :message="toastMessage" />
+  
 </template>
 
 <script setup>

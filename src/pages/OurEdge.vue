@@ -34,7 +34,7 @@
       </div>
     </section>
 
-    <section class="relative px-6 py-24 overflow-hidden bg-white md:px-12">
+    <section class="relative px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24">
       <div
         class="absolute left-0 pointer-events-none bottom-[-100px] opacity-5"
       >
@@ -45,12 +45,12 @@
       </div>
       <div class="mx-auto max-w-[1440px] relative z-10">
         <div
-          class="flex flex-col items-center justify-center w-full gap-8 text-center mb-14 reveal-fade"
+          class="flex flex-col items-center justify-center w-full gap-8 text-center mb-8 md:mb-14 reveal-fade"
         >
           <div
             class="flex flex-col items-center justify-center w-full text-center"
           >
-            <h2 class="font-['Livvic'] text-5xl font-bold text-black mb-6">
+            <h2 class="font-['Livvic'] text-5xl font-bold text-black mb-3 md:mb-6">
               What We Do
             </h2>
             <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
@@ -74,14 +74,19 @@
           <article
             v-for="item in whatWeDoItems"
             :key="item.title"
-            class="relative p-8 overflow-hidden transition-all duration-500 ease-out border bg-gradient-to-br from-white via-stone-50/50 to-green-50/30 border-green-100/50 shadow-md group rounded-2xl hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(18,156,72,0.15)] hover:border-green-200"
+            class="relative p-8 overflow-hidden transition-all duration-500 ease-out border group rounded-2xl
+                   shadow-2xl -translate-y-2 border-transparent bg-[#129C48]
+                   md:bg-stone-50 md:border-stone-100 md:shadow-md md:translate-y-0
+                   md:hover:scale-[1.02] md:hover:shadow-[0_20px_40px_rgba(18,156,72,0.15)] md:hover:border-green-200 md:hover:-translate-y-2 md:hover:bg-[#129C48]"
             style="transform-origin: center"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-br from-[#129C48]/95 via-[#0f6e37]/95 to-[#0a3f1f]/95 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 pointer-events-none"
+              class="absolute inset-0 bg-gradient-to-br from-[#129C48]/95 via-[#0f6e37]/95 to-[#0a3f1f]/95 transition-opacity duration-700 ease-out pointer-events-none
+                     opacity-100 md:opacity-0 md:group-hover:opacity-100"
             ></div>
             <div
-              class="absolute -inset-0.5 bg-gradient-to-br from-[#F2CB00]/20 to-transparent opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 blur-sm pointer-events-none"
+              class="absolute -inset-0.5 bg-gradient-to-br from-[#F2CB00]/20 to-transparent transition-opacity duration-700 ease-out pointer-events-none
+                     opacity-100 md:opacity-0 md:group-hover:opacity-100 blur-sm"
             ></div>
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#129C48]/3 via-transparent to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-700 ease-out pointer-events-none"
@@ -89,17 +94,22 @@
 
             <div class="relative z-10">
               <div
-                class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-green-50 to-green-100/50 text-[#129C48] shadow-sm shadow-green-200/50 transition-all duration-500 ease-out group-hover:bg-white group-hover:text-[#129C48] group-hover:scale-110 group-hover:shadow-lg"
+                class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full shadow-sm transition-all duration-500 ease-out
+                       bg-white text-[#129C48] shadow-lg scale-110
+                       md:bg-gradient-to-br md:from-green-50 md:to-green-100 md:text-[#129C48] md:scale-100 md:shadow-green-200/40
+                       md:group-hover:bg-white md:group-hover:text-[#129C48] md:group-hover:scale-110 md:group-hover:shadow-lg"
               >
                 <font-awesome-icon
                   :icon="['fas', item.iconName]"
                   size="lg"
-                  class="transition-transform duration-500 group-hover:rotate-6"
+                  class="transition-transform duration-500 md:group-hover:rotate-6"
                 />
               </div>
 
               <h3
-                class="text-lg font-semibold text-gray-900 transition-all duration-500 ease-out group-hover:text-white"
+                class="text-lg font-semibold transition-all duration-500 ease-out
+                       text-white
+                       md:text-gray-900 md:group-hover:text-white"
                 style="
                   font-family: Livvic, sans-serif;
                   font-weight: 700;
@@ -110,17 +120,23 @@
               </h3>
 
               <div
-                class="overflow-hidden transition-all duration-700 ease-out max-h-0 group-hover:mt-4 group-hover:max-h-24"
+                class="overflow-hidden transition-all duration-700 ease-out
+                       mt-4 max-h-[500px]
+                       md:mt-0 md:max-h-0 md:group-hover:mt-4 md:group-hover:max-h-[500px]"
               >
                 <p
-                  class="text-sm leading-relaxed text-gray-600 transition-colors group-hover:text-white/90"
+                  class="text-sm leading-relaxed transition-colors
+                         text-white/90
+                         md:text-gray-600 md:group-hover:text-white/90 whitespace-pre-line"
                 >
                   {{ item.description }}
                 </p>
               </div>
 
               <div
-                class="mt-4 h-1.5 w-12 bg-gradient-to-r from-[#F2CB00] to-[#F2CB00]/60 transition-all duration-700 ease-out group-hover:w-full group-hover:shadow-[0_0_12px_rgba(242,203,0,0.5)] rounded-full"
+                class="h-1.5 bg-gradient-to-r from-[#F2CB00] to-[#F2CB00]/60 transition-all duration-700 ease-out rounded-full
+                       w-full shadow-[0_0_12px_rgba(242,203,0,0.5)]
+                       md:w-12 md:group-hover:w-full md:group-hover:shadow-[0_0_12px_rgba(242,203,0,0.5)]"
               ></div>
             </div>
           </article>
@@ -128,11 +144,11 @@
       </div>
     </section>
 
-    <section class="w-full px-4 py-24 overflow-hidden bg-white md:px-12">
+    <section class="w-full px-4 py-16 overflow-hidden bg-white md:px-12 md:py-24">
       <div class="mx-auto max-w-[1440px]">
-        <div class="flex flex-col items-center mb-16">
+        <div class="flex flex-col items-center mb-10 md:mb-16">
           <h2
-            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-6 text-center"
+            class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-3 md:mb-6 text-center"
           >
             Strategic Initiatives
           </h2>
@@ -143,20 +159,26 @@
           <div
             v-for="(item, index) in galleryItems"
             :key="index"
-            class="relative overflow-hidden rounded-[2rem] bg-cover bg-center"
+            class="relative overflow-hidden rounded-[2rem] bg-cover bg-center group"
             :style="{ backgroundImage: `url(${item.image})` }"
           >
             <div class="absolute inset-0 bg-black/40"></div>
             <div
               class="relative z-10 flex flex-col items-center justify-center p-6 text-center min-h-[300px]"
             >
+              <div class="overflow-hidden transition-all duration-500 ease-out max-h-0 group-hover:max-h-20 group-hover:mb-4">
+                <font-awesome-icon
+                  :icon="['fas', item.iconName]"
+                  class="text-4xl text-[#F2CB00] transition-all duration-500 opacity-0 transform -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+                />
+              </div>
               <h4
                 class="font-['Livvic'] text-xl font-bold text-white uppercase tracking-widest drop-shadow-lg mb-4"
               >
                 {{ item.title }}
               </h4>
               <p
-                class="font-['Montserrat'] text-sm font-medium text-gray-100 mb-4 max-w-sm"
+                class="font-['Montserrat'] text-sm font-medium text-gray-100 mb-4 max-w-sm whitespace-pre-line"
               >
                 {{ item.description }}
               </p>
@@ -222,17 +244,23 @@
               <div
                 class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
               >
+                <div class="overflow-hidden transition-all duration-700 ease-out max-h-0 group-hover/card:max-h-24 group-hover/card:mb-6">
+                  <font-awesome-icon
+                    :icon="['fas', item.iconName]"
+                    class="text-5xl text-[#F2CB00] transition-all duration-500 opacity-0 transform -translate-y-8 group-hover/card:opacity-100 group-hover/card:translate-y-0"
+                  />
+                </div>
                 <h4
-                  class="translate-y-0 transform flex items-center justify-center max-w-[14rem] font-['Livvic'] text-xl md:text-2xl font-bold text-white uppercase tracking-widest drop-shadow-lg transition-all duration-500 group-hover/card:-translate-y-4 group-hover/card:max-w-none group-hover/card:whitespace-nowrap"
+                  class="translate-y-0 transform flex items-center justify-center font-['Livvic'] text-xl md:text-2xl font-bold text-white uppercase tracking-widest drop-shadow-lg transition-all duration-500 group-hover/card:whitespace-nowrap"
                 >
                   {{ item.title }}
                 </h4>
 
                 <div
-                  class="max-w-md transition-all duration-500 delay-100 translate-y-8 opacity-0 group-hover/card:translate-y-0 group-hover/card:opacity-100"
+                  class="max-w-md transition-all duration-500 delay-100 translate-y-8 opacity-0 group-hover/card:translate-y-0 group-hover/card:opacity-100 max-h-0 overflow-hidden group-hover/card:max-h-[500px] group-hover/card:mt-4"
                 >
                   <p
-                    class="font-['Montserrat'] text-sm md:text-base font-medium text-gray-100"
+                    class="font-['Montserrat'] text-sm md:text-base font-medium text-gray-100 whitespace-pre-line"
                   >
                     {{ item.description }}
                   </p>
@@ -285,12 +313,12 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
-import farmPic1 from "@/assets/img/farm-pic1.jpg";
-import farmPic2 from "@/assets/img/farm-pic2.jpg";
-import farmPic8 from "@/assets/img/farm-pic8.jpg";
+import farmPic1 from "@/assets/img/farm-pic1.webp";
+import farmPic2 from "@/assets/img/agri-processing.webp";
+import farmPic8 from "@/assets/img/enduring-partnership.webp";
 import farmPic9 from "@/assets/img/farmer-img1.avif";
-import farmPic3 from "@/assets/img/Vision-future-img.jpg";
-import farmPic4 from "@/assets/img/farm-pic4.jpg";
+import farmPic3 from "@/assets/img/future-innovations.webp";
+import farmPic4 from "@/assets/img/farm-pic4.webp";
 import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 
 const edgeHoverSide = ref(null);
@@ -358,36 +386,42 @@ const galleryItems = ref([
     description:
       "Implementing eco-friendly practices to ensure long-term agricultural viability.",
     image: farmPic1,
+    iconName: "seedling",
   },
   {
     title: "Community Empowerment",
     description:
-      "Empowering local farmers with the tools and knowledge to succeed together.",
-    image: farmPic2,
+      "As a farmer-focused entity, we ensure every solution we deploy is designed with farmers at heart. \n\nWe employ an all-inclusive stakeholder consultative approach that empowers local farmers with the right technology, skills, tools, and knowledge—ensuring farmer buy-in and beneficial outcomes aimed at advancing agricultural development in rural communities.",
+    image: farmPic9,
+    iconName: "users",
   },
   {
     title: "Future Innovation",
     description:
       "Leveraging technology to revolutionize food production across Africa.",
     image: farmPic3,
+    iconName: "lightbulb",
   },
   {
     title: "Urban Farming & Agri-Tourism",
     description:
       "Building vibrant city farms and immersive agri-tourism experiences that connect communities to sustainable food systems.",
     image: farmPic4,
+    iconName: "map-marked-alt",
   },
   {
     title: "Enduring Partnerships",
     description:
       "We're committed to a long-term, collaborative relationship built on mutual trust, shared values, and consistent, intentional effort to overcome challenges and achieve common goals. We do this with our farmers and stakeholders.",
     image: farmPic8,
+    iconName: "handshake",
   },
   {
-    title: "Farmer Focus",
+    title: "Agro-Industrial Park",
     description:
-      "Every solution we create is designed with farmers at heart, ensuring practical, accessible, and beneficial outcomes for agricultural communities.",
-    image: farmPic9,
+      "Driving agricultural industrialization through state-of-the-art Agro-Industrial Parks. \n\nOur facilities integrate food processing and value-addition centers with expansive farm estates. Equipped with modern storage facilities—including high-capacity silos and packhouses—we bridge the gap between harvest and market to ensure food security and premium quality.",
+    image: farmPic2,
+    iconName: "industry",
   }
 ]);
 

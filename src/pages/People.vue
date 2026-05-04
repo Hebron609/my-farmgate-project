@@ -54,7 +54,7 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      class="relative w-full px-6 pb-12 overflow-hidden bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
       aria-label="Our Team"
     >
       <div class="absolute top-0 right-0 pointer-events-none opacity-3">
@@ -88,20 +88,19 @@
         </div>
 
         <div
-          class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row"
+          class="flex flex-col items-center md:items-start justify-between mb-12 md:mb-24 md:flex-row md:gap-12"
         >
           <div class="md:max-w-xl reveal-slide-right">
             <h2
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-3 md:mb-6 text-center md:text-left"
             >
               Who <span class="text-[#129C48]">We Are</span>
             </h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
             <p
-              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]"
+              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%] mb-8"
             >
-              We are a team of agronomists, technologists, agripreneur, and
-              sustainability experts.
+              We are a team of agripreneurs, agronomists, technologists, sustainability, and agribusiness experts.
             </p>
           </div>
 
@@ -229,7 +228,7 @@
             </p>
 
             <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
-              Together, we’ll shape the future and transform lives in ways that
+              Together, let's shape the future and transform lives in ways that
               truly matter.
             </p>
 
