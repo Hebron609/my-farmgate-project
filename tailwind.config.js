@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       screens: {
         mobile: "654px", // Custom breakpoint for mobile layout
-        lg: "1025px", // Override lg breakpoint to 1025px
+        lg: "1024px", // Override lg breakpoint to 1024px
       },
       fontFamily: {
         livvic: ["Livvic", "sans-serif"],

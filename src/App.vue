@@ -3,6 +3,7 @@
   <CartDrawer :is-open="isCartOpen" :cart="cart" @close="closeCart" @update-quantity="updateQuantity"
     @remove-item="removeFromCart" />
   <ToastNotification :show="showToast" :message="toastMessage" />
+  
 </template>
 
 

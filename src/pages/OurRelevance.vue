@@ -53,7 +53,7 @@
     </div>
 
     <section
-      class="relative w-full px-6 py-24 overflow-hidden bg-white md:px-12"
+      class="relative w-full px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24"
     >
       <div class="mx-auto max-w-[1440px]">
         <div

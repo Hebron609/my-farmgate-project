@@ -51,7 +51,7 @@
         <img
           :src="fgLogoWhite2"
           alt="FarmGate Africa Logo"
-          class="block w-32 mx-auto -translate-y-12 sm:translate-y-0 sm:w-40 sm:hidden hero-logo-img"
+          class="block w-32 mx-auto sm:translate-y-0 sm:w-40 sm:hidden hero-logo-img"
         />
       </a>
 
@@ -714,8 +714,39 @@ function goToBookFarmVisit() {
 }
 
 @media (max-width: 640px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 47% !important;
+  }
   .hero-content.top-\[25\%\] {
     top: 15% !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 52% !important;
+  }
+  .hero-action-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 625px) {
+  div.absolute.z-20.mt-12 {
+    left: auto !important;
+    right: 80px !important;
+    bottom: 10px !important;
+    transform: scale(0.85) !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 800px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 55% !important;
+  }
+  .hero-content.top-\[25\%\] {
+    top: 25% !important;
   }
 }
 
@@ -968,6 +999,16 @@ function goToBookFarmVisit() {
   }
 }
 
+@media (min-width: 390px) and (max-width: 430px) and (min-height: 780px) and (max-height: 820px) {
+  .hero-logo-img {
+    transform: translateY(68px) !important;
+  }
+
+  .hero-logo-link {
+    margin-bottom: 28px !important;
+  }
+}
+
 /* =======================================================
    SHORT / WIDE SCREENS FIX (e.g. 500x764 small tablet)
    ======================================================= */
@@ -983,6 +1024,43 @@ function goToBookFarmVisit() {
   }
   .hero-logo-link {
     margin-bottom: 16px !important; /* Tightens the gap below the logo */
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1048px) and (min-height: 740px) and (max-height: 800px) {
+  .hero-content {
+    top: 55% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .hero-content.top-\[25\%\] {
+    top: 22% !important;
+  }
+
+  .hero-main-title {
+    font-size: 2.5rem !important;
+    line-height: 1.15 !important;
+    max-width: 860px !important;
+  }
+
+  .hero-logo-link {
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-btn-container {
+    margin-top: 1rem !important;
+  }
+
+  .options-container-short {
+    margin-top: 1rem !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 430px) and (min-height: 780px) and (max-height: 820px) {
+  .hero-logo-link {
+    margin-bottom: 32px !important;
   }
 }
 

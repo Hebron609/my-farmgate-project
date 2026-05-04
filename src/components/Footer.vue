@@ -5,7 +5,7 @@
     >
       <!-- Main Footer Content -->
       <div
-        class="grid flex-1 grid-cols-1 gap-12 pb-20 footer-content sm:gap-16 md:grid-cols-2"
+        class="grid flex-1 grid-cols-1 gap-12 pb-20 footer-content sm:gap-16 lg:grid-cols-2"
       >
         <!-- Left Content -->
         <div
@@ -13,7 +13,7 @@
         ></div>
         <!-- Responsive footer logo: visible on all, absolute on desktop -->
         <img
-          class="block sm:absolute w-[120px] sm:w-[150px] lg:w-[170px] h-auto cursor-pointer left-0 sm:left-0 bottom-2 sm:bottom-8 z-20 ml-0"
+          class="block lg:absolute w-[120px] sm:w-[150px] lg:w-[170px] h-auto cursor-pointer left-0 lg:left-0 bottom-2 lg:bottom-8 z-20 ml-0"
           :src="farmGateWhiteLogo"
           alt="Logo"
         />
@@ -56,22 +56,22 @@
 
       <!-- Bottom Bar -->
       <div
-        class="flex flex-col flex-wrap items-center px-4 pt-8 text-sm text-center border-t sm:flex-row footer-content border-white/20 gap-y-3 gap-x-0 sm:gap-x-4 sm:justify-between"
+        class="flex flex-col flex-wrap items-center px-4 pt-8 text-sm text-center border-t lg:flex-row footer-content border-white/20 gap-y-3 gap-x-0 lg:gap-x-4 lg:justify-between"
       >
         <div
-          class="flex justify-center w-full mb-2 sm:w-auto sm:mb-0 sm:justify-start"
+          class="flex justify-center w-full mb-2 lg:w-auto lg:mb-0 lg:justify-start"
         >
           <span class="font-semibold text-yellow-300">gateway to farming</span>
         </div>
         <div
-          class="flex flex-col items-center w-full sm:w-auto sm:items-end gap-y-2"
+          class="flex flex-col items-center w-full lg:w-auto lg:items-end gap-y-2"
         >
-          <span class="text-center sm:text-right sm:whitespace-nowrap">
+          <span class="text-center lg:text-right lg:whitespace-nowrap">
             © 2025-2026 FarmGate Africa & Industries Ltd.
-            <span class="hidden sm:inline"> | All rights reserved.</span>
+            <span class="hidden lg:inline"> | All rights reserved.</span>
           </span>
-          <span class="text-center sm:hidden">All rights reserved.</span>
-          <span class="text-center sm:text-right sm:whitespace-nowrap">
+          <span class="text-center lg:hidden">All rights reserved.</span>
+          <span class="text-center lg:text-right lg:whitespace-nowrap">
             Powered by:
             <a
               href="https://butterflytech.io"

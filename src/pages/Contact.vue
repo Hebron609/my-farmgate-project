@@ -354,7 +354,7 @@
                 <label
                   for="firstName"
                   class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
-                  >First Name *</label
+                  >Other Name(s) *</label
                 >
                 <input
                   id="firstName"
@@ -362,7 +362,7 @@
                   type="text"
                   required
                   class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
-                  placeholder="Kwame"
+                  placeholder="Joseph Kwame"
                   :class="{ 'border-red-500': errors.firstName }"
                 />
                 <p v-if="errors.firstName" class="mt-1 text-xs text-red-500">
@@ -398,7 +398,7 @@
                 <label
                   for="phone"
                   class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
-                  >Phone</label
+                  >Phone Number</label
                 >
                 <input
                   id="phone"
@@ -413,13 +413,16 @@
             <div>
               <label
                 class="block mb-4 max-[360px]:mb-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
-                >Subject *</label
+                >Select Subject *</label
               >
-              <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
+              <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
                 <label
                   v-for="option in subjectOptions"
                   :key="option.value"
                   class="relative cursor-pointer group"
+                  :class="[
+                    option.label.length > 20 ? 'col-span-2' : 'col-span-1'
+                  ]"
                 >
                   <input
                     v-model="form.subject"
@@ -430,12 +433,33 @@
                     required
                   />
                   <div
-                    class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium"
+                    class="w-full text-center md:w-auto px-4 py-2.5 md:px-6 md:py-3 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-xs md:text-sm font-medium"
                   >
                     {{ option.label }}
                   </div>
                 </label>
               </div>
+
+              <!-- Dynamic 'Specify' Field for 'Others' -->
+              <div
+                v-if="form.subject === 'others'"
+                class="mt-6 transition-all duration-500 transform reveal-slide-up"
+              >
+                <label
+                  for="otherSubject"
+                  class="block text-xs font-bold uppercase tracking-widest text-[#129C48] mb-2"
+                  >Please Specify *</label
+                >
+                <input
+                  id="otherSubject"
+                  v-model="form.otherSubject"
+                  type="text"
+                  required
+                  class="w-full px-0 py-2 border-b-2 border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  placeholder="Tell us what you're interested in..."
+                />
+              </div>
+
               <p
                 v-if="errors.subject"
                 class="mt-2 max-[360px]:mt-1 text-xs text-red-500"
@@ -453,11 +477,16 @@
               <textarea
                 id="message"
                 v-model="form.message"
-                rows="4"
+                :rows="form.message.length > 0 ? 6 : 1"
                 required
-                class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300 resize-none max-[360px]:min-h-[80px]"
+                class="w-full transition-all duration-500 outline-none placeholder-gray-300 focus:border-[#129C48]"
+                :class="[
+                  form.message.length > 0
+                    ? 'px-4 py-4 border-2 border-gray-200 bg-stone-50/30 rounded-xl'
+                    : 'px-0 py-2 border-b-2 border-gray-200 bg-transparent rounded-none',
+                  errors.message ? 'border-red-500' : ''
+                ]"
                 placeholder="How can we help you?"
-                :class="{ 'border-red-500': errors.message }"
               ></textarea>
               <p v-if="errors.message" class="mt-1 text-xs text-red-500">
                 {{ errors.message }}
@@ -549,6 +578,7 @@ const form = reactive({
   email: "",
   phone: "",
   subject: "",
+  otherSubject: "",
   message: "",
 });
 
@@ -558,12 +588,12 @@ const subjectOptions = [
   { value: "consulting", label: "Consulting" },
   { value: "programmes", label: "Programmes" },
   { value: "project-management", label: "Project Management" },
-  { value: "book-farm-visit", label: "Book a farm visit" },
   {
     value: "request-farm-produce-pre-order",
     label: "Request farm produce pre-order",
   },
   { value: "off-taker-arrangement", label: "Off-taker arrangement" },
+  { value: "book-farm-visit", label: "Book a farm visit" },
   { value: "book-appointment", label: "Book an appointment" },
   { value: "service", label: "Service" },
   { value: "others", label: "Others" },

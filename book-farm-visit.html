@@ -145,7 +145,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, #129C48cc 60%, #F2CB00cc 100%);
+      background: linear-gradient(135deg, rgba(18, 156, 72, 0.9) 0%, rgba(18, 156, 72, 0.7) 60%, rgba(242, 203, 0, 0.4) 100%);
       z-index: 1;
     }
 
@@ -179,7 +179,7 @@
     }
 
     .form-card {
-      background: #fff;
+      background: transparent;
       border-radius: 0;
       box-shadow: none;
       padding: 1.25rem 1rem 1.75rem;
@@ -277,7 +277,7 @@
 
     .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea) {
       width: 100%;
-      padding: 0.75rem 0;
+      padding: 0.5rem 0;
       background: transparent;
       border: 0 !important;
       border-bottom: 2px solid #e5e7eb !important;
@@ -298,8 +298,35 @@
       color: #d1d5db;
     }
 
+    /* Style select placeholder to match inputs */
+    .form-card select:invalid {
+      color: #d1d5db !important;
+    }
+
+    .form-card select option {
+      color: #111827 !important;
+    }
+
+    .form-card select option[value=""][disabled] {
+      display: none;
+    }
+
     .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea):focus {
       border-bottom-color: #129C48 !important;
+    }
+
+    /* Morphing Textarea Styles */
+    .dynamic-textarea.active-box {
+      padding: 1rem !important;
+      border: 2px solid #e5e7eb !important;
+      border-radius: 1rem !important;
+      background: rgba(249, 250, 251, 0.8) !important;
+      resize: vertical !important;
+      border-bottom-color: #e5e7eb !important;
+    }
+
+    .dynamic-textarea.active-box:focus {
+      border-color: #129C48 !important;
     }
 
     .form-card button[type="submit"] {
@@ -308,22 +335,56 @@
       align-items: center;
       justify-content: center;
       width: fit-content;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem;
       overflow: hidden;
       border-radius: 0.75rem;
       background: #129C48;
       color: #fff;
       font-size: 0.875rem;
-      line-height: 1.25rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: none;
-      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      transition: all 300ms ease;
+      cursor: pointer;
+      border: none;
     }
 
-    .form-card button[type="submit"]:hover {
+    .form-card button[type="submit"] .btn-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: transform 300ms ease;
+    }
+
+    .form-card button[type="submit"] .hover-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
       background: #f2cb00;
       color: #000;
+      transform: translateY(100%);
+      transition: transform 300ms ease;
+    }
+
+    .form-card button[type="submit"]:hover .btn-content {
+      transform: translateY(-100%);
+    }
+
+    .form-card button[type="submit"]:hover .hover-content {
+      transform: translateY(0);
+    }
+
+    .form-card button[type="submit"] svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 300ms ease;
+    }
+
+    .form-card button[type="submit"]:hover svg {
+      transform: translateX(4px);
     }
 
     .form-card button[type="submit"]:focus {
@@ -386,19 +447,29 @@
       border-radius: 9999px;
       width: 3.5rem;
       height: 3.5rem;
-      display: flex;
+      display: flex !important;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px 0 rgba(18, 156, 72, 0.18);
-      font-size: 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(18, 156, 72, 0.4);
+      z-index: 99999;
       border: none;
       cursor: pointer;
       transition: background 0.2s;
     }
 
     .help-btn:hover {
-      background: #129C48;
-      color: #F2CB00;
+      animation: jitter 0.3s linear infinite;
+      box-shadow: 0 8px 20px rgba(18, 156, 72, 0.6);
+    }
+
+    @keyframes jitter {
+      0% { transform: scale(1.1) translate(0, 0); }
+      25% { transform: scale(1.1) translate(2px, -2px); }
+      50% { transform: scale(1.1) translate(-2px, 2px); }
+      75% { transform: scale(1.1) translate(2px, 2px); }
+      100% { transform: scale(1.1) translate(0, 0); }
     }
 
     @media (max-width: 900px) {
@@ -423,6 +494,15 @@
         display: none;
       }
     }
+
+    .hidden-input {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+    
+    .hidden-input.active {
+      display: block;
+    }
   </style>
 </head>
 
@@ -431,15 +511,28 @@
     <!-- Left: Hero Visual (Sticky) -->
     <div class="relative hidden hero-img lg:flex max-w-[40%]">
       <div class="hero-overlay"></div>
-      <!-- Go Back Home Button -->
+      <!-- Go Back Home Button (Redesigned with Frosted Effect) -->
       <a href="/"
-        class="absolute top-8 left-8 z-20 flex items-center gap-2 px-4 py-2 bg-white/90 text-[#129C48] font-bold rounded-full shadow-lg border-2 border-[#F2CB00] hover:bg-[#F2CB00] hover:text-black transition text-sm group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#129C48] group-hover:text-black" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
-        </svg>
-        Homepage
+        class="absolute top-8 left-8 z-30 flex group overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 rounded-full items-center cursor-pointer transition-all duration-300 hover:shadow-xl w-fit h-fit">
+        <span
+          class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+          </svg>
+          <span class="text-sm font-semibold leading-none text-white tracking-wide">Homepage</span>
+        </span>
+
+        <span
+          class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+          </svg>
+          <span class="text-sm font-semibold leading-none tracking-wide">Homepage</span>
+        </span>
       </a>
       <div class="sticky top-0 flex flex-col justify-center h-screen hero-content">
         <!-- Scroll Reveal: Add class for animation -->
@@ -447,37 +540,41 @@
         <div class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"></div>
         <div class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"></div>
         <div class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"></div>
-        <h1 class="mb-4 text-4xl font-extrabold leading-tight md:text-5xl font-livvic drop-shadow-lg">FarmGate
-          Africa<br><span class="text-[#F2CB00]">Farm Visit Application</span></h1>
-        <div class="mb-6 border-b-2 border-[#F2CB00] w-16"></div>
+        <h1 class="mb-4 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl font-livvic drop-shadow-xl text-white">
+          <span class="text-[#F2CB00]">Farm Visit</span><br>Application
+        </h1>
+        <div class="mb-8 border-b-4 border-[#F2CB00] w-24"></div>
         <p class="mb-6 text-lg font-medium md:text-2xl">Experience <span
             class="text-[#F2CB00] font-bold">innovation</span>, <span
             class="text-[#F2CB00] font-bold">sustainability</span>, and <span
             class="text-[#F2CB00] font-bold">community</span> up close.<br>Book your visit today!</p>
-        <ul class="mb-10 space-y-4 text-lg">
-          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+        <ul class="mb-10 space-y-6 text-lg">
+          <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-semibold">Guided farm tours</span>
+            <span class="font-bold text-white tracking-wide text-xl">Guided farm tours</span>
           </li>
-          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+          <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-semibold">Meet our experts</span>
+            <span class="font-bold text-white tracking-wide text-xl">Meet our experts</span>
           </li>
-          <li class="flex items-center gap-3"><span class="hero-check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 7L9 18L4 13" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+          <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-semibold">Learn sustainable practices</span>
+            <span class="font-bold text-white tracking-wide text-xl">Learn sustainable practices</span>
           </li>
         </ul>
         <!-- Start Application button removed -->
@@ -486,109 +583,259 @@
     <!-- Right: Booking Form (Scrollable) -->
     <div class="block bg-[#f1f5f9] relative overflow-y-auto lg:max-w-[60%] lg:flex-[0_0_60%] form-section-fixed"
       id="form-section">
+      
+      <!-- Mobile-Only Hero Banner (Premium Feel for Mobile Users) -->
+      <div class="lg:hidden relative w-[calc(100%-2rem)] mx-auto h-[35vh] min-h-[260px] mt-4 mb-2 rounded-[2.5rem] overflow-hidden shadow-2xl">
+        <div class="absolute inset-0 bg-[url('images/farm-visit1.png')] bg-cover bg-center transform hover:scale-105 transition-transform duration-[10s] ease-linear"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#129C48]/95 via-[#129C48]/60 to-transparent"></div>
+        
+        <!-- Homepage Button inside Mobile Banner -->
+        <a href="/"
+          class="absolute top-6 left-6 z-30 flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 rounded-full items-center cursor-pointer transition-all duration-300 hover:shadow-xl w-fit h-fit">
+          <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+            </svg>
+            <span class="text-sm font-semibold leading-none text-white tracking-wide">Homepage</span>
+          </span>
+          <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+            </svg>
+            <span class="text-sm font-semibold leading-none tracking-wide">Homepage</span>
+          </span>
+        </a>
+        
+        <div class="absolute bottom-8 left-8 right-8 text-white">
+          <h1 class="text-3xl font-bold font-livvic mb-1 tracking-tight">Farm Visit <span class="text-[#F2CB00]">Application</span></h1>
+          <p class="text-sm opacity-90 font-medium max-w-[280px] leading-snug">Experience innovation and sustainability up close on our farms.</p>
+        </div>
+      </div>
+
       <div class="w-full form-card form-card-fixed">
-        <!-- Scroll Reveal: Add class for animation -->
-        <!-- Progress bar removed -->
         <form id="bookingForm" class="space-y-8 max-[360px]:space-y-5">
-          <div class="mb-6 p-4 bg-[#F2CB00]/10 border-l-4 border-[#129C48] rounded-lg">
-            <p class="mb-2 text-base font-medium text-gray-800 md:text-lg">We'd love to know more about the purpose of
-              your visit. Help us make your visit a meaningful journey by completing these questions below?</p>
-            <p class="mb-2 text-base text-gray-800 md:text-lg">Thank you for your interest in booking a farm visit and
-              our team at FGAI would love to hear from you.</p>
-            <p class="text-sm text-gray-700 md:text-base">This survey is made up of 2 short sections, the entire form
-              should take no more than approximately 3 minutes to complete.</p>
+          <div class="mb-12 p-8 md:p-16 bg-stone-50 border border-stone-100 rounded-[2.5rem] text-center shadow-sm">
+            <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-6">
+              Book <span class="text-[#129C48]">Your Visit</span>
+            </h2>
+            <div class="h-1 w-24 bg-[#F2CB00] mx-auto mb-8"></div>
+            
+            <p class="mb-8 text-xl font-light text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              We'd love to know more about the purpose of your visit. Help us make your visit a meaningful journey by completing these questions below?
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-5 p-6 bg-white border border-stone-200 text-gray-600 rounded-[2rem] text-sm font-medium shadow-sm max-w-2xl mx-auto">
+              <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center border border-green-100 shadow-inner">
+                <svg class="w-6 h-6 text-[#129C48]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.004 2.003a9.995 9.995 0 0 0-8.47 15.47l-1.13 4.13 4.24-1.11a9.995 9.995 0 1 0 5.36-18.49z"/>
+                </svg>
+              </div>
+              <p class="text-center md:text-left leading-relaxed text-[15px] text-gray-600">
+                This survey is made up of <span class="text-[#129C48] font-bold">2 sections</span>, the entire form should take no more than approximately <span class="text-[#129C48] font-bold">3 minutes</span> to complete.
+              </p>
+            </div>
           </div>
-          <h2
-            class="font-['Livvic'] text-4xl max-[360px]:text-[1.75rem] max-[360px]:leading-tight md:text-5xl font-bold text-black mb-4 max-[360px]:mb-2">
-            Book Your Visit</h2>
-          <div>
-            <label for="visitDate">Proposed Date of Visit <span class="text-red-700">*</span></label>
-            <input id="visitDate" name="date" type="text" placeholder="Select a date" required readonly />
-          </div>
-          <div>
-            <label>Visited FarmGate Africa before? <span class="text-red-700">*</span></label>
-            <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
-              <label class="relative cursor-pointer group">
-                <input type="radio" name="visitedBefore" value="Yes" required class="sr-only peer" />
-                <div
-                  class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
-                  Yes
+          <div class="pt-4 pb-8 border-b border-stone-100 mb-8">
+            <div class="flex items-center gap-4 mb-10">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">1</span>
+              <div>
+                <h3 class="font-['Livvic'] text-2xl font-bold text-gray-800">Visit Details</h3>
+                <p class="text-sm text-gray-500 font-medium">Tell us about your upcoming trip</p>
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div>
+                <label>Have you visited FarmGate Africa before? <span class="text-red-700">*</span></label>
+                <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
+                  <label class="relative cursor-pointer group">
+                    <input type="radio" name="visitedBefore" value="Yes" required class="sr-only peer" />
+                    <div
+                      class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
+                      Yes
+                    </div>
+                  </label>
+                  <label class="relative cursor-pointer group">
+                    <input type="radio" name="visitedBefore" value="No" required class="sr-only peer" />
+                    <div
+                      class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
+                      No
+                    </div>
+                  </label>
                 </div>
-              </label>
-              <label class="relative cursor-pointer group">
-                <input type="radio" name="visitedBefore" value="No" required class="sr-only peer" />
-                <div
-                  class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium">
-                  No
+              </div>
+
+              <div>
+                <label for="visitDate">Proposed Date of Visit <span class="text-red-700">*</span></label>
+                <input id="visitDate" name="date" type="text" placeholder="Pick a date" required readonly />
+              </div>
+
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label for="sector">Select place of Interest to Visit <span class="text-red-700">*</span></label>
+                  <select id="sector" name="sector" required onchange="toggleOther(this, 'otherSector')">
+                    <option value="" disabled selected>Select a place</option>
+                    <option>Aquaculture (Volta, Ghana)</option>
+                    <option>Horticulture (Eastern, Ghana)</option>
+                    <option>Livestock (Eastern, Ghana)</option>
+                    <option>All Sectors</option>
+                    <option value="Other">Other (Please specify)</option>
+                  </select>
+                  <input type="text" id="otherSector" name="otherSector" placeholder="Please specify place" class="hidden-input mt-2" />
                 </div>
-              </label>
+                <div>
+                  <label for="purpose">Purpose of Touring or Visiting <span class="text-red-700">*</span></label>
+                  <select id="purpose" name="purpose" required onchange="toggleOther(this, 'otherPurpose')">
+                    <option value="" disabled selected>Select purpose</option>
+                    <option>Educational / Research</option>
+                    <option>Investment Inquiry</option>
+                    <option>Leisure / Tourism</option>
+                    <option>Partnership Discussion</option>
+                    <option>Media / Press</option>
+                    <option value="Other">Other (Please specify)</option>
+                  </select>
+                  <input type="text" id="otherPurpose" name="otherPurpose" placeholder="Please specify purpose" class="hidden-input mt-2" />
+                </div>
+              </div>
+
+              <div>
+                <label for="groupSize">Number of People Visiting</label>
+                <input id="groupSize" name="groupSize" type="number" min="1" placeholder="e.g. 3" />
+              </div>
             </div>
           </div>
-          <div>
-            <label for="sector">Farming Sector <span class="text-red-700">*</span></label>
-            <select id="sector" name="sector" required>
-              <option value="" disabled selected>Select a sector</option>
-              <option>Aquaculture (Volta, Ghana)</option>
-              <option>Horticulture (Eastern, Ghana)</option>
-              <option>Livestock (Eastern, Ghana)</option>
-              <option>All Sectors</option>
-            </select>
-          </div>
-          <div>
-            <label for="groupSize">Total Party Size</label>
-            <input id="groupSize" name="groupSize" type="number" min="1" placeholder="e.g. 3" />
-          </div>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label for="lastName">Last Name <span class="text-red-700">*</span></label>
-              <input id="lastName" name="lastName" type="text" required />
+
+          <div class="pt-4 pb-8">
+            <div class="flex items-center gap-4 mb-10">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">2</span>
+              <div>
+                <h3 class="font-['Livvic'] text-2xl font-bold text-gray-800">Personal Information</h3>
+                <p class="text-sm text-gray-500 font-medium">How we can contact you</p>
+              </div>
             </div>
-            <div>
-              <label for="otherNames">First / Given Name(s)</label>
-              <input id="otherNames" name="otherNames" type="text" />
+            
+            <div class="space-y-8">
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label for="lastName">Last Name <span class="text-red-700">*</span></label>
+                  <input id="lastName" name="lastName" type="text" placeholder="Osei" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+                </div>
+                <div>
+                  <label for="otherNames">Other Name(s)</label>
+                  <input id="otherNames" name="otherNames" type="text" placeholder="Joseph Kwame" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                </div>
+              </div>
+              <div>
+                <label for="email">Email <span class="text-red-700">*</span></label>
+                <input id="email" name="email" type="email" placeholder="kwame.osei@gmail.com" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+              </div>
+              <div class="grid grid-cols-2 gap-4 md:gap-6">
+                <div>
+                  <label for="phone">Phone Number <span class="text-red-700">*</span></label>
+                  <input id="phone" name="phone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+                </div>
+                <div>
+                  <label for="whatsapp">WhatsApp Number</label>
+                  <input id="whatsapp" name="whatsapp" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label for="country">Country of Origin <span class="text-red-700">*</span></label>
+                  <select id="country" name="country" required class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
+                    <option value="" disabled selected>Select country</option>
+                    <option value="Ghana">🇬🇭 Ghana</option>
+                    <option value="Nigeria">🇳🇬 Nigeria</option>
+                    <option value="United States">🇺🇸 United States</option>
+                    <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                    <option value="Canada">🇨🇦 Canada</option>
+                    <option value="Germany">🇩🇪 Germany</option>
+                    <option value="South Africa">🇿🇦 South Africa</option>
+                    <option value="Kenya">🇰🇪 Kenya</option>
+                    <option value="Ivory Coast">🇨🇮 Ivory Coast</option>
+                    <option value="Togo">🇹🇬 Togo</option>
+                    <option value="Benin">🇧🇯 Benin</option>
+                    <option value="Burkina Faso">🇧🇫 Burkina Faso</option>
+                    <option value="Netherlands">🇳🇱 Netherlands</option>
+                    <option value="France">🇫🇷 France</option>
+                    <option value="China">🇨🇳 China</option>
+                    <option value="India">🇮🇳 India</option>
+                    <option value="Other">🌍 Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="city">City <span class="text-red-700">*</span></label>
+                  <input id="city" name="city" type="text" placeholder="e.g. Accra" required />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                  <label for="emergencyName">Emergency Contact Person</label>
+                  <input id="emergencyName" name="emergencyName" type="text" placeholder="Full Name" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                </div>
+                <div>
+                  <label for="emergencyPhone">Emergency Contact Number</label>
+                  <input id="emergencyPhone" name="emergencyPhone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                </div>
+              </div>
+              <div>
+                <label for="medical">Medical Conditions or Allergies</label>
+                <select id="medical" name="medical" required onchange="toggleOther(this, 'otherMedical')" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
+                  <option value="" disabled selected>Select any conditions or allergies</option>
+                  <option value="None">None</option>
+                  <option value="Asthma">Asthma</option>
+                  <option value="Nut Allergy">Nut Allergy</option>
+                  <option value="Lactose Intolerance">Lactose Intolerance</option>
+                  <option value="Diabetes">Diabetes</option>
+                  <option value="Hypertension">Hypertension</option>
+                  <option value="Mobility Issues">Mobility Issues</option>
+                  <option value="Other">Other (Please specify)</option>
+                </select>
+                <input type="text" id="otherMedical" name="otherMedical" placeholder="Please specify condition or allergy" class="hidden-input mt-2" />
+              </div>
+              <div>
+                <label for="referral">How did you hear about us? <span class="text-red-700">*</span></label>
+                <select id="referral" name="referral" required onchange="toggleOther(this, 'otherReferral')">
+                  <option value="" disabled selected>Select an option</option>
+                  <option>Social Media (Instagram/LinkedIn)</option>
+                  <option>Website / Search Engine</option>
+                  <option>Referral / Friend</option>
+                  <option>News / Press Release</option>
+                  <option>Event / Exhibition</option>
+                  <option value="Other">Other (Please specify)</option>
+                </select>
+                <input type="text" id="otherReferral" name="otherReferral" placeholder="Please specify source" class="hidden-input mt-2" />
+              </div>
+              <div class="relative group">
+                <label for="message">Special Requirements or Questions</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="1" 
+                  placeholder="Tell us more about your visit goals or any special needs..."
+                  class="dynamic-textarea w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent resize-none overflow-hidden"
+                  oninput="this.rows = this.value.length > 0 ? 5 : 1; if(this.value.length > 0) { this.classList.add('active-box'); } else { this.classList.remove('active-box'); }"
+                ></textarea>
+              </div>
             </div>
-          </div>
-          <div>
-            <label for="email">Email Address <span class="text-red-700">*</span></label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label for="phone">Primary Phone <span class="text-red-700">*</span></label>
-              <input id="phone" name="phone" type="tel" required />
-            </div>
-            <div>
-              <label for="whatsapp">WhatsApp Number</label>
-              <input id="whatsapp" name="whatsapp" type="tel" />
-            </div>
-          </div>
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label for="countryCity">Country & City <span class="text-red-700">*</span></label>
-              <input id="countryCity" name="countryCity" type="text" required />
-            </div>
-            <div>
-              <label for="nationality">Nationality</label>
-              <input id="nationality" name="nationality" type="text" />
-            </div>
-          </div>
-          <div>
-            <label for="emergencyContact">Emergency Contact</label>
-            <input id="emergencyContact" name="emergencyContact" type="text" placeholder="Full name & phone" />
-          </div>
-          <div>
-            <label for="medical">Medical Conditions or Allergies</label>
-            <textarea id="medical" name="medical" rows="2" placeholder="e.g. Asthma, peanuts"></textarea>
-          </div>
-          <div>
-            <label for="message">Tour Goals or Questions</label>
-            <textarea id="message" name="message" rows="3" placeholder="What do you hope to learn or see?"></textarea>
           </div>
           <div class="flex justify-center w-full mt-8">
-            <button type="submit" class="px-12 py-4">Submit Booking</button>
+            <button type="submit">
+              <span class="btn-content">
+                <span>Submit Booking</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <span class="hover-content">
+                <span>Submit Booking</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+            </button>
           </div>
         </form>
-        <!-- Go Back Home button moved to hero section -->
       </div>
     </div>
   </div>
@@ -600,21 +847,24 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
       </div>
-      <h3 class="mb-2 text-2xl font-bold text-gray-900 font-livvic">Application Received</h3>
+      <h3 class="mb-2 text-2xl font-bold text-gray-900 font-livvic">Booking Successful!</h3>
       <p class="mb-8 text-gray-600">
-        Thank you for applying! Your request has been securely logged. Our team will contact you soon to confirm your
-        visit.
+        Thank you for your interest in booking a farm visit and our team at FGAI would love to hear from you. We will contact you shortly to confirm your schedule.
       </p>
       <button onclick="closeModal()"
         class="w-full px-6 py-3 font-bold text-white transition-colors duration-200 bg-[#129C48] rounded-full hover:bg-[#0c7033]">Book
         Another Visit</button>
     </div>
   </div>
-  <!-- Floating Help Button -->
-  <button class="help-btn" title="Need help?" onclick="window.open('mailto:connect@farmgate.africa','_blank')"
-    aria-label="Contact support">
-    ?
-  </button>
+  <!-- Floating WhatsApp Support Button -->
+  <a href="https://wa.me/+233503301132" target="_blank" class="help-btn" title="Chat with us on WhatsApp"
+    aria-label="WhatsApp support">
+    <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ffffff"
+        d="M17,4C10.383,4,5,9.383,5,16c0,2.003,0.503,3.974,1.473,5.754l-2.33,5.827c-0.148,0.371-0.062,0.795,0.222,1.078   c0.191,0.191,0.447,0.293,0.707,0.293c0.125,0,0.251-0.023,0.371-0.072l5.837-2.335C13.029,27.499,14.997,28,17,28   c6.617,0,12-5.383,12-12S23.617,4,17,4z M17,26c-1.812,0-3.587-0.492-5.135-1.423c-0.276-0.166-0.613-0.188-0.906-0.063   l-4.094,1.644l1.522-3.808l0.109-0.241c0.121-0.269,0.118-0.578-0.009-0.844c-0.027-0.058-0.063-0.124-0.103-0.19   C7.479,19.541,7,17.786,7,16c0-5.514,4.486-10,10-10s10,4.486,10,10S22.514,26,17,26z M21.664,13.189   C21.509,11.401,19.898,10,18,10h-4c-0.553,0-1,0.448-1,1v10c0,0.552,0.447,1,1,1h4c1.898,0,3.509-1.401,3.664-3.189   c0.085-0.979-0.245-1.954-0.906-2.675c-0.042-0.046-0.086-0.091-0.131-0.135c0.045-0.044,0.089-0.089,0.131-0.135   C21.419,15.144,21.749,14.168,21.664,13.189z M18,20h-3v-3h3.178c0.426,0,0.818,0.173,1.106,0.487   c0.287,0.313,0.425,0.722,0.388,1.15C19.606,19.389,18.856,20,18,20z M19.284,14.513C18.996,14.827,18.604,15,18.178,15H15v-3h3   c0.856,0,1.606,0.611,1.672,1.363C19.709,13.791,19.571,14.2,19.284,14.513z">
+      </path>
+    </svg>
+  </a>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
     // ScrollReveal animation for hero and form card
@@ -646,7 +896,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       flatpickr('#visitDate', {
         minDate: 'today',
-        dateFormat: 'Y-m-d',
+        dateFormat: 'm-d-Y',
         disableMobile: true,
         allowInput: false,
         locale: { firstDayOfWeek: 1 },
@@ -662,11 +912,27 @@
         document.getElementById('confirmationBox').classList.add('active');
       };
     });
+    
     function closeModal() {
       document.getElementById('confirmationBox').classList.remove('active');
       document.getElementById('bookingForm').reset();
+      // Hide all 'Other' inputs
+      document.querySelectorAll('.hidden-input').forEach(el => el.classList.remove('active'));
       // Progress bar removed
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function toggleOther(select, otherId) {
+      const otherInput = document.getElementById(otherId);
+      if (select.value === 'Other') {
+        otherInput.classList.add('active');
+        otherInput.required = true;
+        otherInput.focus();
+      } else {
+        otherInput.classList.remove('active');
+        otherInput.required = false;
+        otherInput.value = '';
+      }
     }
   </script>
 </body>

@@ -10,9 +10,7 @@
       <nav
         :class="[
           'text-white flex flex-col sm:flex-row sm:justify-between items-center sm:items-start max-w-[1900px] mx-auto font-montserrat px-6 lg:px-8',
-          isScrolled
-            ? 'pt-4 pb-0 sm:pb-0'
-            : 'pt-4 pb-6 sm:pb-0',
+          isScrolled ? 'pt-4 pb-0 sm:pb-0' : 'pt-4 pb-6 sm:pb-0',
         ]"
       >
         <div class="flex items-start justify-between w-full mb-4 sm:hidden">
@@ -64,72 +62,6 @@
                   class="text-base text-white"
                 />
               </button>
-
-              <transition name="slide">
-                <div
-                  v-if="isSearchOpen"
-                  class="fixed flex items-center px-4 py-3 border shadow-2xl left-4 right-4 top-32 max-[360px]:top-24 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400 sm:hidden"
-                >
-                  <font-awesome-icon
-                    :icon="['fas', 'search']"
-                    class="mr-2 text-sm text-white/90"
-                  />
-                  <input
-                    v-model="searchQuery"
-                    @input="handleSearchInput"
-                    type="text"
-                    placeholder="Search agriculture..."
-                    class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
-                    @keydown.escape="isSearchOpen = false"
-                  />
-                  <button
-                    @click="toggleSearch"
-                    class="ml-2 text-white/70 hover:text-white"
-                  >
-                    ✕
-                  </button>
-                </div>
-              </transition>
-
-              <transition name="fade">
-                <div
-                  v-if="isSearchOpen && (showResults || searchQuery)"
-                  class="fixed overflow-hidden border shadow-2xl left-4 right-4 top-48 max-[360px]:top-36 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 sm:hidden max-h-72 max-[360px]:max-h-56"
-                >
-                  <div
-                    v-if="hasResults"
-                    class="overflow-y-auto max-h-72 max-[360px]:max-h-56"
-                  >
-                    <div
-                      v-for="result in searchResults"
-                      :key="result.id"
-                      @click="onSelectResult(result)"
-                      class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
-                    >
-                      <div>
-                        <p class="text-sm font-semibold">{{ result.title }}</p>
-                        <p class="text-xs text-white/70">
-                          {{ result.category }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    v-else-if="searchQuery && !hasResults"
-                    class="px-4 py-6 text-center"
-                  >
-                    <p class="text-sm text-white/70">No results found for</p>
-                    <p class="mt-1 text-sm font-semibold text-white truncate">
-                      "{{ searchQuery }}"
-                    </p>
-                    <p class="mt-2 text-xs text-white/50">
-                      Try searching for topics like "farming", "solutions", or
-                      "products"
-                    </p>
-                  </div>
-                </div>
-              </transition>
             </div>
 
             <a
@@ -169,13 +101,84 @@
           </div>
         </div>
 
+        <transition name="slide">
+          <div v-if="isSearchOpen" class="w-full px-4 mb-3 -mt-1 sm:hidden">
+            <div
+              class="flex items-center w-full max-w-[24rem] mx-auto px-4 py-3 border shadow-2xl bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
+            >
+              <font-awesome-icon
+                :icon="['fas', 'search']"
+                class="mr-2 text-sm text-white/90"
+              />
+              <input
+                v-model="searchQuery"
+                @input="handleSearchInput"
+                type="text"
+                placeholder="Search"
+                class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
+                @keydown.escape="isSearchOpen = false"
+              />
+              <button
+                @click="toggleSearch"
+                class="ml-2 text-white/70 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </transition>
+
+        <transition name="fade">
+          <div
+            v-if="isSearchOpen && (showResults || searchQuery)"
+            class="w-full px-4 mb-3 sm:hidden"
+          >
+            <div
+              class="w-full max-w-[24rem] mx-auto overflow-hidden border shadow-2xl bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 max-h-72 max-[360px]:max-h-56"
+            >
+              <div
+                v-if="hasResults"
+                class="overflow-y-auto max-h-72 max-[360px]:max-h-56"
+              >
+                <div
+                  v-for="result in searchResults"
+                  :key="result.id"
+                  @click="onSelectResult(result)"
+                  class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
+                >
+                  <div>
+                    <p class="text-sm font-semibold">{{ result.title }}</p>
+                    <p class="text-xs text-white/70">
+                      {{ result.category }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                v-else-if="searchQuery && !hasResults"
+                class="px-4 py-6 text-center"
+              >
+                <p class="text-sm text-white/70">No results found for</p>
+                <p class="mt-1 text-sm font-semibold text-white truncate">
+                  "{{ searchQuery }}"
+                </p>
+                <p class="mt-2 text-xs text-white/50">
+                  Try searching for topics like "farming", "solutions", or
+                  "products"
+                </p>
+              </div>
+            </div>
+          </div>
+        </transition>
+
         <a
           v-if="showMobileLogo && videoVariant !== 2"
           href="/"
-          class="flex items-center justify-center px-8 py-6 sm:hidden bg-gradient-to-b from-transparent via-white/5 to-transparent"
+          class="flex items-center justify-center px-8 pb-6 mobile-logo-shell pt-36 sm:hidden bg-gradient-to-b from-transparent via-white/5 to-transparent"
         >
           <img
-            class="object-contain w-[70px] h-[70px]"
+            class="mobile-logo-img object-contain w-[70px] h-[70px] mt-4"
             :src="isScrolled ? logoWhite1 : logoWhite2"
             alt="FarmGate Africa Logo"
           />
@@ -217,7 +220,7 @@
                   v-model="searchQuery"
                   @input="handleSearchInput"
                   type="text"
-                  placeholder="Search agriculture..."
+                  placeholder="Search"
                   class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
                   @keydown.escape="isSearchOpen = false"
                 />
@@ -325,10 +328,10 @@
         ></div>
 
         <div
-          class="relative min-h-[100dvh] flex flex-col xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:p-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto xl:overflow-y-visible"
+          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:py-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible xl:overflow-y-visible"
         >
           <div
-            class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto xl:w-[260px] z-10 xl:absolute xl:left-12 xl:bottom-24 xl:mb-0"
+            class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] xl:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-28 lg:mb-0 xl:absolute xl:left-12 xl:bottom-28 xl:mb-0"
           >
             <a href="/">
               <img
@@ -340,7 +343,7 @@
           </div>
 
           <div
-            class="grid w-full grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8 xl:flex xl:flex-1 xl:items-start xl:justify-between xl:gap-y-0"
+            class="grid w-full grid-cols-1 menu-columns sm:grid-cols-2 gap-y-8 gap-x-8 lg:flex lg:flex-1 lg:items-start lg:justify-between lg:gap-y-0 xl:flex xl:flex-1 xl:items-start xl:justify-between xl:gap-y-0"
           >
             <div class="p-0 mt-0">
               <h3
@@ -438,15 +441,15 @@
             </div>
 
             <div class="mt-0">
-              <a
-                href="/our-edge"
-                class="inline-flex items-center text-2xl max-[360px]:text-xl font-semibold font-livvic text-[#F2CB00] cursor-pointer relative pb-2 max-[360px]:pb-1 group lg:whitespace-nowrap"
-                style="font-family: Livvic, sans-serif"
-              >
-                Our Edge
-                <span
-                  class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
-                ></span>
+              <a href="/our-edge">
+                <h3
+                  :class="[
+                    'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer lg:whitespace-nowrap',
+                    'mb-0',
+                  ]"
+                >
+                  Our Edge
+                </h3>
               </a>
             </div>
 
@@ -590,7 +593,9 @@
               </transition>
             </div>
 
-            <div class="hidden mt-0 xl:block xl:w-[400px]">
+            <div
+              class="contact-panel hidden mt-0 lg:block lg:w-[320px] xl:w-[400px]"
+            >
               <h3
                 :class="[
                   'text-2xl font-semibold text-[#F2CB00] mb-4',
@@ -801,26 +806,24 @@
 
                 <div>
                   <p class="text-gray-300">+233 30 398 0443</p>
-                  
                 </div>
               </div>
               <div class="flex items-center gap-2 mb-4">
-                                      <svg
-                        class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5 opacity-70"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        ></path>
-                      </svg>
+                <svg
+                  class="w-6 h-6 max-[360px]:w-5 max-[360px]:h-5 opacity-70"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
                 <div>
                   <p class="text-gray-300">+233 59 672 6914</p>
-                  
                 </div>
               </div>
 
@@ -855,7 +858,7 @@
           </button>
 
           <div
-            class="fixed bottom-0 left-0 w-full z-50 block xl:absolute xl:bottom-0 bg-[#055732] xl:bg-transparent xl:z-0 pb-[calc(1.25rem+env(safe-area-inset-bottom))] max-[360px]:pb-[calc(0.75rem+env(safe-area-inset-bottom))]"
+            class="fixed bottom-0 left-0 w-full z-50 block lg:absolute lg:bottom-0 bg-[#055732] lg:bg-transparent lg:z-0 xl:absolute xl:bottom-0 xl:bg-transparent xl:z-0 pb-[calc(1.25rem+env(safe-area-inset-bottom))] max-[360px]:pb-[calc(0.75rem+env(safe-area-inset-bottom))]"
           >
             <div class="w-full border-t border-white/20"></div>
             <div
@@ -1053,4 +1056,37 @@ const navigateToVideo2 = () => {
   backdrop-filter: blur(2px);
   z-index: 0;
 }
+
+@media (width: 1024px) and (height: 768px) {
+  .contact-panel {
+    transform: none;
+  }
+}
+
+/* Force mobile-style menu links and centered footer for tall narrow viewports */
+@media (min-width: 600px) and (max-width: 800px) and (min-height: 1000px) {
+  .menu-columns {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-content > div {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  
+  .footer-content .sm\:text-left {
+    text-align: center !important;
+  }
+
+  .footer-content .sm\:items-end {
+    align-items: center !important;
+  }
+}
+
 </style>

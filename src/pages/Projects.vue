@@ -260,7 +260,7 @@ import farmCrops from "@/assets/img/okra1.jpg";
 import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.jpg";
 import farmPic1 from "@/assets/img/pepper-farm.jpg";
-import farmPic6 from "@/assets/img/catfish2.avif";
+import farmPic6 from "@/assets/img/catfish1.png";
 import farmPic10 from "@/assets/img/hot-pepper.webp";
 import farmPic7 from "@/assets/img/tilapia1.avif";
 import farmPic3 from "@/assets/img/yam1.webp";
@@ -341,9 +341,9 @@ const solutions = [
   },
   {
     id: 7,
-    title: "448k-cc Talipia Cage Farm on the Volta Lake at Akuse",
+    title: "500k-cc Talipia Cage Farm on the Volta Lake at Akuse",
     image: farmPic7,
-    description: `\u2022 Tullow Agriventure Programme (TAP)\n\u2022 Eastern Region, Ghana`,
+    description: "\u2022 Volta Region, Ghana",
   },
   {
     id: 8,

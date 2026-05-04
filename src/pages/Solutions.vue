@@ -53,7 +53,7 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      class="relative w-full px-6 pb-12 overflow-hidden bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
     >
       <div class="absolute top-0 left-0 pointer-events-none opacity-5">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
@@ -86,18 +86,18 @@
         </div>
 
         <div
-          class="flex flex-col items-start justify-between gap-12 mb-32 md:flex-row"
+          class="flex flex-col items-center md:items-start justify-between mb-16 md:mb-32 md:flex-row md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h3
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight text-center md:text-left mb-3 md:mb-0"
             >
               Our Core <span class="text-[#129C48]">Mandate</span>
             </h3>
           </div>
 
           <div class="md:max-w-xl reveal-slide-left">
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
             <p class="text-lg font-light leading-relaxed text-gray-600">
               FarmGate Africa & Industries is leading the way in partnership
               with farmers and farmer group organizations (FGOs) to unlock the
