@@ -715,7 +715,7 @@ function goToBookFarmVisit() {
 
 @media (max-width: 640px) {
   .hero-content:not(.top-\[25\%\]) {
-    top: 45% !important;
+    top: 47% !important;
   }
   .hero-content.top-\[25\%\] {
     top: 15% !important;

@@ -181,13 +181,15 @@
               </h3>
               <p class="text-sm text-[#129C48]">
                 {{
-                  member.name === "Linda Amankwah"
+                  member.name.trim() === "Linda Amankwah"
                     ? "Talent Advisor"
-                    : member.name === "Nancy Otibo Tamakoe"
+                    : member.name.trim() === "Nancy Otibo Tamakoe"
                       ? "Agronomist Advisor"
-                      : member.name === "David Ndanu"
+                      : member.name.trim() === "David Ndanu"
                         ? "CTO Advisor"
-                        : member.hoverTitle || member.title.split(" ")[0]
+                        : member.name.trim() === "Elizabeth Dadzie"
+                          ? "Sales Agent"
+                          : member.hoverTitle || member.title.split(" ")[0]
                 }}
               </p>
             </div>

@@ -16,7 +16,8 @@
     { "source": "/our-relevance", "destination": "/our-relevance.html" },
     { "source": "/our-edge", "destination": "/our-edge.html" },
     { "source": "/terms", "destination": "/Terms.html" },
-    { "source": "/book-farm-visit", "destination": "/book-farm-visit.html" }
+    { "source": "/book-farm-visit", "destination": "/book-farm-visit.html" },
+    { "source": "/schedule-call", "destination": "/schedule-call.html" }
   ],
   "redirects": [
     { "source": "/about.html", "destination": "/about", "statusCode": 301 },
@@ -69,6 +70,11 @@
     {
       "source": "/book-farm-visit.html",
       "destination": "/book-farm-visit",
+      "statusCode": 301
+    },
+    {
+      "source": "/schedule-call.html",
+      "destination": "/schedule-call",
       "statusCode": 301
     }
   ]

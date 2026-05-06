@@ -129,7 +129,7 @@ Nelson is driven by the passion to promote social innovation and enterprising so
     order: 6,
   },
   {
-    name: "Elizabeth Dadzie ",
+    name: "Elizabeth Dadzie",
     title: "Field Sales Agent",
     hoverTitle: "Sales",
     location: "Accra, Ghana",
