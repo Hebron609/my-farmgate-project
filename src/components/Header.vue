@@ -328,7 +328,7 @@
         ></div>
 
         <div
-          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:py-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible xl:overflow-y-visible"
+          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:py-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible xl:overflow-y-visible menu-container-main"
         >
           <div
             class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] xl:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-28 lg:mb-0 xl:absolute xl:left-12 xl:bottom-28 xl:mb-0"
@@ -1060,6 +1060,17 @@ const navigateToVideo2 = () => {
 @media (width: 1024px) and (height: 768px) {
   .contact-panel {
     transform: none;
+  }
+}
+
+/* Push menu items up on shorter viewports (e.g. 1280x800) */
+@media (min-width: 1024px) and (max-height: 850px) {
+  .menu-container-main {
+    padding-top: 4rem !important;
+    padding-bottom: 8rem !important;
+  }
+  .menu-columns {
+    gap: 2rem !important;
   }
 }
 

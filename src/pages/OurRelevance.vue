@@ -410,4 +410,61 @@ onUnmounted(() => {
 
 <style scoped>
 /* Ensure smooth transitions if Tailwind utility classes aren't sufficient */
+
+/* 320x568 Viewport Fixes - Preserving Structure */
+@media (max-width: 380px) {
+  /* Scale down massive hero heading to prevent word wrap breaking on long words like RELEVANCE */
+  h1 {
+    font-size: 2.75rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Scale down the section headings */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Reduce the height of the goal container so it doesn't take up the whole screen height */
+  .h-\[600px\] {
+    height: 400px !important;
+  }
+
+  /* Reduce excessive padding and margins on mobile */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .gap-16 {
+    gap: 2rem !important;
+  }
+
+  .mt-24 {
+    margin-top: 3rem !important;
+  }
+  
+  .mb-24 {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Reduce padding inside value cards to give text more breathing room */
+  .p-10 {
+    padding: 1.5rem !important;
+  }
+
+  /* Scale down paragraph text slightly */
+  .text-xl {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Scale down the trophy icon slightly */
+  .text-6xl {
+    font-size: 3.5rem !important;
+  }
+}
 </style>

@@ -146,7 +146,7 @@
           </a>
 
           <a
-            href="/contact"
+            href="/schedule-call"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -715,7 +715,7 @@ function goToBookFarmVisit() {
 
 @media (max-width: 640px) {
   .hero-content:not(.top-\[25\%\]) {
-    top: 47% !important;
+    top: 45% !important;
   }
   .hero-content.top-\[25\%\] {
     top: 15% !important;
@@ -724,7 +724,7 @@ function goToBookFarmVisit() {
 
 @media (max-width: 375px) {
   .hero-content:not(.top-\[25\%\]) {
-    top: 52% !important;
+    top: 47% !important;
   }
   .hero-action-btn {
     padding: 0.5rem 1rem !important;
@@ -735,8 +735,8 @@ function goToBookFarmVisit() {
 @media (max-width: 375px) and (max-height: 625px) {
   div.absolute.z-20.mt-12 {
     left: auto !important;
-    right: 80px !important;
-    bottom: 10px !important;
+    right: 50px !important;
+    bottom: 6px !important;
     transform: scale(0.85) !important;
   }
 }
@@ -995,7 +995,10 @@ function goToBookFarmVisit() {
 /* 320px phones: nudge logo down a bit for better vertical balance */
 @media (max-width: 320px) {
   .hero-logo-img {
-    transform: translateY(40px) !important;
+    transform: translateY(2px) !important;
+  }
+  .hero-logo-link {
+    margin-bottom: 16px !important; /* Tightens the gap below the logo */
   }
 }
 
@@ -1017,7 +1020,7 @@ function goToBookFarmVisit() {
     top: 45% !important; /* Lifts the whole block slightly higher so bottom doesn't cut off */
   }
   .hero-content.top-\[25\%\] {
-    top: 18% !important;
+    top: 15% !important;
   }
   .hero-btn-container {
     margin-top: 16px !important; /* Tightens the gap below the H1 */
