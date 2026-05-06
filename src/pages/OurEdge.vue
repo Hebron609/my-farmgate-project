@@ -166,10 +166,10 @@
             <div
               class="relative z-10 flex flex-col items-center justify-center p-6 text-center min-h-[300px]"
             >
-              <div class="overflow-hidden transition-all duration-500 ease-out max-h-0 group-hover:max-h-20 group-hover:mb-4">
+              <div class="overflow-hidden transition-all duration-500 ease-out max-h-none md:max-h-0 mb-4 md:mb-0 md:group-hover:max-h-20 md:group-hover:mb-4">
                 <font-awesome-icon
                   :icon="['fas', item.iconName]"
-                  class="text-4xl text-[#F2CB00] transition-all duration-500 opacity-0 transform -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+                  class="text-4xl text-[#F2CB00] transition-all duration-500 opacity-100 md:opacity-0 transform translate-y-0 md:-translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0"
                 />
               </div>
               <h4
@@ -177,33 +177,35 @@
               >
                 {{ item.title }}
               </h4>
-              <p
-                class="font-['Montserrat'] text-sm font-medium text-gray-100 mb-4 max-w-sm whitespace-pre-line"
-              >
-                {{ item.description }}
-              </p>
-              <button
-                @click="navigateToVideo2"
-                class="relative flex items-center px-4 py-2 mx-auto overflow-hidden cursor-pointer group/button backdrop-blur-md bg-white/25 rounded-4xl"
-              >
-                <span
-                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover/button:-translate-y-full"
+              <div class="overflow-hidden transition-all duration-500 ease-out max-h-none md:max-h-0 md:group-hover:max-h-[500px] md:group-hover:mb-4">
+                <p
+                  class="font-['Montserrat'] text-sm font-medium text-gray-100 max-w-sm whitespace-pre-line mb-4 mt-4 md:mt-0"
                 >
-                  <LeafIcon class="w-4 h-4 text-white" />
-                  <span class="text-xs font-semibold leading-none text-white"
-                    >Start growing with us</span
+                  {{ item.description }}
+                </p>
+                <button
+                  @click="navigateToVideo2"
+                  class="relative flex items-center px-4 py-2 mx-auto overflow-hidden cursor-pointer group/button backdrop-blur-md bg-white/25 rounded-4xl"
+                >
+                  <span
+                    class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover/button:-translate-y-full"
                   >
-                </span>
+                    <LeafIcon class="w-4 h-4 text-white" />
+                    <span class="text-xs font-semibold leading-none text-white"
+                      >Start growing with us</span
+                    >
+                  </span>
 
-                <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover/button:translate-y-0"
-                >
-                  <LeafIcon class="w-4 h-4 text-black" />
-                  <span class="text-xs font-semibold leading-none"
-                    >Start growing with us</span
+                  <span
+                    class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover/button:translate-y-0"
                   >
-                </span>
-              </button>
+                    <LeafIcon class="w-4 h-4 text-black" />
+                    <span class="text-xs font-semibold leading-none"
+                      >Start growing with us</span
+                    >
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -315,9 +317,9 @@ import LeafIcon from "../components/icons/LeafIcon.vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import farmPic1 from "@/assets/img/farm-pic1.webp";
 import farmPic2 from "@/assets/img/agri-processing.webp";
-import farmPic8 from "@/assets/img/enduring-partnership.webp";
+import farmPic8 from "@/assets/img/enduring-partnership1.webp";
 import farmPic9 from "@/assets/img/farmer-img1.avif";
-import farmPic3 from "@/assets/img/future-innovations.webp";
+import farmPic3 from "@/assets/img/future-innovations1.webp";
 import farmPic4 from "@/assets/img/farm-pic4.webp";
 import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 
@@ -396,7 +398,7 @@ const galleryItems = ref([
     iconName: "users",
   },
   {
-    title: "Future Innovation",
+    title: "Future-Agri Innovation",
     description:
       "Leveraging technology to revolutionize food production across Africa.",
     image: farmPic3,

@@ -220,7 +220,7 @@
             </h2>
 
             <p class="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
-            At FGAI, we don't loose, we don't win , we learn.
+            At FGAI, we don't loose, we don't win, we learn.
             </p>
 
             <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
@@ -284,13 +284,12 @@
           </button>
 
           <div
-            class="w-full md:w-[45%] h-72 sm:h-80 md:h-auto md:min-h-[450px] shrink-0"
+            class="w-full md:w-[45%] h-72 sm:h-80 md:h-auto md:min-h-[450px] shrink-0 overflow-hidden"
           >
             <img
               :src="selectedMember.photoUrlModal || selectedMember.photoUrl"
               :alt="selectedMember.name"
               class="object-cover object-top w-full h-full"
-              :style="selectedMember.imagePosition ? { objectPosition: selectedMember.imagePosition } : {}"
             />
           </div>
 

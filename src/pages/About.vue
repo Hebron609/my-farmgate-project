@@ -217,4 +217,39 @@ import farmPic9 from "@/assets/img/farm-pic9.jpg";
 .button-group:hover .black-text {
   opacity: 1;
 }
+
+/* 320x568 Viewport Fixes - Preserving Structure */
+@media (max-width: 380px) {
+  /* Scale down massive hero heading to prevent word wrap breaking */
+  h1 {
+    font-size: 3.25rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Scale down the quote section heading */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Reduce the height of the image container so it doesn't take up the whole screen height */
+  .min-h-\[500px\] {
+    min-height: 380px !important;
+  }
+
+  /* Keep the overlapping structure (-bottom-12), but reduce internal padding and text size
+     so the box doesn't get ridiculously tall on narrow screens */
+  .absolute.-bottom-12 {
+    padding: 1.25rem !important;
+  }
+
+  .absolute.-bottom-12 h4 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .absolute.-bottom-12 p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+}
 </style>
