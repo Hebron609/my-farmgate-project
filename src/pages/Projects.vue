@@ -72,7 +72,7 @@
           <div class="inline-flex">
             <button
               @click="navigateToVideo2"
-              class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+              class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
             >
               <span
                 class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"

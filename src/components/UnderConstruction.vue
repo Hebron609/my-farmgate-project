@@ -31,7 +31,7 @@
       <!-- Call to Action Button -->
       <a
         href="/"
-        class="inline-block px-6 py-3 font-semibold text-white transition duration-200 rounded-full bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl hover:scale-105"
+        class="inline-block px-6 py-3 font-semibold text-white transition duration-200 rounded-full bg-gradient-to-r from-green-800 to-[#F2CB00] hover:shadow-xl hover:scale-105"
       >
         Go Back Home
       </a>

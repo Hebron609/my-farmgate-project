@@ -69,7 +69,7 @@
         <div class="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="text-yellow-400 fill-current"
+            class="text-[#F2CB00] fill-current"
             width="14"
             height="14"
             viewBox="0 0 24 24"

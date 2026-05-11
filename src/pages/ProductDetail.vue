@@ -88,7 +88,7 @@
             </div>
 
             <div class="flex items-center mb-6">
-              <div class="flex text-yellow-400 gap-0.5">
+              <div class="flex text-[#F2CB00] gap-0.5">
                 <svg
                   v-for="i in 5"
                   :key="i"

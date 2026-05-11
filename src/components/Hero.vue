@@ -129,7 +129,7 @@
                 />
               </span>
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
                   src="/images/flag.png"
@@ -162,7 +162,7 @@
                 />
               </span>
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
                   src="/images/call.png"

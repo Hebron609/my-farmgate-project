@@ -97,7 +97,7 @@
 
     @media (min-width: 1024px) {
       .form-card {
-        padding: 2.5rem 2rem 2.5rem;
+        padding: 2.5rem 1rem 2.5rem;
       }
     }
 
@@ -174,7 +174,7 @@
     .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea) {
       width: 100%;
       padding: 0.5rem 0;
-      background: transparent;
+      background-color: transparent !important;
       border: 0 !important;
       border-bottom: 2px solid #e5e7eb !important;
       border-radius: 0 !important;
@@ -184,6 +184,17 @@
       font-size: 1.125rem;
       line-height: 1.75rem;
       transition: border-color 150ms ease, color 150ms ease;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .form-card select {
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23111827%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 0.2rem center !important;
+      background-size: 0.65em auto !important;
+      padding-right: 1.5rem !important;
     }
 
     .form-card textarea {
@@ -294,6 +305,12 @@
       padding: 3vh 2.5vw;
     }
 
+    @media (min-width: 1024px) {
+      .form-section-fixed {
+        padding: 3vh 1.5vw;
+      }
+    }
+
     .confirmation {
       display: none;
       position: fixed;
@@ -358,6 +375,46 @@
     .help-btn:hover {
       animation: jitter 0.3s linear infinite;
       box-shadow: 0 8px 20px rgba(18, 156, 72, 0.6);
+    }
+
+    .help-btn .whatsapp-tooltip {
+      position: absolute;
+      bottom: calc(100% + 15px);
+      right: 0;
+      background: white;
+      color: #1f2937;
+      padding: 0.625rem 1.25rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .help-btn .whatsapp-tooltip::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: 1.25rem;
+      width: 12px;
+      height: 12px;
+      background: white;
+      transform: rotate(45deg);
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .help-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     @keyframes jitter {
@@ -485,7 +542,7 @@
         </span>
 
         <span
-          class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0">
+          class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -558,7 +615,7 @@
             </svg>
             <span class="text-sm font-semibold leading-none text-white tracking-wide">Homepage</span>
           </span>
-          <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0">
+          <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
             </svg>
@@ -574,17 +631,17 @@
 
       <div class="w-full form-card form-card-fixed">
         <form id="bookingForm" class="space-y-8 max-[360px]:space-y-5">
-          <div class="mb-12 p-8 md:p-16 bg-stone-50 border border-stone-100 rounded-[2.5rem] text-center shadow-sm">
+          <div class="mb-12 p-6 md:py-16 md:px-4 lg:px-6 bg-stone-50 border border-stone-100 rounded-[2.5rem] text-center shadow-sm">
             <h2 class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black mb-6">
               Book Your <span class="text-[#129C48]">Farm Visit</span>
             </h2>
             <div class="h-1 w-24 bg-[#F2CB00] mx-auto mb-8"></div>
             
-            <p class="mb-8 text-xl font-light text-gray-700 leading-relaxed max-w-2xl mx-auto">
-              We'd love to know more about the purpose of your visit. Help us make your visit a meaningful journey by completing these questions below?
+            <p class="mb-8 text-sm md:text-base lg:text-lg xl:text-xl font-light text-gray-700 leading-relaxed max-w-none mx-auto">
+              We'd love to know more about the purpose of your visit.<br class="hidden md:block"> Help us make your visit a meaningful journey by completing these questions below?
             </p>
             
-            <div class="border-t border-stone-200 pt-10 mt-10 max-w-3xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-5 text-gray-600 text-sm font-medium">
+            <div class="border-t border-stone-200 pt-10 mt-10 max-w-none mx-auto flex flex-col md:flex-row items-center md:items-start gap-5 text-gray-600 text-sm font-medium">
               <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-white flex items-center justify-center border border-stone-100 shadow-sm">
                 <svg class="w-6 h-6 text-[#129C48]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.004 2.003a9.995 9.995 0 0 0-8.47 15.47l-1.13 4.13 4.24-1.11a9.995 9.995 0 1 0 5.36-18.49z"/>
@@ -626,7 +683,7 @@
               </div>
 
               <div class="mb-8">
-                <label>Proposed Date and Time of Visit <span class="text-red-600">*</span></label>
+                <label>Proposed date and time of visit <span class="text-red-600">*</span></label>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2 relative">
                   
                   <!-- Date Selector -->
@@ -639,7 +696,7 @@
                     </div>
                     
                     <!-- Inline Custom Date Picker -->
-                    <div id="customDatePicker" class="hidden mt-4 w-full min-w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden">
+                    <div id="customDatePicker" class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden">
                       <!-- Header -->
                       <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white">
                         <button type="button" onclick="prevCalendarView()" class="hover:bg-white/20 p-1 rounded-full transition-colors">
@@ -671,8 +728,8 @@
                     </div>
                     
                     <!-- Inline Custom Time Picker -->
-                    <div id="customTimePicker" class="hidden mt-4 w-full min-w-[280px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden p-4">
-                       <h4 class="text-center font-bold text-gray-700 mb-4 font-livvic">Available Times</h4>
+                    <div id="customTimePicker" class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[280px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden p-4">
+                       <h4 class="text-center font-bold text-gray-700 mb-4 font-livvic">Available Time Slots</h4>
                        <div class="grid grid-cols-3 gap-3" id="timeGrid">
                          <!-- Generated by JS -->
                        </div>
@@ -684,7 +741,7 @@
 
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label for="sector">Select place of Interest to Visit <span class="text-red-600">*</span></label>
+                  <label for="sector">Select place of interest to visit <span class="text-red-600">*</span></label>
                   <select id="sector" name="sector" required onchange="toggleOther(this, 'otherSector')">
                     <option value="" disabled selected>Select a place</option>
                     <option>Aquaculture (Volta, Ghana)</option>
@@ -696,7 +753,7 @@
                   <input type="text" id="otherSector" name="otherSector" placeholder="Please specify place" class="hidden-input mt-2" />
                 </div>
                 <div>
-                  <label for="purpose">Purpose of Touring or Visiting <span class="text-red-600">*</span></label>
+                  <label for="purpose">Purpose of touring or visiting <span class="text-red-600">*</span></label>
                   <select id="purpose" name="purpose" required onchange="toggleOther(this, 'otherPurpose')">
                     <option value="" disabled selected>Select purpose</option>
                     <option>Educational / Research</option>
@@ -711,7 +768,7 @@
               </div>
 
               <div>
-                <label for="groupSize">Number of People Visiting</label>
+                <label for="groupSize">Number of people visiting</label>
                 <input id="groupSize" name="groupSize" type="number" min="1" placeholder="e.g. 3" />
               </div>
             </div>
@@ -729,11 +786,11 @@
             <div class="space-y-8">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label for="lastName">Last Name <span class="text-red-600">*</span></label>
+                  <label for="lastName">Last name <span class="text-red-600">*</span></label>
                   <input id="lastName" name="lastName" type="text" placeholder="Osei" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
                 </div>
                 <div>
-                  <label for="otherNames">Other Name(s)</label>
+                  <label for="otherNames">Other name(s)</label>
                   <input id="otherNames" name="otherNames" type="text" placeholder="Joseph Kwame" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
@@ -743,17 +800,17 @@
               </div>
               <div class="grid grid-cols-2 gap-4 md:gap-6">
                 <div>
-                  <label for="phone">Phone Number <span class="text-red-600">*</span></label>
+                  <label for="phone">Phone number <span class="text-red-600">*</span></label>
                   <input id="phone" name="phone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
                 </div>
                 <div>
-                  <label for="whatsapp">WhatsApp Number</label>
+                  <label for="whatsapp">WhatsApp number</label>
                   <input id="whatsapp" name="whatsapp" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label for="country">Country of Origin <span class="text-red-600">*</span></label>
+                  <label for="country">Country of origin <span class="text-red-600">*</span></label>
                   <select id="country" name="country" required class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
                     <option value="" disabled selected>Select country</option>
                     <option value="Ghana">🇬🇭 Ghana</option>
@@ -782,16 +839,16 @@
               </div>
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label for="emergencyName">Emergency Contact Person</label>
+                  <label for="emergencyName">Emergency contact person</label>
                   <input id="emergencyName" name="emergencyName" type="text" placeholder="Full Name" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
                 <div>
-                  <label for="emergencyPhone">Emergency Contact Number</label>
+                  <label for="emergencyPhone">Emergency contact number</label>
                   <input id="emergencyPhone" name="emergencyPhone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
               <div>
-                <label for="medical">Medical Conditions or Allergies</label>
+                <label for="medical">Medical conditions or allergies</label>
                 <select id="medical" name="medical" required onchange="toggleOther(this, 'otherMedical')" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
                   <option value="" disabled selected>Select any conditions or allergies</option>
                   <option value="None">None</option>
@@ -859,8 +916,8 @@
     </div>
   </div>
   <!-- Floating WhatsApp Support Button -->
-  <a href="https://wa.me/+233503301132" target="_blank" class="help-btn" title="Chat with us on WhatsApp"
-    aria-label="WhatsApp support">
+  <a href="https://wa.me/+233503301132" target="_blank" class="help-btn" aria-label="WhatsApp support">
+    <div class="whatsapp-tooltip">Let's Chat</div>
     <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
       <path fill="#ffffff"
         d="M17,4C10.383,4,5,9.383,5,16c0,2.003,0.503,3.974,1.473,5.754l-2.33,5.827c-0.148,0.371-0.062,0.795,0.222,1.078   c0.191,0.191,0.447,0.293,0.707,0.293c0.125,0,0.251-0.023,0.371-0.072l5.837-2.335C13.029,27.499,14.997,28,17,28   c6.617,0,12-5.383,12-12S23.617,4,17,4z M17,26c-1.812,0-3.587-0.492-5.135-1.423c-0.276-0.166-0.613-0.188-0.906-0.063   l-4.094,1.644l1.522-3.808l0.109-0.241c0.121-0.269,0.118-0.578-0.009-0.844c-0.027-0.058-0.063-0.124-0.103-0.19   C7.479,19.541,7,17.786,7,16c0-5.514,4.486-10,10-10s10,4.486,10,10S22.514,26,17,26z M21.664,13.189   C21.509,11.401,19.898,10,18,10h-4c-0.553,0-1,0.448-1,1v10c0,0.552,0.447,1,1,1h4c1.898,0,3.509-1.401,3.664-3.189   c0.085-0.979-0.245-1.954-0.906-2.675c-0.042-0.046-0.086-0.091-0.131-0.135c0.045-0.044,0.089-0.089,0.131-0.135   C21.419,15.144,21.749,14.168,21.664,13.189z M18,20h-3v-3h3.178c0.426,0,0.818,0.173,1.106,0.487   c0.287,0.313,0.425,0.722,0.388,1.15C19.606,19.389,18.856,20,18,20z M19.284,14.513C18.996,14.827,18.604,15,18.178,15H15v-3h3   c0.856,0,1.606,0.611,1.672,1.363C19.709,13.791,19.571,14.2,19.284,14.513z">
@@ -1072,10 +1129,15 @@
 
     function selectDate(day) {
       selectedDate = new Date(viewingYear, viewingMonth, day);
-      const dd = String(day).padStart(2, '0');
-      const mm = String(viewingMonth + 1).padStart(2, '0');
-      const yyyy = viewingYear;
-      document.getElementById('visitDate').value = `${dd}-${mm}-${yyyy}`;
+      const getOrdinalNum = (n) => n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+      const daysStr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      
+      const dayName = daysStr[selectedDate.getDay()];
+      const monthName = monthsStr[selectedDate.getMonth()];
+      const dayWithOrdinal = getOrdinalNum(day);
+      
+      document.getElementById('visitDate').value = `${dayName}, ${dayWithOrdinal} ${monthName} ${viewingYear}`;
       document.getElementById('customDatePicker').classList.add('hidden');
     }
 
