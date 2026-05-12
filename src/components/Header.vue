@@ -41,7 +41,7 @@
               </span>
 
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <LeafIcon class="w-4 h-4 text-black" />
                 <span class="text-xs font-semibold leading-none"
@@ -55,7 +55,7 @@
             <div v-if="videoVariant !== 2" class="relative flex items-center">
               <button
                 @click="toggleSearch"
-                class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-yellow-400 hover:text-black"
+                class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
@@ -79,7 +79,7 @@
               </span>
 
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <LeafIcon class="w-4 h-4 text-black" />
                 <span class="text-xs font-semibold leading-none"
@@ -104,7 +104,7 @@
         <transition name="slide">
           <div v-if="isSearchOpen" class="w-full px-4 mb-3 -mt-1 sm:hidden">
             <div
-              class="flex items-center w-full max-w-[24rem] mx-auto px-4 py-3 border shadow-2xl bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
+              class="flex items-center w-full max-w-[24rem] mx-auto px-4 py-3 border shadow-2xl bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-[#F2CB00]"
             >
               <font-awesome-icon
                 :icon="['fas', 'search']"
@@ -144,7 +144,7 @@
                   v-for="result in searchResults"
                   :key="result.id"
                   @click="onSelectResult(result)"
-                  class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
+                  class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-[#F2CB00] hover:text-black"
                 >
                   <div>
                     <p class="text-sm font-semibold">{{ result.title }}</p>
@@ -199,7 +199,7 @@
           <div class="relative flex items-center">
             <button
               @click="toggleSearch"
-              class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-yellow-400 hover:text-black"
+              class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black"
             >
               <font-awesome-icon
                 :icon="['fas', 'search']"
@@ -210,7 +210,7 @@
             <transition name="slide">
               <div
                 v-if="isSearchOpen"
-                class="absolute flex items-center w-64 px-4 py-2 border shadow-2xl right-12 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-yellow-400"
+                class="absolute flex items-center w-64 px-4 py-2 border shadow-2xl right-12 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-[#F2CB00]"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
@@ -244,7 +244,7 @@
                     v-for="result in searchResults"
                     :key="result.id"
                     @click="onSelectResult(result)"
-                    class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-yellow-400 hover:text-black"
+                    class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-[#F2CB00] hover:text-black"
                   >
                     <div class="flex items-start justify-between">
                       <div>
@@ -291,7 +291,7 @@
             </span>
 
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
             >
               <LeafIcon class="text-black" />
               <span class="text-sm font-semibold leading-none"
@@ -384,7 +384,7 @@
                     >
                       Our Story
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -396,7 +396,7 @@
                     >
                       Our Relevance
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -408,7 +408,7 @@
                     >
                       Our Footprint
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -420,7 +420,7 @@
                     >
                       Our Manifesto
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -432,7 +432,7 @@
                     >
                       Our People
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -492,7 +492,7 @@
                     >
                       Solutions
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -503,7 +503,7 @@
                     >
                       Projects
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -514,7 +514,7 @@
                     >
                       Impact
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -561,7 +561,7 @@
                     >
                       Connect with us
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -573,7 +573,7 @@
                     >
                       Start growing with us
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </button>
                   </li>
@@ -585,7 +585,7 @@
                     >
                       Shop at marketplace
                       <span
-                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-yellow-400 transition-all duration-300 group-hover:w-full"
+                        class="absolute left-0 -bottom-0.5 w-0 h-[2px] bg-[#F2CB00] transition-all duration-300 group-hover:w-full"
                       ></span>
                     </a>
                   </li>
@@ -852,7 +852,7 @@
 
           <button
             @click="toggleMenu"
-            class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-yellow-400"
+            class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
           >
             &times;
           </button>
@@ -868,7 +868,7 @@
                 class="flex flex-col px-6 max-[360px]:px-2 text-xs max-[360px]:text-[10px] sm:flex-row sm:items-center sm:justify-between sm:text-sm footer-content"
               >
                 <div
-                  class="hidden mb-2 font-semibold text-center text-yellow-300 sm:mb-0 sm:text-left lg:block"
+                  class="hidden mb-2 font-semibold text-center text-[#F2CB00] sm:mb-0 sm:text-left lg:block"
                 >
                   gateway to farming
                 </div>
@@ -885,7 +885,7 @@
                   <a
                     href="https://butterflytech.io"
                     target="_blank"
-                    class="text-yellow-300 sm:whitespace-nowrap"
+                    class="text-[#F2CB00] sm:whitespace-nowrap"
                   >
                     <span class="text-white">Powered by:</span> Butterfly
                     Technologies</a

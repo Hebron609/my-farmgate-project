@@ -61,7 +61,7 @@
         <div
           class="flex justify-center w-full mb-2 lg:w-auto lg:mb-0 lg:justify-start"
         >
-          <span class="font-semibold text-yellow-300">gateway to farming</span>
+          <span class="font-semibold text-[#F2CB00]">gateway to farming</span>
         </div>
         <div
           class="flex flex-col items-center w-full lg:w-auto lg:items-end gap-y-2"
@@ -76,7 +76,7 @@
             <a
               href="https://butterflytech.io"
               target="_blank"
-              class="ml-1 text-yellow-300"
+              class="ml-1 text-[#F2CB00]"
               >Butterfly Technologies</a
             >
           </span>

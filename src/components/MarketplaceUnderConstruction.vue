@@ -37,11 +37,11 @@
     <!-- Call to Action Button with Pulse Effect -->
     <div class="relative inline-flex group">
       <div
-        class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-yellow-600 animate-solid-pulse"
+        class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse"
       ></div>
       <a
         href="/"
-        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 shadow-xl whitespace-nowrap"
+        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-green-800 to-[#F2CB00] hover:shadow-2xl hover:scale-105 shadow-xl whitespace-nowrap"
       >
         Go To Homepage
       </a>

@@ -130,7 +130,7 @@ Nelson is driven by the passion to promote social innovation and enterprising so
   },
   {
     name: "Elizabeth Dadzie",
-    title: "Field Sales Agent",
+    title: "Field Sales Executive",
     hoverTitle: "Sales",
     location: "Accra, Ghana",
     bio: "Lizzy is a committed field sales rep with excellent background in customer relations service and boosting sale. She brings valuable field experience in engaging clients and driving sales at FarmGate Africa.",

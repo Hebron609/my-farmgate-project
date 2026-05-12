@@ -23,14 +23,14 @@
           <p
             class="text-white max-w-[90%] sm:max-w-[490px] text-xs sm:text-sm md:text-base mb-6 sm:mb-8 mt-2"
           >
-            Whether you’re an organization, an NGO, a farmer, distributor, a
-            coporate body an individual, we’re here to partner you, to achieve
-            your sustainable farming goals.
+            Whether you’re an organization, NGO, a farmer, distributor, a
+            corporate body or an individual, we’re here to partner you, to
+            achieve your sustainable farming goals.
           </p>
 
           <a
             href="/marketplace"
-            class="relative flex items-center px-4 py-2 overflow-hidden bg-yellow-400 cursor-pointer group rounded-4xl"
+            class="relative flex items-center px-4 py-2 overflow-hidden bg-[#F2CB00] cursor-pointer group rounded-4xl"
           >
             <span
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"

@@ -106,10 +106,17 @@ const selectToday = () => {
 
 const formattedDate = computed(() => {
   if (!selectedDate.value) return '';
-  const dd = String(selectedDate.value.getDate()).padStart(2, '0');
-  const mm = String(selectedDate.value.getMonth() + 1).padStart(2, '0');
-  const yyyy = selectedDate.value.getFullYear();
-  return `${dd}-${mm}-${yyyy}`;
+  const date = selectedDate.value;
+  const getOrdinalNum = (n) => n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+  const daysStr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
+  const dayName = daysStr[date.getDay()];
+  const monthName = monthsStr[date.getMonth()];
+  const dayWithOrdinal = getOrdinalNum(date.getDate());
+  const year = date.getFullYear();
+  
+  return `${dayName}, ${dayWithOrdinal} ${monthName} ${year}`;
 });
 
 // Time logic
@@ -125,9 +132,14 @@ const ampm = ['AM', 'PM'];
 const isDatePickerOpen = ref(false);
 const showSuccessModal = ref(false);
 
+const isHourDropdownOpen = ref(false);
+const isMinuteDropdownOpen = ref(false);
+
 const toggleDatePicker = () => {
   isDatePickerOpen.value = !isDatePickerOpen.value;
   if (isDatePickerOpen.value) {
+    isHourDropdownOpen.value = false;
+    isMinuteDropdownOpen.value = false;
     currentView.value = 'days';
     if (selectedDate.value) {
       viewingMonth.value = selectedDate.value.getMonth();
@@ -135,6 +147,42 @@ const toggleDatePicker = () => {
     }
   }
 };
+
+const toggleHourDropdown = () => {
+  isHourDropdownOpen.value = !isHourDropdownOpen.value;
+  if (isHourDropdownOpen.value) {
+    isDatePickerOpen.value = false;
+    isMinuteDropdownOpen.value = false;
+  }
+};
+
+const toggleMinuteDropdown = () => {
+  isMinuteDropdownOpen.value = !isMinuteDropdownOpen.value;
+  if (isMinuteDropdownOpen.value) {
+    isDatePickerOpen.value = false;
+    isHourDropdownOpen.value = false;
+  }
+};
+
+const selectHour = (h) => {
+  selectedHour.value = h;
+  isHourDropdownOpen.value = false;
+};
+
+const selectMinute = (m) => {
+  selectedMinute.value = m;
+  isMinuteDropdownOpen.value = false;
+};
+
+// Close pickers on outside click is handled by @click.stop and a window listener
+import { onMounted, onUnmounted } from 'vue';
+const closeAllPickers = () => {
+  isDatePickerOpen.value = false;
+  isHourDropdownOpen.value = false;
+  isMinuteDropdownOpen.value = false;
+};
+onMounted(() => window.addEventListener('click', closeAllPickers));
+onUnmounted(() => window.removeEventListener('click', closeAllPickers));
 
 const submitCall = (e) => {
   e.preventDefault();
@@ -183,28 +231,72 @@ const closeModal = () => {
           </div>
           
           <!-- Custom Date Picker Dropdown -->
-          <div v-if="isDatePickerOpen" class="absolute z-50 mt-2 left-0 right-0 mx-auto max-w-sm bg-white border-2 border-[#129C48] rounded-2xl shadow-2xl overflow-hidden" @click.stop>
-            <div class="flex items-center justify-between px-4 py-3 bg-[#129C48] text-white">
-              <button type="button" @click="prevCalendarView" class="p-1 hover:bg-white/20 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <span class="font-bold text-sm">{{ months[viewingMonth] }} {{ viewingYear }}</span>
-              <button type="button" @click="nextCalendarView" class="p-1 hover:bg-white/20 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div v-if="isDatePickerOpen" class="absolute z-50 top-full left-0 mt-2 w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden" @click.stop>
+            <!-- Header -->
+            <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white">
+              <button type="button" @click="prevCalendarView" class="hover:bg-white/20 p-1 rounded-full transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+              </button>
+              <button type="button" @click="switchCalendarMode" class="font-bold text-lg hover:bg-white/20 px-3 py-1 rounded-lg transition-colors">
+                <template v-if="currentView === 'days'">{{ months[viewingMonth] }} {{ viewingYear }}</template>
+                <template v-else-if="currentView === 'months'">{{ viewingYear }}</template>
+                <template v-else-if="currentView === 'years'">{{ yearDecadeStart }} - {{ yearDecadeStart + 9 }}</template>
+              </button>
+              <button type="button" @click="nextCalendarView" class="hover:bg-white/20 p-1 rounded-full transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
             </div>
+            
+            <!-- Views Container -->
             <div class="p-4">
-              <div class="grid grid-cols-7 mb-2">
-                <div v-for="d in daysOfWeek" :key="d" class="text-center text-[10px] font-black text-[#129C48] opacity-50 uppercase">{{ d }}</div>
-              </div>
-              <div class="grid grid-cols-7 gap-1">
-                <template v-for="(day, idx) in daysInMonth" :key="idx">
-                  <div v-if="day.empty"></div>
-                  <button v-else type="button" @click="!day.isPast && selectDate(day.day)" :disabled="day.isPast"
-                    class="w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold transition-all mx-auto"
+              <!-- Days View -->
+              <template v-if="currentView === 'days'">
+                <div class="grid grid-cols-7 mb-2">
+                  <div v-for="d in daysOfWeek" :key="d" class="text-center text-xs font-bold text-[#129C48]">{{ d }}</div>
+                </div>
+                <div class="grid grid-cols-7 gap-1">
+                  <template v-for="(day, idx) in daysInMonth" :key="idx">
+                    <div v-if="day.empty"></div>
+                    <button v-else type="button" @click="!day.isPast && selectDate(day.day)" :disabled="day.isPast"
+                      class="w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition-colors mx-auto"
+                      :class="[
+                        day.isPast ? 'text-gray-300 cursor-not-allowed' : 
+                        day.isSelected ? 'bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white shadow-md' :
+                        day.isToday ? 'border-2 border-[#F2CB00] text-[#129C48] bg-[#fffbe6]' : 'text-gray-700 hover:bg-[#129C48] hover:text-white'
+                      ]">{{ day.day }}</button>
+                  </template>
+                </div>
+              </template>
+
+              <!-- Months View -->
+              <template v-else-if="currentView === 'months'">
+                <div class="grid grid-cols-3 gap-4">
+                  <button type="button" v-for="(m, idx) in months" :key="m" @click="selectMonth(idx)"
+                    class="py-3 rounded-xl text-sm font-bold transition-all"
+                    :class="idx === viewingMonth ? 'bg-[#129C48] text-white shadow-md' : 'bg-gray-50 text-gray-700 hover:bg-[#129C48] hover:text-white'">
+                    {{ m }}
+                  </button>
+                </div>
+              </template>
+
+              <!-- Years View -->
+              <template v-else-if="currentView === 'years'">
+                <div class="grid grid-cols-3 gap-4">
+                  <button type="button" v-for="y in decadeYears" :key="y.year" @click="!y.isPast && selectYear(y.year)" :disabled="y.isPast"
+                    class="py-3 rounded-xl text-sm font-bold transition-all"
                     :class="[
-                      day.isPast ? 'text-gray-200 cursor-not-allowed' : 
-                      day.isSelected ? 'bg-[#129C48] text-white' :
-                      day.isToday ? 'border-2 border-[#F2CB00] text-[#129C48] bg-yellow-50/50' : 'text-gray-600 hover:bg-gray-100'
-                    ]">{{ day.day }}</button>
-                </template>
-              </div>
+                      y.isPast ? 'text-gray-300 cursor-not-allowed bg-transparent' :
+                      y.isCurrent ? 'bg-[#129C48] text-white shadow-md' : 'bg-gray-50 text-gray-700 hover:bg-[#129C48] hover:text-white'
+                    ]">
+                    {{ y.year }}
+                  </button>
+                </div>
+              </template>
+            </div>
+            
+            <!-- Footer -->
+            <div class="border-t border-gray-100 p-3 text-center bg-gray-50">
+              <button type="button" @click="selectToday" class="text-[#129C48] font-bold text-sm hover:underline">Today</button>
             </div>
           </div>
         </div>
@@ -214,30 +306,54 @@ const closeModal = () => {
           <label class="block text-gray-700 font-semibold mb-2">Pick a time <span class="text-red-600">*</span></label>
           <div class="time-select-container flex flex-col sm:flex-row sm:items-center gap-4">
             <div class="flex items-center gap-3 flex-1">
-              <div class="relative flex-1 group">
+              
+              <!-- Custom Hour Dropdown -->
+              <div class="relative flex-1 group" @click.stop="toggleHourDropdown">
                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <select v-model="selectedHour" class="w-full py-4 pl-12 pr-10 border-2 border-gray-100 focus:border-[#129C48] rounded-2xl outline-none bg-gray-50/50 font-bold text-center text-sm sm:text-base cursor-pointer appearance-none transition-all">
-                  <option v-for="h in hours" :key="h" :value="h">{{ h }}</option>
-                </select>
+                <div class="w-full py-4 pl-12 pr-10 border-2 border-gray-100 group-hover:border-[#129C48] rounded-2xl outline-none bg-gray-50/50 font-bold text-center text-sm sm:text-base cursor-pointer transition-all flex items-center justify-center" :class="{'border-[#129C48] shadow-md bg-white': isHourDropdownOpen}">
+                  {{ selectedHour }}
+                </div>
                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] sm:text-xs font-bold text-gray-400 pointer-events-none tracking-tight">hrs</span>
+                
+                <!-- Dropdown Menu -->
+                <div v-if="isHourDropdownOpen" class="absolute z-50 top-full left-0 mt-2 w-full bg-white border-2 border-[#129C48] rounded-xl shadow-xl max-h-56 overflow-y-auto custom-scrollbar">
+                  <div v-for="h in hours" :key="h" @click.stop="selectHour(h)" 
+                       class="py-3 px-4 font-bold text-center cursor-pointer transition-colors border-b border-gray-50 last:border-none"
+                       :class="selectedHour === h ? 'bg-[#129C48] text-white' : 'text-gray-700 hover:bg-[#f2faf5] hover:text-[#129C48]'">
+                    {{ h }}
+                  </div>
+                </div>
               </div>
+              
               <span class="text-xl font-bold text-gray-200">:</span>
-              <div class="relative flex-1 group">
+              
+              <!-- Custom Minute Dropdown -->
+              <div class="relative flex-1 group" @click.stop="toggleMinuteDropdown">
                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <select v-model="selectedMinute" class="w-full py-4 pl-12 pr-10 border-2 border-gray-100 focus:border-[#129C48] rounded-2xl outline-none bg-gray-50/50 font-bold text-center text-sm sm:text-base cursor-pointer appearance-none transition-all">
-                  <option v-for="m in minutes" :key="m" :value="m">{{ m }}</option>
-                </select>
+                <div class="w-full py-4 pl-12 pr-10 border-2 border-gray-100 group-hover:border-[#129C48] rounded-2xl outline-none bg-gray-50/50 font-bold text-center text-sm sm:text-base cursor-pointer transition-all flex items-center justify-center" :class="{'border-[#129C48] shadow-md bg-white': isMinuteDropdownOpen}">
+                  {{ selectedMinute }}
+                </div>
                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] sm:text-xs font-bold text-gray-400 pointer-events-none tracking-tight">min</span>
+                
+                <!-- Dropdown Menu -->
+                <div v-if="isMinuteDropdownOpen" class="absolute z-50 top-full left-0 mt-2 w-full bg-white border-2 border-[#129C48] rounded-xl shadow-xl overflow-hidden">
+                  <div v-for="m in minutes" :key="m" @click.stop="selectMinute(m)" 
+                       class="py-3 px-4 font-bold text-center cursor-pointer transition-colors border-b border-gray-50 last:border-none"
+                       :class="selectedMinute === m ? 'bg-[#129C48] text-white' : 'text-gray-700 hover:bg-[#f2faf5] hover:text-[#129C48]'">
+                    {{ m }}
+                  </div>
+                </div>
               </div>
             </div>
+            
             <div class="flex border-2 border-gray-100 rounded-2xl overflow-hidden bg-gray-50/50 shadow-sm h-[56px] sm:w-[140px] am-pm-toggle">
               <button type="button" v-for="a in ampm" :key="a" @click="selectedAmPm = a"
                 class="flex-1 font-black text-xs sm:text-sm transition-all"
-                :class="selectedAmPm === a ? 'bg-[#129C48] text-white shadow-inner' : 'text-gray-400 hover:bg-gray-50'">{{ a }}</button>
+                :class="selectedAmPm === a ? 'bg-[#129C48] text-white shadow-inner' : 'text-gray-400 hover:bg-white hover:text-gray-600'">{{ a }}</button>
             </div>
           </div>
         </div>
@@ -413,5 +529,17 @@ select {
     height: 48px !important; 
   }
   .am-pm-toggle button { font-size: 10px !important; }
+}
+
+/* Custom Scrollbar for Dropdown */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #129C48;
+  border-radius: 10px;
 }
 </style>

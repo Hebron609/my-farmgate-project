@@ -197,7 +197,7 @@
                   </span>
 
                   <span
-                    class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover/button:translate-y-0"
+                    class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover/button:translate-y-0"
                   >
                     <LeafIcon class="w-4 h-4 text-black" />
                     <span class="text-xs font-semibold leading-none"
@@ -275,7 +275,7 @@
                       class="absolute inset-0 transition-opacity duration-300 opacity-100 white-bg bg-white/25 backdrop-blur-md rounded-4xl group-hover/button:opacity-0"
                     ></span>
                     <span
-                      class="absolute inset-0 transition-opacity duration-300 bg-yellow-400 opacity-0 yellow-bg rounded-4xl group-hover/button:opacity-100"
+                      class="absolute inset-0 transition-opacity duration-300 bg-[#F2CB00] opacity-0 yellow-bg rounded-4xl group-hover/button:opacity-100"
                     ></span>
 
                     <span

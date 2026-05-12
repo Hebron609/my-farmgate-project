@@ -49,7 +49,7 @@
               <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
             </span>
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] bg-gradient-to-r group-hover:translate-y-0"
             >
               <font-awesome-icon
                 icon="leaf"
@@ -133,7 +133,7 @@
               <span>Discover our solutions</span>
             </span>
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] bg-gradient-to-r group-hover:translate-y-0"
             >
               <font-awesome-icon icon="leaf" class="text-xs" />
               <span class="font-semibold">Discover our solutions</span>
@@ -282,7 +282,7 @@
               <span class="text-xs sm:text-sm md:text-base">Marketplace</span>
             </span>
             <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-300 bg-gradient-to-r group-hover:translate-y-0"
+              class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] bg-gradient-to-r group-hover:translate-y-0"
             >
               <font-awesome-icon
                 icon="leaf"
@@ -498,7 +498,7 @@
 
               <!-- Hover Text -->
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <font-awesome-icon icon="leaf" class="text-xs" />
                 <span>Meet our team</span>
