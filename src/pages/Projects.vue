@@ -102,71 +102,194 @@
         <div class="h-1 w-24 bg-[#F2CB00] mx-auto mt-8 mb-12"></div>
 
         <!-- Filter System (Floating Command Bar) -->
-        <div class="w-full max-w-5xl mx-auto px-4 mb-16 relative z-20 reveal-slide-up mt-4">
-          <div class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            
+        <div
+          class="relative z-[220] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
+        >
+          <div
+            class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row md:flex-nowrap items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
             <!-- Search -->
-            <div class="relative w-full md:w-[30%] group">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-6 pointer-events-none">
-                <svg class="w-5 h-5 text-[#F2CB00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div
+              class="relative w-full md:flex-[1.35] md:min-w-[260px] min-w-0 group"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-6 pointer-events-none"
+              >
+                <svg
+                  class="w-5 h-5 text-[#F2CB00] transition-colors duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
               </div>
-              <input 
-                type="text" 
-                v-model="searchQuery" 
-                placeholder="Search projects..." 
+              <input
+                type="text"
+                v-model="searchQueryDraft"
+                @keyup.enter="applyFilters"
+                placeholder="Search all projects..."
                 class="w-full bg-transparent text-gray-800 py-4 pl-14 pr-6 rounded-t-[2rem] md:rounded-l-[2rem] md:rounded-tr-none font-semibold font-montserrat text-sm outline-none placeholder-gray-400 focus:bg-gray-50 transition-colors"
               />
             </div>
 
             <!-- Location Select -->
-            <div class="relative w-full md:w-[20%] group cursor-pointer hover:bg-gray-50 transition-colors">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
-                <svg class="w-4 h-4 text-[#F2CB00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <div
+              class="relative w-full md:w-[210px] md:flex-none md:shrink-0 group cursor-pointer hover:bg-gray-50 transition-colors"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-[#F2CB00]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
               </div>
-              <select v-model="selectedLocation" class="w-full appearance-none bg-transparent text-gray-700 py-4 pl-12 pr-10 font-semibold font-montserrat text-sm outline-none cursor-pointer">
+              <select
+                v-model="selectedLocationDraft"
+                class="w-full py-4 pl-12 pr-10 text-sm font-semibold text-gray-700 bg-transparent outline-none appearance-none cursor-pointer font-montserrat"
+              >
                 <option>All locations</option>
                 <option>Eastern Region</option>
                 <option>Ahafo Region</option>
                 <option>Volta Region</option>
                 <option>Northern Region</option>
               </select>
-              <svg class="w-4 h-4 absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg
+                class="w-4 h-4 absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
             </div>
 
             <!-- Focus Area Select -->
-            <div class="relative w-full md:w-[28%] group cursor-pointer hover:bg-gray-50 transition-colors">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
-                <svg class="w-4 h-4 text-[#F2CB00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+            <div
+              class="relative w-full md:w-[230px] md:flex-none md:shrink-0 group cursor-pointer hover:bg-gray-50 transition-colors"
+            >
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-[#F2CB00]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
+                </svg>
               </div>
-              <select v-model="selectedFocusArea" class="w-full appearance-none bg-transparent text-gray-700 py-4 pl-12 pr-10 font-semibold font-montserrat text-sm outline-none cursor-pointer">
+              <select
+                v-model="selectedFocusAreaDraft"
+                class="w-full py-4 pl-12 pr-10 text-sm font-semibold text-gray-700 bg-transparent outline-none appearance-none cursor-pointer font-montserrat"
+              >
                 <option>All key focus areas</option>
                 <option>TAP</option>
-                <option>General Farming</option>
+                <option>Flagship Farming</option>
               </select>
-              <svg class="w-4 h-4 absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg
+                class="w-4 h-4 absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
             </div>
 
-            <!-- Status Toggles -->
-            <div class="w-full md:w-auto flex items-center justify-center gap-4 py-3 md:py-0 px-6 rounded-b-[2rem] md:rounded-r-[2rem] md:rounded-bl-none hover:bg-gray-50 transition-colors flex-1">
-              <label class="flex items-center gap-2 cursor-pointer group">
-                <div class="relative flex items-center">
-                  <input type="checkbox" v-model="statusActive" class="peer sr-only" />
-                  <div class="w-10 h-5 bg-gray-200 rounded-full peer-checked:bg-[#129C48] transition-colors duration-300 ease-in-out shadow-inner"></div>
-                  <div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform duration-300 ease-in-out peer-checked:translate-x-5 shadow-sm"></div>
-                </div>
-                <span class="text-gray-600 text-xs font-bold font-montserrat group-hover:text-[#129C48] transition-colors uppercase tracking-wider">Active</span>
+            <!-- Single Status Toggle: Active [toggle] Completed -->
+            <div
+              class="flex items-center justify-center w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
+            >
+              <span
+                class="text-xs font-semibold text-gray-700 sm:text-sm font-montserrat whitespace-nowrap shrink-0"
+                >Project status:</span
+              >
+
+              <span
+                class="text-[11px] sm:text-sm font-semibold text-gray-600 font-montserrat whitespace-nowrap shrink-0"
+                >Active</span
+              >
+
+              <label
+                class="relative inline-flex items-center mx-1 cursor-pointer sm:mx-3 shrink-0"
+              >
+                <input
+                  type="checkbox"
+                  class="sr-only"
+                  v-model="isCompletedDraft"
+                  @change="applyFilters"
+                />
+                <div
+                  :class="[
+                    'w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors duration-300 shadow-inner',
+                    isCompletedDraft ? 'bg-[#F2CB00]' : 'bg-[#129C48]',
+                  ]"
+                ></div>
+                <span
+                  :class="[
+                    'absolute top-[3px] left-[3px] w-3.5 h-3.5 sm:top-1 sm:left-1 sm:w-4 sm:h-4 bg-white rounded-full shadow-sm transition-transform duration-300',
+                    isCompletedDraft
+                      ? 'translate-x-5 sm:translate-x-6'
+                      : 'translate-x-0',
+                  ]"
+                ></span>
               </label>
-              
-              <label class="flex items-center gap-2 cursor-pointer group">
-                <div class="relative flex items-center">
-                  <input type="checkbox" v-model="statusComplete" class="peer sr-only" />
-                  <div class="w-10 h-5 bg-gray-200 rounded-full peer-checked:bg-[#129C48] transition-colors duration-300 ease-in-out shadow-inner"></div>
-                  <div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform duration-300 ease-in-out peer-checked:translate-x-5 shadow-sm"></div>
-                </div>
-                <span class="text-gray-600 text-xs font-bold font-montserrat group-hover:text-[#129C48] transition-colors uppercase tracking-wider">Complete</span>
-              </label>
+
+              <span
+                class="text-[11px] sm:text-sm font-semibold text-gray-600 font-montserrat whitespace-nowrap shrink-0"
+                >Completed</span
+              >
             </div>
 
+            <!-- Go Action Section -->
+            <div
+              class="w-full md:w-[140px] md:flex-none md:shrink-0 flex items-center justify-center py-3 md:py-0 px-2 md:px-4 md:rounded-r-[2rem] hover:bg-gray-50 transition-colors"
+            >
+              <button
+                @click="applyFilters"
+                class="px-4 py-2 text-sm font-semibold text-white transition-colors bg-black rounded-full shadow-sm cursor-pointer hover:bg-gray-900 active:scale-95"
+              >
+                Go
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -175,12 +298,28 @@
         class="carousel-scene relative w-full md:h-[550px] flex items-center justify-center overflow-x-clip h-[430px]"
       >
         <!-- Empty State -->
-        <div v-if="displayOrder.length === 0" class="absolute inset-0 flex items-center justify-center z-50">
-          <div class="text-center p-8 bg-black/5 backdrop-blur-md rounded-2xl border border-black/10 shadow-lg mx-4">
-            <LeafIcon class="mx-auto mb-4 h-12 w-12 text-[#129C48] opacity-80" />
-            <h3 class="text-2xl font-['Livvic'] text-black font-bold mb-2">No projects found</h3>
-            <p class="text-gray-600 font-['Montserrat'] text-sm md:text-base">Try adjusting your filters to discover more projects.</p>
-            <button @click="resetFilters" class="mt-6 px-6 py-2.5 bg-[#129C48] text-white rounded-full font-semibold hover:bg-[#0a4d3c] shadow-md transition-colors active:scale-95">Clear Filters</button>
+        <div
+          v-if="displayOrder.length === 0"
+          class="absolute inset-0 z-50 flex items-center justify-center"
+        >
+          <div
+            class="p-8 mx-4 text-center border shadow-lg bg-black/5 backdrop-blur-md rounded-2xl border-black/10"
+          >
+            <LeafIcon
+              class="mx-auto mb-4 h-12 w-12 text-[#129C48] opacity-80"
+            />
+            <h3 class="text-2xl font-['Livvic'] text-black font-bold mb-2">
+              No projects found
+            </h3>
+            <p class="text-gray-600 font-['Montserrat'] text-sm md:text-base">
+              Try adjusting your filters to discover more projects.
+            </p>
+            <button
+              @click="resetFilters"
+              class="mt-6 px-6 py-2.5 bg-[#129C48] text-white rounded-full font-semibold hover:bg-[#0a4d3c] shadow-md transition-colors active:scale-95"
+            >
+              Clear Filters
+            </button>
           </div>
         </div>
 
@@ -230,7 +369,9 @@
           </div>
 
           <div
-            v-if="getTrackStatus(trackIndex) === 'active' && displayOrder.length > 1"
+            v-if="
+              getTrackStatus(trackIndex) === 'active' && displayOrder.length > 1
+            "
             class="absolute inset-0 z-[100] flex items-center justify-between px-6 pointer-events-none transform translate-z-10"
           >
             <button
@@ -389,7 +530,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Eastern Region, Ghana`,
     region: "Eastern Region",
     focusArea: "TAP",
-    status: "Complete"
+    status: "Active",
   },
   {
     id: 2,
@@ -398,7 +539,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Eastern Region, Ghana`,
     region: "Eastern Region",
     focusArea: "TAP",
-    status: "Complete"
+    status: "Complete",
   },
   {
     id: 3,
@@ -407,7 +548,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Eastern Region, Ghana`,
     region: "Eastern Region",
     focusArea: "TAP",
-    status: "Complete"
+    status: "Complete",
   },
   {
     id: 4,
@@ -416,7 +557,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Ahafo Region, Ghana`,
     region: "Ahafo Region",
     focusArea: "TAP",
-    status: "Complete"
+    status: "Complete",
   },
   {
     id: 5,
@@ -425,7 +566,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Eastern Region, Ghana`,
     region: "Eastern Region",
     focusArea: "TAP",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 6,
@@ -434,7 +575,7 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Volta Region, Ghana`,
     region: "Volta Region",
     focusArea: "TAP",
-    status: "Active"
+    status: "Active",
   },
   {
     id: 7,
@@ -442,8 +583,8 @@ const solutions = [
     image: farmPic7,
     description: "• Volta Region, Ghana",
     region: "Volta Region",
-    focusArea: "General Farming",
-    status: "Active"
+    focusArea: "Flagship Farming",
+    status: "Active",
   },
   {
     id: 8,
@@ -452,80 +593,100 @@ const solutions = [
     description: `• Tullow Agriventure Programme (TAP)\n• Eastern Region, Ghana`,
     region: "Eastern Region",
     focusArea: "TAP",
-    status: "Active"
+    status: "Active",
   },
 ];
 
 // Reactive Filters
 const selectedLocation = ref("All locations");
 const selectedFocusArea = ref("All key focus areas");
-const statusActive = ref(false);
-const statusComplete = ref(false);
+// Single toggle: false => Active, true => Completed
+const isCompleted = ref(false);
 const searchQuery = ref("");
+
+const selectedLocationDraft = ref("All locations");
+const selectedFocusAreaDraft = ref("All key focus areas");
+const isCompletedDraft = ref(false);
+const searchQueryDraft = ref("");
 
 // Computed Filtered Array
 const filteredSolutions = computed(() => {
-  return solutions.filter(card => {
+  return solutions.filter((card) => {
     // Location Filter
-    if (selectedLocation.value !== "All locations" && card.region !== selectedLocation.value) return false;
-    
+    if (
+      selectedLocation.value !== "All locations" &&
+      card.region !== selectedLocation.value
+    )
+      return false;
+
     // Focus Area Filter
-    if (selectedFocusArea.value !== "All key focus areas" && card.focusArea !== selectedFocusArea.value) return false;
-    
-    // Status Filter
-    const isStatusFiltered = statusActive.value || statusComplete.value;
-    if (isStatusFiltered) {
-       if (statusActive.value && !statusComplete.value && card.status !== "Active") return false;
-       if (statusComplete.value && !statusActive.value && card.status !== "Complete") return false;
-    }
+    if (
+      selectedFocusArea.value !== "All key focus areas" &&
+      card.focusArea !== selectedFocusArea.value
+    )
+      return false;
+
+    // Status Filter (single toggle)
+    if (card.status !== (isCompleted.value ? "Complete" : "Active"))
+      return false;
 
     // Search Query
     if (searchQuery.value) {
-       const q = searchQuery.value.toLowerCase();
-       if (!card.title.toLowerCase().includes(q) && !card.description.toLowerCase().includes(q)) {
-          return false;
-       }
+      const q = searchQuery.value.toLowerCase();
+      if (
+        !card.title.toLowerCase().includes(q) &&
+        !card.description.toLowerCase().includes(q)
+      ) {
+        return false;
+      }
     }
 
     return true;
   });
 });
 
-const displayOrder = ref([...solutions]);
+const displayOrder = ref([...filteredSolutions.value]);
 
 // Sync filtered items to the carousel
 watch(filteredSolutions, (newVal) => {
   displayOrder.value = [...newVal];
 });
 
+const applyFilters = () => {
+  selectedLocation.value = selectedLocationDraft.value;
+  selectedFocusArea.value = selectedFocusAreaDraft.value;
+  isCompleted.value = isCompletedDraft.value;
+  searchQuery.value = searchQueryDraft.value;
+};
+
 const resetFilters = () => {
-    selectedLocation.value = "All locations";
-    selectedFocusArea.value = "All key focus areas";
-    statusActive.value = false;
-    statusComplete.value = false;
-    searchQuery.value = "";
+  selectedLocationDraft.value = "All locations";
+  selectedFocusAreaDraft.value = "All key focus areas";
+  isCompletedDraft.value = false;
+  searchQueryDraft.value = "";
+  applyFilters();
 };
 
 const getTrackStatus = (index) => {
   const len = displayOrder.value.length;
   if (len === 0) return "hidden-far-right";
-  
+
   if (len === 1) {
-     if (index === 0) return "active";
-     return "hidden-far-right";
+    if (index === 0) return "active";
+    return "hidden-far-right";
   }
-  
+
   if (len === 2) {
-     if (index === 0) return "active";
-     if (index === 1) return "next";
-     return "hidden-far-right";
+    if (index === 0) return "active";
+    if (index === 1) return "next";
+    return "hidden-far-right";
   }
 
   if (len === 3) {
-     if (index === 0) return "prev";
-     if (index === 1) return "active";
-     if (index === 2) return "next";
-     return "hidden-far-right";
+    if (index === 0) return "prev";
+    if (index === 1) return "active";
+    if (index === 2) return "next";
+    return "hidden-far-right";
   }
 
   // SYMMETRICAL 5-SLOT TRACK FOR 4+ CARDS:

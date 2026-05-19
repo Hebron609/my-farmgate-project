@@ -53,7 +53,7 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-12 overflow-hidden bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
+      class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
     >
       <div class="absolute top-0 left-0 pointer-events-none opacity-5">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
@@ -86,7 +86,7 @@
         </div>
 
         <div
-          class="flex flex-col items-center md:items-start justify-between mb-16 md:mb-32 md:flex-row md:gap-12"
+          class="flex flex-col items-center justify-between mb-16 md:items-start md:mb-32 md:flex-row md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h3
@@ -139,7 +139,7 @@
                 </div>
 
                 <h4
-                  class="mb-4 font-['Livvic'] text-2xl font-bold text-[#129C48] transition-colors group-hover:text-black"
+                  class="mb-4 font-['Livvic'] text-2xl font-bold text-black transition-colors group-hover:text-[#129C48]"
                 >
                   {{ area.name }}
                 </h4>

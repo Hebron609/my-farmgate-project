@@ -40,7 +40,7 @@ Nelson is driven by the passion to promote social innovation and enterprising so
   },
   {
     name: "Rachael Effah-Frempah",
-    title: "CFO, Chief Financial Officer",
+    title: "Chief Financial Officer",
     hoverTitle: "CFO",
     location: "Accra, Ghana",
     bio: "Rachael is a skilled finance professional with expertise in strategic financial planning, analysis, and grant management. She excels in delivering financial insights and driving process improvements to support business growth. Before FGAI, she provides key financial management and administration support at Innohub. She also worked as a Finance Officer at GHIPSS, handling accounts receivable. Rachael holds a BSc in Banking and Finance from UGBS and is a Chartered Accountant from ACCA.",
@@ -156,13 +156,27 @@ Nelson is driven by the passion to promote social innovation and enterprising so
     department: "Strategic Advisors",
     order: 6,
   },
-  
+  {
+    name: "Kow Aboagye-Ghunney",
+    title: "Chief Crop Production Officer | CCPO",
+    hoverTitle: "CCPO",
+    location: "Accra, Ghana",
+    bio: "Kow Aboagye-Ghunney is a seasoned agricultural professional with extensive experience in crop production and management. A distinguished Fulbright Scholar, he brings a wealth of knowledge and expertise to his role as Chief Crop Production Officer at FarmGate Africa, where he leads initiatives to enhance crop yields and promote sustainable farming practices. His commitment to driving agricultural advancement has been recognized with the Young Innovators Award in the agriculture category by the Springboard Foundation and Mastercard. Additionally, Kow was named the Best Innovative Farmer at the 41st National Farmers' Day. His deep background in agricultural science and his proven track record of innovation make him a valuable asset to the FarmGate team.",
+    photoUrl: "/images/profile.webp",
+    photoUrlModal: "/images/profile.webp",
+    imagePosition: "center -15%",
+    email: "",
+    socialLinks: { linkedin: "https://linkedin.com" },
+    department: "Strategic Advisors",
+    order: 7,
+  },
+
   {
     name: "Juliet Yayra Dzasi",
     title: "GM, Chief Farmer",
     hoverTitle: "Chief Farmer",
     location: "Accra, Ghana",
-    bio: "Juliet is an accomplished agripreneur and the General Manager of Farmgate Africa. Known as our Chief Farmer, she spearheads the company’s mission to drive agricultural innovation and sustainable farming practices across the region. With a passion for food security and a deep understanding of market dynamics, Juliet leads Farmgate Africa’s teams in developing cutting-edge solutions that empower farmers, enhance productivity, and foster long-term growth in the agricultural sector.",
+    bio: "Juliet is an accomplished agripreneur and the General Manager of Farmgate Africa. Known as our Chief Farmer, she brings a strong academic and professional background to her leadership, holding an MSc in Development Management from the Kwame Nkrumah University of Science and Technology, a BA in Rural Development from Wisconsin International University College, and an Executive Certificate in Business Administration from Accra Business School. She spearheads Farmgate Africa’s mission to drive agricultural innovation and promote sustainable farming practices across the region. With a passion for food security and a deep understanding of market dynamics, Juliet leads the company’s teams in developing cutting-edge solutions that empower farmers, enhance productivity, and foster long-term growth in the agricultural sector.",
     photoUrl: "/images/Juliet-Yayra-Dzasi.webp",
     photoUrlModal: "/images/Juliet-Yayra-Dzasi-modal.webp",
     imagePosition: "center -15%",
