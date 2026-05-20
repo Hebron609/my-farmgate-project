@@ -103,7 +103,7 @@
 
         <!-- Filter System (Floating Command Bar) -->
         <div
-          class="relative z-[220] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
+          class="relative z-[20] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
         >
           <div
             class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row md:flex-nowrap items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
@@ -239,7 +239,7 @@
               class="flex items-center justify-center w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
             >
               <span
-                class="text-xs font-semibold text-gray-700 sm:text-sm font-montserrat whitespace-nowrap shrink-0"
+                class="text-xs font-semibold text-gray-700 md:text-sm font-montserrat whitespace-nowrap shrink-0"
                 >Project status:</span
               >
 
@@ -609,6 +609,11 @@ const selectedFocusAreaDraft = ref("All key focus areas");
 const isCompletedDraft = ref(false);
 const searchQueryDraft = ref("");
 
+watch(searchQueryDraft, (newQuery) => {
+  searchQuery.value = newQuery;
+  carouselOffset.value = 0;
+});
+
 // Computed Filtered Array
 const filteredSolutions = computed(() => {
   return solutions.filter((card) => {
@@ -645,11 +650,23 @@ const filteredSolutions = computed(() => {
   });
 });
 
-const displayOrder = ref([...filteredSolutions.value]);
+const carouselOffset = ref(0);
 
-// Sync filtered items to the carousel
-watch(filteredSolutions, (newVal) => {
-  displayOrder.value = [...newVal];
+const displayOrder = computed(() => {
+  const cards = filteredSolutions.value;
+  const len = cards.length;
+
+  if (len === 0) return [];
+
+  const offset = ((carouselOffset.value % len) + len) % len;
+  if (offset === 0) return cards;
+
+  return [...cards.slice(offset), ...cards.slice(0, offset)];
+});
+
+// Reset the rotation whenever filters change so the track starts from a stable order.
+watch(filteredSolutions, () => {
+  carouselOffset.value = 0;
 });
 
 const applyFilters = () => {
@@ -699,13 +716,17 @@ const getTrackStatus = (index) => {
 };
 
 const handleNext = () => {
-  const first = displayOrder.value.shift();
-  displayOrder.value.push(first);
+  const len = filteredSolutions.value.length;
+  if (len <= 1) return;
+
+  carouselOffset.value = (carouselOffset.value + 1) % len;
 };
 
 const handlePrev = () => {
-  const last = displayOrder.value.pop();
-  displayOrder.value.unshift(last);
+  const len = filteredSolutions.value.length;
+  if (len <= 1) return;
+
+  carouselOffset.value = (carouselOffset.value - 1 + len) % len;
 };
 
 const stats = ref([
