@@ -54,7 +54,7 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-12 overflow-hidden bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
+      class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
       aria-label="Our Team"
     >
       <div class="absolute top-0 right-0 pointer-events-none opacity-3">
@@ -88,7 +88,7 @@
         </div>
 
         <div
-          class="flex flex-col items-center md:items-start justify-between mb-12 md:mb-24 md:flex-row md:gap-12"
+          class="flex flex-col items-center justify-between mb-12 md:items-start md:mb-24 md:flex-row md:gap-12"
         >
           <div class="md:max-w-xl reveal-slide-right">
             <h2
@@ -96,11 +96,14 @@
             >
               Who <span class="text-[#129C48]">We Are</span>
             </h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
+            <div
+              class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"
+            ></div>
             <p
               class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%] mb-8"
             >
-              We are a team of agripreneurs, agronomists, technologists, sustainability, and agribusiness experts.
+              We are a team of agripreneurs, agronomists, technologists,
+              sustainability, and agribusiness experts.
             </p>
           </div>
 
@@ -154,8 +157,17 @@
               <img
                 :src="member.photoUrl"
                 :alt="'Photo of ' + member.name"
-                class="object-cover object-top w-full h-full transition-transform duration-500 scale-120 group-hover:scale-135 will-change-transform"
-                :style="member.imagePosition ? { objectPosition: member.imagePosition } : {}"
+                :class="[
+                  'object-cover w-full h-full transition-transform duration-500 will-change-transform',
+                  isPlaceholder(member)
+                    ? 'object-center placeholder-scale'
+                    : 'object-top scale-120 group-hover:scale-135',
+                ]"
+                :style="
+                  member.imagePosition
+                    ? { objectPosition: member.imagePosition }
+                    : {}
+                "
                 loading="lazy"
               />
               <div
@@ -218,15 +230,17 @@
             <h2
               class="font-['Livvic'] text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
             >
-              We’re building, and this is your chance to shape your career with us.
+              We’re building, and this is your chance to shape your career with
+              us.
             </h2>
 
             <p class="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
-            At FGAI, we don't loose, we don't win, we learn.
+              At FGAI, we don't loose, we don't win, we learn.
             </p>
 
             <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
-              Bring your talent, explore opportunities, and drive value with purpose.
+              Bring your talent, explore opportunities, and drive value with
+              purpose.
             </p>
 
             <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
@@ -426,9 +440,18 @@ const filteredTeam = computed(() => {
       : TEAM_DATA.filter((m) => m.department === activeDepartment.value);
   return filtered.sort((a, b) => (a.order || 0) - (b.order || 0));
 });
+
+const isPlaceholder = (member) => {
+  if (!member || !member.photoUrl) return false;
+  return member.photoUrl.toLowerCase().includes("profile.");
+};
 </script>
 
 <style>
+.placeholder-scale {
+  transform: scale(1.12);
+}
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.3s ease;

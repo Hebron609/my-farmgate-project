@@ -205,7 +205,7 @@ const closeModal = () => {
     
     <!-- Main Card -->
     <div class="max-w-4xl w-full sm:ml-12 md:ml-20 lg:ml-32 form-card bg-white p-6 sm:p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(18,156,72,0.05)] border border-stone-100 relative z-10">
-      <div class="text-left mb-6 sm:mb-8">
+      <div class="mb-6 text-left sm:mb-8">
         <h2 class="font-['Livvic'] text-3xl sm:text-4xl md:text-4xl font-bold text-black mb-4">
           Schedule a <span class="text-[#129C48]">Quick Call</span>
         </h2>
@@ -219,13 +219,13 @@ const closeModal = () => {
         
         <!-- Date Selection -->
         <div class="relative">
-          <label class="block text-gray-700 font-semibold mb-2">Pick a day <span class="text-red-600">*</span></label>
+          <label class="block mb-2 font-semibold text-gray-700">Pick a day <span class="text-red-600">*</span></label>
           <div class="relative cursor-pointer" @click.stop="toggleDatePicker">
             <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             <input type="text" :value="formattedDate" placeholder="Select a date" class="w-full pl-14 py-4 border-2 border-gray-100 focus:border-[#129C48] rounded-2xl outline-none transition-all duration-300 font-medium placeholder:text-gray-500 placeholder:font-normal text-gray-800 cursor-pointer" required readonly />
-            <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-300" :class="{'rotate-180': isDatePickerOpen}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="absolute w-5 h-5 text-gray-400 transition-transform duration-300 -translate-y-1/2 right-4 top-1/2" :class="{'rotate-180': isDatePickerOpen}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
           </div>
@@ -234,15 +234,15 @@ const closeModal = () => {
           <div v-if="isDatePickerOpen" class="absolute z-50 top-full left-0 mt-2 w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden" @click.stop>
             <!-- Header -->
             <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white">
-              <button type="button" @click="prevCalendarView" class="hover:bg-white/20 p-1 rounded-full transition-colors">
+              <button type="button" @click="prevCalendarView" class="p-1 transition-colors rounded-full hover:bg-white/20">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button type="button" @click="switchCalendarMode" class="font-bold text-lg hover:bg-white/20 px-3 py-1 rounded-lg transition-colors">
+              <button type="button" @click="switchCalendarMode" class="px-3 py-1 text-lg font-bold transition-colors rounded-lg hover:bg-white/20">
                 <template v-if="currentView === 'days'">{{ months[viewingMonth] }} {{ viewingYear }}</template>
                 <template v-else-if="currentView === 'months'">{{ viewingYear }}</template>
                 <template v-else-if="currentView === 'years'">{{ yearDecadeStart }} - {{ yearDecadeStart + 9 }}</template>
               </button>
-              <button type="button" @click="nextCalendarView" class="hover:bg-white/20 p-1 rounded-full transition-colors">
+              <button type="button" @click="nextCalendarView" class="p-1 transition-colors rounded-full hover:bg-white/20">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
             </div>
@@ -258,7 +258,7 @@ const closeModal = () => {
                   <template v-for="(day, idx) in daysInMonth" :key="idx">
                     <div v-if="day.empty"></div>
                     <button v-else type="button" @click="!day.isPast && selectDate(day.day)" :disabled="day.isPast"
-                      class="w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition-colors mx-auto"
+                      class="flex items-center justify-center w-8 h-8 mx-auto text-sm font-medium transition-colors rounded-lg"
                       :class="[
                         day.isPast ? 'text-gray-300 cursor-not-allowed' : 
                         day.isSelected ? 'bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white shadow-md' :
@@ -272,7 +272,7 @@ const closeModal = () => {
               <template v-else-if="currentView === 'months'">
                 <div class="grid grid-cols-3 gap-4">
                   <button type="button" v-for="(m, idx) in months" :key="m" @click="selectMonth(idx)"
-                    class="py-3 rounded-xl text-sm font-bold transition-all"
+                    class="py-3 text-sm font-bold transition-all rounded-xl"
                     :class="idx === viewingMonth ? 'bg-[#129C48] text-white shadow-md' : 'bg-gray-50 text-gray-700 hover:bg-[#129C48] hover:text-white'">
                     {{ m }}
                   </button>
@@ -283,7 +283,7 @@ const closeModal = () => {
               <template v-else-if="currentView === 'years'">
                 <div class="grid grid-cols-3 gap-4">
                   <button type="button" v-for="y in decadeYears" :key="y.year" @click="!y.isPast && selectYear(y.year)" :disabled="y.isPast"
-                    class="py-3 rounded-xl text-sm font-bold transition-all"
+                    class="py-3 text-sm font-bold transition-all rounded-xl"
                     :class="[
                       y.isPast ? 'text-gray-300 cursor-not-allowed bg-transparent' :
                       y.isCurrent ? 'bg-[#129C48] text-white shadow-md' : 'bg-gray-50 text-gray-700 hover:bg-[#129C48] hover:text-white'
@@ -295,7 +295,7 @@ const closeModal = () => {
             </div>
             
             <!-- Footer -->
-            <div class="border-t border-gray-100 p-3 text-center bg-gray-50">
+            <div class="p-3 text-center border-t border-gray-100 bg-gray-50">
               <button type="button" @click="selectToday" class="text-[#129C48] font-bold text-sm hover:underline">Today</button>
             </div>
           </div>
@@ -303,9 +303,9 @@ const closeModal = () => {
         
         <!-- Time Selection -->
         <div>
-          <label class="block text-gray-700 font-semibold mb-2">Pick a time <span class="text-red-600">*</span></label>
-          <div class="time-select-container flex flex-col sm:flex-row sm:items-center gap-4">
-            <div class="flex items-center gap-3 flex-1">
+          <label class="block mb-2 font-semibold text-gray-700">Pick a time <span class="text-red-600">*</span></label>
+          <div class="flex flex-col gap-4 time-select-container sm:flex-row sm:items-center">
+            <div class="flex items-center flex-1 gap-3">
               
               <!-- Custom Hour Dropdown -->
               <div class="relative flex-1 group" @click.stop="toggleHourDropdown">
@@ -320,7 +320,7 @@ const closeModal = () => {
                 <!-- Dropdown Menu -->
                 <div v-if="isHourDropdownOpen" class="absolute z-50 top-full left-0 mt-2 w-full bg-white border-2 border-[#129C48] rounded-xl shadow-xl max-h-56 overflow-y-auto custom-scrollbar">
                   <div v-for="h in hours" :key="h" @click.stop="selectHour(h)" 
-                       class="py-3 px-4 font-bold text-center cursor-pointer transition-colors border-b border-gray-50 last:border-none"
+                       class="px-4 py-3 font-bold text-center transition-colors border-b cursor-pointer border-gray-50 last:border-none"
                        :class="selectedHour === h ? 'bg-[#129C48] text-white' : 'text-gray-700 hover:bg-[#f2faf5] hover:text-[#129C48]'">
                     {{ h }}
                   </div>
@@ -342,7 +342,7 @@ const closeModal = () => {
                 <!-- Dropdown Menu -->
                 <div v-if="isMinuteDropdownOpen" class="absolute z-50 top-full left-0 mt-2 w-full bg-white border-2 border-[#129C48] rounded-xl shadow-xl overflow-hidden">
                   <div v-for="m in minutes" :key="m" @click.stop="selectMinute(m)" 
-                       class="py-3 px-4 font-bold text-center cursor-pointer transition-colors border-b border-gray-50 last:border-none"
+                       class="px-4 py-3 font-bold text-center transition-colors border-b cursor-pointer border-gray-50 last:border-none"
                        :class="selectedMinute === m ? 'bg-[#129C48] text-white' : 'text-gray-700 hover:bg-[#f2faf5] hover:text-[#129C48]'">
                     {{ m }}
                   </div>
@@ -352,25 +352,25 @@ const closeModal = () => {
             
             <div class="flex border-2 border-gray-100 rounded-2xl overflow-hidden bg-gray-50/50 shadow-sm h-[56px] sm:w-[140px] am-pm-toggle">
               <button type="button" v-for="a in ampm" :key="a" @click="selectedAmPm = a"
-                class="flex-1 font-black text-xs sm:text-sm transition-all"
-                :class="selectedAmPm === a ? 'bg-[#129C48] text-white shadow-inner' : 'text-gray-400 hover:bg-white hover:text-gray-600'">{{ a }}</button>
+                class="flex-1 text-xs font-black transition-all sm:text-sm"
+                :class="selectedAmPm === a ? 'bg-black text-white shadow-inner' : 'text-gray-400 hover:bg-white hover:text-gray-600'">{{ a }}</button>
             </div>
           </div>
         </div>
         
-        <div class="pt-10 border-t border-gray-100 mt-10">
-          <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5">
-            <button type="submit" class="farmgate-btn w-full sm:flex-1">
+        <div class="pt-10 mt-10 border-t border-gray-100">
+          <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+            <button type="submit" class="w-full farmgate-btn sm:flex-1">
               <span class="btn-content">
                 <span>Book Appointment</span>
-                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                <svg class="flex-shrink-0 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
               </span>
               <span class="hover-content">
                 <span>Book Appointment</span>
-                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                <svg class="flex-shrink-0 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
               </span>
             </button>
-            <a href="/" class="farmgate-btn-outline w-full sm:w-auto text-center px-8 py-4">Cancel</a>
+            <a href="/" class="w-full px-8 py-4 text-center farmgate-btn-outline sm:w-auto">Cancel</a>
           </div>
         </div>
       </form>
@@ -380,13 +380,13 @@ const closeModal = () => {
     <div v-if="showSuccessModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-opacity">
       <div class="bg-white rounded-[3rem] p-8 sm:p-12 max-w-md w-full text-center shadow-2xl relative overflow-hidden">
         <div class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-8 bg-[#129C48] rounded-full shadow-lg shadow-[#129C48]/30">
-          <svg class="w-10 h-10 sm:w-12 sm:h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" /></svg>
+          <svg class="w-10 h-10 text-white sm:w-12 sm:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" /></svg>
         </div>
         <h3 class="font-['Livvic'] text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Call Scheduled!</h3>
-        <p class="text-gray-500 mb-10 text-base sm:text-lg leading-relaxed">
+        <p class="mb-10 text-base leading-relaxed text-gray-500 sm:text-lg">
           Your call is set for <strong class="text-black">{{ formattedDate }}</strong> at <strong class="text-black">{{ selectedHour }}:{{ selectedMinute }} {{ selectedAmPm }}</strong>.
         </p>
-        <button @click="closeModal" class="farmgate-btn w-full">
+        <button @click="closeModal" class="w-full farmgate-btn">
           <span class="btn-content"><span>Back to Homepage</span></span>
           <span class="hover-content"><span>Back to Homepage</span></span>
         </button>

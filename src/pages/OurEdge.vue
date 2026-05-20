@@ -45,7 +45,7 @@
       </div>
       <div class="mx-auto max-w-[1440px] relative z-10">
         <div
-          class="flex flex-col items-center justify-center w-full gap-8 text-center mb-8 md:mb-14 reveal-fade"
+          class="flex flex-col items-center justify-center w-full gap-8 mb-8 text-center md:mb-14 reveal-fade"
         >
           <div
             class="flex flex-col items-center justify-center w-full text-center"
@@ -107,9 +107,7 @@
               </div>
 
               <h3
-                class="text-lg font-semibold transition-all duration-500 ease-out
-                       text-white
-                       md:text-gray-900 md:group-hover:text-white"
+                class="text-lg font-semibold text-white transition-all duration-500 ease-out md:text-gray-900 md:group-hover:text-white"
                 style="
                   font-family: Livvic, sans-serif;
                   font-weight: 700;
@@ -125,9 +123,7 @@
                        md:mt-0 md:max-h-0 md:group-hover:mt-4 md:group-hover:max-h-[500px]"
               >
                 <p
-                  class="text-sm leading-relaxed transition-colors
-                         text-white/90
-                         md:text-gray-600 md:group-hover:text-white/90 whitespace-pre-line"
+                  class="text-sm leading-relaxed whitespace-pre-line transition-colors text-white/90 md:text-gray-600 md:group-hover:text-white/90"
                 >
                   {{ item.description }}
                 </p>
@@ -155,7 +151,7 @@
           <div class="h-1 w-24 bg-[#F2CB00]"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 2xl:hidden">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:hidden">
           <div
             v-for="(item, index) in galleryItems"
             :key="index"
@@ -166,7 +162,7 @@
             <div
               class="relative z-10 flex flex-col items-center justify-center p-6 text-center min-h-[300px]"
             >
-              <div class="overflow-hidden transition-all duration-500 ease-out max-h-none md:max-h-0 mb-4 md:mb-0 md:group-hover:max-h-20 md:group-hover:mb-4">
+              <div class="mb-4 overflow-hidden transition-all duration-500 ease-out max-h-none md:max-h-0 md:mb-0 md:group-hover:max-h-20 md:group-hover:mb-4">
                 <font-awesome-icon
                   :icon="['fas', item.iconName]"
                   class="text-4xl text-[#F2CB00] transition-all duration-500 opacity-100 md:opacity-0 transform translate-y-0 md:-translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0"
@@ -345,7 +341,7 @@ const whatWeDoItems = [
     iconName: "handshake",
   },
   {
-    title: "Provide access to farmer financing",
+    title: "Provide access to input financing",
     description:
       "Open up financing options that make it easier to invest, grow, and scale sustainably.",
     iconName: "university",

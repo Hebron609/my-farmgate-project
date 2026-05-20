@@ -255,14 +255,14 @@ import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 
-import farmTractor1 from "@/assets/img/farm-tractor1.jpg";
-import farmTractor2 from "@/assets/img/farm-tractor2.jpg";
-import groupFarmImage from "@/assets/img/group-farm-image.jpg";
-import womenFarm from "@/assets/img/farm-pic2.jpg";
-import invest1 from "@/assets/img/Vision-future-img.jpg";
-import SoilSample from "@/assets/img/soil-sampling.jpg";
-import farmCrops from "@/assets/img/farm-pic5.jpg";
-import trackWithUsImg from "@/assets/img/farm-pic1.jpg";
+import farmTractor1 from "@/assets/img/farm-tractor1.webp";
+import farmTractor2 from "@/assets/img/farm-tractor2.webp";
+import groupFarmImage from "@/assets/img/group-farm-image.webp";
+import womenFarm from "@/assets/img/farm-pic2.webp";
+import invest1 from "@/assets/img/technology1.webp";
+import SoilSample from "@/assets/img/soil-sampling.webp";
+import farmCrops from "@/assets/img/quality.webp";
+import trackWithUsImg from "@/assets/img/traceability2.webp";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 // Using one hero image consistent with theme, or select specifically
