@@ -53,7 +53,9 @@
           </div>
 
           <!-- Social Icons positioned at bottom right above the border -->
-          <div class="flex items-center justify-center w-full gap-3 mt-12 lg:mt-auto lg:w-auto lg:absolute lg:-bottom-12 lg:right-0 lg:justify-end translate-y-2 lg:translate-y-4">
+          <div
+            class="flex items-center justify-center w-full gap-3 mt-12 lg:mt-auto lg:w-auto lg:absolute lg:-bottom-12 lg:right-0 lg:justify-end translate-y-2 lg:translate-y-4"
+          >
             <a
               v-for="social in socials"
               :key="social.name"
@@ -63,8 +65,16 @@
               :aria-label="social.name"
               class="flex items-center justify-center w-[36px] h-[36px] transition-all duration-300 border border-white/30 rounded-full text-white bg-white/5 backdrop-blur-sm hover:bg-[#F2CB00] hover:text-black hover:border-[#F2CB00] hover:-translate-y-1 shadow-sm hover:shadow-lg group"
             >
-              <div v-if="social.svg" v-html="social.svg" class="w-[18px] h-[18px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"></div>
-              <font-awesome-icon v-else-if="social.icon" :icon="['fab', social.icon]" class="text-[15px] transition-transform duration-300 group-hover:scale-110" />
+              <div
+                v-if="social.svg"
+                v-html="social.svg"
+                class="w-[18px] h-[18px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+              ></div>
+              <font-awesome-icon
+                v-else-if="social.icon"
+                :icon="['fab', social.icon]"
+                class="text-[15px] transition-transform duration-300 group-hover:scale-110"
+              />
             </a>
           </div>
         </div>
@@ -157,11 +167,7 @@ const socials = [
   {
     name: "X (Twitter)",
     link: "https://x.com/FarmGate_Africa?t=ez-1Eavg8y9abxxLS_F0gw&s=09",
-    svg: `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-  <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" fill="currentColor"></path>
-</svg>
-    `,
+    icon: "x-twitter",
   },
 ];
 </script>
