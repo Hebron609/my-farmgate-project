@@ -55,6 +55,7 @@
     </div>
 
     <section
+      id="fg-impact-stats"
       class="relative block z-20 w-full min-h-[600px] h-[80vh] md:h-[800px] overflow-hidden font-montserrat bg-[#1b2418]"
     >
       <video
@@ -275,7 +276,7 @@
             class="max-w-2xl mx-auto text-base leading-relaxed text-gray-600 md:text-lg"
           >
             Click on any Sustainable Development Goal to explore FarmGate Africa's
-            contributions, impact metrics, and related initiatives.
+            contributions, impact metrics, and key focus areas.
           </p>
         </div>
 
@@ -388,7 +389,7 @@
                       class="p-4 transition-colors border rounded-lg bg-gradient-to-br from-white to-gray-50 border-gray-200/50 hover:border-gray-300"
                     >
                       <div
-                        class="text-2xl font-bold md:text-3xl"
+                        class="text-2xl font-bold md:text-3xl font-['Livvic']"
                         :style="{ color: selectedSdgHub.color }"
                       >
                         {{ stat.value }}
@@ -407,7 +408,7 @@
                   <p
                     class="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-4"
                   >
-                    Related Initiatives
+                    Key Focus Areas
                   </p>
                   <div class="flex flex-wrap gap-2">
                     <span
@@ -464,7 +465,8 @@
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
-import Header from "../components/Header.vue";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
+import Header from "@/components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
@@ -498,6 +500,9 @@ const navigateToVideo2 = () => {
 
 // Initialize Lottie on mount
 onMounted(async () => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
+  
   // Initialize selected SDG for the hub
   selectedSdgHub.value = sdgItems[0];
 
@@ -988,7 +993,7 @@ const sdgItems = [
       { value: "150+", label: "Direct Jobs" },
       { value: "400+", label: "Indirect Jobs" },
       { value: "92%", label: "Wage Growth" },
-      { value: "12M₵", label: "Wages Paid" },
+      { value: "₵12m", label: "Wages Paid" },
     ],
     initiatives: [
       "Agro-Processing",

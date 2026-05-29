@@ -54,6 +54,7 @@
     </div>
 
     <section
+      id="fg-people-team"
       class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
       aria-label="Our Team"
     >
@@ -209,6 +210,7 @@
         </div>
 
         <section
+          id="fg-people-careers"
           class="relative mt-16 overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0a3f1f] via-[#055732] to-[#129C48] px-6 py-12 text-white shadow-2xl sm:px-10 sm:py-16 md:px-14 reveal-slide-up"
         >
           <div
@@ -230,7 +232,7 @@
             <h2
               class="font-['Livvic'] text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
             >
-              We’re building, and this is your chance to shape your career with
+              We’re building, and this is the chance to shape your career with
               us.
             </h2>
 
@@ -367,6 +369,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -383,6 +386,8 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {

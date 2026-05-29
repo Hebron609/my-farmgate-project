@@ -55,11 +55,11 @@
             <div v-if="videoVariant !== 2" class="relative flex items-center">
               <button
                 @click="toggleSearch"
-                class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black"
+                class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black group"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
-                  class="text-base text-white"
+                  class="text-base text-white transition-colors duration-300 group-hover:text-black"
                 />
               </button>
             </div>
@@ -111,12 +111,15 @@
                 class="mr-2 text-sm text-white/90"
               />
               <input
+                ref="mobileSearchInput"
                 v-model="searchQuery"
                 @input="handleSearchInput"
+                @keydown="handleKeyDown"
                 type="text"
-                placeholder="Search"
-                class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
-                @keydown.escape="isSearchOpen = false"
+                placeholder="Search anything…"
+                class="w-full text-sm text-white bg-transparent placeholder-white/50 focus:outline-none"
+                autocomplete="off"
+                spellcheck="false"
               />
               <button
                 @click="toggleSearch"
@@ -134,38 +137,89 @@
             class="w-full px-4 mb-3 sm:hidden"
           >
             <div
-              class="w-full max-w-[24rem] mx-auto overflow-hidden border shadow-2xl bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 max-h-72 max-[360px]:max-h-56"
+              class="w-full max-w-[24rem] mx-auto overflow-hidden border shadow-2xl bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 max-h-80 max-[360px]:max-h-60"
             >
+              <!-- Grouped results -->
               <div
                 v-if="hasResults"
-                class="overflow-y-auto max-h-72 max-[360px]:max-h-56"
+                class="overflow-y-auto max-h-80 max-[360px]:max-h-60"
               >
-                <div
-                  v-for="result in searchResults"
-                  :key="result.id"
-                  @click="onSelectResult(result)"
-                  class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-[#F2CB00] hover:text-black"
-                >
-                  <div>
-                    <p class="text-sm font-semibold">{{ result.title }}</p>
-                    <p class="text-xs text-white/70">
-                      {{ result.category }}
-                    </p>
+                <template v-for="group in groupedResults" :key="group.type">
+                  <!-- Group heading -->
+                  <div
+                    class="flex items-center gap-1.5 px-4 py-2 bg-black/10 sticky top-0 z-10 border-b border-white/10"
+                  >
+                    <font-awesome-icon :icon="group.icon" class="text-[10px] text-white/50" />
+                    <span
+                      class="text-[9px] font-bold uppercase tracking-widest text-white/40"
+                      >{{ group.label }}</span
+                    >
                   </div>
-                </div>
+                  <!-- Group items -->
+                  <div
+                    v-for="result in group.items"
+                    :key="result.id"
+                    @click="onSelectResult(result)"
+                    class="px-4 py-2.5 text-white transition-all border-b cursor-pointer border-white/5 group"
+                    :class="
+                      searchResults.indexOf(result) === activeResultIndex
+                        ? 'bg-[#F2CB00] text-black'
+                        : 'hover:bg-[#F2CB00] hover:text-black'
+                    "
+                  >
+                    <div
+                      class="flex items-center justify-between min-w-0 gap-2"
+                    >
+                      <div class="flex-1 min-w-0">
+                        <p
+                          class="text-xs font-semibold leading-tight truncate"
+                          :class="
+                            searchResults.indexOf(result) === activeResultIndex
+                              ? 'text-black'
+                              : 'text-white'
+                          "
+                        >
+                          {{ result.title }}
+                        </p>
+                        <p
+                          class="text-[10px] mt-0.5 truncate"
+                          :class="
+                            searchResults.indexOf(result) === activeResultIndex
+                              ? 'text-black/60'
+                              : 'text-white/50 group-hover:text-black/60'
+                          "
+                        >
+                          {{ result.description }}
+                        </p>
+                      </div>
+                      <span
+                        class="shrink-0 text-[9px] font-semibold px-1.5 py-0.5 rounded-full leading-none capitalize"
+                        :class="
+                          searchResults.indexOf(result) === activeResultIndex
+                            ? 'bg-black/10 text-black/70'
+                            : getTypeBadge(result.type)
+                        "
+                        >{{ result.type }}</span
+                      >
+                    </div>
+                  </div>
+                </template>
               </div>
 
+              <!-- No results -->
               <div
                 v-else-if="searchQuery && !hasResults"
-                class="px-4 py-6 text-center"
+                class="px-5 text-center py-7"
               >
-                <p class="text-sm text-white/70">No results found for</p>
-                <p class="mt-1 text-sm font-semibold text-white truncate">
+                <p class="mb-2 text-2xl">🔍</p>
+                <p class="text-sm font-semibold text-white/80">
+                  No results for
+                </p>
+                <p class="mt-1 text-sm font-bold text-[#F2CB00] truncate">
                   "{{ searchQuery }}"
                 </p>
-                <p class="mt-2 text-xs text-white/50">
-                  Try searching for topics like "farming", "solutions", or
-                  "products"
+                <p class="mt-2 text-xs text-white/40">
+                  Try: "marketplace", "book visit", "contact"
                 </p>
               </div>
             </div>
@@ -199,35 +253,39 @@
           <div class="relative flex items-center">
             <button
               @click="toggleSearch"
-              class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black"
+              class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black group"
             >
               <font-awesome-icon
                 :icon="['fas', 'search']"
-                class="text-lg text-white"
+                class="text-lg text-white transition-colors duration-300 group-hover:text-black"
               />
             </button>
 
             <transition name="slide">
               <div
                 v-if="isSearchOpen"
-                class="absolute flex items-center w-64 px-4 py-2 border shadow-2xl right-12 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-[#F2CB00]"
+                class="absolute flex items-center w-80 px-4 py-2.5 border shadow-2xl right-12 bg-white/20 backdrop-blur-xl rounded-2xl border-white/30 focus-within:ring-2 focus-within:ring-[#F2CB00]"
               >
                 <font-awesome-icon
                   :icon="['fas', 'search']"
-                  class="mr-2 text-sm text-white/90"
+                  class="mr-2 text-sm text-white/70 shrink-0"
                 />
                 <input
+                  ref="desktopSearchInput"
                   v-model="searchQuery"
                   @input="handleSearchInput"
+                  @keydown="handleKeyDown"
                   type="text"
-                  placeholder="Search"
-                  class="w-full text-sm text-white bg-transparent placeholder-white/70 focus:outline-none"
-                  @keydown.escape="isSearchOpen = false"
+                  placeholder="Search anything… ⌘K"
+                  class="w-full text-sm text-white bg-transparent placeholder-white/40 focus:outline-none"
+                  autocomplete="off"
+                  spellcheck="false"
                 />
                 <button
                   v-if="searchQuery"
                   @click="clearSearch"
-                  class="ml-2 text-white/70 hover:text-white"
+                  class="ml-2 transition-colors shrink-0 text-white/60 hover:text-white"
+                  title="Clear search"
                 >
                   ✕
                 </button>
@@ -237,40 +295,103 @@
             <transition name="fade">
               <div
                 v-if="isSearchOpen && (showResults || searchQuery)"
-                class="absolute w-64 mt-2 overflow-hidden border shadow-2xl right-12 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 top-12"
+                class="absolute mt-2 overflow-hidden border shadow-2xl w-80 right-12 bg-white/25 backdrop-blur-2xl rounded-2xl border-white/30 top-12"
               >
-                <div v-if="hasResults" class="overflow-y-auto max-h-80">
-                  <div
-                    v-for="result in searchResults"
-                    :key="result.id"
-                    @click="onSelectResult(result)"
-                    class="px-4 py-3 text-white transition-all border-b cursor-pointer border-white/10 hover:bg-[#F2CB00] hover:text-black"
+                <!-- Keyboard hint bar -->
+                <div
+                  v-if="hasResults"
+                  class="flex items-center justify-between px-4 py-1.5 border-b border-white/10 bg-black/20"
+                >
+                  <span class="text-[9px] text-white/30"
+                    >{{ searchResults.length }} result{{
+                      searchResults.length !== 1 ? "s" : ""
+                    }}</span
                   >
-                    <div class="flex items-start justify-between">
-                      <div>
-                        <p class="text-sm font-semibold">{{ result.title }}</p>
-                        <p class="text-xs text-white/70">
-                          {{ result.category }}
-                        </p>
-                      </div>
-                      <span class="px-2 py-1 text-xs rounded-full bg-white/20">
-                        {{ result.category }}
-                      </span>
-                    </div>
-                  </div>
+                  <span class="text-[9px] text-white/30"
+                    >↑↓ navigate · Enter select · Esc close</span
+                  >
                 </div>
 
+                <!-- Grouped results -->
+                <div v-if="hasResults" class="overflow-y-auto max-h-[420px]">
+                  <template v-for="group in groupedResults" :key="group.type">
+                    <!-- Group heading -->
+                    <div
+                      class="flex items-center gap-1.5 px-4 py-1.5 bg-black/10 sticky top-0 z-10 border-b border-white/10"
+                    >
+                      <font-awesome-icon :icon="group.icon" class="text-[10px] text-white/50" />
+                      <span
+                        class="text-[9px] font-bold uppercase tracking-widest text-white/40"
+                        >{{ group.label }}</span
+                      >
+                    </div>
+                    <!-- Group items -->
+                    <div
+                      v-for="result in group.items"
+                      :key="result.id"
+                      @click="onSelectResult(result)"
+                      class="px-4 py-2.5 text-white transition-all duration-150 border-b cursor-pointer border-white/5 group"
+                      :class="
+                        searchResults.indexOf(result) === activeResultIndex
+                          ? 'bg-[#F2CB00] text-black'
+                          : 'hover:bg-[#F2CB00] hover:text-black'
+                      "
+                    >
+                      <div
+                        class="flex items-center justify-between min-w-0 gap-3"
+                      >
+                        <div class="flex-1 min-w-0">
+                          <p
+                            class="text-sm font-semibold leading-tight truncate"
+                            :class="
+                              searchResults.indexOf(result) ===
+                              activeResultIndex
+                                ? 'text-black'
+                                : 'text-white'
+                            "
+                          >
+                            {{ result.title }}
+                          </p>
+                          <p
+                            class="text-xs mt-0.5 truncate"
+                            :class="
+                              searchResults.indexOf(result) ===
+                              activeResultIndex
+                                ? 'text-black/60'
+                                : 'text-white/50 group-hover:text-black/60'
+                            "
+                          >
+                            {{ result.description }}
+                          </p>
+                        </div>
+                        <span
+                          class="shrink-0 text-[9px] font-semibold px-2 py-0.5 rounded-full leading-none capitalize whitespace-nowrap"
+                          :class="
+                            searchResults.indexOf(result) === activeResultIndex
+                              ? 'bg-black/10 text-black/70'
+                              : getTypeBadge(result.type)
+                          "
+                          >{{ result.type }}</span
+                        >
+                      </div>
+                    </div>
+                  </template>
+                </div>
+
+                <!-- No results -->
                 <div
                   v-else-if="searchQuery && !hasResults"
-                  class="px-4 py-6 text-center"
+                  class="px-5 py-8 text-center"
                 >
-                  <p class="text-sm text-white/70">No results found for</p>
-                  <p class="mt-1 text-sm font-semibold text-white">
+                  <p class="mb-3 text-3xl">🔍</p>
+                  <p class="text-sm font-semibold text-white/80">
+                    No results for
+                  </p>
+                  <p class="mt-1 text-sm font-bold text-[#F2CB00] truncate">
                     "{{ searchQuery }}"
                   </p>
-                  <p class="mt-2 text-xs text-white/50">
-                    Try searching for topics like "farming", "solutions", or
-                    "products"
+                  <p class="mt-2 text-xs text-white/40">
+                    Try: "marketplace", "book visit", "contact", "start growing"
                   </p>
                 </div>
               </div>
@@ -901,7 +1022,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch } from "vue";
+import { ref, onMounted, onUnmounted, computed, watch, nextTick } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
 import { useGlobalSearch } from "@/composables/useGlobalSearch";
 import patternBg from "@/assets/img/footer-bg.webp";
@@ -922,8 +1043,14 @@ const props = defineProps({
 /* Scroll */
 const isScrolled = ref(false);
 const handleScroll = () => (isScrolled.value = window.scrollY > 20);
-onMounted(() => window.addEventListener("scroll", handleScroll));
-onUnmounted(() => window.removeEventListener("scroll", handleScroll));
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  mountShortcut();
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+  unmountShortcut();
+});
 
 /* Menu */
 const isMenuOpen = ref(false);
@@ -953,28 +1080,81 @@ const toggleSection = (section) => {
 const {
   searchQuery,
   searchResults,
+  groupedResults,
   hasResults,
   showResults,
+  isSearchOpen,
   selectResult,
   clearSearch,
+  toggleSearch,
+  handleSearchInput,
+  mountShortcut,
+  unmountShortcut,
 } = useGlobalSearch();
 
-const isSearchOpen = ref(false);
+// Keyboard navigation state
+const activeResultIndex = ref(-1);
+const mobileSearchInput = ref(null);
+const desktopSearchInput = ref(null);
 
-const toggleSearch = () => {
-  isSearchOpen.value = !isSearchOpen.value;
-  if (!isSearchOpen.value) clearSearch();
-};
+watch(searchQuery, () => {
+  activeResultIndex.value = -1;
+});
 
-const handleSearchInput = () => {
-  showResults.value = true;
-};
+watch(isSearchOpen, async (open) => {
+  if (!open) return;
+
+  await nextTick();
+  const targetInput =
+    window.innerWidth < 640
+      ? mobileSearchInput.value
+      : desktopSearchInput.value;
+  targetInput?.focus();
+});
 
 const onSelectResult = (result) => {
-  clearSearch();
-  isSearchOpen.value = false;
+  activeResultIndex.value = -1;
   selectResult(result);
 };
+
+const handleKeyDown = (e) => {
+  const len = searchResults.value.length;
+  switch (e.key) {
+    case "Escape":
+      toggleSearch();
+      break;
+    case "ArrowDown":
+      e.preventDefault();
+      activeResultIndex.value = Math.min(activeResultIndex.value + 1, len - 1);
+      break;
+    case "ArrowUp":
+      e.preventDefault();
+      activeResultIndex.value = Math.max(activeResultIndex.value - 1, -1);
+      break;
+    case "Enter":
+      e.preventDefault();
+      if (
+        activeResultIndex.value >= 0 &&
+        searchResults.value[activeResultIndex.value]
+      ) {
+        onSelectResult(searchResults.value[activeResultIndex.value]);
+      }
+      break;
+  }
+};
+
+// Badge colour classes per result type (full strings for Tailwind JIT)
+const TYPE_BADGE = {
+  in_page: "bg-purple-500/25 text-purple-200",
+  page: "bg-green-500/25 text-green-200",
+  product: "bg-emerald-500/25 text-emerald-200",
+  category: "bg-orange-500/25 text-orange-200",
+  action: "bg-yellow-400/25 text-yellow-200",
+  form: "bg-blue-400/25 text-blue-200",
+  link: "bg-white/15 text-white/60",
+};
+
+const getTypeBadge = (type) => TYPE_BADGE[type] ?? "bg-white/15 text-white/60";
 
 const navigateToVideo2 = () => {
   clearSearch();
@@ -1090,7 +1270,7 @@ const navigateToVideo2 = () => {
     text-align: center !important;
     align-items: center !important;
   }
-  
+
   .footer-content .sm\:text-left {
     text-align: center !important;
   }
@@ -1099,5 +1279,4 @@ const navigateToVideo2 = () => {
     align-items: center !important;
   }
 }
-
 </style>

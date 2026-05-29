@@ -54,6 +54,7 @@
     </div>
 
     <section
+      id="fg-footprint-details"
       ref="footprintSection"
       class="w-full px-6 pb-12 bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
     >
@@ -208,6 +209,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -253,6 +255,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (api) {
     api.reveal(".reveal-fade", {

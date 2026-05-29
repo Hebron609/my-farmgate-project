@@ -1,276 +1,266 @@
-import { ref, computed } from "vue";
-import { products } from "@/data/products";
+/**
+ * useGlobalSearch.js
+ * ───────────────────
+ * Upgraded global search composable for the Farmgate website.
+ *
+ * Features:
+ *  - Uses fullTextSearchIndex as the single source of truth (~60+ entries)
+ *  - Weighted relevance scoring (title > keyword exact > keyword partial)
+ *  - Results grouped by type: page, product, action, category, link, form
+ *  - Max 12 results total, max 4 per group
+ *  - selectResult() dispatches the correct action via useSearchActions
+ *  - Cmd+K / Ctrl+K keyboard shortcut support (toggle)
+ *  - Composable is a singleton (shared state across Header instances)
+ */
 
-// Global searchable content index
-const searchIndex = [
-  // Solutions
-  {
-    id: "s1",
-    title: "Sustainable Farming Solutions",
-    page: "/solutions",
-    category: "Solutions",
-    keywords: [
-      "sustainable",
-      "farming",
-      "solutions",
-      "agriculture",
-      "farmers",
-      "innovation",
-    ],
-  },
-  {
-    id: "s2",
-    title: "Partnership with Farmer Groups",
-    page: "/solutions",
-    category: "Solutions",
-    keywords: [
-      "partnership",
-      "farmers",
-      "groups",
-      "fgo",
-      "community",
-      "cooperative",
-    ],
-  },
-  {
-    id: "s3",
-    title: "Agricultural Innovation",
-    page: "/solutions",
-    category: "Solutions",
-    keywords: ["innovation", "technology", "farming", "modern", "techniques"],
-  },
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { fullTextSearchIndex } from "@/data/fullTextSearchIndex";
+import { useSearchActions } from "@/composables/useSearchActions";
+import { useInPageSearch } from "@/composables/useInPageSearch";
 
-  // Projects
-  {
-    id: "p1",
-    title: "Community Development Projects",
-    page: "/projects",
-    category: "Projects",
-    keywords: [
-      "projects",
-      "community",
-      "development",
-      "sustainable",
-      "impact",
-      "growth",
-    ],
-  },
-  {
-    id: "p2",
-    title: "Farm Transformation Initiatives",
-    page: "/projects",
-    category: "Projects",
-    keywords: [
-      "farm",
-      "transformation",
-      "initiative",
-      "farmers",
-      "improvement",
-    ],
-  },
+// ── Singleton shared state ───────────────────────────────────────────────────
+// Using module-level refs so all Header instances share one search state
+const searchQuery = ref("");
+const showResults = ref(false);
+const isSearchOpen = ref(false);
 
-  // Impact & Footprint
-  {
-    id: "i1",
-    title: "Our Impact on Farming",
-    page: "/our-impact",
-    category: "Impact",
-    keywords: [
-      "impact",
-      "farming",
-      "sustainable",
-      "difference",
-      "community",
-      "change",
-    ],
-  },
-  {
-    id: "i2",
-    title: "Environmental Footprint",
-    page: "/footprint",
-    category: "Footprint",
-    keywords: [
-      "footprint",
-      "environmental",
-      "sustainability",
-      "carbon",
-      "eco-friendly",
-      "green",
-    ],
-  },
+// ── Constants ────────────────────────────────────────────────────────────────
+const MAX_TOTAL_RESULTS = 12;
+const MAX_PER_GROUP = 4;
 
-  // About & People
-  {
-    id: "a1",
-    title: "Our Story",
-    page: "/about",
-    category: "About",
-    keywords: ["story", "about", "mission", "vision", "farmgate", "africa"],
-  },
-  {
-    id: "a2",
-    title: "Our People",
-    page: "/people",
-    category: "People",
-    keywords: ["people", "team", "staff", "leadership", "experts", "community"],
-  },
-  {
-    id: "a3",
-    title: "Our Relevance",
-    page: "/our-relevance",
-    category: "About",
-    keywords: [
-      "relevance",
-      "importance",
-      "agriculture",
-      "farming",
-      "solution",
-      "need",
-    ],
-  },
-  {
-    id: "a4",
-    title: "Our Manifesto",
-    page: "/manifesto",
-    category: "About",
-    keywords: ["manifesto", "values", "beliefs", "commitment", "philosophy"],
-  },
+// Human-readable group labels & ordering
+const GROUP_CONFIG = {
+  in_page:  { label: "On this page", icon: ['fas', 'map-marker-alt'], order: 0 },
+  section:  { label: "Page Sections", icon: ['fas', 'puzzle-piece'], order: 1 },
+  page:     { label: "Pages",      icon: ['fas', 'file-alt'], order: 2 },
+  product:  { label: "Products",   icon: ['fas', 'leaf'], order: 3 },
+  category: { label: "Categories", icon: ['fas', 'tags'], order: 4 },
+  action:   { label: "Actions",    icon: ['fas', 'bolt'], order: 5 },
+  form:     { label: "Forms",      icon: ['fas', 'clipboard-list'], order: 6 },
+  link:     { label: "Links",      icon: ['fas', 'link'], order: 7 },
+};
 
-  // Marketplace
-  {
-    id: "m1",
-    title: "Marketplace",
-    page: "/marketplace",
-    category: "Marketplace",
-    keywords: [
-      "marketplace",
-      "shop",
-      "products",
-      "buy",
-      "agricultural products",
-      "store",
-    ],
-  },
-  {
-    id: "m2",
-    title: "Direct Farm to Market",
-    page: "/marketplace",
-    category: "Marketplace",
-    keywords: ["farm", "direct", "market", "fresh", "farmers", "products"],
-  },
+// ── Scoring helper ───────────────────────────────────────────────────────────
+/**
+ * Score a single index entry against the query.
+ * Returns 0 if no match, >0 for increasing relevance.
+ */
+function scoreEntry(entry, query) {
+  const q = query.toLowerCase().trim();
+  if (!q) return 0;
 
-  // Services
-  {
-    id: "sv1",
-    title: "Farming Support Services",
-    page: "/solutions",
-    category: "Services",
-    keywords: [
-      "support",
-      "services",
-      "farming",
-      "assistance",
-      "help",
-      "resources",
-    ],
-  },
-  {
-    id: "sv2",
-    title: "Agricultural Training",
-    page: "/solutions",
-    category: "Services",
-    keywords: [
-      "training",
-      "education",
-      "learning",
-      "workshop",
-      "agriculture",
-      "farmers",
-    ],
-  },
+  const title = entry.title.toLowerCase();
+  const desc  = (entry.description || "").toLowerCase();
+  const keys  = (entry.keywords || []).map((k) => k.toLowerCase());
 
-  // General
-  {
-    id: "g1",
-    title: "Contact Us",
-    page: "/contact",
-    category: "Contact",
-    keywords: ["contact", "reach", "get in touch", "email", "phone", "connect"],
-  },
-];
+  let score = 0;
 
-// Add products to search index
-const productSearchIndex = products.map((product, index) => ({
-  id: `prod_${index}`,
-  title: product.name,
-  page: `/marketplace.html`,
-  category: "Products",
-  keywords: [
-    product.name.toLowerCase(),
-    product.category.toLowerCase(),
-    ...product.traceability.map((t) => t.toLowerCase()),
-    "product",
-    "agriculture",
-    "farm",
-    "fresh",
-    "farming",
-  ],
-}));
+  // ── Title matching (highest weight) ──
+  if (title === q) {
+    score += 100;                         // exact title
+  } else if (title.startsWith(q)) {
+    score += 80;                          // title starts with query
+  } else if (title.includes(q)) {
+    score += 60;                          // title contains query
+  } else {
+    // Check if every word in query appears in the title
+    const words = q.split(/\s+/);
+    if (words.every((w) => title.includes(w))) {
+      score += 45;
+    }
+  }
 
-const fullSearchIndex = [...searchIndex, ...productSearchIndex];
+  // ── Description matching (medium weight) ──
+  if (desc.includes(q)) {
+    score += 20;
+  }
 
+  // ── Keyword matching ──
+  for (const kw of keys) {
+    if (kw === q) {
+      score += 40;                        // exact keyword match
+      break;
+    } else if (kw.startsWith(q) || q.startsWith(kw)) {
+      score += 25;
+      break;
+    } else if (kw.includes(q) || q.includes(kw)) {
+      score += 15;
+      break;
+    }
+  }
+
+  // ── Boost actions/buttons slightly when user types action-like words ──
+  const actionTriggers = ["book", "open", "start", "send", "call", "chat", "buy", "add", "checkout", "schedule", "contact", "view"];
+  if (entry.type === "action" || entry.type === "form") {
+    if (actionTriggers.some((t) => q.startsWith(t) || q.includes(t))) {
+      score += 10;
+    }
+  }
+
+  return score;
+}
+
+// ── Composable ───────────────────────────────────────────────────────────────
 export function useGlobalSearch() {
-  const searchQuery = ref("");
-  const showResults = ref(false);
+  const { executeAction } = useSearchActions();
+  const { searchPage, handleInPageAction } = useInPageSearch();
 
+  // ── Flat scored results ──────────────────────────────────────────────────
   const searchResults = computed(() => {
-    if (!searchQuery.value.trim()) return [];
+    const q = searchQuery.value.trim();
+    if (!q) return [];
 
-    const query = searchQuery.value.toLowerCase().trim();
-    const results = [];
+    const scored = [];
 
-    fullSearchIndex.forEach((item) => {
-      const titleMatch = item.title.toLowerCase().includes(query);
-      const keywordMatch = item.keywords.some(
-        (keyword) => keyword.includes(query) || query.includes(keyword),
-      );
-
-      if (titleMatch || keywordMatch) {
-        results.push({
-          ...item,
-          relevance: titleMatch ? 2 : 1,
-        });
+    // 1. Get global index results
+    for (const entry of fullTextSearchIndex) {
+      const score = scoreEntry(entry, q);
+      if (score > 0) {
+        scored.push({ ...entry, _score: score });
       }
-    });
+    }
 
-    // Sort by relevance, then by category
-    return results
-      .sort((a, b) => {
-        if (b.relevance !== a.relevance) {
-          return b.relevance - a.relevance;
-        }
-        return a.category.localeCompare(b.category);
-      })
-      .slice(0, 8); // Limit to 8 results
+    // Sort global by score descending
+    scored.sort((a, b) => b._score - a._score);
+    const topGlobal = scored.slice(0, MAX_TOTAL_RESULTS);
+
+    // 2. Get local DOM results
+    const localResults = searchPage(q);
+
+    // Combine them (local at the top because of high artificial _score)
+    const combined = [...localResults, ...topGlobal];
+    combined.sort((a, b) => b._score - a._score);
+
+    return combined.slice(0, MAX_TOTAL_RESULTS + 3); // Allow a bit more capacity with local
   });
 
-  const hasResults = computed(() => searchResults.value.length > 0);
+  // ── Grouped results (for the UI) ─────────────────────────────────────────
+  const groupedResults = computed(() => {
+    const q = searchQuery.value.trim();
+    if (!q) return [];
 
+    // Collect per-group buckets
+    const buckets = {};
+
+    for (const entry of searchResults.value) {
+      const type = entry.type || "page";
+      if (!buckets[type]) buckets[type] = [];
+      if (buckets[type].length < MAX_PER_GROUP) {
+        buckets[type].push(entry);
+      }
+    }
+
+    // Convert to sorted array of groups
+    return Object.entries(buckets)
+      .map(([type, items]) => ({
+        type,
+        label: GROUP_CONFIG[type]?.label || type,
+        icon:  GROUP_CONFIG[type]?.icon  || ['fas', 'search'],
+        order: GROUP_CONFIG[type]?.order || 99,
+        items,
+      }))
+      .sort((a, b) => a.order - b.order);
+  });
+
+  // ── Derived flags ────────────────────────────────────────────────────────
+  const hasResults   = computed(() => searchResults.value.length > 0);
+  const totalCount   = computed(() => searchResults.value.length);
+
+  // ── Select a result ──────────────────────────────────────────────────────
+  /**
+   * Called when the user clicks (or keyboard-confirms) a search result.
+   * Closes the search, then dispatches the entry's action.
+   */
   const selectResult = (result) => {
-    window.location.href = result.page;
+    clearSearch();
+    closeSearch();
+
+    if (!result) return;
+
+    if (result.type === "in_page") {
+      handleInPageAction(result);
+      return;
+    }
+
+    try {
+      const handled = executeAction(result.action, result.actionData);
+
+      // If no handler matched but there's a route, fall back to navigation
+      if (!handled && result.route) {
+        window.location.href = result.route;
+      }
+    } catch (err) {
+      console.error("[useGlobalSearch] selectResult error:", err);
+      // Last resort fallback
+      if (result.route) {
+        try { window.location.href = result.route; } catch { /* ignore */ }
+      }
+    }
   };
 
+  // ── Search controls ──────────────────────────────────────────────────────
   const clearSearch = () => {
     searchQuery.value = "";
     showResults.value = false;
   };
 
+  const openSearch = () => {
+    isSearchOpen.value = true;
+    showResults.value  = !!searchQuery.value.trim();
+  };
+
+  const closeSearch = () => {
+    isSearchOpen.value = false;
+    // Don't clear the query immediately so the user can re-open
+  };
+
+  const toggleSearch = () => {
+    if (isSearchOpen.value) {
+      closeSearch();
+    } else {
+      openSearch();
+    }
+  };
+
+  const handleSearchInput = () => {
+    showResults.value = true;
+  };
+
+  // ── Cmd+K / Ctrl+K shortcut ──────────────────────────────────────────────
+  const handleKeyboardShortcut = (e) => {
+    const isMac   = navigator.platform.toUpperCase().includes("MAC");
+    const modKey  = isMac ? e.metaKey : e.ctrlKey;
+
+    if (modKey && e.key === "k") {
+      e.preventDefault();
+      toggleSearch();
+    }
+  };
+
+  // Lifecycle hooks — call these inside a setup() or <script setup>
+  const mountShortcut   = () => window.addEventListener("keydown", handleKeyboardShortcut);
+  const unmountShortcut = () => window.removeEventListener("keydown", handleKeyboardShortcut);
+
   return {
+    // State
     searchQuery,
-    searchResults,
-    hasResults,
     showResults,
+    isSearchOpen,
+
+    // Computed
+    searchResults,
+    groupedResults,
+    hasResults,
+    totalCount,
+
+    // Methods
     selectResult,
     clearSearch,
+    openSearch,
+    closeSearch,
+    toggleSearch,
+    handleSearchInput,
+    mountShortcut,
+    unmountShortcut,
   };
 }
