@@ -34,7 +34,7 @@
       </div>
     </section>
 
-    <section class="relative px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24">
+    <section id="fg-edge-what-we-do" class="relative px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24">
       <div
         class="absolute left-0 pointer-events-none bottom-[-100px] opacity-5"
       >
@@ -140,7 +140,7 @@
       </div>
     </section>
 
-    <section class="w-full px-4 py-16 overflow-hidden bg-white md:px-12 md:py-24">
+    <section id="fg-edge-initiatives" class="w-full px-4 py-16 overflow-hidden bg-white md:px-12 md:py-24">
       <div class="mx-auto max-w-[1440px]">
         <div class="flex flex-col items-center mb-10 md:mb-16">
           <h2
@@ -311,6 +311,7 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import farmPic1 from "@/assets/img/farm-pic1.webp";
 import farmPic2 from "@/assets/img/agri-processing.webp";
 import farmPic8 from "@/assets/img/enduring-partnership1.webp";
@@ -394,7 +395,7 @@ const galleryItems = ref([
     iconName: "users",
   },
   {
-    title: "Future-Agri Innovation",
+    title: "Future Agri-Innovation",
     description:
       "Leveraging technology to revolutionize food production across Africa.",
     image: farmPic3,
@@ -435,6 +436,8 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
 

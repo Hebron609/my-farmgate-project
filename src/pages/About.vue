@@ -4,7 +4,7 @@
   >
     <Header :videoVariant="2" />
 
-    <div class="relative w-full h-screen overflow-hidden bg-black">
+    <div id="fg-about-story" class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${aboutUsBanner})` }"
@@ -73,7 +73,7 @@
       </div>
     </section>
 
-    <section class="w-full px-6 py-16 bg-white md:px-12 md:py-24">
+    <section id="fg-about-company" class="w-full px-6 py-16 bg-white md:px-12 md:py-24">
       <div
         class="mx-auto grid max-w-[1440px] grid-cols-1 gap-16 md:grid-cols-2 lg:gap-24 items-start"
       >
@@ -129,6 +129,7 @@
           </div>
 
           <div
+            id="fg-about-2030"
             class="absolute -bottom-12 md:bottom-12 left-6 right-6 rounded-xl bg-white p-8 shadow-2xl border-l-8 border-[#F2CB00]"
           >
             <h4 class="font-['Livvic'] text-xl font-bold text-black mb-2">
@@ -157,6 +158,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -168,7 +170,10 @@ const { init: initScrollReveal } = useScrollReveal({
   viewFactor: 0.1,
 });
 
+const { init: initHighlight } = useHighlightOnLoad();
+
 onMounted(() => {
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900 });

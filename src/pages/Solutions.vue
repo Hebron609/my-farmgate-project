@@ -53,6 +53,7 @@
     </div>
 
     <section
+      id="fg-solutions-mandate"
       class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
     >
       <div class="absolute top-0 left-0 pointer-events-none opacity-5">
@@ -118,7 +119,7 @@
           
           </div>
 
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div id="fg-solutions-focal-areas" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
               v-for="area in focalAreas"
               :key="area.name"
@@ -166,6 +167,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -209,6 +211,8 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {

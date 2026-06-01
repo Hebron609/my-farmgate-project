@@ -229,3 +229,24 @@ body.menu-open .whatsapp-support-global {
   75% { transform: scale(1.1) translate(2px, 2px); }
   100% { transform: scale(1.1) translate(0, 0); }
 }
+
+/* In-page Search Highlight Animation */
+.search-highlight {
+  animation: search-flash 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  border-radius: 4px;
+}
+
+@keyframes search-flash {
+  0% {
+    background-color: rgba(242, 203, 0, 0);
+    box-shadow: 0 0 0 0 rgba(242, 203, 0, 0);
+  }
+  15% {
+    background-color: rgba(242, 203, 0, 0.5);
+    box-shadow: 0 0 0 4px rgba(242, 203, 0, 0.3);
+  }
+  100% {
+    background-color: rgba(242, 203, 0, 0);
+    box-shadow: 0 0 0 0 rgba(242, 203, 0, 0);
+  }
+}

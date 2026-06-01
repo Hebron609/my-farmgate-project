@@ -35,6 +35,12 @@ import {
   faChalkboardTeacher,
   faLightbulb,
   faMapMarkedAlt,
+  faMapMarkerAlt,
+  faFileAlt,
+  faTags,
+  faBolt,
+  faLink,
+  faClipboardList,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Brand icons
@@ -82,6 +88,12 @@ library.add(
   faChalkboardTeacher,
   faLightbulb,
   faMapMarkedAlt,
+  faMapMarkerAlt,
+  faFileAlt,
+  faTags,
+  faBolt,
+  faLink,
+  faClipboardList,
   faGithub,
   faInstagram,
   faYoutube,

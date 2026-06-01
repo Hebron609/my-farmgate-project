@@ -152,10 +152,14 @@
 
     .form-card label {
       display: block;
-      margin-bottom: 0.5rem; /* mb-2 */
-      color: #374151; /* text-gray-700 */
-      font-size: 1rem; /* Standard readable size */
-      font-weight: 600; /* font-semibold */
+      margin-bottom: 0.5rem;
+      /* mb-2 */
+      color: #374151;
+      /* text-gray-700 */
+      font-size: 1rem;
+      /* Standard readable size */
+      font-weight: 600;
+      /* font-semibold */
       line-height: 1.5rem;
       text-transform: none;
     }
@@ -220,6 +224,15 @@
 
     .form-card :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea):focus {
       border-bottom-color: #129C48 !important;
+    }
+
+    .datepicker-input,
+    .timepicker-input {
+      border: 0 !important;
+      border-bottom: 2px solid #e5e7eb !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding-left: 2.5rem !important;
     }
 
     /* Morphing Textarea Styles */
@@ -297,6 +310,46 @@
     .form-card button[type="submit"]:focus {
       outline: 4px solid rgba(18, 156, 72, 0.4);
       outline-offset: 2px;
+    }
+
+    .farmgate-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: transparent;
+      color: #4b5563;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      border: 2px solid #e5e7eb;
+      transition: all 300ms ease;
+      cursor: pointer;
+    }
+
+    .farmgate-btn-outline:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .booking-actions>.booking-cancel {
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+
+      .booking-actions>button[type="submit"],
+      .booking-actions>.booking-cancel {
+        height: 53px !important;
+        min-height: 53px;
+      }
+
+      .booking-actions>.booking-cancel {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .form-section-fixed {
@@ -418,11 +471,25 @@
     }
 
     @keyframes jitter {
-      0% { transform: scale(1.1) translate(0, 0); }
-      25% { transform: scale(1.1) translate(2px, -2px); }
-      50% { transform: scale(1.1) translate(-2px, 2px); }
-      75% { transform: scale(1.1) translate(2px, 2px); }
-      100% { transform: scale(1.1) translate(0, 0); }
+      0% {
+        transform: scale(1.1) translate(0, 0);
+      }
+
+      25% {
+        transform: scale(1.1) translate(2px, -2px);
+      }
+
+      50% {
+        transform: scale(1.1) translate(-2px, 2px);
+      }
+
+      75% {
+        transform: scale(1.1) translate(2px, 2px);
+      }
+
+      100% {
+        transform: scale(1.1) translate(0, 0);
+      }
     }
 
     @media (max-width: 900px) {
@@ -452,73 +519,132 @@
       display: none;
       animation: fadeIn 0.4s ease-out;
     }
-    
+
     .hidden-input.active {
       display: block;
     }
+
     @media (max-width: 360px) {
       body {
         background: #fff;
       }
+
       .container-layout {
         padding: 0 !important;
         margin: 0 !important;
         display: block !important;
       }
+
       .hero-banner {
         min-height: 200px !important;
         height: 25vh !important;
         border-radius: 0 !important;
       }
+
       .hero-banner h1 {
         font-size: 1.75rem !important;
       }
+
       .hero-banner p {
         font-size: 0.8rem !important;
         max-width: 100% !important;
       }
+
       .form-section-fixed {
         margin: 0 !important;
       }
+
       .form-card {
         padding: 1.5rem 1rem 2rem !important;
         border-radius: 0 !important;
         box-shadow: none !important;
       }
-      .form-card > form > div:first-child {
+
+      .form-card>form>div:first-child {
         padding: 1.5rem 1rem !important;
         border-radius: 1.5rem !important;
       }
+
       .form-card h2 {
         font-size: 2rem !important;
       }
+
       .form-card p.text-xl {
         font-size: 1.125rem !important;
       }
-      #customDatePicker, #customTimePicker {
+
+      #customDatePicker,
+      #customTimePicker {
         min-width: 100% !important;
       }
+
       /* Ensure calendar fits */
-      #customDatePicker .p-4, #customTimePicker .p-4 {
+      #customDatePicker .p-4,
+      #customTimePicker .p-4 {
         padding: 0.75rem !important;
       }
+
       #customDatePicker button {
         font-size: 0.8rem !important;
         width: 2rem !important;
         height: 2rem !important;
       }
+
       #calendarHeader {
         font-size: 1rem !important;
       }
+
       .confirmation-box {
         padding: 2rem 1.5rem !important;
       }
+
       .confirmation-box h3 {
         font-size: 1.5rem !important;
       }
+
       .confirmation-box p {
         font-size: 0.875rem !important;
       }
+    }
+  </style>
+  <style>
+    /* Ripple effect styles */
+    .ripple {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple-circle {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(255, 255, 255, 0.32);
+      animation: ripple-anim 600ms linear;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    @keyframes ripple-anim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulseAnimateSolid {
+      0% {
+        transform: scale(1, 1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.15, 1.45);
+        opacity: 0;
+      }
+    }
+
+    .animate-solid-pulse {
+      animation: pulseAnimateSolid 1.2s ease-out infinite;
     }
   </style>
 </head>
@@ -528,36 +654,14 @@
     <!-- Left: Hero Visual (Sticky) -->
     <div class="relative hidden hero-img lg:flex max-w-[40%]">
       <div class="hero-overlay"></div>
-      <!-- Go Back Home Button (Redesigned with Frosted Effect) -->
-      <a href="/"
-        class="absolute top-8 left-8 z-30 flex group overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 rounded-full items-center cursor-pointer transition-all duration-300 hover:shadow-xl w-fit h-fit">
-        <span
-          class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
-          </svg>
-          <span class="text-sm font-semibold leading-none text-white tracking-wide">Homepage</span>
-        </span>
-
-        <span
-          class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
-          </svg>
-          <span class="text-sm font-semibold leading-none tracking-wide">Homepage</span>
-        </span>
-      </a>
       <div class="sticky top-0 flex flex-col justify-center h-screen hero-content">
         <!-- Scroll Reveal: Add class for animation -->
         <!-- Decorative Animated Circles -->
         <div class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"></div>
         <div class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"></div>
         <div class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"></div>
-        <h1 class="mb-4 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl font-livvic drop-shadow-xl text-white">
+        <h1
+          class="mb-4 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl font-livvic drop-shadow-xl">
           <span class="text-[#F2CB00]">Farm Visit</span><br>Application
         </h1>
         <div class="mb-8 border-b-4 border-[#F2CB00] w-24"></div>
@@ -567,31 +671,37 @@
             class="text-[#F2CB00] font-bold">community</span> up close.<br>Book your visit today!</p>
         <ul class="mb-10 space-y-6 text-lg">
           <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
-            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+            <span
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0"
+              aria-hidden="true">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-bold text-white tracking-wide text-xl">Guided farm tours</span>
+            <span class="text-xl font-bold tracking-wide text-white">Guided farm tours</span>
           </li>
           <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
-            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+            <span
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0"
+              aria-hidden="true">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-bold text-white tracking-wide text-xl">Meet our experts</span>
+            <span class="text-xl font-bold tracking-wide text-white">Meet our experts</span>
           </li>
           <li class="flex items-center gap-5 transition-transform hover:translate-x-2 group">
-            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0" aria-hidden="true">
+            <span
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-[#F2CB00] shadow-lg shadow-[#F2CB00]/20 flex-shrink-0"
+              aria-hidden="true">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 7L9 18L4 13" stroke="#129C48" stroke-width="4" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="font-bold text-white tracking-wide text-xl">Learn sustainable practices</span>
+            <span class="text-xl font-bold tracking-wide text-white">Learn sustainable practices</span>
           </li>
         </ul>
         <!-- Start Application button removed -->
@@ -600,64 +710,93 @@
     <!-- Right: Booking Form (Scrollable) -->
     <div class="block bg-[#f1f5f9] relative overflow-y-auto lg:max-w-[60%] lg:flex-[0_0_60%] form-section-fixed"
       id="form-section">
-      
+
+      <!-- Desktop Homepage Button moved into right section (top-left of this panel) -->
+      <div class="absolute z-30 hidden top-8 left-8 lg:inline-flex group">
+        <div
+          class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse">
+        </div>
+        <a href="/" aria-label="Homepage"
+          class="relative z-10 flex items-center gap-3 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full shadow-xl ripple bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 active:scale-100 focus:scale-100 whitespace-nowrap">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+              d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+          </svg>
+          <span class="text-sm font-semibold leading-none tracking-wide">Homepage</span>
+        </a>
+      </div>
+
       <!-- Mobile-Only Hero Banner (Premium Feel for Mobile Users) -->
-      <div class="lg:hidden relative w-[calc(100%-2rem)] mx-auto h-[35vh] min-h-[260px] mt-4 mb-2 rounded-[2.5rem] overflow-hidden shadow-2xl">
-        <div class="absolute inset-0 bg-[url('images/farm-visit1.png')] bg-cover bg-center transform hover:scale-105 transition-transform duration-[10s] ease-linear"></div>
+      <div
+        class="lg:hidden relative w-[calc(100%-2rem)] mx-auto h-[35vh] min-h-[260px] mt-4 mb-2 rounded-[2.5rem] overflow-hidden shadow-2xl">
+        <div
+          class="absolute inset-0 bg-[url('images/farm-visit1.png')] bg-cover bg-center transform hover:scale-105 transition-transform duration-[10s] ease-linear">
+        </div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#129C48]/95 via-[#129C48]/60 to-transparent"></div>
-        
-        <!-- Homepage Button inside Mobile Banner -->
-        <a href="/"
-          class="absolute top-6 left-6 z-30 flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] border border-white/30 rounded-full items-center cursor-pointer transition-all duration-300 hover:shadow-xl w-fit h-fit">
-          <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
-            </svg>
-            <span class="text-sm font-semibold leading-none text-white tracking-wide">Homepage</span>
-          </span>
-          <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
+
+        <!-- Homepage Button inside Mobile Banner (Marketplace style) -->
+        <div class="absolute z-30 inline-flex top-6 left-6 group">
+          <div
+            class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse">
+          </div>
+          <a href="/" aria-label="Homepage"
+            class="relative z-10 flex items-center gap-2 px-6 py-2 font-bold text-white transition-all duration-300 rounded-full shadow-xl ripple bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 active:scale-100 focus:scale-100 whitespace-nowrap">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m-4 0h4" />
             </svg>
             <span class="text-sm font-semibold leading-none tracking-wide">Homepage</span>
-          </span>
-        </a>
-        
-        <div class="absolute bottom-8 left-8 right-8 text-white">
-          <h1 class="text-3xl font-bold font-livvic mb-1 tracking-tight">Farm Visit <span class="text-[#F2CB00]">Application</span></h1>
-          <p class="text-sm opacity-90 font-medium max-w-[280px] leading-snug">Experience innovation and sustainability up close on our farms.</p>
+          </a>
+        </div>
+
+        <div class="absolute text-white bottom-8 left-8 right-8">
+          <h1 class="mb-1 text-3xl font-bold tracking-tight font-livvic">Farm Visit <span
+              class="text-[#F2CB00]">Application</span></h1>
+          <p class="text-sm opacity-90 font-medium max-w-[280px] leading-snug">Experience innovation and sustainability
+            up close on our farms.</p>
         </div>
       </div>
 
       <div class="w-full form-card form-card-fixed">
         <form id="bookingForm" class="space-y-8 max-[360px]:space-y-5">
-          <div class="mb-6 md:mb-12 p-4 sm:p-6 md:py-16 md:px-4 lg:px-6 bg-stone-50 border border-stone-100 rounded-[2.5rem] text-center shadow-sm">
+          <div
+            class="mb-6 md:mb-12 p-4 sm:p-6 md:py-16 md:px-4 lg:px-6 bg-stone-50 border border-stone-100 rounded-[2.5rem] text-center shadow-sm">
             <h2 class="font-['Livvic'] text-3xl md:text-5xl font-bold text-black mb-4 md:mb-6">
               Book Your <span class="text-[#129C48]">Farm Visit</span>
             </h2>
             <div class="h-1 w-24 bg-[#F2CB00] mx-auto mb-4 md:mb-8"></div>
-            
-            <p class="mb-4 md:mb-8 text-sm sm:text-base md:text-lg lg:text-xl font-normal md:font-light text-gray-700 leading-relaxed max-w-none mx-auto">
-              We'd love to know more about the purpose of your visit.<br class="hidden md:block"> Help us make your visit a meaningful journey by completing these questions below?
+
+            <p
+              class="mx-auto mb-4 text-sm font-normal leading-relaxed text-gray-700 md:mb-8 sm:text-base md:text-lg lg:text-xl md:font-light max-w-none">
+              We'd love to know more about the purpose of your visit.<br class="hidden md:block"> Help us make your
+              visit a meaningful journey by completing these questions below?
             </p>
-            
-            <div class="border-t border-stone-200 pt-5 mt-5 md:pt-10 md:mt-10 max-w-none mx-auto flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-5 text-gray-600 text-sm font-medium">
-              <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-white flex items-center justify-center border border-stone-100 shadow-sm">
+
+            <div
+              class="flex flex-col items-center gap-4 pt-5 mx-auto mt-5 text-sm font-medium text-gray-600 border-t border-stone-200 md:pt-10 md:mt-10 max-w-none md:flex-row md:items-start md:gap-5">
+              <div
+                class="flex items-center justify-center flex-shrink-0 w-12 h-12 bg-white border shadow-sm rounded-2xl border-stone-100">
                 <svg class="w-6 h-6 text-[#129C48]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.004 2.003a9.995 9.995 0 0 0-8.47 15.47l-1.13 4.13 4.24-1.11a9.995 9.995 0 1 0 5.36-18.49z"/>
+                  <path
+                    d="M12.004 2.003a9.995 9.995 0 0 0-8.47 15.47l-1.13 4.13 4.24-1.11a9.995 9.995 0 1 0 5.36-18.49z" />
                 </svg>
               </div>
               <p class="text-center md:text-left leading-relaxed text-xs sm:text-sm md:text-[15px] text-gray-600">
-                This survey is made up of <span class="text-[#129C48] font-bold">2 sections</span>, the entire form should take no more than approximately <span class="text-[#129C48] font-bold">3 minutes</span> to complete.
+                This survey is made up of <span class="text-[#129C48] font-bold">2 sections</span>, the entire form
+                should take no more than approximately <span class="text-[#129C48] font-bold">3 minutes</span> to
+                complete.
               </p>
             </div>
           </div>
-          <div class="pt-4 pb-8 border-b border-stone-100 mb-8">
+          <div class="pt-4 pb-8 mb-8 border-b border-stone-100">
             <div class="flex items-center gap-4 mb-10">
-              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">1</span>
+              <span
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">1</span>
               <div>
                 <h3 class="font-['Livvic'] text-2xl font-bold text-gray-800">Tour Details</h3>
-                <p class="text-sm text-gray-500 font-medium">Tell us about your upcoming farm visit</p>
+                <p class="text-sm font-medium text-gray-500">Tell us about your upcoming farm visit</p>
               </div>
             </div>
 
@@ -684,36 +823,53 @@
 
               <div class="mb-8">
                 <label>Proposed date and time of visit <span class="text-red-600">*</span></label>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2 relative">
-                  
+                <div class="relative grid grid-cols-1 gap-6 mt-2 md:grid-cols-2">
+
                   <!-- Date Selector -->
                   <div class="relative w-full">
                     <div class="relative cursor-pointer" id="dateInputWrapper" onclick="toggleDatePicker(event)">
-                      <svg class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <svg class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48]" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <input id="visitDate" name="date" type="text" placeholder="Pick a date" class="w-full pl-10 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer font-medium" required readonly style="border: 0; border-bottom: 2px solid #e5e7eb; border-radius: 0; box-shadow: none; padding-left: 2.5rem !important;" />
+                      <input id="visitDate" name="date" type="text" placeholder="Pick a date"
+                        class="w-full datepicker-input py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer font-medium"
+                        required readonly />
                     </div>
-                    
+
                     <!-- Inline Custom Date Picker -->
-                    <div id="customDatePicker" class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden">
+                    <div id="customDatePicker"
+                      class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[320px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden">
                       <!-- Header -->
-                      <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white">
-                        <button type="button" onclick="prevCalendarView()" class="hover:bg-white/20 p-1 rounded-full transition-colors">
-                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                      <div
+                        class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#129C48] to-[#F2CB00] text-white">
+                        <button type="button" onclick="prevCalendarView()" title="Previous month"
+                          class="p-1 transition-colors rounded-full hover:bg-white/20">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                          </svg>
                         </button>
-                        <button type="button" onclick="switchCalendarMode()" id="calendarHeader" class="font-bold text-lg hover:bg-white/20 px-3 py-1 rounded-lg transition-colors"></button>
-                        <button type="button" onclick="nextCalendarView()" class="hover:bg-white/20 p-1 rounded-full transition-colors">
-                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <button type="button" onclick="switchCalendarMode()" id="calendarHeader"
+                          title="Switch calendar mode"
+                          class="px-3 py-1 text-lg font-bold transition-colors rounded-lg hover:bg-white/20"></button>
+                        <button type="button" onclick="nextCalendarView()" title="Next month"
+                          class="p-1 transition-colors rounded-full hover:bg-white/20">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                          </svg>
                         </button>
                       </div>
-                      
+
                       <!-- Views Container -->
                       <div class="p-4" id="calendarBody"></div>
-                      
+
                       <!-- Footer -->
-                      <div class="border-t border-gray-100 p-3 text-center bg-gray-50">
-                        <button type="button" onclick="selectToday()" class="text-[#129C48] font-bold text-sm hover:underline">Today</button>
+                      <div class="p-3 text-center border-t border-gray-100 bg-gray-50">
+                        <button type="button" onclick="selectToday()"
+                          class="text-[#129C48] font-bold text-sm hover:underline">Today</button>
                       </div>
                     </div>
                   </div>
@@ -721,21 +877,26 @@
                   <!-- Time Selector -->
                   <div class="relative w-full">
                     <div class="relative cursor-pointer" id="timeInputWrapper" onclick="toggleTimePicker(event)">
-                      <svg class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 text-[#129C48]" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <input id="visitTime" name="time" type="text" placeholder="Pick a time" class="w-full pl-10 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer font-medium" required readonly style="border: 0; border-bottom: 2px solid #e5e7eb; border-radius: 0; box-shadow: none; padding-left: 2.5rem !important;" />
+                      <input id="visitTime" name="time" type="text" placeholder="Pick a time"
+                        class="w-full timepicker-input py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer font-medium"
+                        required readonly />
                     </div>
-                    
+
                     <!-- Inline Custom Time Picker -->
-                    <div id="customTimePicker" class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[280px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden p-4">
-                       <h4 class="text-center font-bold text-gray-700 mb-4 font-livvic">Available Time Slots</h4>
-                       <div class="grid grid-cols-3 gap-3" id="timeGrid">
-                         <!-- Generated by JS -->
-                       </div>
+                    <div id="customTimePicker"
+                      class="hidden absolute z-50 top-full left-0 mt-2 w-full min-w-[280px] bg-white border-2 border-[#129C48] rounded-[1.25rem] shadow-[0_8px_32px_0_rgba(18,156,72,0.18)] overflow-hidden p-4">
+                      <h4 class="mb-4 font-bold text-center text-gray-700 font-livvic">Available Time Slots</h4>
+                      <div class="grid grid-cols-3 gap-3" id="timeGrid">
+                        <!-- Generated by JS -->
+                      </div>
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
 
@@ -750,7 +911,8 @@
                     <option>All Sectors</option>
                     <option value="Other">Other (Please specify)</option>
                   </select>
-                  <input type="text" id="otherSector" name="otherSector" placeholder="Please specify place" class="hidden-input mt-2" />
+                  <input type="text" id="otherSector" name="otherSector" placeholder="Please specify place"
+                    class="mt-2 hidden-input" />
                 </div>
                 <div>
                   <label for="purpose">Purpose of touring or visiting <span class="text-red-600">*</span></label>
@@ -763,7 +925,8 @@
                     <option>Media / Press</option>
                     <option value="Other">Other (Please specify)</option>
                   </select>
-                  <input type="text" id="otherPurpose" name="otherPurpose" placeholder="Please specify purpose" class="hidden-input mt-2" />
+                  <input type="text" id="otherPurpose" name="otherPurpose" placeholder="Please specify purpose"
+                    class="mt-2 hidden-input" />
                 </div>
               </div>
 
@@ -776,42 +939,52 @@
 
           <div class="pt-4 pb-8">
             <div class="flex items-center gap-4 mb-10">
-              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">2</span>
+              <span
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-[#129C48] text-white font-bold text-lg shadow-md">2</span>
               <div>
                 <h3 class="font-['Livvic'] text-2xl font-bold text-gray-800">Personal Information</h3>
-                <p class="text-sm text-gray-500 font-medium">How we can contact you</p>
+                <p class="text-sm font-medium text-gray-500">How we can contact you</p>
               </div>
             </div>
-            
+
             <div class="space-y-8">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <label for="lastName">Last name <span class="text-red-600">*</span></label>
-                  <input id="lastName" name="lastName" type="text" placeholder="Osei" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+                  <input id="lastName" name="lastName" type="text" placeholder="Osei"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent"
+                    required />
                 </div>
                 <div>
                   <label for="otherNames">Other name(s)</label>
-                  <input id="otherNames" name="otherNames" type="text" placeholder="Joseph Kwame" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                  <input id="otherNames" name="otherNames" type="text" placeholder="Joseph Kwame"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
               <div>
                 <label for="email">Email <span class="text-red-600">*</span></label>
-                <input id="email" name="email" type="email" placeholder="kwame.osei@gmail.com" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+                <input id="email" name="email" type="email" placeholder="kwame.osei@gmail.com"
+                  class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent"
+                  required />
               </div>
               <div class="grid grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <label for="phone">Phone number <span class="text-red-600">*</span></label>
-                  <input id="phone" name="phone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" required />
+                  <input id="phone" name="phone" type="tel" placeholder="+233 54 123 4567"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent"
+                    required />
                 </div>
                 <div>
                   <label for="whatsapp">WhatsApp number</label>
-                  <input id="whatsapp" name="whatsapp" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                  <input id="whatsapp" name="whatsapp" type="tel" placeholder="+233 54 123 4567"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <label for="country">Country of origin <span class="text-red-600">*</span></label>
-                  <select id="country" name="country" required class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
+                  <select id="country" name="country" required
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
                     <option value="" disabled selected>Select country</option>
                     <option value="Ghana">🇬🇭 Ghana</option>
                     <option value="Nigeria">🇳🇬 Nigeria</option>
@@ -840,16 +1013,19 @@
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <label for="emergencyName">Emergency contact person</label>
-                  <input id="emergencyName" name="emergencyName" type="text" placeholder="Full Name" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                  <input id="emergencyName" name="emergencyName" type="text" placeholder="Full Name"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
                 <div>
                   <label for="emergencyPhone">Emergency contact number</label>
-                  <input id="emergencyPhone" name="emergencyPhone" type="tel" placeholder="+233 54 123 4567" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
+                  <input id="emergencyPhone" name="emergencyPhone" type="tel" placeholder="+233 54 123 4567"
+                    class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent" />
                 </div>
               </div>
               <div>
                 <label for="medical">Medical conditions or allergies</label>
-                <select id="medical" name="medical" required onchange="toggleOther(this, 'otherMedical')" class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
+                <select id="medical" name="medical" required onchange="toggleOther(this, 'otherMedical')"
+                  class="w-full px-0 py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-all duration-500 bg-transparent cursor-pointer">
                   <option value="" disabled selected>Select any conditions or allergies</option>
                   <option value="None">None</option>
                   <option value="Asthma">Asthma</option>
@@ -860,7 +1036,8 @@
                   <option value="Mobility Issues">Mobility Issues</option>
                   <option value="Other">Other (Please specify)</option>
                 </select>
-                <input type="text" id="otherMedical" name="otherMedical" placeholder="Please specify condition or allergy" class="hidden-input mt-2" />
+                <input type="text" id="otherMedical" name="otherMedical"
+                  placeholder="Please specify condition or allergy" class="mt-2 hidden-input" />
               </div>
               <div>
                 <label for="referral">How did you hear about us? <span class="text-red-600">*</span></label>
@@ -873,26 +1050,30 @@
                   <option>Event / Exhibition</option>
                   <option value="Other">Other (Please specify)</option>
                 </select>
-                <input type="text" id="otherReferral" name="otherReferral" placeholder="Please specify source" class="hidden-input mt-2" />
+                <input type="text" id="otherReferral" name="otherReferral" placeholder="Please specify source"
+                  class="mt-2 hidden-input" />
               </div>
 
             </div>
           </div>
-          <div class="flex justify-center w-full mt-8">
-            <button type="submit">
+          <div class="flex flex-col items-center justify-center w-full gap-4 mt-8 booking-actions sm:flex-row sm:gap-5">
+            <button type="submit" class="w-full max-w-[290px] sm:max-w-none sm:w-auto">
               <span class="btn-content">
                 <span>Submit Booking</span>
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
               <span class="hover-content">
                 <span>Submit Booking</span>
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
             </button>
+            <a href="/" class="booking-cancel px-8 py-4 text-center farmgate-btn-outline">Cancel</a>
           </div>
         </form>
       </div>
@@ -908,7 +1089,8 @@
       </div>
       <h3 class="mb-2 text-2xl font-bold text-gray-900 font-livvic">Booking Successful!</h3>
       <p class="mb-8 text-gray-600">
-        Thank you for your interest in booking a farm visit and our team at FGAI would love to hear from you. We will contact you shortly to confirm your schedule.
+        Thank you for your interest in booking a farm visit and our team at FGAI would love to hear from you. We will
+        contact you shortly to confirm your schedule.
       </p>
       <button onclick="closeModal()"
         class="w-full px-6 py-3 font-bold text-white transition-colors duration-200 bg-[#129C48] rounded-full hover:bg-[#0c7033]">Book
@@ -916,7 +1098,7 @@
     </div>
   </div>
   <!-- Floating WhatsApp Support Button -->
-  <a href="https://wa.me/+233503301132" target="_blank" class="help-btn" aria-label="WhatsApp support">
+  <a href="https://wa.me/+233503301132" target="_blank" rel="noopener" class="help-btn" aria-label="WhatsApp support">
     <div class="whatsapp-tooltip">Let's Chat</div>
     <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
       <path fill="#ffffff"
@@ -934,7 +1116,7 @@
     let yearDecadeStart = Math.floor(viewingYear / 10) * 10;
 
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    
+
     function toggleDatePicker(e) {
       if (e) e.stopPropagation();
       const picker = document.getElementById('customDatePicker');
@@ -961,12 +1143,12 @@
       }
     }
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const datePicker = document.getElementById('customDatePicker');
       const dateWrapper = document.getElementById('dateInputWrapper');
       const timePicker = document.getElementById('customTimePicker');
       const timeWrapper = document.getElementById('timeInputWrapper');
-      
+
       if (!datePicker.contains(e.target) && !dateWrapper.contains(e.target)) {
         datePicker.classList.add('hidden');
       }
@@ -982,7 +1164,7 @@
 
       if (currentView === 'days') {
         header.innerText = `${months[viewingMonth]} ${viewingYear}`;
-        
+
         // Days of week
         const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         const weekRow = document.createElement('div');
@@ -997,7 +1179,7 @@
 
         const daysGrid = document.createElement('div');
         daysGrid.className = 'grid grid-cols-7 gap-1';
-        
+
         const firstDay = new Date(viewingYear, viewingMonth, 1).getDay();
         const daysInMonth = new Date(viewingYear, viewingMonth + 1, 0).getDate();
         const today = new Date();
@@ -1011,13 +1193,13 @@
           const dayEl = document.createElement('button');
           dayEl.type = 'button';
           dayEl.innerText = i;
-          
+
           const isToday = i === today.getDate() && viewingMonth === today.getMonth() && viewingYear === today.getFullYear();
           const isSelected = selectedDate && i === selectedDate.getDate() && viewingMonth === selectedDate.getMonth() && viewingYear === selectedDate.getFullYear();
           const isPast = new Date(viewingYear, viewingMonth, i) < new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
           let classes = 'w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition-colors mx-auto ';
-          
+
           if (isPast) {
             classes += 'text-gray-300 cursor-not-allowed';
             dayEl.disabled = true;
@@ -1028,7 +1210,7 @@
           } else {
             classes += 'text-gray-700 hover:bg-[#129C48] hover:text-white';
           }
-          
+
           dayEl.className = classes;
           if (!isPast) {
             dayEl.onclick = () => selectDate(i);
@@ -1041,7 +1223,7 @@
         header.innerText = viewingYear;
         const grid = document.createElement('div');
         grid.className = 'grid grid-cols-3 gap-4';
-        
+
         months.forEach((m, idx) => {
           const btn = document.createElement('button');
           btn.type = 'button';
@@ -1061,19 +1243,19 @@
           grid.appendChild(btn);
         });
         body.appendChild(grid);
-        
+
       } else if (currentView === 'years') {
         header.innerText = `${yearDecadeStart} - ${yearDecadeStart + 9}`;
         const grid = document.createElement('div');
         grid.className = 'grid grid-cols-3 gap-4';
-        
+
         for (let i = 0; i < 12; i++) {
           const year = yearDecadeStart - 1 + i;
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.innerText = year;
           let classes = 'py-3 rounded-xl text-sm font-bold transition-all ';
-          
+
           if (year === viewingYear) {
             classes += 'bg-[#129C48] text-white shadow-md';
           } else if (year < new Date().getFullYear()) {
@@ -1082,7 +1264,7 @@
           } else {
             classes += 'bg-gray-50 text-gray-700 hover:bg-[#129C48] hover:text-white';
           }
-          
+
           btn.className = classes;
           if (year >= new Date().getFullYear()) {
             btn.onclick = () => {
@@ -1132,11 +1314,11 @@
       const getOrdinalNum = (n) => n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
       const daysStr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      
+
       const dayName = daysStr[selectedDate.getDay()];
       const monthName = monthsStr[selectedDate.getMonth()];
       const dayWithOrdinal = getOrdinalNum(day);
-      
+
       document.getElementById('visitDate').value = `${dayName}, ${dayWithOrdinal} ${monthName} ${viewingYear}`;
       document.getElementById('customDatePicker').classList.add('hidden');
     }
@@ -1154,11 +1336,11 @@
       const grid = document.getElementById('timeGrid');
       grid.innerHTML = '';
       const times = [
-        '09:00 AM', '10:00 AM', '11:00 AM', 
-        '12:00 PM', '01:00 PM', '02:00 PM', 
+        '09:00 AM', '10:00 AM', '11:00 AM',
+        '12:00 PM', '01:00 PM', '02:00 PM',
         '03:00 PM', '04:00 PM', '05:00 PM'
       ];
-      
+
       const currentSelected = document.getElementById('visitTime').value;
 
       times.forEach(t => {
@@ -1196,12 +1378,35 @@
 
       // Always hide confirmation modal on load
       document.getElementById('confirmationBox').classList.remove('active');
+
+      const submitButton = document.querySelector('.booking-actions > button[type="submit"]');
+      const cancelButton = document.querySelector('.booking-actions > .booking-cancel');
+
+      const syncBookingActionSize = () => {
+        if (!submitButton || !cancelButton) {
+          return;
+        }
+
+        const submitRect = submitButton.getBoundingClientRect();
+        cancelButton.style.width = `${submitRect.width}px`;
+        cancelButton.style.height = `${submitRect.height}px`;
+      };
+
+      syncBookingActionSize();
+
+      if (window.ResizeObserver && submitButton) {
+        const resizeObserver = new ResizeObserver(syncBookingActionSize);
+        resizeObserver.observe(submitButton);
+      } else {
+        window.addEventListener('resize', syncBookingActionSize);
+      }
+
       document.getElementById('bookingForm').onsubmit = function (e) {
         e.preventDefault();
         document.getElementById('confirmationBox').classList.add('active');
       };
     });
-    
+
     function closeModal() {
       document.getElementById('confirmationBox').classList.remove('active');
       document.getElementById('bookingForm').reset();
@@ -1210,7 +1415,7 @@
       // Progress bar removed
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
+
     function toggleOther(select, otherId) {
       const otherInput = document.getElementById(otherId);
       if (select.value === 'Other') {
@@ -1223,6 +1428,28 @@
         otherInput.value = '';
       }
     }
+  </script>
+  <script>
+    // Delegated ripple effect for anchors with class 'ripple'
+    (function () {
+      function createRipple(e, el) {
+        const rect = el.getBoundingClientRect();
+        const circle = document.createElement('span');
+        const size = Math.max(rect.width, rect.height) * 2;
+        circle.className = 'ripple-circle';
+        circle.style.width = circle.style.height = size + 'px';
+        circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        el.appendChild(circle);
+        circle.addEventListener('animationend', function () { circle.remove(); });
+      }
+
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('a.ripple');
+        if (!btn) return;
+        createRipple(e, btn);
+      });
+    })();
   </script>
 </body>
 

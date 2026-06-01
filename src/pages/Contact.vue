@@ -50,6 +50,7 @@
     </div>
 
     <section
+      id="fg-contact-form"
       class="relative z-20 w-full px-6 max-[360px]:px-3 pb-24 max-[360px]:pb-12 bg-white mt-15 max-[360px]:mt-8 md:px-12"
     >
       <div
@@ -560,6 +561,7 @@
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import Footer from "../components/Footer.vue";
@@ -697,6 +699,9 @@ const handleDocumentClick = (event) => {
 
 onMounted(() => {
   document.addEventListener("click", handleDocumentClick);
+
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
 
   const api = initScrollReveal();
   if (!api) return;

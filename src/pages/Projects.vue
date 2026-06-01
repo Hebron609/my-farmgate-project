@@ -63,6 +63,7 @@
     </div>
 
     <section
+      id="fg-projects-list"
       class="pb-24 overflow-hidden bg-white pt-15 md:pt-24 font-montserrat"
     >
       <div class="px-6 mx-auto mb-20 text-center max-w-7xl">
@@ -103,7 +104,7 @@
 
         <!-- Filter System (Floating Command Bar) -->
         <div
-          class="relative z-[20] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
+          class="hidden md:block relative z-[220] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
         >
           <div
             class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row md:flex-nowrap items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
@@ -238,13 +239,14 @@
             <div
               class="flex items-center justify-center w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
             >
+              <LeafIcon class="w-4 h-4 text-[#F2CB00] shrink-0" />
               <span
-                class="text-xs font-semibold text-gray-700 md:text-sm font-montserrat whitespace-nowrap shrink-0"
+                class="text-sm font-semibold text-gray-700 font-montserrat whitespace-nowrap shrink-0 mr-1 md:mr-2"
                 >Project status:</span
               >
 
               <span
-                class="text-[11px] sm:text-sm font-semibold text-gray-600 font-montserrat whitespace-nowrap shrink-0"
+                class="text-[11px] sm:text-sm font-semibold text-[#129C48] font-montserrat whitespace-nowrap shrink-0 "
                 >Active</span
               >
 
@@ -274,18 +276,254 @@
               </label>
 
               <span
-                class="text-[11px] sm:text-sm font-semibold text-gray-600 font-montserrat whitespace-nowrap shrink-0"
+                class="text-[11px] sm:text-sm font-semibold text-[#F2CB00] font-montserrat whitespace-nowrap shrink-0"
                 >Completed</span
               >
             </div>
 
             <!-- Go Action Section -->
             <div
-              class="w-full md:w-[140px] md:flex-none md:shrink-0 flex items-center justify-center py-3 md:py-0 px-2 md:px-4 md:rounded-r-[2rem] hover:bg-gray-50 transition-colors"
+              class="md:flex-none md:shrink-0 flex items-stretch bg-black md:rounded-r-[2rem] hover:bg-gray-900 cursor-pointer transition-colors"
+              @click="applyFilters"
+            >
+              <button class="w-full h-full min-h-[50px] px-4 md:px-8 flex items-center justify-center text-sm font-semibold text-white bg-transparent outline-none border-none m-0">
+                Go
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="md:hidden projects-filter-bar relative z-[20] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
+        >
+          <div
+            class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row md:flex-nowrap items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
+            <!-- Search -->
+            <div
+              class="projects-filter-search relative w-full md:flex-[1.35] md:min-w-[260px] min-w-0 group"
+            >
+              <div class="flex items-center gap-2 mb-2 md:hidden">
+                <span
+                  class="inline-flex h-2 w-2 rounded-full bg-[#129C48]"
+                ></span>
+                <span
+                  class="text-[11px] font-bold uppercase tracking-[0.24em] text-gray-500"
+                  >Search Projects</span
+                >
+              </div>
+              <div class="relative projects-filter-field-row">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-6 pointer-events-none"
+                >
+                  <svg
+                    class="w-5 h-5 text-[#F2CB00] transition-colors duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  v-model="searchQueryDraft"
+                  @keyup.enter="applyFilters"
+                  placeholder="Search all projects..."
+                  class="projects-filter-input w-full bg-transparent text-gray-800 py-4 pl-14 pr-6 rounded-t-[2rem] md:rounded-l-[2rem] md:rounded-tr-none font-semibold font-montserrat text-sm outline-none placeholder-gray-400 focus:bg-gray-50 transition-colors"
+                />
+              </div>
+            </div>
+
+            <!-- Location Select -->
+            <div
+              class="projects-filter-select relative w-full md:w-[210px] md:flex-none md:shrink-0 group cursor-pointer hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-2 mb-2 md:hidden">
+                <span
+                  class="inline-flex h-2 w-2 rounded-full bg-[#129C48]"
+                ></span>
+                <span
+                  class="text-[11px] font-bold uppercase tracking-[0.24em] text-gray-500"
+                  >Location</span
+                >
+              </div>
+              <div class="relative projects-filter-field-row">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 text-[#F2CB00]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <select
+                  v-model="selectedLocationDraft"
+                  :class="[
+                    'projects-filter-dropdown w-full py-4 pl-12 pr-10 text-sm font-semibold bg-transparent outline-none appearance-none cursor-pointer font-montserrat',
+                    selectedLocationDraft === 'All locations'
+                      ? 'text-gray-400'
+                      : 'text-gray-700',
+                  ]"
+                >
+                  <option>All locations</option>
+                  <option>Eastern Region</option>
+                  <option>Ahafo Region</option>
+                  <option>Volta Region</option>
+                  <option>Northern Region</option>
+                </select>
+                <svg
+                  class="projects-filter-arrow w-4 h-4 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Focus Area Select -->
+            <div
+              class="projects-filter-select relative w-full md:w-[230px] md:flex-none md:shrink-0 group cursor-pointer hover:bg-gray-50 transition-colors"
+            >
+              <div class="flex items-center gap-2 mb-2 md:hidden">
+                <span
+                  class="inline-flex h-2 w-2 rounded-full bg-[#129C48]"
+                ></span>
+                <span
+                  class="text-[11px] font-bold uppercase tracking-[0.24em] text-gray-500"
+                  >Focus Area</span
+                >
+              </div>
+              <div class="relative projects-filter-field-row">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 text-[#F2CB00]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    ></path>
+                  </svg>
+                </div>
+                <select
+                  v-model="selectedFocusAreaDraft"
+                  :class="[
+                    'projects-filter-dropdown w-full py-4 pl-12 pr-10 text-sm font-semibold bg-transparent outline-none appearance-none cursor-pointer font-montserrat',
+                    selectedFocusAreaDraft === 'All key focus areas'
+                      ? 'text-gray-400'
+                      : 'text-gray-700',
+                  ]"
+                >
+                  <option>All key focus areas</option>
+                  <option>TAP</option>
+                  <option>Flagship Farming</option>
+                </select>
+                <svg
+                  class="projects-filter-arrow w-4 h-4 text-gray-400 pointer-events-none group-hover:text-[#129C48] transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Single Status Toggle: Active [toggle] Completed -->
+            <div
+              class="flex items-center justify-center w-full px-3 py-3 transition-colors projects-filter-status flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
+            >
+              <LeafIcon class="hidden md:inline w-4 h-4 text-[#F2CB00] shrink-0" />
+              <span
+                class="hidden md:inline text-xs font-semibold text-gray-700 md:text-sm font-montserrat whitespace-nowrap shrink-0 mr-1 md:mr-2"
+                >Project status:</span
+              >
+
+              <div
+                class="projects-filter-status-row flex items-center justify-between w-full max-w-[260px] mx-auto md:w-auto md:max-w-none md:justify-start gap-3 md:gap-2"
+              >
+                <span
+                  class="text-xs font-semibold text-[#129C48] md:text-sm font-montserrat whitespace-nowrap shrink-0"
+                  >Active</span
+                >
+                <label
+                  class="relative inline-flex items-center self-center mx-0 cursor-pointer sm:mx-3 shrink-0 md:self-auto"
+                >
+                  <input
+                    type="checkbox"
+                    class="sr-only"
+                    v-model="isCompletedDraft"
+                    @change="applyFilters"
+                  />
+                  <div
+                    :class="[
+                      'w-11 h-6 sm:w-12 sm:h-6 rounded-full transition-colors duration-300 shadow-inner',
+                      isCompletedDraft ? 'bg-[#F2CB00]' : 'bg-[#129C48]',
+                    ]"
+                  ></div>
+                  <span
+                    :class="[
+                      'absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300',
+                      isCompletedDraft
+                        ? 'translate-x-5 sm:translate-x-6'
+                        : 'translate-x-0',
+                    ]"
+                  ></span>
+                </label>
+
+                <span
+                  class="text-[11px] sm:text-sm font-semibold text-[#F2CB00] font-montserrat whitespace-nowrap shrink-0"
+                  >Completed</span
+                >
+              </div>
+            </div>
+
+            <!-- Go Action Section -->
+            <div
+              class="projects-filter-cta w-full md:w-[140px] md:flex-none md:shrink-0 flex items-center justify-center py-3 md:py-0 px-2 md:px-4 md:rounded-r-[2rem] hover:bg-gray-50 transition-colors"
             >
               <button
                 @click="applyFilters"
-                class="px-4 py-2 text-sm font-semibold text-white transition-colors bg-black rounded-full shadow-sm cursor-pointer hover:bg-gray-900 active:scale-95"
+                class="w-full py-3 text-sm font-semibold text-white transition-colors bg-black rounded-full shadow-sm cursor-pointer hover:bg-gray-900 active:scale-95"
               >
                 Go
               </button>
@@ -416,6 +654,7 @@
     </section>
 
     <section
+      id="fg-projects-impact"
       class="w-full bg-[#129C48] py-24 text-white reveal-fade relative overflow-hidden"
     >
       <div class="relative z-10 px-6 mx-auto max-w-7xl">
@@ -471,6 +710,7 @@
 <script setup>
 import { ref, computed, watch, onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -498,6 +738,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {
@@ -801,6 +1043,186 @@ const stats = ref([
 .completed-dot::after {
   content: none;
   animation: none;
+}
+
+@media (max-width: 767px) {
+  .projects-filter-bar > div {
+    border-radius: 1.5rem;
+  }
+
+  .projects-filter-search,
+  .projects-filter-select,
+  .projects-filter-status,
+  .projects-filter-cta {
+    padding: 0.65rem 1rem;
+  }
+
+  .projects-filter-search {
+    padding-top: 0.7rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .projects-filter-search > div:first-child,
+  .projects-filter-select > div:first-child {
+    margin-bottom: 0.35rem;
+  }
+
+  .projects-filter-search .projects-filter-input,
+  .projects-filter-select .projects-filter-dropdown {
+    height: 3.1rem;
+    width: 100%;
+    border-radius: 1rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .projects-filter-search .projects-filter-input {
+    padding-left: 3.25rem;
+    padding-right: 1rem;
+  }
+
+  .projects-filter-select .projects-filter-dropdown {
+    padding-left: 3rem;
+    padding-right: 2.2rem;
+    line-height: 1;
+  }
+
+  .projects-filter-select .projects-filter-dropdown option {
+    color: #111827;
+  }
+
+  .projects-filter-field-row {
+    margin-top: 0;
+    display: grid;
+    align-items: center;
+    min-height: 3.1rem;
+    line-height: 0;
+  }
+
+  .projects-filter-search .projects-filter-field-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.5rem;
+    padding: 0.05rem 0.85rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .projects-filter-select .projects-filter-field-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 0.45rem;
+    padding: 0.05rem 0.85rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .projects-filter-search .projects-filter-field-row > div,
+  .projects-filter-select .projects-filter-field-row > div {
+    position: static;
+    inset: auto;
+    padding: 0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .projects-filter-search .projects-filter-field-row > input,
+  .projects-filter-select .projects-filter-field-row > select {
+    min-width: 0;
+    flex: 1 1 auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    height: 2.95rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0.1rem !important;
+    padding-right: 0.1rem !important;
+  }
+
+  .projects-filter-search svg,
+  .projects-filter-select svg {
+    position: static;
+    transform: none;
+    display: block;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .projects-filter-select .projects-filter-arrow {
+    justify-self: center;
+    align-self: center;
+    margin-left: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .projects-filter-select .projects-filter-field-row > svg:last-child {
+    color: #9ca3af;
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .projects-filter-status {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0.8rem;
+    padding-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .projects-filter-status > span {
+    display: none;
+  }
+
+  .projects-filter-status-row {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  .projects-filter-status-row > span {
+    font-size: 0.8rem;
+  }
+
+  .projects-filter-status-row > span:first-child {
+    color: #129c48;
+  }
+
+  .projects-filter-status-row > span:last-child {
+    color: #f2cb00;
+  }
+
+  .projects-filter-status-row label {
+    margin-left: 0;
+    margin-right: 0;
+    transform: translateY(1px);
+  }
+
+  .projects-filter-cta {
+    padding-top: 0.35rem;
+    padding-bottom: 0.9rem;
+    background: transparent;
+  }
+
+  .projects-filter-go {
+    width: 100%;
+    padding: 0.92rem 1.25rem;
+    border-radius: 9999px;
+    background: #000;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .translate-z-10 {

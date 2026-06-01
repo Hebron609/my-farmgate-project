@@ -53,6 +53,7 @@
     </div>
 
     <section
+      id="fg-relevance-mission"
       class="relative w-full px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24"
     >
       <div class="mx-auto max-w-[1440px]">
@@ -139,6 +140,7 @@
     </section>
 
     <section
+      id="fg-relevance-values"
       class="relative w-full px-6 py-24 overflow-hidden bg-stone-50 md:px-12"
     >
       <div class="absolute right-0 pointer-events-none top-[-50px] opacity-5">
@@ -249,6 +251,7 @@
     </section>
 
     <section
+      id="fg-relevance-goal"
       class="relative h-[600px] w-full overflow-hidden flex items-center justify-center mb-24"
     >
       <div
@@ -293,6 +296,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -345,6 +349,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (api) {
     api.reveal(".reveal-fade", {

@@ -41,9 +41,9 @@
       ></div>
       <a
         href="/"
-        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-green-800 to-[#F2CB00] hover:shadow-2xl hover:scale-105 shadow-xl whitespace-nowrap"
+        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full shadow-xl bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 whitespace-nowrap"
       >
-        Go To Homepage
+        Go to Homepage
       </a>
     </div>
   </div>
