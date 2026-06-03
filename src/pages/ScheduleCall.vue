@@ -261,9 +261,9 @@ const closeModal = () => {
 
 <template>
   <div
-    class="relative bg-[#f8fafc] min-h-screen pattern-bg overflow-x-hidden flex items-center justify-center py-12 px-4 sm:px-6"
+    class="relative bg-[#f8fafc] min-h-screen pattern-bg overflow-x-hidden flex items-center justify-center pt-24 pb-12 px-4 sm:py-12 sm:px-6"
   >
-    <div class="fixed z-50 top-6 left-6 group">
+    <div class="absolute z-50 top-6 left-4 sm:fixed sm:top-6 sm:left-6 group">
       <div
         class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse"
       ></div>
