@@ -53,7 +53,8 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      id="fg-solutions-mandate"
+      class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
     >
       <div class="absolute top-0 left-0 pointer-events-none opacity-5">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
@@ -63,7 +64,7 @@
         <div class="inline-flex">
           <a
             href="/marketplace"
-            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -86,18 +87,18 @@
         </div>
 
         <div
-          class="flex flex-col items-start justify-between gap-12 mb-32 md:flex-row"
+          class="flex flex-col items-center justify-between mb-16 md:items-start md:mb-32 md:flex-row md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h3
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight text-center md:text-left mb-3 md:mb-0"
             >
               Our Core <span class="text-[#129C48]">Mandate</span>
             </h3>
           </div>
 
           <div class="md:max-w-xl reveal-slide-left">
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
             <p class="text-lg font-light leading-relaxed text-gray-600">
               FarmGate Africa & Industries is leading the way in partnership
               with farmers and farmer group organizations (FGOs) to unlock the
@@ -118,7 +119,7 @@
           
           </div>
 
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div id="fg-solutions-focal-areas" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
               v-for="area in focalAreas"
               :key="area.name"
@@ -139,7 +140,7 @@
                 </div>
 
                 <h4
-                  class="mb-4 font-['Livvic'] text-2xl font-bold text-[#129C48] transition-colors group-hover:text-black"
+                  class="mb-4 font-['Livvic'] text-2xl font-bold text-black transition-colors group-hover:text-[#129C48]"
                 >
                   {{ area.name }}
                 </h4>
@@ -166,6 +167,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -209,6 +211,8 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {

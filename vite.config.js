@@ -37,6 +37,8 @@ export default defineConfig({
         footprint: path.resolve(__dirname, "footprint.html"),
         bookFarmVisit: path.resolve(__dirname, "book-farm-visit.html"),
         ourEdge: path.resolve(__dirname, "our-edge.html"),
+        scheduleCall: path.resolve(__dirname, "schedule-call.html"),
+        serviceModel: path.resolve(__dirname, "service-model.html"),
       },
     },
   },

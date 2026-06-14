@@ -53,7 +53,8 @@
     </div>
 
     <section
-      class="relative w-full px-6 py-24 overflow-hidden bg-white md:px-12"
+      id="fg-relevance-mission"
+      class="relative w-full px-6 py-16 overflow-hidden bg-white md:px-12 md:py-24"
     >
       <div class="mx-auto max-w-[1440px]">
         <div
@@ -139,6 +140,7 @@
     </section>
 
     <section
+      id="fg-relevance-values"
       class="relative w-full px-6 py-24 overflow-hidden bg-stone-50 md:px-12"
     >
       <div class="absolute right-0 pointer-events-none top-[-50px] opacity-5">
@@ -149,7 +151,7 @@
         <div class="flex flex-col items-center mb-20 text-center">
           <button
             @click="navigateToVideo2"
-            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -249,6 +251,7 @@
     </section>
 
     <section
+      id="fg-relevance-goal"
       class="relative h-[600px] w-full overflow-hidden flex items-center justify-center mb-24"
     >
       <div
@@ -293,6 +296,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -345,6 +349,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (api) {
     api.reveal(".reveal-fade", {
@@ -410,4 +416,61 @@ onUnmounted(() => {
 
 <style scoped>
 /* Ensure smooth transitions if Tailwind utility classes aren't sufficient */
+
+/* 320x568 Viewport Fixes - Preserving Structure */
+@media (max-width: 380px) {
+  /* Scale down massive hero heading to prevent word wrap breaking on long words like RELEVANCE */
+  h1 {
+    font-size: 2.75rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Scale down the section headings */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Reduce the height of the goal container so it doesn't take up the whole screen height */
+  .h-\[600px\] {
+    height: 400px !important;
+  }
+
+  /* Reduce excessive padding and margins on mobile */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .gap-16 {
+    gap: 2rem !important;
+  }
+
+  .mt-24 {
+    margin-top: 3rem !important;
+  }
+  
+  .mb-24 {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Reduce padding inside value cards to give text more breathing room */
+  .p-10 {
+    padding: 1.5rem !important;
+  }
+
+  /* Scale down paragraph text slightly */
+  .text-xl {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Scale down the trophy icon slightly */
+  .text-6xl {
+    font-size: 3.5rem !important;
+  }
+}
 </style>

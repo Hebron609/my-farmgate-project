@@ -4,7 +4,7 @@
   >
     <Header :videoVariant="2" />
 
-    <div class="relative w-full h-screen overflow-hidden bg-black">
+    <div id="fg-about-story" class="relative w-full h-screen overflow-hidden bg-black">
       <div
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 transition-transform duration-[20s] ease-linear hover:scale-105"
         :style="{ backgroundImage: `url(${aboutUsBanner})` }"
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <section class="w-full px-6 py-24 bg-black md:py-40">
+    <section class="w-full px-6 py-16 bg-black md:py-40">
       <div class="max-w-5xl mx-auto text-center reveal-fade">
         <h2
           class="font-['Livvic'] text-3xl font-bold leading-tight text-white md:text-5xl"
@@ -61,7 +61,7 @@
           "We started this journey with a simple belief — that farming can feed
           the world
           <span
-            class="text-[#129C48] decoration-[#F2CB00] underline decoration-4 underline-offset-8"
+            class="text-[#129C48] decoration-[#F2CB00] underline decoration-4 underline-offset-4 md:underline-offset-8"
             >without harming it.</span
           >"
         </h2>
@@ -73,18 +73,18 @@
       </div>
     </section>
 
-    <section class="w-full px-6 py-24 bg-white md:px-12">
+    <section id="fg-about-company" class="w-full px-6 py-16 bg-white md:px-12 md:py-24">
       <div
         class="mx-auto grid max-w-[1440px] grid-cols-1 gap-16 md:grid-cols-2 lg:gap-24 items-start"
       >
         <div class="reveal-slide-right">
           <h3
-            class="font-['Livvic'] text-[#129C48] text-xl font-bold uppercase tracking-widest mb-4"
+            class="font-['Livvic'] text-[#129C48] text-xl font-bold uppercase tracking-widest mb-4 text-center md:text-left"
           >
             Our Company
           </h3>
           <h4
-            class="font-['Livvic'] text-3xl md:text-4xl font-bold text-black leading-tight mb-8"
+            class="font-['Livvic'] text-3xl md:text-4xl font-bold text-black leading-tight mb-8 text-center md:text-left"
           >
             Producers of high-quality farm products across the value chain.
           </h4>
@@ -92,7 +92,7 @@
           <div
             class="space-y-6 font-normal leading-relaxed prose prose-lg text-gray-600"
           >
-            <p>   
+            <p>
               We operate our own farms and also small-holder farmers in adopting
               best practices to bring out quality high-yielding produce. We turn
               these into quality value-added agricultural products for a ready
@@ -129,6 +129,7 @@
           </div>
 
           <div
+            id="fg-about-2030"
             class="absolute -bottom-12 md:bottom-12 left-6 right-6 rounded-xl bg-white p-8 shadow-2xl border-l-8 border-[#F2CB00]"
           >
             <h4 class="font-['Livvic'] text-xl font-bold text-black mb-2">
@@ -149,71 +150,15 @@
       </div>
     </section>
 
-    <section class="w-full px-6 py-32 bg-gray-50 md:px-12">
-      <div class="mx-auto max-w-[1440px]">
-        <div
-          class="flex flex-col items-center justify-center w-full gap-8 mb-20"
-        >
-          <div
-            class="flex flex-col items-center justify-center w-full text-center"
-          >
-            <h2 class="font-['Livvic'] text-5xl font-bold text-black mb-6">
-              What We Do
-            </h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mx-auto"></div>
-            <div
-              class="flex flex-col items-center justify-center w-full mt-8 space-y-4 text-lg text-center text-gray-600"
-            >
-              <p class="mx-auto text-center md:max-w-[70%]">
-                We partner with farmers across regions and beyond to help
-                improve livelihoods within local communities by helping farmers
-                to build capacity, grow more, sell more, sell for more, connect
-                more, and empower those behind each harvest while preserving the
-                environment that feeds us for the seasons ahead.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger"
-        >
-          <div
-            v-for="(item, index) in impacts"
-            :key="index"
-            class="relative p-8 overflow-hidden transition-all duration-300 bg-white shadow-sm group rounded-2xl hover:-translate-y-2 hover:shadow-xl"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-[#129C48] to-[#0a3f1f] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            ></div>
-            <div class="relative z-10">
-              <div
-                class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-50 text-[#129C48] transition-colors group-hover:bg-white group-hover:text-[#129C48]"
-              >
-                <font-awesome-icon :icon="['fas', item.iconName]" size="lg" />
-              </div>
-              <p
-                class="font-['Montserrat'] text-xl font-medium text-gray-900 transition-colors group-hover:text-white"
-              >
-                {{ item.title }}
-              </p>
-              <div
-                class="mt-4 h-1 w-12 bg-[#F2CB00] transition-all group-hover:w-full"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!--<GrowWithUs />-->
     <Footer />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -225,7 +170,10 @@ const { init: initScrollReveal } = useScrollReveal({
   viewFactor: 0.1,
 });
 
+const { init: initHighlight } = useHighlightOnLoad();
+
 onMounted(() => {
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900 });
@@ -244,24 +192,6 @@ onMounted(() => {
     interval: 100,
   });
 });
-
-const impacts = ref([
-  { title: "Enhance Productivity", iconName: "chart-line" },
-  { title: "Increase incomes", iconName: "money-bill-wave" },
-  { title: "Connect farmers to markets", iconName: "handshake" },
-  { title: "Increase access to finance", iconName: "university" },
-  { title: "Protect ecosystems", iconName: "shield-alt" },
-  { title: "Act on climate change", iconName: "cloud-sun" },
-  { title: "Empower women & youth for job creation", iconName: "users" },
-  {
-    title: "Boost food security & Strengthen supply chain systems",
-    iconName: "truck",
-  },
-  {
-    title: "Provide CBTM support for FBO and co-operatives/FGO",
-    iconName: "chalkboard-teacher",
-  },
-]);
 
 // Image Imports
 import aboutUsBanner from "@/assets/img/about-us-banner.jpg";
@@ -291,5 +221,40 @@ import farmPic9 from "@/assets/img/farm-pic9.jpg";
 
 .button-group:hover .black-text {
   opacity: 1;
+}
+
+/* 320x568 Viewport Fixes - Preserving Structure */
+@media (max-width: 380px) {
+  /* Scale down massive hero heading to prevent word wrap breaking */
+  h1 {
+    font-size: 3.25rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Scale down the quote section heading */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Reduce the height of the image container so it doesn't take up the whole screen height */
+  .min-h-\[500px\] {
+    min-height: 380px !important;
+  }
+
+  /* Keep the overlapping structure (-bottom-12), but reduce internal padding and text size
+     so the box doesn't get ridiculously tall on narrow screens */
+  .absolute.-bottom-12 {
+    padding: 1.25rem !important;
+  }
+
+  .absolute.-bottom-12 h4 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .absolute.-bottom-12 p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
 }
 </style>

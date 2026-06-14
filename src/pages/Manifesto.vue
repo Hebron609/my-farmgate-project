@@ -54,7 +54,8 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      id="fg-manifesto-principles"
+      class="relative w-full px-6 pb-12 overflow-hidden bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
     >
       <div class="absolute top-0 right-0 pointer-events-none opacity-5">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
@@ -64,7 +65,7 @@
         <div class="inline-flex">
           <button
             @click="navigateToVideo2"
-            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -87,18 +88,18 @@
         </div>
 
         <div
-          class="flex flex-col justify-between mb-16 md:flex-row md:items-start md:gap-12"
+          class="flex flex-col items-center md:items-start justify-between mb-16 md:flex-row md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h2
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-3 md:mb-6 text-center md:text-left"
             >
               Our Core <span class="text-[#129C48]">Principles</span>
             </h2>
           </div>
 
           <div class="md:max-w-xl reveal-slide-left">
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
             <p
               class="text-lg font-light leading-relaxed text-gray-600 max-w-[90%]"
             >
@@ -158,7 +159,7 @@
               >
                 <span
                   class="text-xs font-bold uppercase tracking-widest text-[#129C48]"
-                  >Read More</span
+                  >Learn More</span
                 >
                 <div
                   class="h-8 w-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#129C48] group-hover:text-white transition-all duration-300"
@@ -250,19 +251,20 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
 
-import farmTractor1 from "@/assets/img/farm-tractor1.jpg";
-import farmTractor2 from "@/assets/img/farm-tractor2.jpg";
-import groupFarmImage from "@/assets/img/group-farm-image.jpg";
-import womenFarm from "@/assets/img/farm-pic2.jpg";
-import invest1 from "@/assets/img/Vision-future-img.jpg";
-import SoilSample from "@/assets/img/soil-sampling.jpg";
-import farmCrops from "@/assets/img/farm-pic5.jpg";
-import trackWithUsImg from "@/assets/img/farm-pic1.jpg";
+import farmTractor1 from "@/assets/img/farm-tractor1.webp";
+import farmTractor2 from "@/assets/img/farm-tractor2.webp";
+import groupFarmImage from "@/assets/img/group-farm-image.webp";
+import womenFarm from "@/assets/img/farm-pic2.webp";
+import invest1 from "@/assets/img/technology1.webp";
+import SoilSample from "@/assets/img/soil-sampling.webp";
+import farmCrops from "@/assets/img/quality.webp";
+import trackWithUsImg from "@/assets/img/traceability2.webp";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 // Using one hero image consistent with theme, or select specifically
@@ -280,6 +282,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {
@@ -314,14 +318,14 @@ const manifestoPoints = ref([
   {
     title: "We're in it for the long-term",
     description:
-      "Short-term returns are important, but our focus is long-term goals, and long-lasting impact. We know that true success does not simply lie in what happens immediately next. In everything we do, we think about the long-term implications and impacts. This is why we continually invest in our people, partners, infrastructure facilities, technologies, our farmers and arable farmlands close to water sources. This is why we are determined and aim to thrive for more than 100 years. This is why we have developed a user-friendly, innovative farmer connect solution  <strong>'myFarm' – a seamless agri-tech ERP solution that supports farming operation, connect farming actors and drives actionable insights.</strong>",
+      "Short-term returns are important, but our focus is on long-term goals and lasting impact. We know that true success does not simply lie in what happens immediately next. In everything we do, we think about the long-term implications and impacts. This is why we continually invest in our people, partners, infrastructure, technologies, our farmers, and arable farmlands. This is why we are determined and aim to thrive for more than 100 years. This is why we have developed a user-friendly, innovative farmer-connect solution, <strong>'myFarm' – a seamless agri-tech ERP solution that supports farming operations, connects farming actors, and drives actionable insights.</strong>",
     image: farmTractor2,
     alt: "Long-term investment",
   },
   {
     title: "True sustainability is hinged on shared prosperity",
     description:
-      "Shared prosperity lies behind everything we do. This is why shared value and equity is central to our ethos. We drive a greater fairness of outcomes for everyone along the agribusiness and agriculture value chain.",
+      "Shared prosperity lies behind everything we do. This is why shared value and equity are central to our ethos. We drive greater fairness of outcomes for everyone along the agribusiness and agriculture value chain.",
     image: SoilSample,
     alt: "Shared prosperity",
   },
@@ -335,7 +339,7 @@ const manifestoPoints = ref([
   {
     title: "Technology makes things better, not a solution",
     description:
-      "We're the gateway to farming. Leveraging technology to improve processes, systems and connecting farmers worldwide is amazing!!! From Blockchain-enabled ledgers to using digital services to make both farmers and investors bankable to simply having the very best farm management solution accessible, we are at the forefront of using technology to make the farming universe better for everyone.",
+      "We're the gateway to farming. Leveraging technology to improve processes and systems while connecting farmers worldwide is transformative. From blockchain-enabled ledgers to using digital services to make both farmers and investors bankable, we are at the forefront of using technology to make the agricultural universe better for everyone.",
     image: invest1,
     alt: "Technology makes things better",
   },

@@ -51,7 +51,7 @@
         <img
           :src="fgLogoWhite2"
           alt="FarmGate Africa Logo"
-          class="block w-32 mx-auto -translate-y-12 sm:translate-y-0 sm:w-40 sm:hidden hero-logo-img"
+          class="block w-32 mx-auto sm:translate-y-0 sm:w-40 sm:hidden hero-logo-img"
         />
       </a>
 
@@ -129,7 +129,7 @@
                 />
               </span>
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
                   src="/images/flag.png"
@@ -139,14 +139,14 @@
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
               Book to tour <span class="block sm:inline">our farms</span>
             </p>
           </a>
 
           <a
-            href="/contact"
+            href="/schedule-call"
             class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-1 w-[120px] sm:w-auto max-[380px]:w-[100px]"
           >
             <div
@@ -162,7 +162,7 @@
                 />
               </span>
               <span
-                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
                   src="/images/call.png"
@@ -172,9 +172,9 @@
               </span>
             </div>
             <p
-              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-center leading-tight sm:whitespace-nowrap lg:text-[13px]"
+              class="text-white text-[11px] sm:text-xs max-[380px]:text-[9px] font-semibold tracking-normal sm:tracking-wide text-center leading-tight sm:whitespace-nowrap lg:text-[13px] font-['Livvic']"
             >
-              Schedule a quick call
+              Schedule a <span class="block sm:inline">quick call</span>
             </p>
           </a>
         </div>
@@ -275,8 +275,8 @@
           </div>
 
           <button
-            @click="closeModal"
-            class="py-2 mt-2 max-[380px]:py-1.5 max-[380px]:mt-1 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base shrink-0"
+            @click="goToServiceModel"
+            class="py-2 mt-2 max-[380px]:py-1.5 max-[380px]:mt-1 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base shrink-0 cursor-pointer"
           >
             How it works
           </button>
@@ -326,8 +326,6 @@
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref, computed, watch, nextTick } from "vue";
 import Hls from "hls.js";
-import { useRouter } from "vue-router";
-
 import fallbackMp4A from "@/assets/video/farm-hero-video.mp4";
 import fallbackMp4B from "@/assets/video/farm-hero-video1.mp4";
 
@@ -392,6 +390,7 @@ const options = [
 </svg>
     `,
     image: investImg,
+    serviceModel: "invest",
     description:
       "This works on a grow-for-me model where potential investors have an opportunity to invest in a crop production portfolio cycle for an ROI either as an individual, a group or a corporate body.",
   },
@@ -406,6 +405,7 @@ const options = [
 </svg>
     `,
     image: farmerImg,
+    serviceModel: "farm",
     description:
       "This model is perfectly designed to suit absentee investor farmers who are interested in alternate investment options for good medium-long term returns: where you can lease an area of our arable serviced farm estate, facilities and labour resources for all your crop farming venture needs and we provide agronomist advice to help improve crop yields. This works on a farm-for-me model without your physical presence on the farm, where potential investors have the opportunity to invest in a farm set-up.",
   },
@@ -652,10 +652,14 @@ function closeModal() {
   document.body.style.overflow = "auto";
 }
 
-const router = useRouter();
+function goToServiceModel() {
+  const model = selectedOption.value?.serviceModel;
+  if (!model) {
+    closeModal();
+    return;
+  }
 
-function goToBookFarmVisit() {
-  router.push("/book-farm-visit");
+  window.location.href = `/service-model.html?model=${model}`;
 }
 </script>
 
@@ -714,8 +718,39 @@ function goToBookFarmVisit() {
 }
 
 @media (max-width: 640px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 47% !important;
+  }
   .hero-content.top-\[25\%\] {
     top: 15% !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 47% !important;
+  }
+  .hero-action-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 375px) and (max-height: 625px) {
+  div.absolute.z-20.mt-12 {
+    left: auto !important;
+    right: 50px !important;
+    bottom: 6px !important;
+    transform: scale(0.85) !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 800px) {
+  .hero-content:not(.top-\[25\%\]) {
+    top: 55% !important;
+  }
+  .hero-content.top-\[25\%\] {
+    top: 25% !important;
   }
 }
 
@@ -964,7 +999,20 @@ function goToBookFarmVisit() {
 /* 320px phones: nudge logo down a bit for better vertical balance */
 @media (max-width: 320px) {
   .hero-logo-img {
-    transform: translateY(40px) !important;
+    transform: translateY(2px) !important;
+  }
+  .hero-logo-link {
+    margin-bottom: 16px !important; /* Tightens the gap below the logo */
+  }
+}
+
+@media (min-width: 390px) and (max-width: 430px) and (min-height: 780px) and (max-height: 820px) {
+  .hero-logo-img {
+    transform: translateY(68px) !important;
+  }
+
+  .hero-logo-link {
+    margin-bottom: 28px !important;
   }
 }
 
@@ -976,13 +1024,50 @@ function goToBookFarmVisit() {
     top: 45% !important; /* Lifts the whole block slightly higher so bottom doesn't cut off */
   }
   .hero-content.top-\[25\%\] {
-    top: 18% !important;
+    top: 15% !important;
   }
   .hero-btn-container {
     margin-top: 16px !important; /* Tightens the gap below the H1 */
   }
   .hero-logo-link {
     margin-bottom: 16px !important; /* Tightens the gap below the logo */
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1048px) and (min-height: 740px) and (max-height: 800px) {
+  .hero-content {
+    top: 55% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .hero-content.top-\[25\%\] {
+    top: 22% !important;
+  }
+
+  .hero-main-title {
+    font-size: 2.5rem !important;
+    line-height: 1.15 !important;
+    max-width: 860px !important;
+  }
+
+  .hero-logo-link {
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-btn-container {
+    margin-top: 1rem !important;
+  }
+
+  .options-container-short {
+    margin-top: 1rem !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 430px) and (min-height: 780px) and (max-height: 820px) {
+  .hero-logo-link {
+    margin-bottom: 32px !important;
   }
 }
 

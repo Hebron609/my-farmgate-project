@@ -54,10 +54,11 @@
     </div>
 
     <section
-      class="relative w-full px-6 pb-20 overflow-hidden bg-white md:px-12 mt-14"
+      id="fg-people-team"
+      class="relative w-full px-6 pb-12 mt-6 overflow-hidden bg-white md:px-12 md:pb-20 md:mt-14"
       aria-label="Our Team"
     >
-      <div class="absolute top-0 right-0 pointer-events-none opacity-5">
+      <div class="absolute top-0 right-0 pointer-events-none opacity-3">
         <LeafIcon class="w-[300px] h-[300px] text-[#129C48]" />
       </div>
 
@@ -65,7 +66,7 @@
         <div class="inline-flex">
           <a
             href="/solutions"
-            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center justify-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -88,20 +89,22 @@
         </div>
 
         <div
-          class="flex flex-col items-start justify-between gap-12 mb-24 md:flex-row"
+          class="flex flex-col items-center justify-between mb-12 md:items-start md:mb-24 md:flex-row md:gap-12"
         >
           <div class="md:max-w-xl reveal-slide-right">
             <h2
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-6"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight mb-3 md:mb-6 text-center md:text-left"
             >
               Who <span class="text-[#129C48]">We Are</span>
             </h2>
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div
+              class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"
+            ></div>
             <p
-              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%]"
+              class="text-gray-600 text-lg leading-relaxed font-light md:max-w-[70%] mb-8"
             >
-              We are a team of agronomists, technologists, agripreneur, and
-              sustainability experts.
+              We are a team of agripreneurs, agronomists, technologists,
+              sustainability, and agribusiness experts.
             </p>
           </div>
 
@@ -140,7 +143,7 @@
         </div>
 
         <div
-          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 sm:gap-6"
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:gap-6 lg:gap-8"
         >
           <div
             v-for="member in filteredTeam"
@@ -155,7 +158,17 @@
               <img
                 :src="member.photoUrl"
                 :alt="'Photo of ' + member.name"
-                class="object-cover object-top w-full h-full transition-transform duration-500 scale-120 group-hover:scale-135 will-change-transform"
+                :class="[
+                  'object-cover w-full h-full transition-transform duration-500 will-change-transform',
+                  isPlaceholder(member)
+                    ? 'object-center placeholder-scale'
+                    : 'object-top scale-120 group-hover:scale-135',
+                ]"
+                :style="
+                  member.imagePosition
+                    ? { objectPosition: member.imagePosition }
+                    : {}
+                "
                 loading="lazy"
               />
               <div
@@ -180,11 +193,91 @@
                 {{ member.name.split(" ")[0] }}
               </h3>
               <p class="text-sm text-[#129C48]">
-                {{ member.hoverTitle || member.title.split(" ")[0] }}
+                {{
+                  member.name.trim() === "Linda Amankwah"
+                    ? "Talent Advisor"
+                    : member.name.trim() === "Nancy Otibo Tamakoe"
+                      ? "Agronomist Advisor"
+                      : member.name.trim() === "David Ndanu"
+                        ? "CTO Advisor"
+                        : member.name.trim() === "Elizabeth Dadzie"
+                          ? "Sales Executive"
+                          : member.hoverTitle || member.title.split(" ")[0]
+                }}
               </p>
             </div>
           </div>
         </div>
+
+        <section
+          id="fg-people-careers"
+          class="relative mt-16 overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0a3f1f] via-[#055732] to-[#129C48] px-6 py-12 text-white shadow-2xl sm:px-10 sm:py-16 md:px-14 reveal-slide-up"
+        >
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[360px] xl:w-[460px] opacity-8"
+          >
+            <img
+              class="absolute right-[-40px] top-12 h-[340px] w-auto text-white rotate-12"
+              :src="farmGateLogo"
+              alt=""
+            />
+          </div>
+
+          <div class="relative z-10 max-w-4xl">
+            <p
+              class="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#F2CB00]"
+            >
+              Grow with us
+            </p>
+            <h2
+              class="font-['Livvic'] text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
+            >
+              We’re building, and this is the chance to shape your career with
+              us.
+            </h2>
+
+            <p class="mt-6 text-base leading-relaxed text-white/90 sm:text-lg">
+              At FGAI, we don't loose, we don't win, we learn.
+            </p>
+
+            <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+              Bring your talent, explore opportunities, and drive value with
+              purpose.
+            </p>
+
+            <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+              Together, let's shape the future and transform lives in ways that
+              truly matter.
+            </p>
+
+            <div class="mt-8">
+              <a
+                :href="getStartedHref"
+                class="flex group relative overflow-hidden px-6 py-3 rounded-full items-center cursor-pointer w-fit bg-[#F2CB00]"
+              >
+                <span
+                  class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                >
+                  <LeafIcon class="w-4 h-4 text-black" />
+                  <span
+                    class="text-sm font-semibold leading-none tracking-wider text-black"
+                    >Join Us</span
+                  >
+                </span>
+
+                <span
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-white group-hover:translate-y-0"
+                >
+                  <LeafIcon class="w-4 h-4 text-[#129C48]" />
+                  <span
+                    class="text-sm font-semibold leading-none tracking-wider"
+                    >Join Us</span
+                  >
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -209,7 +302,7 @@
           </button>
 
           <div
-            class="w-full md:w-[45%] h-72 sm:h-80 md:h-auto md:min-h-[450px] shrink-0"
+            class="w-full md:w-[45%] h-72 sm:h-80 md:h-auto md:min-h-[450px] shrink-0 overflow-hidden"
           >
             <img
               :src="selectedMember.photoUrlModal || selectedMember.photoUrl"
@@ -269,7 +362,6 @@
       </div>
     </Transition>
 
-
     <Footer />
   </div>
 </template>
@@ -277,6 +369,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -284,6 +377,7 @@ import { TEAM_DATA } from "./teamData.js";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 import heroImage from "../assets/img/group-farm-image.jpg";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -292,6 +386,8 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {
@@ -326,6 +422,7 @@ const isOpen = ref(false);
 const selectedMember = ref(null);
 const activeDepartment = ref("All");
 const showNames = ref(true);
+const getStartedHref = ref("#");
 
 const openModal = (member) => {
   selectedMember.value = member;
@@ -348,9 +445,18 @@ const filteredTeam = computed(() => {
       : TEAM_DATA.filter((m) => m.department === activeDepartment.value);
   return filtered.sort((a, b) => (a.order || 0) - (b.order || 0));
 });
+
+const isPlaceholder = (member) => {
+  if (!member || !member.photoUrl) return false;
+  return member.photoUrl.toLowerCase().includes("profile.");
+};
 </script>
 
 <style>
+.placeholder-scale {
+  transform: scale(1.12);
+}
+
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.3s ease;

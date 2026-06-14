@@ -32,8 +32,8 @@
           <h1
             class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
-            CONNECT WITH <br />
-            <span class="text-[#129C48]">US.</span>
+            CONNECT<br />
+            <span class="text-[#129C48]">WITH US.</span>
           </h1>
         </div>
         <p
@@ -50,13 +50,14 @@
     </div>
 
     <section
+      id="fg-contact-form"
       class="relative z-20 w-full px-6 max-[360px]:px-3 pb-24 max-[360px]:pb-12 bg-white mt-15 max-[360px]:mt-8 md:px-12"
     >
       <div
         class="max-w-[1440px] mx-auto shadow-2xl rounded-[3rem] max-[360px]:rounded-[1.5rem] overflow-hidden bg-white"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-3 min-h-[700px] max-[360px]:min-h-auto"
+          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 min-h-[700px] max-[360px]:min-h-auto"
         >
           <div
             class="relative bg-[#129C48] p-10 max-[360px]:p-6 md:p-14 text-white flex flex-col justify-between overflow-hidden"
@@ -144,17 +145,19 @@
                       v-if="showPhonePicker"
                       class="absolute left-0 z-20 flex flex-col gap-2 p-3 mt-2 rounded-xl bg-white/95 min-w-[190px] shadow-lg"
                     >
-                      <a
-                        href="tel:+233303980443"
-                        @click="showPhonePicker = false"
-                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
-                        >+233 30 398 0443</a
-                      >
+                      
                       <a
                         href="tel:+233596726914"
                         @click="showPhonePicker = false"
                         class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
                         >+233 59 672 6914</a
+                      >
+
+                      <a
+                        href="tel:+233303980443"
+                        @click="showPhonePicker = false"
+                        class="text-sm text-[#055732] transition-colors border-b border-transparent hover:text-black hover:border-[#055732] w-max"
+                        >+233 30 398 0443</a
                       >
                     </div>
                   </div>
@@ -165,16 +168,18 @@
                       Call Us
                     </h3>
                     <div class="flex flex-col space-y-1">
+                    <a
+                        href="tel:+233596726914"
+                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
+                        >+233 59 672 6914</a
+                      >
+                      
                       <a
                         href="tel:+233303980443"
                         class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
                         >+233 30 398 0443</a
                       >
-                      <a
-                        href="tel:+233596726914"
-                        class="text-green-100 max-[360px]:text-sm transition-colors border-b border-transparent hover:text-white hover:border-white w-max"
-                        >+233 59 672 6914</a
-                      >
+                      
                     </div>
                   </div>
                 </div>
@@ -275,7 +280,7 @@
           </div>
 
           <div
-            class="relative bg-gray-100 lg:col-span-2 h-[400px] max-[360px]:h-[250px] lg:h-auto"
+            class="relative bg-gray-100 lg:col-span-1 xl:col-span-2 h-[400px] max-[360px]:h-[250px] lg:h-auto"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3970.4780781420377!2d-0.160769!3d5.643748!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9be02ef482a7%3A0xe01c96c836aff70f!2sInnohub%20Growth%20Centre!5e0!3m2!1sen!2sgh!4v1769367233372!5m2!1sen!2sgh"
@@ -294,7 +299,7 @@
     </section>
 
     <section
-      class="px-6 max-[360px]:px-4 py-24 max-[360px]:py-12 bg-white md:px-12"
+      class="px-6 max-[360px]:px-4 pt-12 pb-24 max-[360px]:pt-8 max-[360px]:pb-12 bg-white md:px-12 md:py-24"
     >
       <div class="max-w-[1000px] mx-auto relative overflow-visible">
         <LeafIcon
@@ -350,7 +355,7 @@
                 <label
                   for="firstName"
                   class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
-                  >First Name *</label
+                  >Other Name(s) *</label
                 >
                 <input
                   id="firstName"
@@ -358,7 +363,7 @@
                   type="text"
                   required
                   class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300"
-                  placeholder="Kwame"
+                  placeholder="Joseph Kwame"
                   :class="{ 'border-red-500': errors.firstName }"
                 />
                 <p v-if="errors.firstName" class="mt-1 text-xs text-red-500">
@@ -394,7 +399,7 @@
                 <label
                   for="phone"
                   class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 max-[360px]:mb-1 group-focus-within:text-[#129C48]"
-                  >Phone</label
+                  >Phone Number</label
                 >
                 <input
                   id="phone"
@@ -409,13 +414,16 @@
             <div>
               <label
                 class="block mb-4 max-[360px]:mb-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
-                >Subject *</label
+                >Select Subject *</label
               >
-              <div class="flex flex-wrap gap-4 max-[360px]:gap-2">
+              <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4">
                 <label
                   v-for="option in subjectOptions"
                   :key="option.value"
                   class="relative cursor-pointer group"
+                  :class="[
+                    option.label.length > 20 ? 'col-span-2' : 'col-span-1'
+                  ]"
                 >
                   <input
                     v-model="form.subject"
@@ -426,12 +434,33 @@
                     required
                   />
                   <div
-                    class="px-6 py-3 max-[360px]:px-4 max-[360px]:py-2 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-sm max-[360px]:text-xs font-medium"
+                    class="w-full text-center md:w-auto px-4 py-2.5 md:px-6 md:py-3 rounded-full border border-gray-200 text-gray-600 peer-checked:bg-[#129C48] peer-checked:text-white peer-checked:border-[#129C48] hover:border-[#129C48] transition-all duration-300 text-xs md:text-sm font-medium"
                   >
                     {{ option.label }}
                   </div>
                 </label>
               </div>
+
+              <!-- Dynamic 'Specify' Field for 'Others' -->
+              <div
+                v-if="form.subject === 'others'"
+                class="mt-6 transition-all duration-500 transform reveal-slide-up"
+              >
+                <label
+                  for="otherSubject"
+                  class="block text-xs font-bold uppercase tracking-widest text-[#129C48] mb-2"
+                  >Please Specify *</label
+                >
+                <input
+                  id="otherSubject"
+                  v-model="form.otherSubject"
+                  type="text"
+                  required
+                  class="w-full px-0 py-2 border-b-2 border-[#129C48] outline-none transition-colors bg-transparent text-lg text-black placeholder-gray-300"
+                  placeholder="Tell us what you're interested in..."
+                />
+              </div>
+
               <p
                 v-if="errors.subject"
                 class="mt-2 max-[360px]:mt-1 text-xs text-red-500"
@@ -449,18 +478,23 @@
               <textarea
                 id="message"
                 v-model="form.message"
-                rows="4"
+                :rows="form.message.length > 0 ? 6 : 1"
                 required
-                class="w-full px-0 py-3 max-[360px]:py-2 border-b-2 border-gray-200 focus:border-[#129C48] outline-none transition-colors bg-transparent text-lg max-[360px]:text-base text-black placeholder-gray-300 resize-none max-[360px]:min-h-[80px]"
+                class="w-full transition-all duration-500 outline-none placeholder-gray-300 focus:border-[#129C48]"
+                :class="[
+                  form.message.length > 0
+                    ? 'px-4 py-4 border-2 border-gray-200 bg-stone-50/30 rounded-xl'
+                    : 'px-0 py-2 border-b-2 border-gray-200 bg-transparent rounded-none',
+                  errors.message ? 'border-red-500' : ''
+                ]"
                 placeholder="How can we help you?"
-                :class="{ 'border-red-500': errors.message }"
               ></textarea>
               <p v-if="errors.message" class="mt-1 text-xs text-red-500">
                 {{ errors.message }}
               </p>
             </div>
 
-            <div class="pt-8 max-[360px]:pt-4 text-center">
+            <div class="pt-4 text-center sm:pt-8">
               <button
                 type="submit"
                 class="relative inline-flex items-center px-4 py-4 max-[360px]:py-3 max-[360px]:px-5 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right disabled:opacity-50 disabled:cursor-not-allowed text-sm max-[360px]:text-xs"
@@ -491,7 +525,7 @@
                 </span>
 
                 <span
-                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 max-[360px]:gap-2 text-black transition-transform duration-300 transform translate-y-full bg-yellow-400 group-hover:translate-y-0"
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 max-[360px]:gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
                 >
                   <span
                     class="text-sm max-[360px]:text-xs font-bold tracking-widest"
@@ -527,6 +561,7 @@
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import Footer from "../components/Footer.vue";
@@ -545,6 +580,7 @@ const form = reactive({
   email: "",
   phone: "",
   subject: "",
+  otherSubject: "",
   message: "",
 });
 
@@ -554,6 +590,15 @@ const subjectOptions = [
   { value: "consulting", label: "Consulting" },
   { value: "programmes", label: "Programmes" },
   { value: "project-management", label: "Project Management" },
+  {
+    value: "request-farm-produce-pre-order",
+    label: "Request farm produce pre-order",
+  },
+  { value: "off-taker-arrangement", label: "Off-taker arrangement" },
+  { value: "book-farm-visit", label: "Book a farm visit" },
+  { value: "book-appointment", label: "Book an appointment" },
+  { value: "service", label: "Service" },
+  { value: "others", label: "Others" },
 ];
 
 // Validation errors
@@ -654,6 +699,9 @@ const handleDocumentClick = (event) => {
 
 onMounted(() => {
   document.addEventListener("click", handleDocumentClick);
+
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
 
   const api = initScrollReveal();
   if (!api) return;

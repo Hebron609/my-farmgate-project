@@ -54,14 +54,15 @@
     </div>
 
     <section
+      id="fg-footprint-details"
       ref="footprintSection"
-      class="w-full px-6 pb-20 bg-white md:px-12 mt-14"
+      class="w-full px-6 pb-12 bg-white md:px-12 md:pb-20 mt-6 md:mt-14"
     >
       <div class="mx-auto max-w-[1440px]">
         <div class="inline-flex">
           <button
             @click="navigateToVideo2"
-            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-yellow-400 border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
+            class="relative flex items-center justify-center px-4 py-2 mb-5 overflow-hidden font-semibold bg-[#F2CB00] border border-gray-200 cursor-pointer group rounded-4xl md:mb-10"
           >
             <span
               class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
@@ -84,18 +85,18 @@
         </div>
 
         <div
-          class="flex flex-col justify-between md:flex-row md:items-start md:gap-12 mb-22"
+          class="flex flex-col items-center md:items-start justify-between md:flex-row mb-12 md:mb-22 md:gap-12"
         >
           <div class="md:max-w-2xl reveal-slide-right">
             <h3
-              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight"
+              class="font-['Livvic'] text-4xl md:text-5xl font-bold text-black leading-tight text-center md:text-left mb-3 md:mb-0"
             >
               Our <span class="text-[#129C48]">Footprint</span>
             </h3>
           </div>
 
           <div class="md:max-w-2xl reveal-slide-left">
-            <div class="h-1 w-24 bg-[#F2CB00] mb-8"></div>
+            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
             <p class="text-lg font-light leading-relaxed text-gray-600">
               FarmGate Africa & Industries strategically manages its
               agricultural footprint to balance large-scale economic development
@@ -169,7 +170,7 @@
               <p class="text-lg leading-relaxed text-green-50 opacity-90">
                 <strong class="text-white"
                   >35% of whatever we grow is aimed at contributing to daily
-                  households' consumption.</strong
+                  household consumption.</strong
                 >
                 We at FGAI ensure that a significant portion of our production
                 is funneled directly into households as our contribution to help
@@ -208,6 +209,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
+import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
@@ -253,6 +255,8 @@ const navigateToVideo2 = () => {
 };
 
 onMounted(() => {
+  const { init: initHighlight } = useHighlightOnLoad();
+  initHighlight();
   const api = initScrollReveal();
   if (api) {
     api.reveal(".reveal-fade", {

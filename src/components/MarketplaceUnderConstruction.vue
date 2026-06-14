@@ -34,16 +34,38 @@
       commerce. Get ready for something special.
     </p>
 
-    <!-- Call to Action Button -->
-    <a
-      href="/"
-      class="relative z-10 px-6 py-3 font-bold text-white transition-all duration-200 rounded-full bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-xl hover:scale-105"
-    >
-      Go Back Home
-    </a>
+    <!-- Call to Action Button with Pulse Effect -->
+    <div class="relative inline-flex group">
+      <div
+        class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse"
+      ></div>
+      <a
+        href="/"
+        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full shadow-xl bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 whitespace-nowrap"
+      >
+        Go to Homepage
+      </a>
+    </div>
   </div>
 </template>
 
 <script setup>
-// No script needed for this component
+// No script logic needed for this static view
 </script>
+
+<style scoped>
+@keyframes pulseAnimateSolid {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.15, 1.45);
+    opacity: 0;
+  }
+}
+
+.animate-solid-pulse {
+  animation: pulseAnimateSolid 1.2s ease-out infinite;
+}
+</style>
