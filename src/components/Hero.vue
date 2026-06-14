@@ -275,8 +275,8 @@
           </div>
 
           <button
-            @click="closeModal"
-            class="py-2 mt-2 max-[380px]:py-1.5 max-[380px]:mt-1 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base shrink-0"
+            @click="goToServiceModel"
+            class="py-2 mt-2 max-[380px]:py-1.5 max-[380px]:mt-1 text-sm text-white transition bg-green-600 rounded-lg hover:bg-green-700 sm:text-base shrink-0 cursor-pointer"
           >
             How it works
           </button>
@@ -326,8 +326,6 @@
 import ScrollDown from "@/components/ScrollDown.vue";
 import { ref, computed, watch, nextTick } from "vue";
 import Hls from "hls.js";
-import { useRouter } from "vue-router";
-
 import fallbackMp4A from "@/assets/video/farm-hero-video.mp4";
 import fallbackMp4B from "@/assets/video/farm-hero-video1.mp4";
 
@@ -392,6 +390,7 @@ const options = [
 </svg>
     `,
     image: investImg,
+    serviceModel: "invest",
     description:
       "This works on a grow-for-me model where potential investors have an opportunity to invest in a crop production portfolio cycle for an ROI either as an individual, a group or a corporate body.",
   },
@@ -406,6 +405,7 @@ const options = [
 </svg>
     `,
     image: farmerImg,
+    serviceModel: "farm",
     description:
       "This model is perfectly designed to suit absentee investor farmers who are interested in alternate investment options for good medium-long term returns: where you can lease an area of our arable serviced farm estate, facilities and labour resources for all your crop farming venture needs and we provide agronomist advice to help improve crop yields. This works on a farm-for-me model without your physical presence on the farm, where potential investors have the opportunity to invest in a farm set-up.",
   },
@@ -652,10 +652,14 @@ function closeModal() {
   document.body.style.overflow = "auto";
 }
 
-const router = useRouter();
+function goToServiceModel() {
+  const model = selectedOption.value?.serviceModel;
+  if (!model) {
+    closeModal();
+    return;
+  }
 
-function goToBookFarmVisit() {
-  router.push("/book-farm-visit");
+  window.location.href = `/service-model.html?model=${model}`;
 }
 </script>
 
