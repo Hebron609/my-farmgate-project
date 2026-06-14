@@ -686,7 +686,7 @@ const closeModal = () => {
 
             <!-- Email -->
             <div class="relative">
-              <label class="block mb-2 font-semibold text-gray-700">Email address <span class="text-red-600">*</span></label>
+              <label class="block mb-2 font-semibold text-gray-700">Email address <span class="text-red-600">*</span></label>`
               <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
