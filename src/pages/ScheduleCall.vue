@@ -191,6 +191,7 @@ const guestWhatsapp = ref("");
 // UI State
 const isDatePickerOpen = ref(false);
 const showSuccessModal = ref(false);
+const isSubmitting = ref(false);
 
 const isHourDropdownOpen = ref(false);
 const isMinuteDropdownOpen = ref(false);
@@ -248,11 +249,36 @@ onUnmounted(() => {
   window.removeEventListener("click", closeAllPickers);
 });
 
-const submitCall = (e) => {
+const submitCall = async (e) => {
   e.preventDefault();
   if (!selectedDate.value) return;
   if (!guestFullname.value.trim() || !guestEmail.value.trim() || !guestWhatsapp.value.trim()) return;
-  showSuccessModal.value = true;
+  
+  isSubmitting.value = true;
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        formType: 'schedule-call',
+        formData: {
+          guestFullname: guestFullname.value,
+          guestEmail: guestEmail.value,
+          guestWhatsapp: guestWhatsapp.value,
+          date: formattedDate.value,
+          time: `${selectedHour.value}:${selectedMinute.value} ${selectedAmPm.value}`
+        }
+      })
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error);
+    showSuccessModal.value = true;
+  } catch (error) {
+    console.error('Error scheduling call:', error);
+    alert('An error occurred while scheduling your call. Please try again.');
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 
 const closeModal = () => {
@@ -686,7 +712,7 @@ const closeModal = () => {
 
             <!-- Email -->
             <div class="relative">
-              <label class="block mb-2 font-semibold text-gray-700">Email address <span class="text-red-600">*</span></label>`
+              <label class="block mb-2 font-semibold text-gray-700">Email address <span class="text-red-600">*</span></label>
               <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -726,9 +752,9 @@ const closeModal = () => {
           <div
             class="flex flex-col items-center gap-4 booking-actions sm:flex-row sm:gap-5"
           >
-            <button type="submit" class="booking-action farmgate-btn">
+            <button type="submit" class="booking-action farmgate-btn" :disabled="isSubmitting">
               <span class="btn-content">
-                <span>Book Appointment</span>
+                <span>{{ isSubmitting ? 'Booking...' : 'Book Appointment' }}</span>
                 <svg
                   class="flex-shrink-0 w-4 h-4"
                   fill="none"
@@ -744,7 +770,7 @@ const closeModal = () => {
                 </svg>
               </span>
               <span class="hover-content">
-                <span>Book Appointment</span>
+                <span>{{ isSubmitting ? 'Booking...' : 'Book Appointment' }}</span>
                 <svg
                   class="flex-shrink-0 w-4 h-4"
                   fill="none"

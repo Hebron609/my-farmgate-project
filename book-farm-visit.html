@@ -1401,9 +1401,63 @@
         window.addEventListener('resize', syncBookingActionSize);
       }
 
-      document.getElementById('bookingForm').onsubmit = function (e) {
+      const bookingForm = document.getElementById('bookingForm');
+      const submitBtn = document.querySelector('.booking-actions > button[type="submit"]');
+      const btnTextSpans = document.querySelectorAll('.booking-actions > button[type="submit"] span > span');
+      
+      bookingForm.onsubmit = async function (e) {
         e.preventDefault();
-        document.getElementById('confirmationBox').classList.add('active');
+        
+        const originalText = btnTextSpans[0].innerText;
+        btnTextSpans.forEach(span => span.innerText = 'Booking...');
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(bookingForm);
+          const data = Object.fromEntries(formData.entries());
+          
+          const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              formType: 'book-farm-visit',
+              formData: {
+                firstName: data.otherNames || '',
+                lastName: data.lastName,
+                email: data.email,
+                phone: data.phone,
+                whatsapp: data.whatsapp || 'N/A',
+                country: data.country,
+                city: data.city,
+                preferredDate: data.date + ' ' + data.time,
+                visitedBefore: data.visitedBefore,
+                groupSize: data.groupSize || '1',
+                sector: data.sector === 'Other' ? data.otherSector : data.sector,
+                purpose: data.purpose === 'Other' ? data.otherPurpose : data.purpose,
+                emergencyName: data.emergencyName || 'N/A',
+                emergencyPhone: data.emergencyPhone || 'N/A',
+                medical: data.medical === 'Other' ? data.otherMedical : data.medical,
+                referral: data.referral === 'Other' ? data.otherReferral : data.referral
+              }
+            })
+          });
+
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || 'Failed to send booking request');
+          }
+
+          document.getElementById('confirmationBox').classList.add('active');
+        } catch (error) {
+          console.error('Error booking farm visit:', error);
+          alert("An error occurred while submitting your booking. Please try again.");
+        } finally {
+          btnTextSpans.forEach(span => span.innerText = originalText);
+          submitBtn.disabled = false;
+        }
       };
     });
 

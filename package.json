@@ -21,6 +21,7 @@
     "fuse.js": "^7.1.0",
     "hls.js": "^1.6.15",
     "lottie-web": "^5.13.0",
+    "resend": "^6.16.0",
     "scrollreveal": "^4.0.9",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
