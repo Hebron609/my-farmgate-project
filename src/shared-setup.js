@@ -41,6 +41,8 @@ import {
   faBolt,
   faLink,
   faClipboardList,
+  faDroplet,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Brand icons
@@ -94,6 +96,8 @@ library.add(
   faBolt,
   faLink,
   faClipboardList,
+  faDroplet,
+  faHeart,
   faGithub,
   faInstagram,
   faYoutube,

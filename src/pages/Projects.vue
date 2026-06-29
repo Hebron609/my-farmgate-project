@@ -104,7 +104,7 @@
 
         <!-- Filter System (Floating Command Bar) -->
         <div
-          class="hidden md:block relative z-[220] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
+          class="hidden md:block relative z-[20] w-full px-4 mx-auto mt-4 mb-16 max-w-none reveal-slide-up"
         >
           <div
             class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col md:flex-row md:flex-nowrap items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-100 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
@@ -734,7 +734,7 @@ const { init: initScrollReveal } = useScrollReveal({
 
 const navigateToVideo2 = () => {
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 
 onMounted(() => {

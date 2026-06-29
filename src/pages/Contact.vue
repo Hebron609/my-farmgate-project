@@ -670,8 +670,22 @@ const submitForm = async () => {
   isSubmitting.value = true;
 
   try {
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        formType: 'contact',
+        formData: form
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to send message');
+    }
 
     // Reset form
     Object.keys(form).forEach((key) => {
@@ -680,7 +694,8 @@ const submitForm = async () => {
 
     alert("Thank you for your message! We'll get back to you soon.");
   } catch (error) {
-    alert("An error occurred. Please try again.");
+    console.error('Error sending message:', error);
+    alert("An error occurred while sending your message. Please try again.");
   } finally {
     isSubmitting.value = false;
   }
@@ -688,7 +703,7 @@ const submitForm = async () => {
 
 const navigateToVideo2 = () => {
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 
 const handleDocumentClick = (event) => {
