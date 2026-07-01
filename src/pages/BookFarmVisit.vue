@@ -552,13 +552,30 @@ const submitForm = async () => {
   if (!validateForm()) return;
   isSubmitting.value = true;
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        formType: 'book-farm-visit',
+        formData: form
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to send booking request');
+    }
+
     alert(
       "Thank you! Your farm tour request has been received. We will contact you shortly.",
     );
     Object.keys(form).forEach((key) => (form[key] = ""));
   } catch (error) {
-    alert("An error occurred. Please try again.");
+    console.error('Error booking farm visit:', error);
+    alert("An error occurred while submitting your booking. Please try again.");
   } finally {
     isSubmitting.value = false;
   }
