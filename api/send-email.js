@@ -190,6 +190,10 @@ export default async function handler(req, res) {
       reply_to: formData.email || formData.guestEmail,
     });
 
+    if (data.error) {
+      throw new Error(`Resend Validation Error: ${data.error.message} (${data.error.name})`);
+    }
+
     // Send confirmation email to the user
     const userEmail = formData.email || formData.guestEmail;
     if (userEmail) {
@@ -249,13 +253,17 @@ export default async function handler(req, res) {
       }
 
       // Send the user auto-response
-      await resend.emails.send({
+      const userResponse = await resend.emails.send({
         from: senderEmail,
         to: [userEmail],
         subject: userSubject,
         html: userHtmlContent,
         reply_to: destinationEmail,
       });
+
+      if (userResponse.error) {
+        console.error('Error sending auto-response email:', userResponse.error);
+      }
     }
 
     res.status(200).json({ success: true, data });
