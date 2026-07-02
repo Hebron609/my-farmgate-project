@@ -190,6 +190,74 @@ export default async function handler(req, res) {
       reply_to: formData.email || formData.guestEmail,
     });
 
+    // Send confirmation email to the user
+    const userEmail = formData.email || formData.guestEmail;
+    if (userEmail) {
+      const userName = formData.firstName || formData.guestFullname || formData.name || 'there';
+      let userSubject = '';
+      let userHtmlContent = '';
+
+      if (formType === 'contact') {
+        userSubject = 'Thank you for contacting FarmGate Africa';
+        userHtmlContent = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+            <div style="background-color: #129C48; padding: 20px; text-align: center;">
+              <h2 style="color: white; margin: 0;">We've received your message!</h2>
+            </div>
+            <div style="padding: 20px; line-height: 1.6;">
+              <p>Hi ${userName},</p>
+              <p>Thank you for reaching out to FarmGate Africa. We have successfully received your message regarding <strong>"${formData.subject || 'General Inquiry'}"</strong>.</p>
+              <p>Our team is reviewing your inquiry and will get back to you as soon as possible.</p>
+              <br/>
+              <p>Best regards,<br/><strong>The FarmGate Africa Team</strong></p>
+            </div>
+          </div>
+        `;
+      } else if (formType === 'schedule-call') {
+        userSubject = 'Your call with FarmGate Africa is scheduled!';
+        userHtmlContent = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+            <div style="background-color: #129C48; padding: 20px; text-align: center;">
+              <h2 style="color: white; margin: 0;">Call Scheduled</h2>
+            </div>
+            <div style="padding: 20px; line-height: 1.6;">
+              <p>Hi ${userName},</p>
+              <p>Thank you for booking a call with us. Your request for <strong>${formData.date} at ${formData.time}</strong> has been received.</p>
+              <p>One of our representatives will contact you shortly on WhatsApp (${formData.guestWhatsapp}) or via email to confirm the meeting details and provide a meeting link.</p>
+              <p>We look forward to speaking with you!</p>
+              <br/>
+              <p>Best regards,<br/><strong>The FarmGate Africa Team</strong></p>
+            </div>
+          </div>
+        `;
+      } else if (formType === 'book-farm-visit') {
+        userSubject = 'Farm Visit Request Received - FarmGate Africa';
+        userHtmlContent = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+            <div style="background-color: #129C48; padding: 20px; text-align: center;">
+              <h2 style="color: white; margin: 0;">Farm Visit Request Received</h2>
+            </div>
+            <div style="padding: 20px; line-height: 1.6;">
+              <p>Hi ${userName},</p>
+              <p>Thank you for your interest in visiting our farms! We have received your request to visit on <strong>${formData.preferredDate}</strong>.</p>
+              <p>Our team is currently reviewing your request and will contact you shortly to finalize the itinerary and confirm the visit details.</p>
+              <br/>
+              <p>Best regards,<br/><strong>The FarmGate Africa Team</strong></p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Send the user auto-response
+      await resend.emails.send({
+        from: senderEmail,
+        to: [userEmail],
+        subject: userSubject,
+        html: userHtmlContent,
+        reply_to: destinationEmail,
+      });
+    }
+
     res.status(200).json({ success: true, data });
   } catch (error) {
     console.error('Error sending email:', error);

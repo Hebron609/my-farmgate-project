@@ -659,7 +659,9 @@ function goToServiceModel() {
     return;
   }
 
-  window.location.href = `/service-model.html?model=${model}`;
+  // Mark that we came from Video 2 so the back button restores it
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/";
 }
 </script>
 
