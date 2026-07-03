@@ -28,8 +28,8 @@ export default async function handler(req, res) {
     let subject = '';
     let htmlContent = '';
 
-    const destinationEmail = 'connect@farmgate.africa';
-    const senderEmail = 'FarmGate Africa <no-reply@farmgate.africa>';
+    const destinationEmail = process.env.RESEND_TO_EMAIL || 'connect@farmgate.africa';
+    const senderEmail = process.env.RESEND_FROM_EMAIL || 'FarmGate Africa <no-reply@farmgate.africa>';
 
     if (formType === 'contact') {
       subject = `New Contact Message: ${formData.subject || 'General Inquiry'}`;
@@ -201,9 +201,10 @@ export default async function handler(req, res) {
       throw new Error(`Resend Validation Error: ${data.error.message} (${data.error.name})`);
     }
 
-    // Send confirmation email to the user
+    // Send confirmation email to the user (skipped in Resend Sandbox mode to avoid validation errors)
+    const isSandbox = senderEmail.includes('onboarding@resend.dev');
     const userEmail = formData.email || formData.guestEmail;
-    if (userEmail) {
+    if (userEmail && !isSandbox) {
       const userName = formData.firstName || formData.guestFullname || formData.name || 'there';
       let userSubject = '';
       let userHtmlContent = '';
