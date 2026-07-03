@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     let htmlContent = '';
 
     const destinationEmail = 'connect@farmgate.africa';
-    const senderEmail = 'no-reply@farmgate.africa';
+    const senderEmail = 'FarmGate Africa <no-reply@farmgate.africa>';
 
     if (formType === 'contact') {
       subject = `New Contact Message: ${formData.subject || 'General Inquiry'}`;
@@ -182,12 +182,19 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid formType provided' });
     }
 
+    // Generate deterministic idempotency key based on form submission data
+    const emailKey = formData.email || formData.guestEmail || 'anonymous';
+    const uniqueContent = formData.message || formData.date || '';
+    const baseIdempotencyKey = `${formType}-${emailKey}-${uniqueContent.slice(0, 50)}`.replace(/[^a-zA-Z0-9-_]/g, '_');
+
     const data = await resend.emails.send({
       from: senderEmail,
       to: [destinationEmail],
       subject: subject,
       html: htmlContent,
-      reply_to: formData.email || formData.guestEmail,
+      reply_to: emailKey,
+    }, {
+      idempotencyKey: `admin-${baseIdempotencyKey}`.slice(0, 250),
     });
 
     if (data.error) {
@@ -259,6 +266,8 @@ export default async function handler(req, res) {
         subject: userSubject,
         html: userHtmlContent,
         reply_to: destinationEmail,
+      }, {
+        idempotencyKey: `user-${baseIdempotencyKey}`.slice(0, 250),
       });
 
       if (userResponse.error) {
