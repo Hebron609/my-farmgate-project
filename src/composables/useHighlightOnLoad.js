@@ -42,18 +42,32 @@ export function useHighlightOnLoad() {
    * Should be called inside onMounted().
    */
   function init() {
-    const hash = window.location.hash; // e.g. "#fg-highlight:hero-section"
-    if (!hash || !hash.startsWith("#fg-highlight:")) return;
+    const hash = window.location.hash; // e.g. "#fg-highlight:hero-section" or "#fg-contact-form"
+    if (!hash) return;
 
-    const sectionId = hash.replace("#fg-highlight:", "");
+    let sectionId = "";
+    if (hash.startsWith("#fg-highlight:")) {
+      sectionId = hash.replace("#fg-highlight:", "");
+    } else if (hash.startsWith("#")) {
+      sectionId = hash.replace("#", "");
+    }
     if (!sectionId) return;
 
-    // Small delay so the page finishes rendering reveal animations etc.
+    // Delay so the page finishes rendering reveal animations etc.
     setTimeout(() => {
-      highlightElement(sectionId);
-      // Clean the hash from the URL without a page reload
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }, 600);
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      const HEADER_OFFSET = 80;
+      const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      if (hash.startsWith("#fg-highlight:")) {
+        history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search
+        );
+      }
+    }, 500);
   }
 
   return { init, highlightElement };

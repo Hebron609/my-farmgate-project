@@ -47,7 +47,7 @@
                 { label: 'Refund & Return Policy', href: '/' },
                 { label: 'Privacy Policy', href: '/privacy' },
                 { label: 'Risk Policy', href: '/' },
-                { label: 'Cookies Policy', href: '/terms' },
+                { label: 'Cookie Preferences', action: renewCookieConsent },
               ]"
             />
           </div>
@@ -115,6 +115,12 @@
 <script setup>
 import FooterColumn from "./FooterColumn.vue";
 import farmGateWhiteLogo from "@/assets/img/fg logo-white2.png";
+
+const renewCookieConsent = () => {
+  if (window.Cookiebot) {
+    window.Cookiebot.renew();
+  }
+};
 
 const socials = [
   {
