@@ -8,12 +8,20 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 const currentPage = ref("home");
 
 // Check sessionStorage before initializing videoVariant
-const initialVariant =
-  sessionStorage.getItem("activateVideo2") === "true" ? 2 : 1;
-if (initialVariant === 2) {
-  sessionStorage.removeItem("activateVideo2");
-}
+const savedVariant = sessionStorage.getItem("activateVideo2") === "true";
+const urlVariant = new URLSearchParams(window.location.search).get("v") === "2";
+const initialVariant = (savedVariant || urlVariant) ? 2 : 1;
+
+// Only clear after we've consumed it — do NOT clear here so back-button
+// navigation (BFCache miss) can also read it in the pageshow handler
 const videoVariant = ref(initialVariant);
+
+// Clean ?v=2 from URL silently if present
+if (urlVariant) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("v");
+  window.history.replaceState({}, "", url.pathname + (url.search || ""));
+}
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,
@@ -22,10 +30,29 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  // Clear sessionStorage now that we've consumed it for initial render
+  sessionStorage.removeItem("activateVideo2");
+
   // Check for hash in URL to determine video variant
   if (window.location.hash === "#video2") {
     videoVariant.value = 2;
   }
+
+  // When browser Back/Forward button restores this page (BFCache miss),
+  // pageshow fires — check sessionStorage to restore Video 2 if needed.
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) {
+      // BFCache restore — page wasn't re-evaluated, videoVariant is intact
+      // Nothing needed; Vue state is preserved by BFCache
+      return;
+    }
+    // Fresh reload via back button (BFCache miss) — sessionStorage already
+    // consumed above, but if it's still set (navigated away quickly), use it
+    if (sessionStorage.getItem("activateVideo2") === "true") {
+      sessionStorage.removeItem("activateVideo2");
+      videoVariant.value = 2;
+    }
+  });
 
   const api = initScrollReveal();
   if (!api) return;

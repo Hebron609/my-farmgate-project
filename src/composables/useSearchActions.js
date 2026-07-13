@@ -110,7 +110,7 @@ export function useSearchActions() {
       } catch {
         // sessionStorage unavailable — still navigate
       }
-      window.location.href = "/";
+      window.location.href = "/?v=2";
     },
 
     /**

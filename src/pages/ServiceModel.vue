@@ -1,8 +1,16 @@
 <template>
   <div
-    class="w-full bg-white font-['Montserrat'] selection:bg-[var(--primary-color)] selection:text-white"
+    class="w-full bg-white font-['Montserrat'] selection:bg-[var(--primary-color)] selection:text-white relative overflow-hidden"
     :style="dynamicStyles"
   >
+    <!-- Decorative Farmgate Background Patterns -->
+    <div class="absolute right-0 pointer-events-none top-[650px] opacity-5 z-0">
+      <img class="h-[480px] w-auto max-w-none" :src="farmGateLogo" alt="" />
+    </div>
+    <div class="absolute left-0 pointer-events-none top-[1400px] opacity-5 z-0">
+      <img class="h-[450px] w-auto max-w-none" :src="farmGateLogo" alt="" />
+    </div>
+
     <Header :videoVariant="2" />
 
     <!-- Hero Banner (informational only — no CTAs or social links) -->
@@ -74,94 +82,9 @@
     </section>
 
     <!-- Dynamic Content -->
-    <main class="mx-auto max-w-[1440px] px-6 py-16 md:py-24">
-      <!-- Value Proposition -->
-      <section class="mb-20 md:mb-28 reveal-slide-up">
-        <div class="mb-12 text-center">
-          <h3
-            class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
-          >
-            Why choose our
-            <span class="text-[var(--primary-color)] transition-colors duration-300">{{ activeContent.label }}</span>
-            investment model
-          </h3>
-
-          <div class="mx-auto mb-6 h-1 w-24 bg-[#F2CB00]"></div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="prop in activeContent.valueProps"
-            :key="prop.title"
-            class="group relative rounded-[2rem] border border-gray-100 bg-stone-50 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-light-color)] hover:shadow-xl reveal-stagger"
-          >
-            <div
-              class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary-color)] text-white transition-all duration-300 group-hover:scale-105"
-            >
-              <font-awesome-icon
-                :icon="['fas', prop.icon]"
-                class="h-6 w-6"
-                aria-hidden="true"
-              />
-            </div>
-            <h4
-              class="mb-3 font-['Livvic'] text-xl font-bold text-black group-hover:text-[var(--primary-color)] transition-colors duration-300"
-            >
-              {{ prop.title }}
-            </h4>
-            <p class="text-sm leading-relaxed text-gray-500 font-light">
-              {{ prop.description }}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- How It Works -->
-      <section class="mb-20 md:mb-28 reveal-slide-up">
-        <div class="mb-12 text-center">
-          <h3
-            class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
-          >
-            How it <span class="text-[var(--primary-color)] transition-colors duration-300">works</span>
-          </h3>
-
-          <div class="mx-auto mb-6 h-1 w-24 bg-[#F2CB00]"></div>
-        </div>
-
-        <div class="relative">
-          <div
-            class="absolute top-10 left-[10%] right-[10%] hidden h-0.5 bg-[#F2CB00]/40 lg:block"
-            aria-hidden="true"
-          ></div>
-
-          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
-            <div
-              v-for="(step, index) in activeContent.steps"
-              :key="step.title"
-              class="relative flex flex-col items-center text-center reveal-stagger"
-            >
-              <div
-                class="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-full border-4 border-[#F2CB00] bg-white shadow-lg"
-              >
-                <span class="font-['Livvic'] text-2xl font-bold text-[var(--primary-color)] transition-colors duration-300">
-                  {{ index + 1 }}
-                </span>
-              </div>
-              <h4 class="mb-2 font-['Livvic'] text-lg font-bold text-black">
-                {{ step.title }}
-              </h4>
-              <p
-                class="max-w-[220px] text-sm leading-relaxed text-gray-500 font-light"
-              >
-                {{ step.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <main class="w-full relative z-10 py-16 md:py-24 overflow-hidden">
       <!-- Opportunities Storefront -->
-      <section class="reveal-slide-up">
+      <section id="opportunities" class="mx-auto max-w-[1440px] px-6 mb-20 md:mb-28 reveal-slide-up">
         <div class="mb-12 text-center">
           <h3
             class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
@@ -182,7 +105,7 @@
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           <article
-            v-for="card in activeContent.cards"
+            v-for="card in visibleCards"
             :key="card.id"
             class="group/card flex flex-col overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl reveal-stagger"
           >
@@ -220,7 +143,7 @@
                 </h4>
 
                 <a
-                  :href="`/schedule-call?opportunity=${encodeURIComponent(card.title + (card.variety ? ' (' + card.variety + ')' : ''))}`"
+                  :href="`/opportunity-detail?id=${card.opportunityId}&ref=${props.serviceModel}`"
                   class="shrink-0 flex items-center gap-1 text-xs font-bold text-[var(--primary-color)] hover:opacity-85 transition-opacity"
                 >
                   Learn more
@@ -233,7 +156,7 @@
 
               <dl class="divide-y divide-gray-100 text-sm">
                 <div class="flex items-start justify-between gap-4 pb-3">
-                  <dt class="text-gray-400 font-medium">Price per unit</dt>
+                  <dt class="text-gray-400 font-medium">Price</dt>
                   <dd class="font-bold text-black text-right">
                      {{ card.pricePerUnit }}
                   </dd>
@@ -251,7 +174,7 @@
                   </dd>
                 </div>
                 <div class="flex items-start justify-between gap-4 py-3">
-                  <dt class="text-gray-400 font-medium">Measured ROI</dt>
+                  <dt class="text-gray-400 font-medium">Est. ROI</dt>
                   <dd class="font-semibold text-[var(--primary-color)] text-right transition-colors duration-300">
                     {{ card.expectedRoi }}
                   </dd>
@@ -268,7 +191,7 @@
               <div v-if="!isClosed(card.status)" class="relative mt-6 w-full max-w-[320px] mx-auto group/pulse">
                 <!-- Pulsating Ripple Effect matching homepage button -->
                 <div
-                  class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-[var(--primary-color)] to-[#F2CB00] animate-solid-pulse"
+                  class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-[var(--primary-color)] animate-solid-pulse"
                 ></div>
                 <button
                   type="button"
@@ -318,24 +241,181 @@
             </div>
           </article>
         </div>
+
+        <!-- Load More / Show Less -->
+        <div
+          v-if="activeContent.cards.length > PAGE_SIZE"
+          class="mt-12 flex flex-col items-center gap-3"
+        >
+          <!-- Count indicator -->
+          <p class="text-xs font-semibold text-gray-400">
+            Showing {{ visibleCards.length }} of {{ activeContent.cards.length }} investment opportunities
+          </p>
+
+          <!-- Load More button -->
+          <div v-if="!allVisible" class="relative group/pulse">
+            <div
+              class="absolute inset-0 z-0 rounded-full pointer-events-none bg-neutral-700 group-hover/pulse:bg-[#FCE34D] transition-colors duration-300 animate-load-more-pulse"
+            ></div>
+            <button
+              type="button"
+              @click="loadMore"
+              class="group/btn relative z-10 overflow-hidden inline-flex items-center gap-2.5 rounded-full bg-black px-8 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:shadow-xl active:scale-[0.98] cursor-pointer"
+            >
+              <span class="flex items-center gap-2 transition-transform duration-300 group-hover/btn:-translate-y-full">
+                Load more
+                <font-awesome-icon :icon="['fas', 'arrow-right']" class="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+              <span class="absolute inset-0 flex items-center justify-center gap-2 bg-[#F2CB00] text-black font-bold text-sm transition-transform duration-300 translate-y-full group-hover/btn:translate-y-0">
+                Load more
+                <font-awesome-icon :icon="['fas', 'arrow-right']" class="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </button>
+          </div>
+
+          <!-- Show Less button (when all are visible) -->
+          <button
+            v-else
+            type="button"
+            @click="showLess"
+            class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-8 py-3.5 text-sm font-bold text-gray-600 shadow-sm transition-all duration-200 hover:border-[var(--primary-color)] hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <font-awesome-icon :icon="['fas', 'chevron-left']" class="h-3 w-3" aria-hidden="true" />
+            Show less
+          </button>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="mx-auto max-w-[1440px] px-6 mb-20 md:mb-28 reveal-slide-up">
+        <div class="mb-12 text-center">
+          <h3
+            class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
+          >
+            How it <span class="text-[var(--primary-color)] transition-colors duration-300">works</span>
+          </h3>
+
+          <div class="mx-auto mb-6 h-1 w-24 bg-[#F2CB00]"></div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="absolute top-10 left-[10%] right-[10%] hidden h-0.5 bg-[#F2CB00]/40 lg:block"
+            aria-hidden="true"
+          ></div>
+
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            <div
+              v-for="(step, index) in activeContent.steps"
+              :key="step.title"
+              class="relative flex flex-col items-center text-center reveal-stagger"
+            >
+              <div
+                class="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-full border-4 border-[#F2CB00] bg-white shadow-lg"
+              >
+                <span class="font-['Livvic'] text-2xl font-bold text-[var(--primary-color)] transition-colors duration-300">
+                  {{ index + 1 }}
+                </span>
+              </div>
+              <h4 class="mb-2 font-['Livvic'] text-lg font-bold text-black">
+                {{ step.title }}
+              </h4>
+              <p
+                class="max-w-[220px] text-sm leading-relaxed text-gray-500 font-light"
+              >
+                {{ step.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Value Proposition -->
+      <section class="relative w-full reveal-slide-up py-4">
+        <!-- Decorative Background Pattern spanning across the right side of the screen -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-5 z-0">
+          <img class="h-[460px] w-auto max-w-none" :src="farmGateLogo" alt="" />
+        </div>
+        <div class="absolute left-0 bottom-0 pointer-events-none opacity-5 z-0">
+          <img class="h-[360px] w-auto max-w-none" :src="farmGateLogo" alt="" />
+        </div>
+
+        <div class="mx-auto max-w-[1440px] px-6 relative z-10">
+          <div class="mb-12 text-center">
+            <h3
+              class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
+            >
+              Why choose our
+              <span class="text-[var(--primary-color)] transition-colors duration-300">{{ activeContent.label }}</span>
+              investment model
+            </h3>
+
+            <div class="mx-auto mb-6 h-1 w-24 bg-[#F2CB00]"></div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div
+              v-for="prop in activeContent.valueProps"
+              :key="prop.title"
+              class="group relative rounded-[2rem] border border-gray-100 bg-stone-50 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-light-color)] hover:shadow-xl reveal-stagger"
+            >
+              <div
+                class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary-color)] text-white transition-all duration-300 group-hover:scale-105"
+              >
+                <img
+                  v-if="prop.image"
+                  :src="prop.image"
+                  :alt="prop.title"
+                  class="h-8 w-8 object-contain"
+                />
+                <font-awesome-icon
+                  v-else
+                  :icon="['fas', prop.icon]"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+                />
+              </div>
+              <h4
+                class="mb-3 font-['Livvic'] text-xl font-bold text-black group-hover:text-[var(--primary-color)] transition-colors duration-300"
+              >
+                {{ prop.title }}
+              </h4>
+              <p class="text-sm leading-relaxed text-gray-500 font-light">
+                {{ prop.description }}
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
+    <AuthRedirectModal :show="isRedirectingToLogin" :opportunityName="redirectOpportunityName" />
     <Footer />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
+import AuthRedirectModal from "@/components/AuthRedirectModal.vue";
+
+const isRedirectingToLogin = ref(false);
+const redirectOpportunityName = ref("");
 
 import heroBannerInvest from "@/assets/img/invest1.jpg";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
 import heroBannerFarm from "@/assets/img/faso-farm.jpg";
 import okraImg from "@/assets/img/okra1.jpg";
 import onionImg from "@/assets/img/onion.jpg";
 import yamImg from "@/assets/img/yam1.webp";
+import maizeImg from "@/assets/img/maize.jpg";
+import cassavaImg from "@/assets/img/cassava1.jpg";
+import pepperImg from "@/assets/img/pepper-farm.jpg";
+import riceImg from "@/assets/img/rice1.jpg";
+import tomatoImg from "@/assets/img/tomato.jpg";
+import soybeanImg from "@/assets/img/farm-crops.jpg";
 import poultryImg from "@/assets/img/farm-pic4.webp";
 import cattleImg from "@/assets/img/farm-tractor2.webp";
 import catfishImg from "@/assets/img/catfish1.png";
@@ -489,11 +569,12 @@ const dbModels = {
     cards: [
       {
         id: 1,
+        opportunityId: "crop-1",
         title: "Okra",
         variety: "Lady Finger",
         status: "Open",
         pricePerUnit: "GHS 950.00 / Unit",
-        cycle: "4-Month Cycle",
+        cycle: "4 Month Cycle",
         investmentWindow: "June 1 – June 30, 2026",
         expectedRoi: "13% - 17%",
         location: "Ahafo Region, Ghana",
@@ -501,11 +582,12 @@ const dbModels = {
       },
       {
         id: 2,
+        opportunityId: "crop-2",
         title: "Onion",
         variety: "Bawku Red",
         status: "Closed",
         pricePerUnit: "GHS 720.00 / Unit",
-        cycle: "6-Month Cycle",
+        cycle: "6 Month Cycle",
         investmentWindow: "Jan 10 – Feb 10, 2026",
         expectedRoi: "12% - 16%",
         location: "Eastern Region, Ghana",
@@ -513,15 +595,94 @@ const dbModels = {
       },
       {
         id: 3,
+        opportunityId: "crop-3",
         title: "Yam",
         variety: "Pona",
         status: "Open",
         pricePerUnit: "GHS 1,100.00 / Unit",
-        cycle: "6-Month Cycle",
+        cycle: "6 Month Cycle",
         investmentWindow: "June 5 – July 5, 2026",
         expectedRoi: "15% - 19%",
         location: "Volta Region, Ghana",
         image: yamImg,
+      },
+      {
+        id: 4,
+        opportunityId: "crop-4",
+        title: "Maize",
+        variety: "Obaatanpa",
+        status: "Open",
+        pricePerUnit: "GHS 680.00 / Unit",
+        cycle: "4Month Cycle",
+        investmentWindow: "June 1 – June 30, 2026",
+        expectedRoi: "12% - 16%",
+        location: "Brong-Ahafo Region, Ghana",
+        image: maizeImg,
+      },
+      {
+        id: 5,
+        opportunityId: "crop-5",
+        title: "Cassava",
+        variety: "Bankye Hemaa",
+        status: "Open",
+        pricePerUnit: "GHS 540.00 / Unit",
+        cycle: "9 Month Cycle",
+        investmentWindow: "July 1 – July 31, 2026",
+        expectedRoi: "14% - 18%",
+        location: "Central Region, Ghana",
+        image: cassavaImg,
+      },
+      {
+        id: 6,
+        opportunityId: "crop-6",
+        title: "Pepper",
+        variety: "Scotch Bonnet",
+        status: "Closed",
+        pricePerUnit: "GHS 810.00 / Unit",
+        cycle: "3 Month Cycle",
+        investmentWindow: "Feb 1 – Feb 28, 2026",
+        expectedRoi: "11% - 15%",
+        location: "Upper East Region, Ghana",
+        image: pepperImg,
+      },
+      {
+        id: 7,
+        opportunityId: "crop-7",
+        title: "Rice",
+        variety: "AGRA Aromatic",
+        status: "Open",
+        pricePerUnit: "GHS 870.00 / Unit",
+        cycle: "5 Month Cycle",
+        investmentWindow: "July 1 – July 31, 2026",
+        expectedRoi: "13% - 17%",
+        location: "Northern Region, Ghana",
+        image: riceImg,
+      },
+      {
+        id: 8,
+        opportunityId: "crop-8",
+        title: "Tomato",
+        variety: "Pectomech",
+        status: "Open",
+        pricePerUnit: "GHS 640.00 / Unit",
+        cycle: "3Month Cycle",
+        investmentWindow: "Aug 1 – Aug 31, 2026",
+        expectedRoi: "12% - 15%",
+        location: "Greater Accra Region, Ghana",
+        image: tomatoImg,
+      },
+      {
+        id: 9,
+        opportunityId: "crop-9",
+        title: "Soybean",
+        variety: "Jenguma",
+        status: "Open",
+        pricePerUnit: "GHS 565.00 / Unit",
+        cycle: "4 Month Cycle",
+        investmentWindow: "June 20 – July 20, 2026",
+        expectedRoi: "10% - 14%",
+        location: "Upper West Region, Ghana",
+        image: soybeanImg,
       },
     ],
   },
@@ -583,11 +744,12 @@ const dbModels = {
     cards: [
       {
         id: 1,
+        opportunityId: "livestock-1",
         title: "Poultry",
         variety: "Broiler",
         status: "Closed",
         pricePerUnit: "GHS 550.00 / Unit",
-        cycle: "8-Week Cycle",
+        cycle: "8 Week Cycle",
         investmentWindow: "Feb 1 – Feb 28, 2026",
         expectedRoi: "11% - 15%",
         location: "Kasoa, Central Region",
@@ -595,11 +757,12 @@ const dbModels = {
       },
       {
         id: 2,
+        opportunityId: "livestock-2",
         title: "Cattle",
         variety: "Sokoto Gudali",
         status: "Open",
         pricePerUnit: "GHS 2,400.00 / Unit",
-        cycle: "6-Month Cycle",
+        cycle: "6 Month Cycle",
         investmentWindow: "June 10 – July 15, 2026",
         expectedRoi: "16% - 21%",
         location: "Afram Plains, Eastern Region",
@@ -631,6 +794,7 @@ const dbModels = {
       {
         title: "Market-Ready Harvest",
         icon: "truck",
+        image: "/images/market-entry-strategy.png",
         description:
           "Structured off-take and processing partnerships deliver returns at peak market demand.",
       },
@@ -665,11 +829,12 @@ const dbModels = {
     cards: [
       {
         id: 1,
+        opportunityId: "fish-1",
         title: "Catfish",
         variety: "Clarias Gariepinus",
         status: "Closed",
         pricePerUnit: "GHS 680.00 / Unit",
-        cycle: "5-Month Cycle",
+        cycle: "5 Month Cycle",
         investmentWindow: "Mar 1 – Mar 31, 2026",
         expectedRoi: "14% - 18%",
         location: "Aveyime, Volta Region",
@@ -677,11 +842,12 @@ const dbModels = {
       },
       {
         id: 2,
+        opportunityId: "fish-2",
         title: "Tilapia",
         variety: "Nile Tilapia",
         status: "Open",
         pricePerUnit: "GHS 1,850.00 / Unit",
-        cycle: "6-Month Cycle",
+        cycle: "6 Month Cycle",
         investmentWindow: "June 1 – June 30, 2026",
         expectedRoi: "15% - 20%",
         location: "Akuse, Volta Region",
@@ -692,6 +858,31 @@ const dbModels = {
 };
 
 const activeContent = computed(() => dbModels[activeCategory.value]);
+
+// ── Pagination ────────────────────────────────────────────────────────────────
+const PAGE_SIZE = 6;
+const visibleCount = ref(PAGE_SIZE);
+
+// Reset count whenever the user switches category
+watch(activeCategory, () => { visibleCount.value = PAGE_SIZE; });
+
+const visibleCards = computed(() =>
+  activeContent.value.cards.slice(0, visibleCount.value)
+);
+const allVisible = computed(() =>
+  visibleCount.value >= activeContent.value.cards.length
+);
+const loadMore = () => {
+  visibleCount.value = Math.min(
+    visibleCount.value + PAGE_SIZE,
+    activeContent.value.cards.length
+  );
+};
+const showLess = () => {
+  visibleCount.value = PAGE_SIZE;
+  // Scroll back up to the section
+  document.getElementById("opportunities")?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const statusBadgeClass = (status) => {
   const normalized = status.toLowerCase();
@@ -716,7 +907,24 @@ const handleInvest = (card) => {
     category: activeContent.value.label,
     model: props.serviceModel,
   });
-  window.location.href = `/schedule-call?${params.toString()}`;
+  const targetUrl = `/schedule-call?${params.toString()}`;
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (!isLoggedIn) {
+    isRedirectingToLogin.value = true;
+    redirectOpportunityName.value = opportunityName;
+    setTimeout(() => {
+      window.location.href = `/login?redirect=${encodeURIComponent(targetUrl)}`;
+    }, 3500);
+    return;
+  }
+
+  window.location.href = targetUrl;
+};
+
+const goBackToHome = () => {
+  sessionStorage.setItem("activateVideo2", "true");
+  window.location.href = "/?v=2";
 };
 
 const { init: initScrollReveal } = useScrollReveal({
@@ -726,6 +934,25 @@ const { init: initScrollReveal } = useScrollReveal({
 });
 
 onMounted(() => {
+  // Scroll to #opportunities if navigated back from opportunity detail
+  if (window.location.hash === "#opportunities") {
+    setTimeout(() => {
+      const el = document.getElementById("opportunities");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+
+  // When leaving service-model back to home, always restore Video 2 hero
+  // by intercepting any logo/home link clicks in the header
+  const homeLinks = document.querySelectorAll('a[href="/"]');
+  homeLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("activateVideo2", "true");
+      window.location.href = "/?v=2";
+    });
+  });
+
   const api = initScrollReveal();
   if (!api) return;
 
@@ -747,15 +974,30 @@ onMounted(() => {
 @keyframes pulseAnimateSolid {
   0% {
     transform: scale(1, 1);
-    opacity: 0.75;
+    opacity: 1;
   }
   100% {
-    transform: scale(1.06, 1.25);
+    transform: scale(1.05, 1.35);
     opacity: 0;
   }
 }
 
 .animate-solid-pulse {
-  animation: pulseAnimateSolid 1.4s ease-out infinite;
+  animation: pulseAnimateSolid 1.2s ease-out infinite;
+}
+
+@keyframes pulseAnimateLoadMore {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.10, 1.22);
+    opacity: 0;
+  }
+}
+
+.animate-load-more-pulse {
+  animation: pulseAnimateLoadMore 1.2s ease-out infinite;
 }
 </style>

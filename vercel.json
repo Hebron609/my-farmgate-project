@@ -21,7 +21,9 @@
     { "source": "/service-model", "destination": "/service-model.html" },
     { "source": "/opportunity-detail", "destination": "/opportunity-detail.html" },
     { "source": "/login", "destination": "/login.html" },
-    { "source": "/signup", "destination": "/signup.html" }
+    { "source": "/signup", "destination": "/signup.html" },
+    { "source": "/dashboard", "destination": "/investor-dashboard.html" },
+    { "source": "/investor-dashboard", "destination": "/investor-dashboard.html" }
   ],
   "redirects": [
     { "source": "/about.html", "destination": "/about", "statusCode": 301 },
@@ -44,6 +46,7 @@
     { "source": "/service-model.html", "destination": "/service-model", "statusCode": 301 },
     { "source": "/opportunity-detail.html", "destination": "/opportunity-detail", "statusCode": 301 },
     { "source": "/login.html", "destination": "/login", "statusCode": 301 },
-    { "source": "/signup.html", "destination": "/signup", "statusCode": 301 }
+    { "source": "/signup.html", "destination": "/signup", "statusCode": 301 },
+    { "source": "/investor-dashboard.html", "destination": "/dashboard", "statusCode": 301 }
   ]
 }

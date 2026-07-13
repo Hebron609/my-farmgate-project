@@ -661,7 +661,7 @@ function goToServiceModel() {
 
   // Mark that we came from Video 2 so the back button restores it
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = `/service-model?model=${model}`;
 }
 </script>
 

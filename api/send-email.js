@@ -1,38 +1,43 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { Resend } from "resend";
 
 export default async function handler(req, res) {
-  // Set CORS headers for Vercel
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
   );
 
   // Handle OPTIONS request for CORS
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     res.status(200).end();
     return;
   }
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const { formType, formData } = req.body;
 
-    let subject = '';
-    let htmlContent = '';
+    let subject = "";
+    let htmlContent = "";
 
-    const destinationEmail = process.env.RESEND_TO_EMAIL || 'connect@farmgate.africa';
-    const senderEmail = process.env.RESEND_FROM_EMAIL || 'FarmGate Africa <no-reply@farmgate.africa>';
+    const destinationEmail =
+      process.env.RESEND_TO_EMAIL || "connect@farmgate.africa";
+    const senderEmail =
+      process.env.RESEND_FROM_EMAIL ||
+      "FarmGate Africa <no-reply@farmgate.africa>";
 
-    if (formType === 'contact') {
-      subject = `New Contact Message: ${formData.subject || 'General Inquiry'}`;
+    if (formType === "contact") {
+      subject = `New Contact Message: ${formData.subject || "General Inquiry"}`;
       htmlContent = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
           <div style="background-color: #129C48; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
@@ -50,27 +55,31 @@ export default async function handler(req, res) {
               </tr>
               <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Phone</td>
-                <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.phone || 'N/A'}</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.phone || "N/A"}</td>
               </tr>
               <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Subject</td>
                 <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.subject}</td>
               </tr>
-              ${formData.otherSubject ? `
+              ${
+                formData.otherSubject
+                  ? `
               <tr>
                 <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Other Subject</td>
                 <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.otherSubject}</td>
-              </tr>` : ''}
+              </tr>`
+                  : ""
+              }
             </table>
             
             <h3 style="margin-top: 25px; color: #444; font-size: 16px;">Message:</h3>
             <div style="background-color: #f9f9f9; padding: 15px; border-left: 5px solid #129C48; font-size: 15px; line-height: 1.6; color: #444;">
-              ${formData.message.replace(/\n/g, '<br/>')}
+              ${formData.message.replace(/\n/g, "<br/>")}
             </div>
           </div>
         </div>
       `;
-    } else if (formType === 'schedule-call') {
+    } else if (formType === "schedule-call") {
       subject = `New Call Scheduled with ${formData.guestFullname}`;
       htmlContent = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
@@ -103,7 +112,7 @@ export default async function handler(req, res) {
           </div>
         </div>
       `;
-    } else if (formType === 'book-farm-visit') {
+    } else if (formType === "book-farm-visit") {
       subject = `New Farm Visit Booking: ${formData.firstName} ${formData.lastName}`;
       htmlContent = `
         <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #333;">
@@ -178,39 +187,93 @@ export default async function handler(req, res) {
           </div>
         </div>
       `;
+    } else if (formType === "farm-tour-waitlist" || formType === "waitlist") {
+      subject = `New Farm Tour Priority Waitlist: ${formData.fullName || "Guest"}`;
+      htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+          <div style="background-color: #129C48; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+            <h2 style="color: white; margin: 0;">New Priority Waitlist Registration</h2>
+          </div>
+          <div style="padding: 20px; border: 1px solid #ddd; border-top: none; border-radius: 0 0 8px 8px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; width: 140px; color: #555;">Full Name</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.fullName || "N/A"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Email</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;"><a href="mailto:${formData.email}" style="color: #129C48;">${formData.email || "N/A"}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Country</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.country || "N/A"}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">WhatsApp</td>
+                <td style="padding: 12px; border-bottom: 1px solid #eee;">${formData.whatsapp || "N/A"}</td>
+              </tr>
+            </table>
+            <p style="margin-top: 20px; font-size: 14px; color: #666;">This contact has requested to be notified as soon as new farm tour slots become available.</p>
+          </div>
+        </div>
+      `;
     } else {
-      return res.status(400).json({ error: 'Invalid formType provided' });
+      return res.status(400).json({ error: "Invalid formType provided" });
     }
 
-    // Generate deterministic idempotency key based on form submission data
-    const emailKey = formData.email || formData.guestEmail || 'anonymous';
-    const uniqueContent = formData.message || formData.date || '';
-    const baseIdempotencyKey = `${formType}-${emailKey}-${uniqueContent.slice(0, 50)}`.replace(/[^a-zA-Z0-9-_]/g, '_');
+    // Generate an idempotency key based on form submission data
+    const emailKey = formData.email || formData.guestEmail || "anonymous";
+    const uniqueContent = formData.message || formData.date || "";
+    const baseIdempotencyKey =
+      `${formType}-${emailKey}-${uniqueContent.slice(0, 50)}`.replace(
+        /[^a-zA-Z0-9-_]/g,
+        "_",
+      );
 
-    const data = await resend.emails.send({
-      from: senderEmail,
-      to: [destinationEmail],
-      subject: subject,
-      html: htmlContent,
-      reply_to: emailKey,
-    }, {
-      idempotencyKey: `admin-${baseIdempotencyKey}`.slice(0, 250),
-    });
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === "dummy") {
+      console.log("[DEV MODE] Simulated email send successfully:", { formType, subject, formData });
+      return res.status(200).json({
+        success: true,
+        devMode: true,
+        message: "Email successfully simulated in local dev mode.",
+      });
+    }
+
+    const data = await resend.emails.send(
+      {
+        from: senderEmail,
+        to: [destinationEmail],
+        subject: subject,
+        html: htmlContent,
+        reply_to: emailKey,
+      },
+      {
+        idempotencyKey: `admin-${baseIdempotencyKey}`.slice(0, 250),
+      },
+    );
 
     if (data.error) {
-      throw new Error(`Resend Validation Error: ${data.error.message} (${data.error.name})`);
+      throw new Error(
+        `Resend Validation Error: ${data.error.message} (${data.error.name})`,
+      );
     }
 
-    // Send confirmation email to the user (skipped in Resend Sandbox mode to avoid validation errors)
-    const isSandbox = senderEmail.includes('onboarding@resend.dev');
+    // Send confirmation email to the user
+    const isSandbox = senderEmail.includes("onboarding@resend.dev");
     const userEmail = formData.email || formData.guestEmail;
+    let userResponse = null;
     if (userEmail && !isSandbox) {
-      const userName = formData.firstName || formData.guestFullname || formData.name || 'there';
-      let userSubject = '';
-      let userHtmlContent = '';
+      const userName =
+        formData.fullName ||
+        formData.firstName ||
+        formData.guestFullname ||
+        formData.name ||
+        "there";
+      let userSubject = "";
+      let userHtmlContent = "";
 
-      if (formType === 'contact') {
-        userSubject = 'Thank you for contacting FarmGate Africa';
+      if (formType === "contact") {
+        userSubject = "Thank you for contacting FarmGate Africa";
         userHtmlContent = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
             <div style="background-color: #129C48; padding: 20px; text-align: center;">
@@ -218,15 +281,15 @@ export default async function handler(req, res) {
             </div>
             <div style="padding: 20px; line-height: 1.6;">
               <p>Hi ${userName},</p>
-              <p>Thank you for reaching out to FarmGate Africa. We have successfully received your message regarding <strong>"${formData.subject || 'General Inquiry'}"</strong>.</p>
+              <p>Thank you for reaching out to FarmGate Africa. We have successfully received your message regarding <strong>"${formData.subject || "General Inquiry"}"</strong>.</p>
               <p>Our team is reviewing your inquiry and will get back to you as soon as possible.</p>
               <br/>
               <p>Best regards,<br/><strong>The FarmGate Africa Team</strong></p>
             </div>
           </div>
         `;
-      } else if (formType === 'schedule-call') {
-        userSubject = 'Your call with FarmGate Africa is scheduled!';
+      } else if (formType === "schedule-call") {
+        userSubject = "Your call with FarmGate Africa is scheduled!";
         userHtmlContent = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
             <div style="background-color: #129C48; padding: 20px; text-align: center;">
@@ -242,8 +305,8 @@ export default async function handler(req, res) {
             </div>
           </div>
         `;
-      } else if (formType === 'book-farm-visit') {
-        userSubject = 'Farm Visit Request Received - FarmGate Africa';
+      } else if (formType === "book-farm-visit") {
+        userSubject = "Farm Visit Request Received - FarmGate Africa";
         userHtmlContent = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
             <div style="background-color: #129C48; padding: 20px; text-align: center;">
@@ -258,27 +321,59 @@ export default async function handler(req, res) {
             </div>
           </div>
         `;
+      } else if (formType === "farm-tour-waitlist" || formType === "waitlist") {
+        userSubject = "Priority Waitlist Confirmation - FarmGate Africa";
+        userHtmlContent = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+            <div style="background-color: #129C48; padding: 20px; text-align: center;">
+              <h2 style="color: white; margin: 0;">You're on the Priority Waitlist!</h2>
+            </div>
+            <div style="padding: 20px; line-height: 1.6;">
+              <p>Hi ${userName},</p>
+              <p>Thank you for registering your interest in touring FarmGate Africa's farms!</p>
+              <p>All current tour slots have been booked in advance, but we have added your details to our <strong>Priority Waitlist</strong>.</p>
+              <p>Our Head of Tour Guides will reach out directly as soon as new tour dates become available.</p>
+              <br/>
+              <p>We appreciate your patience and cooperation!</p>
+              <br/>
+              <p>Best regards,<br/><strong>The FarmGate Africa Team</strong></p>
+            </div>
+          </div>
+        `;
       }
 
       // Send the user auto-response
-      const userResponse = await resend.emails.send({
-        from: senderEmail,
-        to: [userEmail],
-        subject: userSubject,
-        html: userHtmlContent,
-        reply_to: destinationEmail,
-      }, {
-        idempotencyKey: `user-${baseIdempotencyKey}`.slice(0, 250),
-      });
+      userResponse = await resend.emails.send(
+        {
+          from: senderEmail,
+          to: [userEmail],
+          subject: userSubject,
+          html: userHtmlContent,
+          reply_to: destinationEmail,
+        },
+        {
+          idempotencyKey: `user-${baseIdempotencyKey}`.slice(0, 250),
+        },
+      );
 
       if (userResponse.error) {
-        console.error('Error sending auto-response email:', userResponse.error);
+        console.error("Error sending auto-response email:", userResponse.error);
       }
     }
 
-    res.status(200).json({ success: true, data });
+    res.status(200).json({
+      success: true,
+      data,
+      userResponse,
+      confirmationEmailSent: !!(
+        userEmail &&
+        !isSandbox &&
+        userResponse &&
+        !userResponse.error
+      ),
+    });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
     res.status(500).json({ error: error.message });
   }
 }
