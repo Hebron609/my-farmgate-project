@@ -799,7 +799,7 @@ import logoDark from "@/assets/img/FARMGATE BLACK LOGO-49.webp";
 import maizeImg from "@/assets/img/maize.webp";
 import cassavaImg from "@/assets/img/cassava1.webp";
 import pepperImg from "@/assets/img/pepper-farm.webp";
-import onionImg from "@/assets/img/onion.webp";
+import onionImg from "@/assets/img/red_onion_farm_new.webp";
 import riceImg from "@/assets/img/rice.webp";
 import yamImg from "@/assets/img/yam1.webp";
 import okraImg from "@/assets/img/okra1.webp";
