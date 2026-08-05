@@ -311,25 +311,25 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import AuthRedirectModal from "@/components/AuthRedirectModal.vue";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 const isRedirectingToLogin = ref(false);
 const redirectOpportunityName = ref("");
 
 // ── Asset imports (mirrors ServiceModel.vue) ──────────────────────────────────
-import okraImg       from "@/assets/img/okra1.jpg";
-import onionImg      from "@/assets/img/onion.jpg";
+import okraImg       from "@/assets/img/okra1.webp";
+import onionImg      from "@/assets/img/onion.webp";
 import yamImg        from "@/assets/img/yam1.webp";
-import maizeImg      from "@/assets/img/maize.jpg";
-import cassavaImg    from "@/assets/img/cassava1.jpg";
-import pepperImg     from "@/assets/img/pepper-farm.jpg";
-import riceImg       from "@/assets/img/rice1.jpg";
-import tomatoImg     from "@/assets/img/tomato.jpg";
-import soybeanImg    from "@/assets/img/farm-crops.jpg";
-import poultryImg    from "@/assets/img/farm-pic4.webp";
-import cattleImg     from "@/assets/img/farm-tractor2.webp";
-import catfishImg    from "@/assets/img/catfish1.png";
-import tilapiaImg    from "@/assets/img/tilapia1.avif";
+import maizeImg      from "@/assets/img/maize.webp";
+import cassavaImg    from "@/assets/img/cassava1.webp";
+import pepperImg     from "@/assets/img/pepper-farm.webp";
+import riceImg       from "@/assets/img/rice1.webp";
+import tomatoImg     from "@/assets/img/tomato.webp";
+import soybeanImg    from "@/assets/img/farm-crops.webp";
+import poultryImg    from "@/assets/img/poultry_farm_new.webp";
+import cattleImg     from "@/assets/img/cattle_farm_new.webp";
+import catfishImg    from "@/assets/img/catfish1.webp";
+import tilapiaImg    from "@/assets/img/tilapia_fish_new.webp";
 
 // ── All investment opportunities (sourced from ServiceModel.vue cards) ────────
 const allOpportunities = [

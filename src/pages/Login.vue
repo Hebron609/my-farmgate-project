@@ -4,7 +4,7 @@
     <div class="relative hidden lg:flex lg:w-1/2 flex-col justify-between p-12 border-r border-white/10 overflow-hidden bg-[#040e08]">
       <!-- Background Farm Image with Deep Forest Gradient Overlay -->
       <div class="absolute inset-0 z-0">
-        <img src="/images/signup-image.png" alt="FarmGate Africa Farmland" class="w-full h-full object-cover object-[15%_center] scale-105 transition-transform duration-1000 ease-out hover:scale-100" />
+        <img src="/images/signup-image.webp" alt="FarmGate Africa Farmland" class="w-full h-full object-cover object-[15%_center] scale-105 transition-transform duration-1000 ease-out hover:scale-100" />
         <div class="absolute inset-0 bg-gradient-to-t from-[#040e08] via-[#09150e]/85 to-[#040e08]/75"></div>
         <div class="absolute inset-0 bg-[#129C48]/15 mix-blend-overlay"></div>
       </div>
@@ -74,13 +74,13 @@
     <div class="flex-1 flex flex-col justify-center px-6 pt-24 pb-12 sm:px-12 sm:pt-28 lg:py-12 lg:px-16 xl:px-24 bg-[#0a140d] lg:bg-white relative overflow-hidden">
       <!-- Mobile-only Background Image with Dark Forest Overlay -->
       <div class="absolute inset-0 z-0 lg:hidden">
-        <img src="/images/signup-image.png" alt="FarmGate Africa Farmland" class="w-full h-full object-cover object-[15%_center]" />
+        <img src="/images/signup-image.webp" alt="FarmGate Africa Farmland" class="w-full h-full object-cover object-[15%_center]" />
         <div class="absolute inset-0 bg-gradient-to-b from-[#040e08]/90 via-[#0a140d]/85 to-[#040e08]/95"></div>
         <div class="absolute inset-0 bg-[#129C48]/10 mix-blend-overlay"></div>
       </div>
 
       <!-- FarmGate Pattern Overlay for Right Column -->
-      <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.png')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.webp')] bg-cover bg-center"></div>
 
       <!-- Desktop Homepage Button (top-right of this panel) -->
       <div class="absolute z-30 hidden top-8 right-8 xl:right-12 lg:inline-flex group">
@@ -330,7 +330,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import logoWhite1 from "@/assets/img/fg logo-white1.png";
+import logoWhite1 from "@/assets/img/fg logo-white1.webp";
 
 const isForgotMode = ref(false);
 const isLoading = ref(false);

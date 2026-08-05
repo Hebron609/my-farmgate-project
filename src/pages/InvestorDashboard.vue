@@ -265,7 +265,7 @@
           <!-- Top Hero Banner / Investor Welcome -->
           <section class="relative bg-[#051108] text-white overflow-hidden pt-10 pb-14 px-4 sm:px-6 lg:px-8 border-b border-[#129C48]/30 w-full">
         <!-- Ambient decorative background graphic -->
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.png')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.webp')] bg-cover bg-center"></div>
         <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#129C48]/30 rounded-full blur-[130px] pointer-events-none"></div>
         <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-[#F2CB00]/15 rounded-full blur-[130px] pointer-events-none"></div>
 
@@ -791,23 +791,24 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import DashboardTransition from "@/components/DashboardTransition.vue";
-import logoDark from "@/assets/img/FARMGATE BLACK LOGO-49.png";
+import logoDark from "@/assets/img/FARMGATE BLACK LOGO-49.webp";
 
 // Images
-import maizeImg from "@/assets/img/maize.jpg";
-import cassavaImg from "@/assets/img/cassava1.jpg";
-import pepperImg from "@/assets/img/pepper-farm.jpg";
-import onionImg from "@/assets/img/onion.jpg";
-import riceImg from "@/assets/img/rice.jpg";
+import maizeImg from "@/assets/img/maize.webp";
+import cassavaImg from "@/assets/img/cassava1.webp";
+import pepperImg from "@/assets/img/pepper-farm.webp";
+import onionImg from "@/assets/img/onion.webp";
+import riceImg from "@/assets/img/rice.webp";
 import yamImg from "@/assets/img/yam1.webp";
-import okraImg from "@/assets/img/okra1.jpg";
-import tomatoImg from "@/assets/img/tomato.jpg";
-import soybeanImg from "@/assets/img/farm-crops.jpg";
-import poultryImg from "@/assets/img/farm-pic4.webp";
-import cattleImg from "@/assets/img/farm-tractor2.webp";
-import catfishImg from "@/assets/img/catfish1.png";
-import tilapiaImg from "@/assets/img/tilapia1.avif";
+import okraImg from "@/assets/img/okra1.webp";
+import tomatoImg from "@/assets/img/tomato.webp";
+import soybeanImg from "@/assets/img/farm-crops.webp";
+import poultryImg from "@/assets/img/poultry_farm_new.webp";
+import cattleImg from "@/assets/img/cattle_farm_new.webp";
+import catfishImg from "@/assets/img/catfish1.webp";
+import tilapiaImg from "@/assets/img/tilapia_fish_new.webp";
 
 // 1. App Shell Sidebar & UI state
 const currentSidebarView = ref("farms"); // 'farms' | 'marketplace' | 'finances' | 'notifications' | 'profile'
@@ -830,6 +831,30 @@ onMounted(() => {
   if (storedEmail) {
     const handle = storedEmail.split("@")[0];
     userName.value = handle.charAt(0).toUpperCase() + handle.slice(1);
+  }
+
+  // Parse query parameters from route or window.location
+  let queryTab = null;
+  try {
+    const route = useRoute();
+    if (route && route.query && route.query.activeTab) {
+      queryTab = route.query.activeTab;
+    }
+  } catch (e) {
+    // Safe fallback if router is not mounted
+  }
+  if (!queryTab) {
+    const params = new URLSearchParams(window.location.search);
+    queryTab = params.get("activeTab");
+  }
+  if (queryTab) {
+    const lowerTab = queryTab.toLowerCase();
+    if (["crop", "livestock", "fishery"].includes(lowerTab)) {
+      activeTab.value = "explore";
+      selectedCategory.value = lowerTab;
+    } else if (["active", "explore", "completed"].includes(lowerTab)) {
+      activeTab.value = lowerTab;
+    }
   }
 
   // Dismiss loader after 2200ms

@@ -123,7 +123,7 @@
                 class="relative z-10 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
                 <img
-                  src="/images/flag.png"
+                  src="/images/flag.webp"
                   alt="Book farm visit"
                   class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-90 transition-opacity duration-300 short-screen-lottie"
                 />
@@ -132,7 +132,7 @@
                 class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
-                  src="/images/flag.png"
+                  src="/images/flag.webp"
                   alt="Book farm visit"
                   class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie book-farm-hover-icon"
                 />
@@ -156,7 +156,7 @@
                 class="relative z-10 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
                 <img
-                  src="/images/call.png"
+                  src="/images/call.webp"
                   alt="Schedule quick call"
                   class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-90 transition-opacity duration-300 short-screen-lottie"
                 />
@@ -165,7 +165,7 @@
                 class="absolute inset-0 flex items-center justify-center w-full h-full transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
                 <img
-                  src="/images/call.png"
+                  src="/images/call.webp"
                   alt="Schedule quick call"
                   class="w-7 h-7 sm:w-8 sm:h-8 max-[380px]:w-5 max-[380px]:h-5 opacity-100 short-screen-lottie quick-call-hover-icon"
                 />
@@ -338,12 +338,12 @@ const props = defineProps({
 
 const emit = defineEmits(["update:videoVariant"]);
 
-import investImg from "@/assets/img/invest1.jpg";
-import farmerImg from "@/assets/img/faso-farm.jpg";
+import investImg from "@/assets/img/invest1.webp";
+import farmerImg from "@/assets/img/faso-farm.webp";
 import trackImg from "@/assets/img/track-with-us-img.webp";
 import fallbackImage1 from "@/assets/img/fallback-image1.webp";
 import fallbackImage from "@/assets/img/fallback-image.webp";
-import fgLogoWhite2 from "@/assets/img/fg logo-white2.png";
+import fgLogoWhite2 from "@/assets/img/fg logo-white2.webp";
 
 const localHls1 = "/videos/adaptive1/master.m3u8";
 const localHls2 = "/videos/adaptive2/master.m3u8";

@@ -309,9 +309,9 @@ import {
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import heroPic from "@/assets/img/farm-pic3.jpg";
-import farmPic9 from "@/assets/img/farm-pic9.jpg";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import heroPic from "@/assets/img/farm-pic3.webp";
+import farmPic9 from "@/assets/img/farm-pic9.webp";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 library.add(faBullseye, faEye, faGem, faTrophy);
 

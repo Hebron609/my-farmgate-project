@@ -448,7 +448,7 @@
         <!-- Image Section -->
         <div class="relative w-full lg:w-1/2">
           <img
-            src="/src/assets/img/farm-ceo.jpg"
+            src="/src/assets/img/farm-ceo.webp"
             alt="Founder & CEO"
             class="h-[300px] sm:h-[380px] lg:h-full w-full object-cover"
           />
@@ -607,18 +607,18 @@
 <script setup>
 import { ref } from "vue";
 
-import ceoDp from "@/assets/img/farm-ceo.jpg";
-import farmGateLogo from '@/assets/img/FarmGate Africa 1 1.png';
-import farmCrops from '@/assets/img/farm-crops.jpg';
-import soilSampling from '@/assets/img/soil-sampling.jpg';
-import farmTractor2 from '@/assets/img/farm-tractor2.jpg';
+import ceoDp from "@/assets/img/farm-ceo.webp";
+import farmGateLogo from '@/assets/img/FarmGate Africa 1 1.webp';
+import farmCrops from '@/assets/img/farm-crops.webp';
+import soilSampling from '@/assets/img/soil-sampling.webp';
+import farmTractor2 from '@/assets/img/farm-tractor2.webp';
 import farmerImg1 from '@/assets/img/farmer-img1.avif';
-import womenFarm from '@/assets/img/Women-farm.jpg';
-import farmIrrigation from '@/assets/img/farm-irrigation.jpg';
-import fasoFarm from '@/assets/img/faso-farm.jpg';
-import farmPic5 from '@/assets/img/farm-pic5.jpg';
-import farmPic3 from '@/assets/img/farm-pic3.jpg';
-import farmPic4 from '@/assets/img/farm-pic4.jpg';
+import womenFarm from '@/assets/img/Women-farm.webp';
+import farmIrrigation from '@/assets/img/farm-irrigation.webp';
+import fasoFarm from '@/assets/img/faso-farm.webp';
+import farmPic5 from '@/assets/img/farm-pic5.webp';
+import farmPic3 from '@/assets/img/farm-pic3.webp';
+import farmPic4 from '@/assets/img/farm-pic4.webp';
 
 const activeIndex = ref(0);
 

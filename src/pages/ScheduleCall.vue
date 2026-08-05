@@ -254,8 +254,7 @@ const submitCall = async (e) => {
   if (!selectedDate.value) return;
   if (
     !guestFullname.value.trim() ||
-    !guestEmail.value.trim() ||
-    !guestWhatsapp.value.trim()
+    !guestEmail.value.trim()
   )
     return;
 
@@ -762,7 +761,7 @@ const closeModal = () => {
             <!-- WhatsApp Number -->
             <div class="relative">
               <label class="block mb-2 font-semibold text-gray-700"
-                >WhatsApp number <span class="text-red-600">*</span></label
+                >WhatsApp number</label
               >
               <div class="relative">
                 <svg
@@ -783,7 +782,6 @@ const closeModal = () => {
                   v-model="guestWhatsapp"
                   type="tel"
                   placeholder="e.g. +233 24 000 0000"
-                  required
                   class="w-full pl-12 pr-4 py-4 border-2 border-gray-100 focus:border-[#129C48] rounded-2xl outline-none transition-all duration-300 font-medium placeholder:text-gray-400 placeholder:font-normal text-gray-800"
                 />
               </div>
@@ -936,7 +934,7 @@ const closeModal = () => {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/images/FARMGATE PATTERN _GREEN.png");
+  background-image: url("/images/FARMGATE PATTERN _GREEN.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

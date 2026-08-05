@@ -195,6 +195,8 @@
           class="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-7xl h-auto max-h-[95vh] flex flex-col md:flex-row overflow-hidden modal-content"
           @click.stop
         >
+          <!-- Top Green Accent Bar -->
+          <div class="absolute top-0 left-0 right-0 h-2.5 bg-[#129C48] z-30 pointer-events-none"></div>
           <button
             @click="closeExpand"
             class="absolute z-20 px-4 py-2 text-xs font-bold tracking-widest text-white uppercase transition-colors border rounded-full border-white/20 top-6 right-6 bg-black/50 hover:bg-black backdrop-blur-md"

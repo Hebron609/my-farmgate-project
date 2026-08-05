@@ -14,7 +14,7 @@
     <!-- Central Illustration -->
     <div class="relative z-10 mb-2">
       <img
-        src="/images/Marketplace-illustration.png"
+        src="/images/Marketplace-illustration.webp"
         alt="Digital Farmers' Market Illustration"
         class="object-contain w-[150vw] h-auto md:w-[980px] md:h-auto md:scale-100 scale-160 mb-5"
       />

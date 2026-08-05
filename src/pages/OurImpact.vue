@@ -476,11 +476,11 @@ import Header from "@/components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
-import ImpactImg from "@/assets/img/Women-farm.jpg";
-import farmPic1 from "@/assets/img/farm-pic1.jpg";
-import farmPic2 from "@/assets/img/farm-pic2.jpg";
-import farmPic3 from "@/assets/img/farm-pic3.jpg";
-import farmPic4 from "@/assets/img/farm-pic4.jpg";
+import ImpactImg from "@/assets/img/Women-farm.webp";
+import farmPic1 from "@/assets/img/farm-pic1.webp";
+import farmPic2 from "@/assets/img/farm-pic2.webp";
+import farmPic3 from "@/assets/img/farm-pic3.webp";
+import farmPic4 from "@/assets/img/farm-pic4.webp";
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 import climateAnimationData from "@/assets/animations/climate-lottie.json";
@@ -934,7 +934,7 @@ const sdgItems = [
     ],
     impact: 78,
     year: "2025",
-    image: "/images/E-WEB-Goal-01.png",
+    image: "/images/E-WEB-Goal-01.webp",
   },
   {
     number: 2,
@@ -959,7 +959,7 @@ const sdgItems = [
     ],
     impact: 82,
     year: "2025",
-    image: "/images/E-WEB-Goal-02.png",
+    image: "/images/E-WEB-Goal-02.webp",
   },
   {
     number: 5,
@@ -984,7 +984,7 @@ const sdgItems = [
     ],
     impact: 75,
     year: "2025",
-    image: "/images/E-WEB-Goal-05.png",
+    image: "/images/E-WEB-Goal-05.webp",
   },
   {
     number: 8,
@@ -1009,7 +1009,7 @@ const sdgItems = [
     ],
     impact: 80,
     year: "2025",
-    image: "/images/E-WEB-Goal-08.png",
+    image: "/images/E-WEB-Goal-08.webp",
   },
   {
     number: 9,
@@ -1034,7 +1034,7 @@ const sdgItems = [
     ],
     impact: 76,
     year: "2025",
-    image: "/images/E-WEB-Goal-09.png",
+    image: "/images/E-WEB-Goal-09.webp",
   },
   {
     number: 13,
@@ -1059,7 +1059,7 @@ const sdgItems = [
     ],
     impact: 88,
     year: "2025",
-    image: "/images/E-WEB-Goal-13.png",
+    image: "/images/E-WEB-Goal-13.webp",
   },
   {
     number: 17,
@@ -1084,7 +1084,7 @@ const sdgItems = [
     ],
     impact: 84,
     year: "2025",
-    image: "/images/E-WEB-Goal-17.png",
+    image: "/images/E-WEB-Goal-17.webp",
   },
 ];
 </script>

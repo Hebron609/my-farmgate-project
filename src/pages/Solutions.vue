@@ -171,7 +171,7 @@ import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 // FontAwesome Imports
@@ -202,7 +202,7 @@ library.add(
   faCloudSun,
 );
 
-import ourSolutionsBanner from "@/assets/img/our-solutions-banner.jpg";
+import ourSolutionsBanner from "@/assets/img/our-solutions-banner.webp";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,

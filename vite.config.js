@@ -23,6 +23,8 @@ const cleanUrlMiddleware = () => ({
         "/our-impact":         "/our-impact.html",
         "/our-relevance":      "/our-relevance.html",
         "/our-edge":           "/our-edge.html",
+        "/our-offerings":      "/our-offerings.html",
+        "/product-offerings":  "/our-offerings.html",
         "/terms":              "/Terms.html",
         "/book-farm-visit":    "/book-farm-visit.html",
         "/schedule-call":      "/schedule-call.html",
@@ -30,6 +32,7 @@ const cleanUrlMiddleware = () => ({
         "/signup":             "/signup.html",
         "/dashboard":          "/investor-dashboard.html",
         "/investor-dashboard": "/investor-dashboard.html",
+        "/operations-dashboard": "/operations-dashboard.html",
       };
       const [pathname, query] = req.url.split("?");
       if (map[pathname]) {
@@ -125,12 +128,14 @@ export default defineConfig({
         footprint: path.resolve(__dirname, "footprint.html"),
         bookFarmVisit: path.resolve(__dirname, "book-farm-visit.html"),
         ourEdge: path.resolve(__dirname, "our-edge.html"),
+        ourOfferings: path.resolve(__dirname, "our-offerings.html"),
         scheduleCall: path.resolve(__dirname, "schedule-call.html"),
         serviceModel: path.resolve(__dirname, "service-model.html"),
         opportunityDetail: path.resolve(__dirname, "opportunity-detail.html"),
         login: path.resolve(__dirname, "login.html"),
         signup: path.resolve(__dirname, "signup.html"),
         investorDashboard: path.resolve(__dirname, "investor-dashboard.html"),
+        operationsDashboard: path.resolve(__dirname, "operations-dashboard.html"),
       },
     },
   },

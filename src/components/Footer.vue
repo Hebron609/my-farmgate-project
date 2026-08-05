@@ -114,7 +114,7 @@
 
 <script setup>
 import FooterColumn from "./FooterColumn.vue";
-import farmGateWhiteLogo from "@/assets/img/fg logo-white2.png";
+import farmGateWhiteLogo from "@/assets/img/fg logo-white2.webp";
 
 const renewCookieConsent = () => {
   if (window.Cookiebot) {
