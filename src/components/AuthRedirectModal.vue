@@ -11,7 +11,7 @@
       <div class="w-full max-w-md p-8 text-center bg-[#0a140d] border border-[#129C48]/50 rounded-3xl shadow-2xl relative overflow-hidden">
         <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#129C48]/30 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-[#F2CB00]/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.08] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.png')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.08] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.webp')] bg-cover bg-center"></div>
         
         <div class="relative z-10 flex flex-col items-center">
           <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-tr from-[#129C48] to-[#F2CB00] p-0.5 shadow-xl shadow-[#129C48]/20 flex items-center justify-center animate-bounce">

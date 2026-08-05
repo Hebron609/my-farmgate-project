@@ -77,7 +77,7 @@
         <div class="relative w-full max-w-md p-10 mx-4 bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-white/20 transform hover:scale-[1.01] transition-transform duration-500">
           <div class="mb-10 text-center">
             <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand-green/10 border border-gray-100">
-              <img src="/images/FarmGate%20Africa%201%201.png" alt="Farmgate Logo" class="h-10 object-contain drop-shadow-sm" />
+              <img src="/images/FarmGate%20Africa%201%201.webp" alt="Farmgate Logo" class="h-10 object-contain drop-shadow-sm" />
             </div>
             <h2 class="text-3xl font-bold text-gray-900 font-livvic tracking-tight">Admin Portal</h2>
             <p class="text-sm font-semibold text-gray-500 mt-2 uppercase tracking-widest">Authorized Access Only</p>
@@ -318,7 +318,7 @@
         <!-- Footer -->
         <footer class="pt-8 mt-12 border-t border-gray-200/60 text-xs font-medium text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div class="flex items-center gap-2">
-            <img src="/images/FarmGate%20Africa%201%201.png" class="h-4 grayscale opacity-50" />
+            <img src="/images/FarmGate%20Africa%201%201.webp" class="h-4 grayscale opacity-50" />
             <span>&copy; {{ new Date().getFullYear() }} Farmgate Operations Portal</span>
           </div>
           <div class="flex items-center gap-4">

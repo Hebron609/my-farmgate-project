@@ -427,7 +427,7 @@ import chiliImg from "../assets/img/chili-pepper.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
 import pineappleImg from "../assets/img/pineapple.webp";
 import cassavaImg from "../assets/img/cassava.webp";
-import tilapiaImg from "../assets/img/tilapia.webp";
+import tilapiaImg from "../assets/img/tilapia_fish_new.webp";
 import catfishImg from "../assets/img/catfish.webp";
 import smokableCatfishImg from "../assets/img/smokable catfish.webp";
 import pigImg from "../assets/img/pig.webp";

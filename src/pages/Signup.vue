@@ -81,7 +81,7 @@
       </div>
 
       <!-- FarmGate Pattern Overlay for Right Column -->
-      <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.png')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.06] bg-[url('/images/FARMGATE%20PATTERN%20_GREEN.webp')] bg-cover bg-center"></div>
 
       <!-- Desktop Homepage Button (top-right of this panel) -->
       <div class="absolute z-30 hidden top-8 right-8 xl:right-12 lg:inline-flex group">

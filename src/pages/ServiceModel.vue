@@ -416,10 +416,10 @@ import pepperImg from "@/assets/img/pepper-farm.webp";
 import riceImg from "@/assets/img/rice1.webp";
 import tomatoImg from "@/assets/img/tomato.webp";
 import soybeanImg from "@/assets/img/farm-crops.webp";
-import poultryImg from "@/assets/img/farm-pic4.webp";
-import cattleImg from "@/assets/img/farm-tractor2.webp";
+import poultryImg from "@/assets/img/poultry_farm_new.webp";
+import cattleImg from "@/assets/img/cattle_farm_new.webp";
 import catfishImg from "@/assets/img/catfish1.webp";
-import tilapiaImg from "@/assets/img/tilapia1.avif";
+import tilapiaImg from "@/assets/img/tilapia_fish_new.webp";
 
 const props = defineProps({
   serviceModel: {

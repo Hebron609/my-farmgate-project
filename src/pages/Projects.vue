@@ -722,7 +722,7 @@ import farmPic9 from "@/assets/img/farm-pic2.webp";
 import farmPic1 from "@/assets/img/pepper-farm.webp";
 import farmPic6 from "@/assets/img/catfish1.webp";
 import farmPic10 from "@/assets/img/hot-pepper.webp";
-import farmPic7 from "@/assets/img/tilapia1.avif";
+import farmPic7 from "@/assets/img/tilapia_fish_new.webp";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
 
