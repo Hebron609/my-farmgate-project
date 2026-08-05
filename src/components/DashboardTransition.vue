@@ -96,7 +96,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import patternBg from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import patternBg from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 const props = defineProps({
   show: {

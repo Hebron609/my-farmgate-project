@@ -565,7 +565,7 @@
                           },
                           "81499.41": {
                             "request": {
-                              "url": "http://localhost:5175/src/assets/img/invest1.jpg?import",
+                              "url": "http://localhost:5175/src/assets/img/invest1.webp?import",
                               "startTime": 368775.744658,
                               "endTime": 368775.763699,
                               "responseReceivedTime": 368775.763629,
@@ -592,7 +592,7 @@
                           },
                           "81499.44": {
                             "request": {
-                              "url": "http://localhost:5175/src/assets/img/fallback-image1.png?import",
+                              "url": "http://localhost:5175/src/assets/img/fallback-image1.webp?import",
                               "startTime": 368775.745059,
                               "endTime": 368775.765019,
                               "responseReceivedTime": 368775.76496799994,
@@ -601,7 +601,7 @@
                           },
                           "81499.45": {
                             "request": {
-                              "url": "http://localhost:5175/src/assets/img/fallback-image.png?import",
+                              "url": "http://localhost:5175/src/assets/img/fallback-image.webp?import",
                               "startTime": 368775.745222,
                               "endTime": 368775.765906,
                               "responseReceivedTime": 368775.76585100003,
@@ -1640,7 +1640,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:5175/src/assets/img/invest1.jpg?import",
+            "url": "http://localhost:5175/src/assets/img/invest1.webp?import",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 1858.8909999728203,
@@ -1691,7 +1691,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image1.png?import",
+            "url": "http://localhost:5175/src/assets/img/fallback-image1.webp?import",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 1858.9699999690056,
@@ -1708,7 +1708,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image.png?import",
+            "url": "http://localhost:5175/src/assets/img/fallback-image.webp?import",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 1858.9979999661446,
@@ -1895,7 +1895,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image1.png",
+            "url": "http://localhost:5175/src/assets/img/fallback-image1.webp",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 2094.9099999666214,
@@ -4837,12 +4837,12 @@
             ]
           },
           {
-            "name": "http://localhost:5175/src/assets/img/invest1.jpg?import",
+            "name": "http://localhost:5175/src/assets/img/invest1.webp?import",
             "resourceBytes": 387,
             "encodedBytes": 387,
             "children": [
               {
-                "name": "invest1.jpg?import",
+                "name": "invest1.webp?import",
                 "resourceBytes": 45
               },
               {
@@ -4882,12 +4882,12 @@
             ]
           },
           {
-            "name": "http://localhost:5175/src/assets/img/fallback-image1.png?import",
+            "name": "http://localhost:5175/src/assets/img/fallback-image1.webp?import",
             "resourceBytes": 431,
             "encodedBytes": 431,
             "children": [
               {
-                "name": "fallback-image1.png?import",
+                "name": "fallback-image1.webp?import",
                 "resourceBytes": 53
               },
               {
@@ -4897,12 +4897,12 @@
             ]
           },
           {
-            "name": "http://localhost:5175/src/assets/img/fallback-image.png?import",
+            "name": "http://localhost:5175/src/assets/img/fallback-image.webp?import",
             "resourceBytes": 426,
             "encodedBytes": 426,
             "children": [
               {
-                "name": "fallback-image.png?import",
+                "name": "fallback-image.webp?import",
                 "resourceBytes": 52
               },
               {
@@ -5387,7 +5387,7 @@
             "totalBytes": 978015
           },
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image1.png",
+            "url": "http://localhost:5175/src/assets/img/fallback-image1.webp",
             "totalBytes": 832663
           },
           {
@@ -6011,7 +6011,7 @@
         ],
         "items": [
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image1.png",
+            "url": "http://localhost:5175/src/assets/img/fallback-image1.webp",
             "fromProtocol": true,
             "isCrossOrigin": false,
             "totalBytes": 832394,
@@ -7159,7 +7159,7 @@
         ],
         "items": [
           {
-            "url": "http://localhost:5175/src/assets/img/fallback-image1.png",
+            "url": "http://localhost:5175/src/assets/img/fallback-image1.webp",
             "totalBytes": 832394,
             "wastedBytes": 487833,
             "subItems": {
@@ -7497,7 +7497,7 @@
                                   "children": {}
                                 },
                                 "81499.45": {
-                                  "url": "http://localhost:5175/src/assets/img/fallback-image.png?import",
+                                  "url": "http://localhost:5175/src/assets/img/fallback-image.webp?import",
                                   "navStartToEndTime": 1883,
                                   "transferSize": 714,
                                   "children": {}
@@ -7509,7 +7509,7 @@
                                   "children": {}
                                 },
                                 "81499.44": {
-                                  "url": "http://localhost:5175/src/assets/img/fallback-image1.png?import",
+                                  "url": "http://localhost:5175/src/assets/img/fallback-image1.webp?import",
                                   "navStartToEndTime": 1883,
                                   "transferSize": 719,
                                   "children": {}
@@ -7527,7 +7527,7 @@
                                   "children": {}
                                 },
                                 "81499.41": {
-                                  "url": "http://localhost:5175/src/assets/img/invest1.jpg?import",
+                                  "url": "http://localhost:5175/src/assets/img/invest1.webp?import",
                                   "navStartToEndTime": 1881,
                                   "transferSize": 675,
                                   "children": {}

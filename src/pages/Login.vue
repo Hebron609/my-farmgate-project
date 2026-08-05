@@ -330,7 +330,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import logoWhite1 from "@/assets/img/fg logo-white1.png";
+import logoWhite1 from "@/assets/img/fg logo-white1.webp";
 
 const isForgotMode = ref(false);
 const isLoading = ref(false);

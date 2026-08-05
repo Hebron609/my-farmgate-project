@@ -6,7 +6,7 @@
 
     <section class="relative w-full h-screen overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-[url('/images/our-edge2.jpg')] bg-cover bg-center bg-no-repeat opacity-55"
+        class="absolute inset-0 bg-[url('/images/our-edge2.webp')] bg-cover bg-center bg-no-repeat opacity-55"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/30 to-black/80"
@@ -328,7 +328,7 @@ import farmPic8 from "@/assets/img/enduring-partnership1.webp";
 import farmPic9 from "@/assets/img/farmer-img1.avif";
 import farmPic3 from "@/assets/img/future-innovations1.webp";
 import farmPic4 from "@/assets/img/farm-pic4.webp";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 const edgeHoverSide = ref(null);
 

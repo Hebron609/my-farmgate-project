@@ -69,9 +69,16 @@
               <a
                 v-if="!isUserAuthenticated"
                 href="/signup"
-                class="flex px-3 py-1.5 backdrop-blur-md bg-[#F2CB00] text-black font-bold rounded-full text-xs items-center gap-1.5 shadow-sm"
+                class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer shadow-sm"
               >
-                <span>Get Started</span>
+                <span class="flex items-center gap-1.5 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-white" />
+                  <span class="text-xs font-semibold leading-none text-white whitespace-nowrap">Get Started</span>
+                </span>
+                <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-1.5 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
+                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-black" />
+                  <span class="text-xs font-semibold leading-none whitespace-nowrap">Get Started</span>
+                </span>
               </a>
               <a
                 v-else
@@ -84,7 +91,7 @@
             </div>
 
             <a
-              v-if="videoVariant === 2"
+              v-if="videoVariant === 2 && !isAuthHeader"
               href="/marketplace"
               class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
@@ -633,6 +640,19 @@
             </div>
 
             <div class="mt-0">
+              <a href="/our-offerings">
+                <h3
+                  :class="[
+                    'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer lg:whitespace-nowrap',
+                    'mb-0',
+                  ]"
+                >
+                  Our Offerings
+                </h3>
+              </a>
+            </div>
+
+            <div class="mt-0">
               <h3
                 :class="[
                   'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer lg:whitespace-nowrap',
@@ -1109,8 +1129,8 @@ import LeafIcon from "./icons/LeafIcon.vue";
 import AuthModal from "./AuthModal.vue";
 import { useGlobalSearch } from "@/composables/useGlobalSearch";
 import patternBg from "@/assets/img/footer-bg.webp";
-import logoWhite1 from "@/assets/img/fg logo-white1.png";
-import logoWhite2 from "@/assets/img/fg logo-white2.png";
+import logoWhite1 from "@/assets/img/fg logo-white1.webp";
+import logoWhite2 from "@/assets/img/fg logo-white2.webp";
 
 const props = defineProps({
   showMobileLogo: {

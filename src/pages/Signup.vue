@@ -352,7 +352,7 @@
 
 <script setup>
 import { ref, reactive, computed } from "vue";
-import logoWhite1 from "@/assets/img/fg logo-white1.png";
+import logoWhite1 from "@/assets/img/fg logo-white1.webp";
 
 const isLoading = ref(false);
 const errorMessage = ref("");

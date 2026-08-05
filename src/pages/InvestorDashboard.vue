@@ -791,22 +791,23 @@
 
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import DashboardTransition from "@/components/DashboardTransition.vue";
-import logoDark from "@/assets/img/FARMGATE BLACK LOGO-49.png";
+import logoDark from "@/assets/img/FARMGATE BLACK LOGO-49.webp";
 
 // Images
-import maizeImg from "@/assets/img/maize.jpg";
-import cassavaImg from "@/assets/img/cassava1.jpg";
-import pepperImg from "@/assets/img/pepper-farm.jpg";
-import onionImg from "@/assets/img/onion.jpg";
-import riceImg from "@/assets/img/rice.jpg";
+import maizeImg from "@/assets/img/maize.webp";
+import cassavaImg from "@/assets/img/cassava1.webp";
+import pepperImg from "@/assets/img/pepper-farm.webp";
+import onionImg from "@/assets/img/onion.webp";
+import riceImg from "@/assets/img/rice.webp";
 import yamImg from "@/assets/img/yam1.webp";
-import okraImg from "@/assets/img/okra1.jpg";
-import tomatoImg from "@/assets/img/tomato.jpg";
-import soybeanImg from "@/assets/img/farm-crops.jpg";
+import okraImg from "@/assets/img/okra1.webp";
+import tomatoImg from "@/assets/img/tomato.webp";
+import soybeanImg from "@/assets/img/farm-crops.webp";
 import poultryImg from "@/assets/img/farm-pic4.webp";
 import cattleImg from "@/assets/img/farm-tractor2.webp";
-import catfishImg from "@/assets/img/catfish1.png";
+import catfishImg from "@/assets/img/catfish1.webp";
 import tilapiaImg from "@/assets/img/tilapia1.avif";
 
 // 1. App Shell Sidebar & UI state
@@ -830,6 +831,30 @@ onMounted(() => {
   if (storedEmail) {
     const handle = storedEmail.split("@")[0];
     userName.value = handle.charAt(0).toUpperCase() + handle.slice(1);
+  }
+
+  // Parse query parameters from route or window.location
+  let queryTab = null;
+  try {
+    const route = useRoute();
+    if (route && route.query && route.query.activeTab) {
+      queryTab = route.query.activeTab;
+    }
+  } catch (e) {
+    // Safe fallback if router is not mounted
+  }
+  if (!queryTab) {
+    const params = new URLSearchParams(window.location.search);
+    queryTab = params.get("activeTab");
+  }
+  if (queryTab) {
+    const lowerTab = queryTab.toLowerCase();
+    if (["crop", "livestock", "fishery"].includes(lowerTab)) {
+      activeTab.value = "explore";
+      selectedCategory.value = lowerTab;
+    } else if (["active", "explore", "completed"].includes(lowerTab)) {
+      activeTab.value = lowerTab;
+    }
   }
 
   // Dismiss loader after 2200ms

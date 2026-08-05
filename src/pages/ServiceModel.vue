@@ -84,7 +84,7 @@
     <!-- Dynamic Content -->
     <main class="w-full relative z-10 py-16 md:py-24 overflow-hidden">
       <!-- Opportunities Storefront -->
-      <section id="opportunities" class="mx-auto max-w-[1440px] px-6 mb-20 md:mb-28 reveal-slide-up">
+      <section id="opportunities" class="mx-auto max-w-[1440px] px-6 mb-20 md:mb-28">
         <div class="mb-12 text-center">
           <h3
             class="font-['Livvic'] text-3xl font-bold text-black md:text-4xl lg:text-5xl mb-6"
@@ -404,21 +404,21 @@ import AuthRedirectModal from "@/components/AuthRedirectModal.vue";
 const isRedirectingToLogin = ref(false);
 const redirectOpportunityName = ref("");
 
-import heroBannerInvest from "@/assets/img/invest1.jpg";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
-import heroBannerFarm from "@/assets/img/faso-farm.jpg";
-import okraImg from "@/assets/img/okra1.jpg";
-import onionImg from "@/assets/img/onion.jpg";
+import heroBannerInvest from "@/assets/img/invest1.webp";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
+import heroBannerFarm from "@/assets/img/faso-farm.webp";
+import okraImg from "@/assets/img/okra1.webp";
+import onionImg from "@/assets/img/onion.webp";
 import yamImg from "@/assets/img/yam1.webp";
-import maizeImg from "@/assets/img/maize.jpg";
-import cassavaImg from "@/assets/img/cassava1.jpg";
-import pepperImg from "@/assets/img/pepper-farm.jpg";
-import riceImg from "@/assets/img/rice1.jpg";
-import tomatoImg from "@/assets/img/tomato.jpg";
-import soybeanImg from "@/assets/img/farm-crops.jpg";
+import maizeImg from "@/assets/img/maize.webp";
+import cassavaImg from "@/assets/img/cassava1.webp";
+import pepperImg from "@/assets/img/pepper-farm.webp";
+import riceImg from "@/assets/img/rice1.webp";
+import tomatoImg from "@/assets/img/tomato.webp";
+import soybeanImg from "@/assets/img/farm-crops.webp";
 import poultryImg from "@/assets/img/farm-pic4.webp";
 import cattleImg from "@/assets/img/farm-tractor2.webp";
-import catfishImg from "@/assets/img/catfish1.png";
+import catfishImg from "@/assets/img/catfish1.webp";
 import tilapiaImg from "@/assets/img/tilapia1.avif";
 
 const props = defineProps({
@@ -794,7 +794,7 @@ const dbModels = {
       {
         title: "Market-Ready Harvest",
         icon: "truck",
-        image: "/images/market-entry-strategy.png",
+        image: "/images/market-entry-strategy.webp",
         description:
           "Structured off-take and processing partnerships deliver returns at peak market demand.",
       },
