@@ -106,7 +106,7 @@
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           <article
             v-for="card in visibleCards"
-            :key="card.id"
+            :key="card.opportunityId"
             class="group/card flex flex-col overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl reveal-stagger"
           >
             <div class="relative h-52 overflow-hidden">
@@ -408,7 +408,7 @@ import heroBannerInvest from "@/assets/img/invest1.webp";
 import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 import heroBannerFarm from "@/assets/img/faso-farm.webp";
 import okraImg from "@/assets/img/okra1.webp";
-import onionImg from "@/assets/img/onion.webp";
+import onionImg from "@/assets/img/red_onion_farm_new.webp";
 import yamImg from "@/assets/img/yam1.webp";
 import maizeImg from "@/assets/img/maize.webp";
 import cassavaImg from "@/assets/img/cassava1.webp";

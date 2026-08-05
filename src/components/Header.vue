@@ -115,7 +115,8 @@
             </a>
 
             <button
-              @click="toggleMenu"
+              type="button"
+              @click.prevent="toggleMenu"
               class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
             >
               <div :class="['hamburger', { open: isMenuOpen }]">
@@ -487,7 +488,8 @@
           </a>
 
           <button
-            @click="toggleMenu"
+            type="button"
+            @click.prevent="toggleMenu"
             class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
           >
             <div :class="['hamburger', { open: isMenuOpen }]">
@@ -1050,7 +1052,8 @@
           </div>
 
           <button
-            @click="toggleMenu"
+            type="button"
+            @click.prevent="toggleMenu"
             class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
           >
             &times;
