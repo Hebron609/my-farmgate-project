@@ -160,7 +160,7 @@
         @click.self="closeOrderModal"
       >
         <div
-          class="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden modal-content"
+          class="relative flex flex-col bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden max-h-[85vh] modal-content"
           @click.stop
         >
           <!-- Top Green Accent Bar -->
@@ -177,7 +177,7 @@
             </svg>
           </button>
 
-          <div class="p-6 md:p-8">
+          <div class="p-6 md:p-8 overflow-y-auto flex-1 custom-scrollbar">
             <div class="flex flex-col items-start gap-5 mb-6 sm:flex-row">
               <div class="inline-block p-2 border border-gray-200 shadow-sm rounded-xl bg-green-50">
                 <img
@@ -360,12 +360,12 @@
                 </transition>
               </div>
 
-              <!-- Side-by-Side Centered Equal-Size Action Buttons -->
-              <div class="flex items-center justify-center w-full gap-3 pt-3 mt-4">
+              <!-- Action Buttons -->
+              <div class="flex flex-col-reverse sm:flex-row items-center justify-center w-full gap-3 pt-3 mt-4">
                 <button
                   type="button"
                   @click="closeOrderModal"
-                  class="flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-2xl hover:bg-black hover:text-white hover:border-black focus:outline-none transition-all duration-300 cursor-pointer text-center"
+                  class="w-[90%] sm:w-full sm:flex-1 py-3.5 px-4 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-2xl hover:bg-black hover:text-white hover:border-black focus:outline-none transition-all duration-300 cursor-pointer text-center"
                 >
                   Cancel
                 </button>
@@ -374,7 +374,7 @@
                   type="button"
                   @click="proceedToOrder"
                   :disabled="!orderModal.acceptedTerms"
-                  class="relative z-10 flex-1 group/btn overflow-hidden inline-flex items-center justify-center rounded-2xl py-3.5 bg-[#129C48] text-white transition-all duration-300 hover:shadow-xl active:scale-[0.97] text-sm font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="relative w-[90%] sm:w-full sm:flex-1 z-10 group/btn overflow-hidden inline-flex items-center justify-center rounded-2xl py-3.5 bg-[#129C48] text-white transition-all duration-300 hover:shadow-xl active:scale-[0.97] text-sm font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span class="flex items-center gap-2 text-sm font-semibold text-white transition-transform duration-300 transform translate-y-0 group-hover/btn:-translate-y-full">
                     Proceed to order
