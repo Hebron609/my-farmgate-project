@@ -51,7 +51,7 @@
               type="text"
               v-model="searchQuery"
               placeholder="All crops grown & animals raised"
-              class="flex-1 text-sm text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0 md:text-base"
+              class="flex-1 text-base text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0"
             />
           </div>
 
@@ -62,7 +62,7 @@
           <div class="relative flex items-center border-t border-gray-200 md:border-t-0 bg-gray-50 md:bg-transparent">
             <select
               v-model="selectedCategory"
-              class="w-full h-full py-3 pl-6 text-sm font-medium text-white bg-black border-none appearance-none cursor-pointer md:w-auto focus:outline-none focus:ring-0 pr-11 md:py-0 md:text-base"
+              class="w-full h-full py-3 pl-6 text-base font-medium text-white bg-black border-none appearance-none cursor-pointer md:w-auto focus:outline-none focus:ring-0 pr-11 md:py-0"
             >
               <option value="">Sort by Category</option>
               <option value="Crops">Crops</option>
@@ -219,7 +219,7 @@
                       type="number"
                       min="1"
                       placeholder="1"
-                      class="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-sm bg-gray-50/50 focus:bg-white transition-all"
+                      class="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base bg-gray-50/50 focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -234,7 +234,7 @@
                       :value="(orderModal.quantity * (orderModal.product?.price || 150)).toFixed(2)"
                       type="text"
                       disabled
-                      class="w-full pl-11 pr-3 py-3 rounded-xl border border-gray-200 text-gray-800 font-bold bg-gray-100 text-sm"
+                      class="w-full pl-11 pr-3 py-3 rounded-xl border border-gray-200 text-gray-800 font-bold bg-gray-100 text-base"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@
                     v-model="orderModal.customerName"
                     type="text"
                     placeholder="Enter your full name"
-                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base bg-gray-50/50 focus:bg-white transition-all"
                   />
                 </div>
               </div>
@@ -268,7 +268,7 @@
                   </div>
                   <select
                     v-model="orderModal.pickupPoint"
-                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-sm appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
+                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
                     :class="orderModal.pickupPoint === '' ? 'text-gray-400' : 'text-gray-800'"
                   >
                     <option value="" disabled selected hidden>Select your pick up point</option>
@@ -295,7 +295,7 @@
                     v-model="orderModal.phoneNumber"
                     type="tel"
                     placeholder="233 50 000 0000"
-                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-sm bg-gray-50/50 focus:bg-white transition-all"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base bg-gray-50/50 focus:bg-white transition-all"
                   />
                 </div>
               </div>
@@ -310,7 +310,7 @@
                   </div>
                   <select
                     v-model="orderModal.paymentMode"
-                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-sm appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
+                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
                     :class="orderModal.paymentMode === '' ? 'text-gray-400' : 'text-gray-800'"
                   >
                     <option value="" disabled selected hidden>Select mode of payment</option>
@@ -450,8 +450,10 @@ const dynamicHeroSubtitle = computed(() => {
     return "Premium livestock raised with modern husbandry practices, bio-secure housing, and veterinary care.";
   } else if (cat === "fishery") {
     return "Fresh and processed fishery products from cage and pond systems with certified quality standards.";
+  } else if (cat === "crops") {
+    return "Discover our range of high-quality crops grown with precision farming and sustainable practices.";
   }
-  return "Discover our range of high-quality crops grown with precision farming and sustainable practices.";
+  return "We serve our B2B clientele with high-quality crops grown under sustainable farming practices with precision.";
 });
 
 const currentHeroImage = computed(() => {
