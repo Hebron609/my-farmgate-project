@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/api/v1/:path*", "destination": "https://api.farmgate.africa/api/v1/:path*" },
+    { "source": "/api/unscheduled-tours", "destination": "https://api.farmgate.africa/api/unscheduled-tours" },
+    { "source": "/api/unscheduled-tours/:path*", "destination": "https://api.farmgate.africa/api/unscheduled-tours/:path*" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/marketplace", "destination": "/marketplace.html" },
     { "source": "/pricing", "destination": "/pricing.html" },
