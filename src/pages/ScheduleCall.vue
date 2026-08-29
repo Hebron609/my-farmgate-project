@@ -260,22 +260,41 @@ const submitCall = async (e) => {
 
   isSubmitting.value = true;
   try {
-    const response = await fetch("/api/send-email", {
+    const formattedDateString = `${viewingYear.value}-${String(viewingMonth.value + 1).padStart(2, '0')}-${String(selectedDate.value.getDate()).padStart(2, '0')}`;
+    const response = await fetch("/api/v1/call-requests", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        formType: "schedule-call",
-        formData: {
-          guestFullname: guestFullname.value,
-          guestEmail: guestEmail.value,
-          guestWhatsapp: guestWhatsapp.value,
-          date: formattedDate.value,
-          time: `${selectedHour.value}:${selectedMinute.value} ${selectedAmPm.value}`,
-        },
+        full_name: guestFullname.value,
+        email: guestEmail.value,
+        whatsapp_number: guestWhatsapp.value,
+        call_date: formattedDateString,
+        call_time: `${selectedHour.value}:${selectedMinute.value}`,
+        period: selectedAmPm.value,
       }),
     });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
+    
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'schedule-call',
+          formData: {
+            fullName: guestFullname.value,
+            email: guestEmail.value,
+            whatsapp: guestWhatsapp.value,
+            date: formattedDateString,
+            time: `${selectedHour.value}:${selectedMinute.value} ${selectedAmPm.value}`
+          }
+        })
+      });
+    } catch (emailErr) {
+      console.warn("Could not send email via /api/send-email:", emailErr);
+    }
+    
     showSuccessModal.value = true;
   } catch (error) {
     console.error("Error scheduling call:", error);

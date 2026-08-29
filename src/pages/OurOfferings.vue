@@ -100,33 +100,19 @@
           <article
             v-for="product in filteredProducts"
             :key="product.id"
-            class="flex flex-col overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white shadow-md cursor-pointer"
+            class="group flex flex-col overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white shadow-md cursor-pointer"
             @click="openOrderModal(product)"
           >
             <!-- Card Image Header -->
-            <div class="relative h-56 overflow-hidden bg-green-50">
-              <img
-                :src="product.image"
-                :alt="product.name"
-                class="object-contain w-full h-full bg-brand-green-light"
-                :class="product.imageClass || ''"
-              />
-              <!-- Order Badge -->
-              <div class="absolute z-10 top-4 right-4">
-                <button
-                  type="button"
-                  @click.stop="openOrderModal(product)"
-                  class="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-bold text-white shadow-md bg-[#129C48] hover:bg-[#0d7a38] transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                    <circle cx="9" cy="21" r="1"/>
-                    <circle cx="20" cy="21" r="1"/>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                  </svg>
-                  Pre-order
-                </button>
+            <div class="relative h-56 overflow-hidden bg-green-50 p-6 flex items-center justify-center">
+              <div class="w-full h-full flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                <img
+                  :src="product.image"
+                  :alt="product.name"
+                  class="object-contain w-full h-full drop-shadow-sm"
+                  :class="product.imageClass || ''"
+                />
               </div>
-
             </div>
 
             <!-- Card Body (Minimalist Product Name & Price) -->
@@ -136,14 +122,14 @@
               </h3>
               
               <div class="flex flex-col items-end">
-                <div class="flex items-center gap-1.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#129C48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                  </svg>
-                  <span class="font-['Livvic'] text-lg font-bold text-gray-800 tracking-tight">
-                    GHS {{ (product.price || 150).toFixed(2).split('.')[0] }}<sup class="text-[0.65em] font-bold">.{{ (product.price || 150).toFixed(2).split('.')[1] }}</sup>
-                  </span>
+                <div class="flex items-center gap-1.5 mb-1">
+                  <button
+                    type="button"
+                    @click.stop="openOrderModal(product)"
+                    class="inline-flex items-center rounded-full px-3.5 py-1 text-xs font-bold text-white shadow-md bg-[#129C48] hover:bg-[#0d7a38] transition-colors cursor-pointer"
+                  >
+                    Pre-order
+                  </button>
                 </div>
                 <p class="text-sm font-bold text-green-600 mt-1">{{ product.weight.replace('/', ' / ') }}</p>
               </div>
@@ -184,7 +170,7 @@
                   v-if="orderModal.product"
                   :src="orderModal.product.image"
                   :alt="orderModal.product.name"
-                  class="object-contain w-14 h-14"
+                  class="object-contain w-14 h-14 drop-shadow-sm"
                   :class="orderModal.product.imageClass || ''"
                 />
               </div>
@@ -201,45 +187,9 @@
               </div>
             </div>
 
+
+
             <div class="space-y-4">
-              <!-- Quantity and Amount Row -->
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="block mb-1 text-sm font-bold text-gray-700">
-                    Quantity <template v-if="orderModal.product?.weight?.includes('crate')">(Crates)</template><template v-else-if="orderModal.product?.weight?.includes('bag')">(Bags)</template>
-                  </label>
-                  <div class="relative flex items-center">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                    <input
-                      v-model.number="orderModal.quantity"
-                      type="number"
-                      min="1"
-                      placeholder="1"
-                      class="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base bg-gray-50/50 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block mb-1 text-sm font-bold text-gray-700">Amount (GHS)</label>
-                  <div class="relative flex items-center">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-[#129C48] font-bold text-xs">
-                      GHS
-                    </div>
-                    <input
-                      :value="(orderModal.quantity * (orderModal.product?.price || 150)).toFixed(2)"
-                      type="text"
-                      disabled
-                      class="w-full pl-11 pr-3 py-3 rounded-xl border border-gray-200 text-gray-800 font-bold bg-gray-100 text-base"
-                    />
-                  </div>
-                </div>
-              </div>
-
               <div>
                 <label class="block mb-1 text-sm font-bold text-gray-700">Client Name</label>
                 <div class="relative flex items-center">
@@ -258,32 +208,6 @@
               </div>
 
               <div>
-                <label class="block mb-1 text-sm font-bold text-gray-700">Pick up point</label>
-                <div class="relative flex items-center">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <select
-                    v-model="orderModal.pickupPoint"
-                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
-                    :class="orderModal.pickupPoint === '' ? 'text-gray-400' : 'text-gray-800'"
-                  >
-                    <option value="" disabled selected hidden>Select your pick up point</option>
-                    <option value="Greater Accra Region">Greater Accra Region</option>
-                    <option value="Eastern Region">Eastern Region</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div>
                 <label class="block mb-1 text-sm font-bold text-gray-700">Phone number</label>
                 <div class="relative flex items-center">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
@@ -297,32 +221,6 @@
                     placeholder="233 50 000 0000"
                     class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base bg-gray-50/50 focus:bg-white transition-all"
                   />
-                </div>
-              </div>
-
-              <div>
-                <label class="block mb-1 text-sm font-bold text-gray-700">Mode of payment</label>
-                <div class="relative flex items-center">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <select
-                    v-model="orderModal.paymentMode"
-                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#129C48] focus:border-transparent text-base appearance-none bg-gray-50/50 focus:bg-white transition-all cursor-pointer"
-                    :class="orderModal.paymentMode === '' ? 'text-gray-400' : 'text-gray-800'"
-                  >
-                    <option value="" disabled selected hidden>Select mode of payment</option>
-                    <option value="Bank Transfer">Bank Transfer</option>
-                    <option value="Mobile Money">Mobile Money</option>
-                    <option value="Cash">Cash</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
                 </div>
               </div>
 
@@ -418,12 +316,12 @@ import livestockHeroImg from "../assets/img/livestock-banner.webp";
 import farmGatePattern from "../assets/img/FARMGATE PATTERN _GREEN.webp";
 
 // Import Product Images
-import okraImg from "../assets/img/close-up-fresh-green-okra.webp";
+import okraImg from "../assets/img/pile-raw-fresh-okra-vegetables-transparent-background.webp";
 import okra1Img from "../assets/img/ladyfinger-okra.webp";
 import onionImg from "../assets/img/onion.webp";
 import tomatoImg from "../assets/img/tomato.webp";
 import habaneroImg from "../assets/img/habanero-pepper-new.webp";
-import chiliImg from "../assets/img/chili-pepper.webp";
+import chiliImg from "../assets/img/red-chili-pepper-isolated-white-background.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
 import pineappleImg from "../assets/img/pineapple.webp";
 import cassavaImg from "../assets/img/cassava.webp";
@@ -505,8 +403,8 @@ const closeOrderModal = () => {
 };
 
 const proceedToOrder = () => {
-  const { product, customerName, phoneNumber, paymentMode, pickupPoint } = orderModal.value;
-  const message = `New Order%0A%0AProduct: ${product.name}%0AWeight: ${product.weight.replace('/', ' / ')}%0AStock Available: ${product.stock}%0A%0ACustomer Name: ${encodeURIComponent(customerName || 'N/A')}%0APhone Number: ${encodeURIComponent(phoneNumber || 'N/A')}%0AMode of Payment: ${encodeURIComponent(paymentMode)}%0APick Up Point: ${encodeURIComponent(pickupPoint || 'N/A')}`;
+  const { product, customerName, phoneNumber } = orderModal.value;
+  const message = `New Pre-order%0A%0AProduct: ${product.name}%0AWeight: ${product.weight.replace('/', ' / ')}%0A%0AClient Name: ${encodeURIComponent(customerName || 'N/A')}%0APhone Number: ${encodeURIComponent(phoneNumber || 'N/A')}`;
   window.open(`https://wa.me/233503301132?text=${message}`, '_blank');
   closeOrderModal();
 };
@@ -522,6 +420,7 @@ const products = ref([
     botanicalName: "Abelmoschus esculentus",
     category: "crop",
     image: okraImg,
+    imageClass: "transform scale-125",
     description: "High-yielding local okra cultivation tailored for rapid domestic consumption and processing markets across West Africa.",
   },
   {
@@ -562,7 +461,7 @@ const products = ref([
     botanicalName: "Capsicum chinense",
     category: "crop",
     image: habaneroImg,
-    imageClass: "transform scale-150",
+    imageClass: "transform scale-[1.75]",
     description: "Vibrant, high-pungency habanero pepper cycles cultivated for premium spice extraction and international export grade markets.",
   },
   {

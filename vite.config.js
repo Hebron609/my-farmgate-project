@@ -108,6 +108,13 @@ export default defineConfig({
 
   server: {
     cors: false,
+    proxy: {
+      "/api/v1": {
+        target: "https://api.farmgate.africa",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
 
   build: {

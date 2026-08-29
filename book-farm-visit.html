@@ -271,7 +271,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: fit-content;
       padding: 1rem 2rem;
       overflow: hidden;
       border-radius: 0.75rem;
@@ -868,9 +867,17 @@
 
       <div class="w-full form-card form-card-fixed">
         <!-- Loading State -->
-        <div id="stateLoading" class="text-center py-20 flex flex-col items-center justify-center">
-           <div class="w-12 h-12 border-4 border-[#129C48]/20 border-t-[#129C48] rounded-full animate-spin mb-4"></div>
-           <p class="text-gray-600 font-bold font-livvic text-lg animate-pulse">Checking time slots...</p>
+        <div id="stateLoading" class="flex flex-col items-center justify-center w-full min-h-[50vh] lg:min-h-[70vh] py-20">
+          <div class="relative flex items-center justify-center w-24 h-24 mb-8">
+            <!-- Outer spinning ring -->
+            <div class="absolute inset-0 border-4 border-transparent border-t-[#129C48] border-r-[#129C48] rounded-full animate-spin"></div>
+            <!-- Inner spinning ring (reverse) -->
+            <div class="absolute inset-2 border-4 border-transparent border-b-[#F2CB00] border-l-[#F2CB00] rounded-full animate-spin" style="animation-direction: reverse; animation-duration: 1.2s;"></div>
+            <!-- Center Icon -->
+            <span class="text-3xl animate-pulse">🌱</span>
+          </div>
+          <h3 class="text-2xl font-bold font-livvic text-gray-800 mb-2">Preparing your booking</h3>
+          <p class="text-gray-500 font-medium font-livvic tracking-wide animate-pulse">Checking live availability...</p>
         </div>
 
         <div id="stateSoldOut" style="display: none;">
@@ -885,7 +892,7 @@
           <!-- State B High-Urgency Status & Copy -->
           <div class="w-full max-w-none mx-auto space-y-5 px-1 sm:px-2">
             <!-- Pulsing Urgency Pill Tag replicating Homepage Button Ripple Effect -->
-            <div class="relative inline-flex mb-2 group">
+            <div class="relative inline-flex mb-6 group">
               <div class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-red-500/30 animate-status-ripple"></div>
               <div class="relative z-10 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wider shadow-sm">
                 <span class="relative flex h-2.5 w-2.5">
@@ -896,17 +903,18 @@
               </div>
             </div>
 
-            <!-- Urgent Status Alert Card -->
-            <div class="relative overflow-hidden bg-gradient-to-r from-red-50 via-amber-50/80 to-orange-50 border-2 border-red-400/60 rounded-2xl p-5 sm:p-7 shadow-lg shadow-red-500/5 text-left mb-6">
-              <div class="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-b from-red-500 to-amber-500"></div>
-              <div class="flex items-start gap-4">
-                <div class="shrink-0 w-11 h-11 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center text-red-600 shadow-sm mt-0.5">
+            <hr class="border-t border-gray-200/80 mb-6">
+
+            <!-- Public Notice -->
+            <div class="text-left mb-8">
+              <div class="flex items-start gap-3">
+                <div class="shrink-0 text-red-600 mt-0.5">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <h4 class="text-xs font-extrabold uppercase tracking-widest text-red-600 mb-1">Important Booking Notice</h4>
+                  <h4 class="text-xs font-extrabold uppercase tracking-widest text-red-600 mb-1">Public Notice</h4>
                   <p class="text-base sm:text-lg font-bold text-gray-900 leading-snug">
                     All tour slots are currently booked. Please join the waitlist below, and our team will notify you when new dates become available.
                   </p>
@@ -1244,6 +1252,7 @@
                   <input type="text" id="otherSector" name="otherSector" placeholder="Please specify place"
                     class="mt-2 hidden-input" />
                 </div>
+
                 <div>
                   <label for="purpose">Purpose of touring or visiting <span class="text-red-600">*</span></label>
                   <select id="purpose" name="purpose" required onchange="toggleOther(this, 'otherPurpose')">
@@ -1403,7 +1412,7 @@
                 </svg>
               </span>
             </button>
-            <a href="/" class="booking-cancel px-8 py-4 text-center farmgate-btn-outline">Cancel</a>
+            <a href="/" class="w-full max-w-[290px] sm:max-w-none sm:w-auto booking-cancel px-8 py-4 text-center farmgate-btn-outline">Cancel</a>
           </div>
             </form>
         </div>
@@ -1735,15 +1744,31 @@
           const result = await response.json();
           slots = Array.isArray(result) ? result : (result.data || []);
         } else {
-          console.warn('API /api/v1/time-slots failed. Using mock data.');
-          slots = [
-            { time: '10:00 AM', is_available: false },
-            { time: '02:00 PM', is_available: false }
-          ];
+          console.warn('API /api/v1/time-slots failed.');
         }
 
         const availableSlots = slots.filter(s => s.is_available).map(s => s.time);
+        window.timeSlots = slots; // Store full objects for later
         window.availableTimeSlots = availableSlots;
+
+        // Fetch Places
+        try {
+          const placesRes = await fetch('/api/v1/places');
+          if (placesRes.ok) {
+            const result = await placesRes.json();
+            const places = Array.isArray(result) ? result : (result.data || []);
+            const sectorSelect = document.getElementById('sector');
+            if (sectorSelect && places.length > 0) {
+              sectorSelect.innerHTML = '<option value="" disabled selected>Select a place</option>';
+              places.forEach(p => {
+                sectorSelect.innerHTML += `<option value="${p.id}">${p.category} - ${p.location}</option>`;
+              });
+              sectorSelect.innerHTML += '<option value="All Sectors">All Sectors</option><option value="Other">Other (Please specify)</option>';
+            }
+          }
+        } catch (e) { console.warn('Failed to fetch places'); }
+
+
 
         stateLoading.style.display = 'none';
 
@@ -1754,18 +1779,9 @@
           stateSoldOut.style.display = 'block';
         }
       } catch (error) {
-        console.warn('Fetch error:', error, 'Using mock data fallback.');
+        console.warn('Fetch error:', error);
         stateLoading.style.display = 'none';
-        
-        // Mock fallback when backend is fully down
-        const mockAvailable = false; // set to true to test Booking State, false to test Sold Out
-        if (mockAvailable) {
-          window.availableTimeSlots = ['10:00 AM', '02:00 PM'];
-          stateBooking.style.display = 'block';
-          renderTimePicker();
-        } else {
-          stateSoldOut.style.display = 'block';
-        }
+        stateSoldOut.style.display = 'block';
       }
 
       // ScrollReveal animations
@@ -1823,38 +1839,88 @@
           const formData = new FormData(bookingForm);
           const data = Object.fromEntries(formData.entries());
           
-          const response = await fetch('/api/send-email', {
+          // 1. Submit Tour Request to Live API
+          let timeSlotId = null;
+          if (window.timeSlots) {
+            const bookedSlot = window.timeSlots.find(s => s.time === data.time);
+            if (bookedSlot) timeSlotId = bookedSlot.id;
+          }
+          
+          let placeId = null;
+          if (!isNaN(parseInt(data.sector))) {
+              placeId = parseInt(data.sector);
+          }
+
+          const requestBody = {
+            has_visited_before: data.visitedBefore === 'Yes',
+            tour_date: data.date,
+            tour_time: timeSlotId,
+            place_id: placeId,
+            purpose: data.purpose === 'Other' ? data.otherPurpose : data.purpose,
+            number_of_people_visiting: parseInt(data.groupSize || '1'),
+            first_name: data.otherNames || '',
+            other_names: data.lastName || '',
+            email: data.email,
+            phone_number: data.phone,
+            whatsapp_number: data.whatsapp || data.phone,
+            country: data.country,
+            city: data.city,
+            emergency_contact_name: data.emergencyName || 'N/A',
+            emergency_contact_phone: data.emergencyPhone || 'N/A',
+            medical_conditions: data.medical === 'Other' ? data.otherMedical : data.medical,
+            how_did_you_hear_about_us: data.referral === 'Other' ? data.otherReferral : data.referral
+          };
+
+          const response = await fetch('/api/v1/tour', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              formType: 'book-farm-visit',
-              formData: {
-                firstName: data.otherNames || '',
-                lastName: data.lastName,
-                email: data.email,
-                phone: data.phone,
-                whatsapp: data.whatsapp || 'N/A',
-                country: data.country,
-                city: data.city,
-                preferredDate: data.date + ' ' + data.time,
-                visitedBefore: data.visitedBefore,
-                groupSize: data.groupSize || '1',
-                sector: data.sector === 'Other' ? data.otherSector : data.sector,
-                purpose: data.purpose === 'Other' ? data.otherPurpose : data.purpose,
-                emergencyName: data.emergencyName || 'N/A',
-                emergencyPhone: data.emergencyPhone || 'N/A',
-                medical: data.medical === 'Other' ? data.otherMedical : data.medical,
-                referral: data.referral === 'Other' ? data.otherReferral : data.referral
-              }
-            })
+            body: JSON.stringify(requestBody)
           });
 
           const result = await response.json();
 
           if (!response.ok) {
-            throw new Error(result.error || 'Failed to send booking request');
+            console.error("Backend Validation Errors:", result);
+            let errMsg = 'Failed to send booking request';
+            if (result.errors) {
+              errMsg = Object.values(result.errors).flat().join('\n');
+            } else if (result.message) {
+              errMsg = result.message;
+            } else if (result.error) {
+              errMsg = result.error;
+            }
+            throw new Error(errMsg);
+          }
+
+          try {
+            await fetch('/api/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                formType: 'book-farm-visit',
+                formData: data
+              })
+            });
+          } catch (emailErr) {
+            console.warn("Could not send email via /api/send-email:", emailErr);
+          }
+
+          // 2. Mark Time Slot as Booked dynamically
+          if (window.timeSlots) {
+            const bookedSlot = window.timeSlots.find(s => s.time === data.time);
+            if (bookedSlot && bookedSlot.id) {
+              try {
+                await fetch(`/api/v1/time-slots/${bookedSlot.id}`, {
+                  method: 'PUT',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ is_available: false })
+                });
+              } catch (err) {
+                console.warn('Failed to mark time slot as booked:', err);
+              }
+            }
           }
 
           document.getElementById('confirmationBox').classList.add('active');
@@ -1920,20 +1986,41 @@
           data.country = data.otherCountry;
         }
 
-        console.log("Submitting Waitlist Form to Resend API:", data);
+        const requestBody = {
+          full_name: data.fullName,
+          email: data.email,
+          whatsapp_number: data.whatsapp,
+          country: data.country
+        };
 
-        try {
-          await fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              formType: 'farm-tour-waitlist',
-              formData: data
-            })
-          });
-        } catch (emailErr) {
-          console.warn("Could not send email via /api/send-email:", emailErr);
+        console.log("Submitting Waitlist to API:", requestBody);
+
+        const response = await fetch('/api/unscheduled-tours', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+           const errData = await response.json().catch(() => ({}));
+           console.error("API Error:", errData);
+           throw new Error(errData.message || 'Failed to submit waitlist request');
         }
+
+        // Send email notification in the background
+        fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            formType: 'waitlist',
+            formData: {
+              fullName: data.fullName,
+              email: data.email,
+              whatsapp: data.whatsapp,
+              country: data.country
+            }
+          })
+        }).catch(err => console.error('Failed to send waitlist email:', err));
 
         resetWaitlistForm();
         const modal = document.getElementById('waitlistConfirmationBox');
