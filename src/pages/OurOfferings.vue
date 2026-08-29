@@ -43,44 +43,39 @@
        
 
         <!-- Unified Search and Filter Bar -->
-        <div class="flex flex-col max-w-4xl mx-auto mb-12 overflow-hidden bg-white border border-gray-300 shadow-sm md:flex-row rounded-2xl md:rounded-full md:h-14">
+        <div class="flex flex-row items-center max-w-4xl mx-auto mb-12 overflow-hidden bg-white border border-gray-300 shadow-sm rounded-[2rem] h-14 md:h-14">
           <!-- Left Side (Search Input) -->
-          <div class="flex items-center flex-1 px-4 py-3 md:py-0">
-            <font-awesome-icon :icon="['fas', 'search']" class="w-4 h-4 mr-3 text-gray-400 shrink-0" />
+          <div class="flex items-center flex-1 px-4 h-full min-w-0">
+            <font-awesome-icon :icon="['fas', 'search']" class="w-4 h-4 mr-2 md:mr-3 text-gray-400 shrink-0" />
             <input
               type="text"
               v-model="searchQuery"
-              placeholder="All crops grown & animals raised"
-              class="flex-1 text-base text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0"
+              placeholder="Search crops & animals..."
+              class="flex-1 w-full min-w-0 text-sm md:text-base text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0 truncate"
             />
           </div>
 
           <!-- The Divider -->
-          <div class="self-center hidden w-px h-8 bg-gray-300 md:block"></div>
+          <div class="w-px h-8 bg-gray-300 shrink-0"></div>
 
           <!-- Right Side (Category Dropdown) -->
-          <div class="relative flex items-center border-t border-gray-200 md:border-t-0 bg-gray-50 md:bg-transparent">
+          <div class="relative flex items-center h-full bg-black shrink-0">
             <select
               v-model="selectedCategory"
-              class="w-full h-full py-3 pl-6 text-base font-medium text-white bg-black border-none appearance-none cursor-pointer md:w-auto focus:outline-none focus:ring-0 pr-11 md:py-0"
+              class="h-full py-0 pl-3 md:pl-5 pr-8 md:pr-10 text-sm md:text-base font-medium text-white bg-transparent border-none appearance-none cursor-pointer focus:outline-none focus:ring-0"
             >
-              <option value="">Sort by Category</option>
+              <option value="">All Categories</option>
               <option value="Crops">Crops</option>
               <option value="Livestock">Livestock</option>
               <option value="Fishery">Fishery</option>
             </select>
             <svg
-              class="absolute w-4 h-4 text-white transition-colors -translate-y-1/2 pointer-events-none right-5 top-1/2"
+              class="absolute w-3 h-3 md:w-4 md:h-4 text-white transition-colors -translate-y-1/2 pointer-events-none right-3 md:right-4 top-1/2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M19 9l-7 7-7-7"
-              ></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
         </div>
