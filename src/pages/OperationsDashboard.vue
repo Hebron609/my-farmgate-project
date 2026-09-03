@@ -38,39 +38,33 @@
           <span :class="['ml-auto text-[10px] px-2.5 py-0.5 rounded-full font-bold', currentView === 'unscheduled' ? 'bg-white/20 text-white' : 'bg-white/10 text-white/50']">{{ unscheduledToursData.length }}</span>
         </a>
       </nav>
-      <div class="relative z-10 p-5 mx-4 mb-6 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 flex items-center justify-between text-xs text-white/40">
-        <div class="flex items-center gap-2 font-medium">
-          <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse shadow-[0_0_10px_rgba(18,156,72,0.8)]"></span>
-          <span>System Live</span>
-        </div>
-      </div>
     </aside>
 
     <!-- Main Content Area -->
     <main class="flex-1 min-w-0 h-screen flex flex-col relative">
       
       <!-- Top Header -->
-      <header class="flex-shrink-0 flex flex-wrap items-center justify-between gap-4 p-4 md:px-8 md:pt-8 md:pb-6 border-b border-gray-200/60 bg-[#FBFBF9]/95 backdrop-blur-sm z-30">
+      <header class="flex-shrink-0 flex flex-wrap items-center justify-between gap-4 p-4 md:px-8 md:pt-6 md:pb-6 border-b border-gray-200/60 bg-white z-30">
         <div class="flex items-center gap-4">
           <button class="md:hidden flex items-center justify-center p-2 rounded-xl bg-white shadow-sm border border-gray-200 text-gray-800" @click="isSidebarOpen = true">
             <span class="material-icons-outlined text-2xl">menu</span>
           </button>
           <div>
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 font-livvic tracking-tight">{{ pageTitle }}</h1>
-            <p class="text-sm font-medium text-gray-500 mt-1 hidden sm:block">{{ pageSubtitle }}</p>
+            <div class="flex items-center gap-2 text-xs font-semibold text-gray-500 mb-2">
+              <span class="material-icons-outlined text-[14px]">home</span>
+              Farmgate <span class="text-gray-300">/</span> Dashboard
+            </div>
+            <h1 class="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">Good morning, Admin</h1>
+            <p class="text-sm text-gray-500 mt-1">{{ new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) }}</p>
           </div>
         </div>
         <div class="flex items-center gap-4 flex-wrap">
-          <div v-if="token" class="flex items-center gap-2 bg-white border border-gray-200/80 rounded-xl px-4 py-2.5 min-w-[240px] shadow-sm hover:shadow-md focus-within:border-brand-green focus-within:ring-4 focus-within:ring-brand-green/10 transition-all">
-            <span class="material-icons-outlined text-gray-400 text-lg">search</span>
+          <div v-if="token" class="flex items-center gap-2 bg-gray-50 border border-gray-200/80 rounded-lg px-3 py-2 min-w-[200px] focus-within:border-gray-300 transition-all">
+            <span class="material-icons-outlined text-gray-400 text-sm">search</span>
             <input v-model="searchQuery" type="search" placeholder="Search records..." class="w-full bg-transparent border-none outline-none text-sm font-medium text-gray-800 placeholder-gray-400" />
           </div>
-          <div class="text-xs font-semibold text-gray-400 flex items-center gap-1.5 px-3 py-2 bg-gray-100 rounded-lg">
-            <span class="material-icons-outlined text-[16px]">sync</span>
-            <span>{{ lastUpdated }}</span>
-          </div>
-          <button v-if="token" @click="logout" class="bg-white border border-red-200 hover:bg-red-50 text-red-600 px-5 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all flex items-center gap-2">
-            <span class="material-icons-outlined text-lg">logout</span>
+          <button v-if="token" @click="logout" class="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm transition-all flex items-center gap-2">
+            <span class="material-icons-outlined text-sm">logout</span>
             Logout
           </button>
         </div>
@@ -123,61 +117,60 @@
 
         <template v-else>
         <!-- Premium Stats Cards -->
-        <section v-show="currentView === 'overview'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all flex items-center gap-5 relative overflow-hidden group">
-            <div class="absolute -right-6 -top-6 w-24 h-24 bg-brand-green/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 text-brand-green flex items-center justify-center shadow-inner relative z-10">
-              <span class="material-icons-outlined text-3xl">phone_in_talk</span>
+        <section v-show="currentView === 'overview'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          
+          <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-200 flex flex-col justify-between h-32 relative">
+            <div class="flex justify-between items-start w-full">
+              <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Total Calls</div>
+              <div class="w-8 h-8 rounded-md bg-purple-50 flex items-center justify-center text-purple-600">
+                <span class="material-icons-outlined text-[16px]">phone_in_talk</span>
+              </div>
             </div>
-            <div class="relative z-10">
-              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">Total Calls</div>
-              <div class="text-3xl font-extrabold text-gray-900 font-livvic">{{ callsData.length }}</div>
+            <div>
+              <div class="text-3xl font-extrabold text-gray-900 leading-none">{{ callsData.length }}</div>
+              <div class="text-xs text-gray-500 mt-1">Pending follow-ups</div>
             </div>
           </div>
           
-          <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all flex items-center gap-5 relative overflow-hidden group">
-            <div class="absolute -right-6 -top-6 w-24 h-24 bg-blue-500/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 text-blue-600 flex items-center justify-center shadow-inner relative z-10">
-              <span class="material-icons-outlined text-3xl">map</span>
+          <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-200 flex flex-col justify-between h-32 relative">
+            <div class="flex justify-between items-start w-full">
+              <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Tour Requests</div>
+              <div class="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center text-blue-600">
+                <span class="material-icons-outlined text-[16px]">map</span>
+              </div>
             </div>
-            <div class="relative z-10">
-              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">Tour Requests</div>
-              <div class="text-3xl font-extrabold text-gray-900 font-livvic">{{ toursData.length }}</div>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all flex items-center gap-5 relative overflow-hidden group">
-            <div class="absolute -right-6 -top-6 w-24 h-24 bg-orange-500/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 text-orange-600 flex items-center justify-center shadow-inner relative z-10">
-              <span class="material-icons-outlined text-3xl">pending_actions</span>
-            </div>
-            <div class="relative z-10">
-              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">Unscheduled</div>
-              <div class="text-3xl font-extrabold text-gray-900 font-livvic">{{ unscheduledToursData.length }}</div>
+            <div>
+              <div class="text-3xl font-extrabold text-gray-900 leading-none">{{ toursData.length }}</div>
+              <div class="text-xs text-gray-500 mt-1">Upcoming visits</div>
             </div>
           </div>
 
-          <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all flex items-center gap-5 relative overflow-hidden group">
-            <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#F2CB00]/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-50 to-amber-50 border border-yellow-200 text-[#dcae00] flex items-center justify-center shadow-inner relative z-10">
-              <span class="material-icons-outlined text-3xl">today</span>
+          <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-200 flex flex-col justify-between h-32 relative">
+            <div class="flex justify-between items-start w-full">
+              <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Unscheduled</div>
+              <div class="w-8 h-8 rounded-md bg-green-50 flex items-center justify-center text-green-600">
+                <span class="material-icons-outlined text-[16px]">pending_actions</span>
+              </div>
             </div>
-            <div class="relative z-10">
-              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">Today's Activity</div>
-              <div class="text-3xl font-extrabold text-gray-900 font-livvic">{{ todayCount }}</div>
+            <div>
+              <div class="text-3xl font-extrabold text-gray-900 leading-none">{{ unscheduledToursData.length }}</div>
+              <div class="text-xs text-gray-500 mt-1">Requires booking</div>
             </div>
           </div>
 
-          <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all flex items-center gap-5 relative overflow-hidden group">
-            <div class="absolute -right-6 -top-6 w-24 h-24 bg-gray-900/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 text-gray-700 flex items-center justify-center shadow-inner relative z-10">
-              <span class="material-icons-outlined text-3xl">av_timer</span>
+          <div class="bg-white rounded-lg p-5 shadow-sm border border-gray-200 flex flex-col justify-between h-32 relative">
+            <div class="flex justify-between items-start w-full">
+              <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Today's Activity</div>
+              <div class="w-8 h-8 rounded-md bg-yellow-50 flex items-center justify-center text-yellow-600">
+                <span class="material-icons-outlined text-[16px]">today</span>
+              </div>
             </div>
-            <div class="relative z-10">
-              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">Last Sync</div>
-              <div class="text-sm font-bold text-gray-900 mt-2">{{ lastUpdated }}</div>
+            <div>
+              <div class="text-3xl font-extrabold text-gray-900 leading-none">{{ todayCount || 0 }}</div>
+              <div class="text-xs text-gray-500 mt-1">Scheduled for today</div>
             </div>
           </div>
+
         </section>
 
         <!-- Elegant Data Tables -->
@@ -189,7 +182,7 @@
               Call Requests <span class="bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded-full font-bold">{{ filteredCalls.length }}</span>
             </h2>
           </div>
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden">
+          <div class="bg-white rounded-none border border-gray-100/80 shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
               <table class="w-full text-sm text-left whitespace-nowrap">
                 <thead class="bg-gray-50/50 text-[10px] uppercase font-bold text-gray-500 tracking-wider">
@@ -230,50 +223,34 @@
 
         <!-- Unscheduled Tours -->
         <section v-show="currentView === 'overview' || currentView === 'unscheduled'" class="mb-12">
-          <div class="flex items-center justify-between mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-3 font-livvic text-gray-900">
-              <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600"><span class="material-icons-outlined text-sm">pending_actions</span></div>
-              Unscheduled Tours <span class="bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded-full font-bold">{{ filteredUnscheduled.length }}</span>
-            </h2>
+          <div class="mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Unscheduled Tours</h2>
           </div>
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm text-left whitespace-nowrap">
-                <thead class="bg-gray-50/50 text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                  <tr>
-                    <th class="px-6 py-5 border-b border-gray-100">Visitor Info</th>
-                    <th class="px-6 py-5 border-b border-gray-100">WhatsApp</th>
-                    <th class="px-6 py-5 border-b border-gray-100">Country</th>
-                    <th class="px-6 py-5 border-b border-gray-100 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-50">
-                  <tr v-if="filteredUnscheduled.length === 0">
-                    <td colspan="4" class="text-center py-16 text-gray-400 font-medium">No unscheduled tours found</td>
-                  </tr>
-                  <tr v-for="(tour, idx) in filteredUnscheduled" :key="idx" class="hover:bg-brand-green/[0.02] transition-colors cursor-pointer group" @click="openModal(tour, 'unscheduled_tour')">
-                    <td class="px-6 py-4">
-                      <div class="font-bold text-gray-900">{{ tour.full_name || '—' }}</div>
-                      <div class="text-xs text-gray-500 mt-1 truncate max-w-[200px]">{{ tour.email || '—' }}</div>
-                    </td>
-                    <td class="px-6 py-4 font-medium text-gray-600">
-                      <div class="flex items-center gap-2">
-                        <span class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center"><span class="material-icons-outlined text-[10px] text-green-700">chat</span></span>
-                        {{ tour.whatsapp_number || '—' }}
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 font-medium text-gray-800">{{ tour.country || '—' }}</td>
-                    <td class="px-6 py-4 flex justify-end items-center gap-3">
-                      <a :href="`mailto:${tour.email}`" @click.stop class="bg-white border border-gray-200 text-gray-600 hover:text-brand-green hover:border-brand-green px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">
-                        Notify
-                      </a>
-                      <button @click.stop="deleteUnscheduled(tour.id)" class="bg-white border border-red-100 text-red-600 hover:bg-red-500 hover:text-white px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-1">
-                        <span class="material-icons-outlined text-[14px]">delete</span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="space-y-3">
+            <div v-if="filteredUnscheduled.length === 0" class="text-center py-16 text-gray-400 font-medium bg-white rounded-none border border-gray-100">
+              No unscheduled tours found
+            </div>
+            
+            <div v-for="(tour, idx) in filteredUnscheduled" :key="idx" class="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-none border border-yellow-100 bg-yellow-50 hover:bg-yellow-100/80 cursor-pointer transition-colors" @click="openModal(tour, 'unscheduled_tour')">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="font-bold text-gray-900">{{ tour.full_name || '—' }}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded text-yellow-700 bg-yellow-200/50 uppercase tracking-wider">Unscheduled</span>
+                </div>
+                <div class="text-xs font-medium text-yellow-800/60 flex items-center gap-2 flex-wrap">
+                  <span>{{ tour.country || 'Unknown Location' }}</span>
+                  <span class="hidden sm:inline text-yellow-200">|</span>
+                  <span>{{ tour.whatsapp_number || tour.email || '—' }}</span>
+                </div>
+              </div>
+              <div class="mt-3 sm:mt-0 flex items-center gap-2">
+                <a :href="`mailto:${tour.email}`" @click.stop class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md text-xs font-bold transition-colors">
+                  Notify
+                </a>
+                <button @click.stop="deleteUnscheduled(tour.id)" class="bg-white border border-yellow-200 text-red-500 hover:bg-red-50 px-3 py-2 rounded-md text-xs font-bold transition-colors">
+                  <span class="material-icons-outlined text-[14px]">delete</span>
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -293,7 +270,7 @@
               <button @click="clearTourFilters" class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 px-6 py-2 rounded-full text-sm font-bold transition-colors shadow-sm">Clear</button>
             </div>
           </div>
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden">
+          <div class="bg-white rounded-none border border-gray-100/80 shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
               <table class="w-full text-sm text-left whitespace-nowrap">
                 <thead class="bg-gray-50/50 text-[10px] uppercase font-bold text-gray-500 tracking-wider">
@@ -341,110 +318,79 @@
         <!-- Time Slots -->
         <section v-show="currentView === 'timeslots'" class="mb-12">
           <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-3 font-livvic text-gray-900">
-              <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600"><span class="material-icons-outlined text-sm">schedule</span></div>
-              Time Slots Configuration
-            </h2>
-            <div class="flex items-center gap-3 bg-white p-2 rounded-2xl border border-gray-200/80 shadow-sm">
-              <div class="pl-3 pr-2 text-xs font-bold text-gray-400 uppercase tracking-widest">New Slot</div>
-              <input v-model="newTime" type="time" class="px-3 py-2 rounded-xl text-sm bg-gray-50 border-none focus:ring-2 focus:ring-brand-green/20 outline-none font-medium text-gray-900" />
-              <button @click="addTimeslot" class="bg-gradient-to-r from-brand-green to-[#0d7a36] hover:shadow-lg hover:shadow-brand-green/20 text-white px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-1">
-                <span class="material-icons-outlined text-[16px]">add</span> Add
+            <h2 class="text-xl font-bold text-gray-900">Time Slots Configuration</h2>
+            <div class="flex items-center gap-3 bg-white p-1.5 rounded-xl border border-gray-200/80 shadow-sm">
+              <div class="pl-3 pr-2 text-xs font-bold text-gray-400 uppercase tracking-widest hidden sm:block">New Slot</div>
+              <input v-model="newTime" type="time" class="px-3 py-1.5 rounded-lg text-sm bg-gray-50 border-none outline-none font-medium text-gray-900" />
+              <button @click="addTimeslot" class="bg-gray-900 hover:bg-black text-white px-5 py-1.5 rounded-lg text-sm font-bold transition-all shadow-sm">
+                Add
               </button>
             </div>
           </div>
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden max-w-4xl">
-            <table class="w-full text-sm text-left whitespace-nowrap">
-              <thead class="bg-gray-50/50 text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                <tr>
-                  <th class="px-6 py-5 border-b border-gray-100">Time</th>
-                  <th class="px-6 py-5 border-b border-gray-100">Current Status</th>
-                  <th class="px-6 py-5 border-b border-gray-100 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-50">
-                <tr v-if="timeslotsData.length === 0">
-                  <td colspan="3" class="text-center py-16 text-gray-400 font-medium">No time slots configured</td>
-                </tr>
-                <tr v-for="(slot, idx) in timeslotsData" :key="idx" class="hover:bg-brand-green/[0.02] transition-colors cursor-pointer group" @click="openModal(slot, 'timeslot')">
-                  <td class="px-6 py-4 font-bold text-gray-900 text-lg">{{ slot.time }}</td>
-                  <td class="px-6 py-4">
-                    <span :class="['inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold', slot.is_available ? 'bg-green-50 text-green-700 border border-green-200/50' : 'bg-amber-50 text-amber-700 border border-amber-200/50']">
-                      <span :class="['w-1.5 h-1.5 rounded-full', slot.is_available ? 'bg-green-500' : 'bg-amber-500']"></span>
-                      {{ slot.is_available ? 'Available' : 'Booked' }}
-                    </span>
-                  </td>
-                  <td class="px-6 py-4 flex justify-end gap-3">
-                    <button @click.stop="toggleTimeslot(slot)" :class="['px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm', slot.is_available ? 'bg-amber-50 text-amber-700 hover:bg-amber-100' : 'bg-green-50 text-green-700 hover:bg-green-100']">
-                      Mark {{ slot.is_available ? 'Booked' : 'Available' }}
-                    </button>
-                    <button @click.stop="deleteTimeslot(slot.id)" class="opacity-0 group-hover:opacity-100 bg-white border border-red-100 text-red-600 hover:bg-red-500 hover:text-white px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">
-                      <span class="material-icons-outlined text-[16px]">delete</span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          
+          <div class="space-y-3 max-w-4xl">
+            <div v-if="timeslotsData.length === 0" class="text-center py-16 text-gray-400 font-medium bg-white rounded-none border border-gray-100">
+              No time slots configured
+            </div>
+            
+            <div v-for="(slot, idx) in timeslotsData" :key="idx" class="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-none border cursor-pointer transition-colors" :class="slot.is_available ? 'bg-green-50 border-green-100 hover:bg-green-100/50' : 'bg-red-50 border-red-100 hover:bg-red-100/50'" @click="openModal(slot, 'timeslot')">
+              <div class="flex items-center gap-4">
+                <span class="font-bold text-gray-900 text-lg">{{ slot.time }}</span>
+                <span :class="['text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider', slot.is_available ? 'text-green-700 bg-green-200' : 'text-red-700 bg-red-200']">
+                  {{ slot.is_available ? 'Available' : 'Booked' }}
+                </span>
+              </div>
+              <div class="mt-3 sm:mt-0 flex items-center gap-2">
+                <button @click.stop="toggleTimeslot(slot)" :class="['px-4 py-2 rounded-md text-xs font-bold transition-colors shadow-sm', slot.is_available ? 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200' : 'bg-green-600 hover:bg-green-700 text-white']">
+                  Mark {{ slot.is_available ? 'Booked' : 'Available' }}
+                </button>
+                <button @click.stop="deleteTimeslot(slot.id)" class="bg-white border border-red-200 text-red-500 hover:bg-red-50 px-3 py-2 rounded-md text-xs font-bold transition-colors shadow-sm">
+                  <span class="material-icons-outlined text-[14px]">delete</span>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
         
         <!-- Places -->
         <section v-show="currentView === 'places'" class="mb-12">
           <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-3 font-livvic text-gray-900">
-              <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600"><span class="material-icons-outlined text-sm">place</span></div>
-              Places Management
-            </h2>
+            <h2 class="text-xl font-bold text-gray-900">Places Management</h2>
           </div>
           
           <!-- Add Place Form -->
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden mb-8 p-6">
-            <h3 class="text-sm font-bold text-gray-800 mb-4 uppercase tracking-widest">Add New Place</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="col-span-1 md:col-span-2">
-                <input v-model="newPlace.name" type="text" placeholder="Place Name" class="w-full px-4 py-2 rounded-xl text-sm bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-brand-green/20 outline-none font-medium text-gray-900" />
-              </div>
-              <div class="col-span-1 md:col-span-2">
-                <input v-model="newPlace.category" type="text" placeholder="Category (e.g. Aquaculture) *" class="w-full px-4 py-2 rounded-xl text-sm bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-brand-green/20 outline-none font-medium text-gray-900" required />
-              </div>
-              <div class="col-span-1 md:col-span-2">
-                <input v-model="newPlace.location" type="text" placeholder="Location/Address (e.g. Volta, Ghana) *" class="w-full px-4 py-2 rounded-xl text-sm bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-brand-green/20 outline-none font-medium text-gray-900" required />
-              </div>
-              <div class="col-span-1 md:col-span-4 flex justify-end mt-2">
-                <button @click="addPlace" class="bg-gradient-to-r from-brand-green to-[#0d7a36] hover:shadow-lg hover:shadow-brand-green/20 text-white px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
-                  <span class="material-icons-outlined text-[16px]">add</span> Add Place
-                </button>
-              </div>
+          <div class="bg-white rounded-none border border-gray-100 shadow-sm mb-6 p-5">
+            <div class="text-[10px] font-bold text-gray-500 mb-3 uppercase tracking-widest">Add New Place</div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input v-model="newPlace.name" type="text" placeholder="Place Name" class="flex-1 px-4 py-2 rounded-lg text-sm bg-gray-50 border border-gray-200 outline-none font-medium text-gray-900" />
+              <input v-model="newPlace.category" type="text" placeholder="Category *" class="flex-1 px-4 py-2 rounded-lg text-sm bg-gray-50 border border-gray-200 outline-none font-medium text-gray-900" required />
+              <input v-model="newPlace.location" type="text" placeholder="Location/Address *" class="flex-1 px-4 py-2 rounded-lg text-sm bg-gray-50 border border-gray-200 outline-none font-medium text-gray-900" required />
+              <button @click="addPlace" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
+                Add
+              </button>
             </div>
           </div>
 
-          <div class="bg-white rounded-[2rem] border border-gray-100/80 shadow-sm overflow-hidden max-w-5xl">
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm text-left whitespace-nowrap">
-                <thead class="bg-gray-50/50 text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                  <tr>
-                    <th class="px-6 py-5 border-b border-gray-100">Category</th>
-                    <th class="px-6 py-5 border-b border-gray-100">Center Number</th>
-                    <th class="px-6 py-5 border-b border-gray-100">Location</th>
-                    <th class="px-6 py-5 border-b border-gray-100 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-50">
-                  <tr v-if="placesData.length === 0">
-                    <td colspan="4" class="text-center py-16 text-gray-400 font-medium">No places configured</td>
-                  </tr>
-                  <tr v-for="(place, idx) in placesData" :key="idx" class="hover:bg-brand-green/[0.02] transition-colors cursor-pointer group" @click="openModal(place, 'place')">
-                    <td class="px-6 py-4 font-bold text-gray-900">{{ place.category || '—' }}</td>
-                    <td class="px-6 py-4 font-bold text-gray-800">{{ place.center_number || '—' }}</td>
-                    <td class="px-6 py-4 font-medium text-gray-700">{{ place.location || '—' }}</td>
-                    <td class="px-6 py-4 flex justify-end items-center gap-3">
-                      <button @click.stop="deletePlace(place.id)" class="bg-white border border-red-100 text-red-600 hover:bg-red-500 hover:text-white px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-1">
-                        <span class="material-icons-outlined text-[16px]">delete</span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="space-y-3 max-w-5xl">
+            <div v-if="placesData.length === 0" class="text-center py-16 text-gray-400 font-medium bg-white rounded-none border border-gray-100">
+              No places configured
+            </div>
+            
+            <div v-for="(place, idx) in placesData" :key="idx" class="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-none border border-gray-100 bg-white hover:bg-gray-50 cursor-pointer transition-colors" @click="openModal(place, 'place')">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="font-bold text-gray-900">{{ place.location || '—' }}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded text-gray-700 bg-gray-200 uppercase tracking-wider">{{ place.category || 'Location' }}</span>
+                </div>
+                <div class="text-xs font-medium text-gray-500">
+                  Center Number: {{ place.center_number || '—' }}
+                </div>
+              </div>
+              <div class="mt-3 sm:mt-0 flex items-center gap-2">
+                <button @click.stop="deletePlace(place.id)" class="bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-md text-xs font-bold transition-colors">
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </section>

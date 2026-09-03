@@ -112,8 +112,16 @@
 
             <!-- Card Body (Minimalist Product Name & Price) -->
             <div class="flex items-start justify-between px-4 py-4 bg-white">
-              <h3 class="font-['Livvic'] text-lg font-bold text-gray-800 tracking-tight">
-                {{ product.name }}
+              <h3 class="font-['Livvic'] text-lg font-bold text-gray-800 tracking-tight flex items-baseline flex-wrap gap-x-1.5">
+                <template v-if="product.name.includes('(')">
+                  <span>{{ product.name.split('(')[0].trim() }}</span>
+                  <span class="text-sm font-medium text-gray-500 tracking-normal font-montserrat">
+                    ({{ product.name.split('(')[1] }}
+                  </span>
+                </template>
+                <template v-else>
+                  {{ product.name }}
+                </template>
               </h3>
               
               <div class="flex flex-col items-end">
@@ -126,7 +134,6 @@
                     Pre-order
                   </button>
                 </div>
-                <p class="text-sm font-bold text-green-600 mt-1">{{ product.weight.replace('/', ' / ') }}</p>
               </div>
             </div>
           </article>
@@ -173,9 +180,6 @@
                 <h2 class="font-['Livvic'] text-xl font-bold text-gray-900">
                   {{ orderModal.product?.name }}
                 </h2>
-                <p class="mt-1 text-sm font-bold text-green-600">
-                  {{ orderModal.product?.weight.replace('/', ' / ') }}
-                </p>
                 <p class="mt-1 text-xs text-gray-500 font-mono">
                   Pre-order ticket: {{ orderModal.orderNumber }}
                 </p>
@@ -311,19 +315,24 @@ import livestockHeroImg from "../assets/img/livestock-banner.webp";
 import farmGatePattern from "../assets/img/FARMGATE PATTERN _GREEN.webp";
 
 // Import Product Images
-import okraImg from "../assets/img/pile-raw-fresh-okra-vegetables-transparent-background.webp";
+import okraImg from "../assets/img/okro-new.webp";
 import okra1Img from "../assets/img/ladyfinger-okra.webp";
 import onionImg from "../assets/img/onion.webp";
 import tomatoImg from "../assets/img/tomato.webp";
 import habaneroImg from "../assets/img/habanero-pepper-new.webp";
+import trueHabaneroImg from "../assets/img/true-habanero.webp";
 import chiliImg from "../assets/img/red-chili-pepper-isolated-white-background.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
-import pineappleImg from "../assets/img/pineapple.webp";
-import cassavaImg from "../assets/img/cassava.webp";
+import pineappleImg from "../assets/img/pineapple-new.webp";
+import cassavaImg from "../assets/img/cassava-new.webp";
 import tilapiaImg from "../assets/img/tilapia.webp";
 import catfishImg from "../assets/img/catfish.webp";
 import smokableCatfishImg from "../assets/img/smokable catfish.webp";
 import pigImg from "../assets/img/pig.webp";
+import cabbageImg from "../assets/img/cabbage.webp";
+import carrotImg from "../assets/img/carrot-new.webp";
+import cucumberImg from "../assets/img/cucumber.webp";
+import lettuceImg from "../assets/img/lettuce.webp";
 
 // 1. Search & Filter State
 const searchQuery = ref("");
@@ -408,6 +417,50 @@ const proceedToOrder = () => {
 const products = ref([
   // Crop
   {
+    id: "cucumber",
+    name: "Cucumber",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Cucumis sativus",
+    category: "crop",
+    image: cucumberImg,
+    imageClass: "transform scale-110",
+    description: "Crisp and fresh cucumbers cultivated using sustainable farming practices, perfect for salads and culinary uses.",
+  },
+  {
+    id: "carrot",
+    name: "Carrot",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Daucus carota",
+    category: "crop",
+    image: carrotImg,
+    imageClass: "transform scale-110",
+    description: "Premium quality carrots grown in nutrient-rich soil, ensuring high vitamin content and excellent taste.",
+  },
+  {
+    id: "lettuce",
+    name: "Lettuce",
+    weight: "10kg/crate",
+    stock: 100,
+    botanicalName: "Lactuca sativa",
+    category: "crop",
+    image: lettuceImg,
+    imageClass: "transform scale-110",
+    description: "Fresh and leafy lettuce harvested at peak crispness for the best culinary experience.",
+  },
+  {
+    id: "cabbage",
+    name: "Cabbage",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Brassica oleracea",
+    category: "crop",
+    image: cabbageImg,
+    imageClass: "transform scale-110",
+    description: "Firm and dense cabbage heads grown with precision farming techniques, supplying local and regional markets.",
+  },
+  {
     id: "local-okra",
     name: "Local Okra",
     weight: "20kg/crate",
@@ -450,7 +503,7 @@ const products = ref([
   },
   {
     id: "habanero-pepper",
-    name: "Habanero Pepper",
+    name: "Local Pepper (Kasoa)",
     weight: "20kg/crate",
     stock: 90,
     botanicalName: "Capsicum chinense",
@@ -458,6 +511,16 @@ const products = ref([
     image: habaneroImg,
     imageClass: "transform scale-[1.75]",
     description: "Vibrant, high-pungency habanero pepper cycles cultivated for premium spice extraction and international export grade markets.",
+  },
+  {
+    id: "true-habanero",
+    name: "Habanero Pepper",
+    weight: "10kg/box",
+    stock: 75,
+    botanicalName: "Capsicum chinense",
+    category: "crop",
+    image: trueHabaneroImg,
+    description: "Extremely hot and flavorful authentic Habanero peppers, carefully harvested at peak ripeness.",
   },
   {
     id: "chili-pepper",
@@ -471,7 +534,7 @@ const products = ref([
   },
   {
     id: "garden-eggs",
-    name: "Garden Eggs",
+    name: "Garden Eggs (African Eggplant)",
     weight: "20kg/crate",
     stock: 110,
     botanicalName: "Solanum aethiopicum",

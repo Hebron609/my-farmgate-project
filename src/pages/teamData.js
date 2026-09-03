@@ -117,18 +117,6 @@ Nelson is driven by the passion to promote social innovation and enterprising so
     order: 7,
   },
   {
-    name: "Jacob Korley",
-    title: "Accounts Officer",
-    location: "Accra, Ghana",
-    bio: "Jacob is an experienced accounts officer with a strong background in financial management and accounting. He has successfully managed financial operations for various organizations, ensuring compliance and accuracy in all financial reporting.",
-    photoUrl: "/images/Jacob Korley .webp",
-    photoUrlModal: "/images/Jacob Korley modal.webp",
-    email: "",
-    socialLinks: { linkedin: "https://linkedin.com" },
-    department: "Operations Management",
-    order: 6,
-  },
-  {
     name: "Elizabeth Dadzie",
     title: "Field Sales Executive",
     hoverTitle: "Sales",
