@@ -43,6 +43,13 @@ import {
   faClipboardList,
   faDroplet,
   faHeart,
+  faArrowLeft,
+  faCircleCheck,
+  faCircleInfo,
+  faCircleExclamation,
+  faLocationDot,
+  faCalendarDays,
+  faLock,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Brand icons
@@ -98,6 +105,13 @@ library.add(
   faClipboardList,
   faDroplet,
   faHeart,
+  faArrowLeft,
+  faCircleCheck,
+  faCircleInfo,
+  faCircleExclamation,
+  faLocationDot,
+  faCalendarDays,
+  faLock,
   faGithub,
   faInstagram,
   faYoutube,
@@ -129,6 +143,29 @@ export function setupApp(RootComponentOrApp, selector, configure) {
 
   // Global WhatsApp Injection
   injectWhatsAppButton();
+
+  // Global Cookiebot Consent Banner Injection
+  injectCookiebotBanner();
+}
+
+function injectCookiebotBanner() {
+  if (document.getElementById("Cookiebot")) return;
+
+  const cookiebotId = import.meta.env.VITE_COOKIEBOT_ID || "c0a52dfb-6aeb-475c-8975-f09b2e2d091e";
+  
+  const script = document.createElement("script");
+  script.id = "Cookiebot";
+  script.src = "https://consent.cookiebot.com/uc.js";
+  script.dataset.cbid = cookiebotId;
+  script.dataset.blockingmode = "auto";
+  script.type = "text/javascript";
+
+  // Insert script at the top of <head> to ensure early execution
+  if (document.head && document.head.firstChild) {
+    document.head.insertBefore(script, document.head.firstChild);
+  } else if (document.head) {
+    document.head.appendChild(script);
+  }
 }
 
 function injectWhatsAppButton() {

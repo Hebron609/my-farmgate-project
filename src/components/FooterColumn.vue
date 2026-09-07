@@ -7,8 +7,15 @@
         :key="index"
         class="hover:text-[#F2CB00] transition-colors"
       >
-        <!-- Use normal anchor for multipage -->
-        <a :href="item.href" class="footer-underline-link">{{ item.label }}</a>
+        <!-- Use button for actions, normal anchor for links -->
+        <button
+          v-if="item.action"
+          @click="item.action"
+          class="footer-underline-link text-left bg-transparent border-none p-0 cursor-pointer focus:outline-none"
+        >
+          {{ item.label }}
+        </button>
+        <a v-else :href="item.href" class="footer-underline-link">{{ item.label }}</a>
       </li>
     </ul>
   </div>

@@ -130,6 +130,12 @@
             >.
           </p>
         </div>
+
+        <!-- Cookiebot Declaration -->
+        <div class="reveal-slide-up border-t border-gray-200 pt-12 mt-12">
+          <h2 class="mb-6 text-3xl font-bold text-gray-900">Cookie Declaration.</h2>
+          <div id="cookiebot-declaration-container"></div>
+        </div>
       </div>
     </section>
 
@@ -154,17 +160,30 @@ const { init: initScrollReveal } = useScrollReveal({
 
 onMounted(() => {
   const api = initScrollReveal();
-  if (!api) return;
-  api.reveal(".reveal-fade", {
-    ...revealEffects.fade,
-    duration: 900,
-    delay: 200,
-  });
-  api.reveal(".reveal-slide-up", {
-    ...revealEffects.slideUp,
-    duration: 700,
-    delay: 150,
-  });
+  if (api) {
+    api.reveal(".reveal-fade", {
+      ...revealEffects.fade,
+      duration: 900,
+      delay: 200,
+    });
+    api.reveal(".reveal-slide-up", {
+      ...revealEffects.slideUp,
+      duration: 700,
+      delay: 150,
+    });
+  }
+
+  // Inject Cookie Declaration script dynamically inside the container
+  const container = document.getElementById("cookiebot-declaration-container");
+  if (container) {
+    const script = document.createElement("script");
+    script.id = "CookieDeclaration";
+    const cookiebotId = import.meta.env.VITE_COOKIEBOT_ID || "c0a52dfb-6aeb-475c-8975-f09b2e2d091e";
+    script.src = `https://consent.cookiebot.com/${cookiebotId}/cd.js`;
+    script.type = "text/javascript";
+    script.async = true;
+    container.appendChild(script);
+  }
 });
 </script>
 

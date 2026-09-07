@@ -252,30 +252,53 @@ onUnmounted(() => {
 const submitCall = async (e) => {
   e.preventDefault();
   if (!selectedDate.value) return;
-  if (!guestFullname.value.trim() || !guestEmail.value.trim() || !guestWhatsapp.value.trim()) return;
-  
+  if (
+    !guestFullname.value.trim() ||
+    !guestEmail.value.trim()
+  )
+    return;
+
   isSubmitting.value = true;
   try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const formattedDateString = `${viewingYear.value}-${String(viewingMonth.value + 1).padStart(2, '0')}-${String(selectedDate.value.getDate()).padStart(2, '0')}`;
+    const response = await fetch("/api/v1/call-requests", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        formType: 'schedule-call',
-        formData: {
-          guestFullname: guestFullname.value,
-          guestEmail: guestEmail.value,
-          guestWhatsapp: guestWhatsapp.value,
-          date: formattedDate.value,
-          time: `${selectedHour.value}:${selectedMinute.value} ${selectedAmPm.value}`
-        }
-      })
+        full_name: guestFullname.value,
+        email: guestEmail.value,
+        whatsapp_number: guestWhatsapp.value,
+        call_date: formattedDateString,
+        call_time: `${selectedHour.value}:${selectedMinute.value}`,
+        period: selectedAmPm.value,
+      }),
     });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
+    
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'schedule-call',
+          formData: {
+            fullName: guestFullname.value,
+            email: guestEmail.value,
+            whatsapp: guestWhatsapp.value,
+            date: formattedDateString,
+            time: `${selectedHour.value}:${selectedMinute.value} ${selectedAmPm.value}`
+          }
+        })
+      });
+    } catch (emailErr) {
+      console.warn("Could not send email via /api/send-email:", emailErr);
+    }
+    
     showSuccessModal.value = true;
   } catch (error) {
-    console.error('Error scheduling call:', error);
-    alert('An error occurred while scheduling your call. Please try again.');
+    console.error("Error scheduling call:", error);
+    alert("An error occurred while scheduling your call. Please try again.");
   } finally {
     isSubmitting.value = false;
   }
@@ -690,14 +713,28 @@ const closeModal = () => {
 
         <!-- Guest Information -->
         <div class="pt-6 mt-2 border-t border-gray-100">
-          <p class="mb-5 text-md font-semibold tracking-wide text-gray-400">Your Details</p>
+          <p class="mb-5 font-semibold tracking-wide text-gray-400 text-md">
+            Your Details
+          </p>
           <div class="space-y-4">
             <!-- Full Name -->
             <div class="relative">
-              <label class="block mb-2 font-semibold text-gray-700">Full name <span class="text-red-600">*</span></label>
+              <label class="block mb-2 font-semibold text-gray-700"
+                >Full name <span class="text-red-600">*</span></label
+              >
               <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <svg
+                  class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
                 </svg>
                 <input
                   id="guest-fullname"
@@ -712,10 +749,22 @@ const closeModal = () => {
 
             <!-- Email -->
             <div class="relative">
-              <label class="block mb-2 font-semibold text-gray-700">Email address <span class="text-red-600">*</span></label>
+              <label class="block mb-2 font-semibold text-gray-700"
+                >Email address <span class="text-red-600">*</span></label
+              >
               <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <svg
+                  class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
                 <input
                   id="guest-email"
@@ -730,17 +779,28 @@ const closeModal = () => {
 
             <!-- WhatsApp Number -->
             <div class="relative">
-              <label class="block mb-2 font-semibold text-gray-700">WhatsApp number <span class="text-red-600">*</span></label>
+              <label class="block mb-2 font-semibold text-gray-700"
+                >WhatsApp number</label
+              >
               <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                <svg
+                  class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#129C48]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
                 </svg>
                 <input
                   id="guest-whatsapp"
                   v-model="guestWhatsapp"
                   type="tel"
                   placeholder="e.g. +233 24 000 0000"
-                  required
                   class="w-full pl-12 pr-4 py-4 border-2 border-gray-100 focus:border-[#129C48] rounded-2xl outline-none transition-all duration-300 font-medium placeholder:text-gray-400 placeholder:font-normal text-gray-800"
                 />
               </div>
@@ -752,9 +812,15 @@ const closeModal = () => {
           <div
             class="flex flex-col items-center gap-4 booking-actions sm:flex-row sm:gap-5"
           >
-            <button type="submit" class="booking-action farmgate-btn" :disabled="isSubmitting">
+            <button
+              type="submit"
+              class="booking-action farmgate-btn"
+              :disabled="isSubmitting"
+            >
               <span class="btn-content">
-                <span>{{ isSubmitting ? 'Booking...' : 'Book Appointment' }}</span>
+                <span>{{
+                  isSubmitting ? "Booking..." : "Book Appointment"
+                }}</span>
                 <svg
                   class="flex-shrink-0 w-4 h-4"
                   fill="none"
@@ -770,7 +836,9 @@ const closeModal = () => {
                 </svg>
               </span>
               <span class="hover-content">
-                <span>{{ isSubmitting ? 'Booking...' : 'Book Appointment' }}</span>
+                <span>{{
+                  isSubmitting ? "Booking..." : "Book Appointment"
+                }}</span>
                 <svg
                   class="flex-shrink-0 w-4 h-4"
                   fill="none"
@@ -823,13 +891,13 @@ const closeModal = () => {
           Call Scheduled!
         </h3>
         <p class="mb-2 text-base leading-relaxed text-gray-500 sm:text-lg">
-          Hi <strong class="text-black">{{ guestFullname }}</strong>, your call is set for
+          Hi <strong class="text-black">{{ guestFullname }}</strong
+          >, your call is set for
           <strong class="text-black">{{ formattedDate }}</strong> at
           <strong class="text-black"
             >{{ selectedHour }}:{{ selectedMinute }} {{ selectedAmPm }}</strong
           >.
         </p>
-        <p class="mb-10 text-sm text-gray-400">A confirmation will be sent to <strong class="text-gray-600">{{ guestEmail }}</strong>.</p>
         <button @click="closeModal" class="w-full farmgate-btn">
           <span class="btn-content"><span>Back to Homepage</span></span>
           <span class="hover-content"><span>Back to Homepage</span></span>
@@ -885,7 +953,7 @@ const closeModal = () => {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/images/FARMGATE PATTERN _GREEN.png");
+  background-image: url("/images/FARMGATE PATTERN _GREEN.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
