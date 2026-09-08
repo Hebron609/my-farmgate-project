@@ -505,18 +505,18 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 w-full h-[100dvh] z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
+        class="fixed inset-0 w-full h-[100dvh] z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed overflow-y-auto"
         :style="{
           backgroundImage: `url(${patternBg})`,
           backgroundPosition: 'left center',
         }"
       >
         <div
-          class="absolute inset-0 pointer-events-none header-overlay-bg"
+          class="fixed inset-0 pointer-events-none header-overlay-bg"
         ></div>
 
         <div
-          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:py-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible xl:overflow-y-visible menu-container-main"
+          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:pt-8 lg:pb-16 xl:px-28 xl:pt-16 xl:pb-28 max-w-[1820px] mx-auto space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 lg:pb-[350px] xl:pb-[350px] menu-container-main"
         >
           <div
             class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] xl:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-28 lg:mb-0 xl:absolute xl:left-12 xl:bottom-28 xl:mb-0"
@@ -1054,7 +1054,7 @@
           <button
             type="button"
             @click.prevent="toggleMenu"
-            class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
+            class="fixed z-50 text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
           >
             &times;
           </button>

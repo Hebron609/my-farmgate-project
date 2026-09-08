@@ -318,12 +318,13 @@ import farmGatePattern from "../assets/img/FARMGATE PATTERN _GREEN.webp";
 import okraImg from "../assets/img/okro-new.webp";
 import okra1Img from "../assets/img/ladyfinger-okra.webp";
 import onionImg from "../assets/img/onion.webp";
+import pineappleImg from "../assets/img/pineapple-new.webp";
+import sweetPotatoesImg from "../assets/img/sweet-potatoes.webp";
 import tomatoImg from "../assets/img/tomato.webp";
 import habaneroImg from "../assets/img/habanero-pepper-new.webp";
 import trueHabaneroImg from "../assets/img/true-habanero.webp";
 import chiliImg from "../assets/img/red-chili-pepper-isolated-white-background.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
-import pineappleImg from "../assets/img/pineapple-new.webp";
 import cassavaImg from "../assets/img/cassava-new.webp";
 import tilapiaImg from "../assets/img/tilapia.webp";
 import catfishImg from "../assets/img/catfish.webp";
@@ -333,6 +334,7 @@ import cabbageImg from "../assets/img/cabbage.webp";
 import carrotImg from "../assets/img/carrot-new.webp";
 import cucumberImg from "../assets/img/cucumber.webp";
 import lettuceImg from "../assets/img/lettuce.webp";
+import redLettuceImg from "../assets/img/red-lettuce.webp";
 
 // 1. Search & Filter State
 const searchQuery = ref("");
@@ -424,7 +426,6 @@ const products = ref([
     botanicalName: "Cucumis sativus",
     category: "crop",
     image: cucumberImg,
-    imageClass: "transform scale-110",
     description: "Crisp and fresh cucumbers cultivated using sustainable farming practices, perfect for salads and culinary uses.",
   },
   {
@@ -439,15 +440,34 @@ const products = ref([
     description: "Premium quality carrots grown in nutrient-rich soil, ensuring high vitamin content and excellent taste.",
   },
   {
+    id: "sweet-potatoes",
+    name: "Sweet Potatoes",
+    weight: "20kg/bag",
+    stock: 120,
+    botanicalName: "Ipomoea batatas",
+    category: "crop",
+    image: sweetPotatoesImg,
+    description: "Nutrient-rich, premium quality sweet potatoes cultivated using sustainable farming methods.",
+  },
+  {
     id: "lettuce",
-    name: "Lettuce",
+    name: "Green Lettuce",
     weight: "10kg/crate",
     stock: 100,
     botanicalName: "Lactuca sativa",
     category: "crop",
     image: lettuceImg,
-    imageClass: "transform scale-110",
     description: "Fresh and leafy lettuce harvested at peak crispness for the best culinary experience.",
+  },
+  {
+    id: "red-lettuce",
+    name: "Red Lettuce",
+    weight: "10kg/crate",
+    stock: 100,
+    botanicalName: "Lactuca sativa",
+    category: "crop",
+    image: redLettuceImg,
+    description: "Vibrant and flavorful red lettuce, freshly harvested to add crispness and color to your culinary creations.",
   },
   {
     id: "cabbage",
@@ -457,7 +477,6 @@ const products = ref([
     botanicalName: "Brassica oleracea",
     category: "crop",
     image: cabbageImg,
-    imageClass: "transform scale-110",
     description: "Firm and dense cabbage heads grown with precision farming techniques, supplying local and regional markets.",
   },
   {
@@ -550,6 +569,7 @@ const products = ref([
     botanicalName: "Ananas comosus",
     category: "crop",
     image: pineappleImg,
+    imageClass: "transform scale-125",
     description: "Sweet MD2 and Sugarloaf pineapple plantations optimized for fresh fruit export and local juice processing plants.",
   },
   {
