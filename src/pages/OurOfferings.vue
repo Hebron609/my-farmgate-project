@@ -426,6 +426,7 @@ const products = ref([
     botanicalName: "Cucumis sativus",
     category: "crop",
     image: cucumberImg,
+    imageClass: "transform scale-75",
     description: "Crisp and fresh cucumbers cultivated using sustainable farming practices, perfect for salads and culinary uses.",
   },
   {
@@ -447,6 +448,7 @@ const products = ref([
     botanicalName: "Ipomoea batatas",
     category: "crop",
     image: sweetPotatoesImg,
+    imageClass: "transform scale-90",
     description: "Nutrient-rich, premium quality sweet potatoes cultivated using sustainable farming methods.",
   },
   {
@@ -457,6 +459,7 @@ const products = ref([
     botanicalName: "Lactuca sativa",
     category: "crop",
     image: lettuceImg,
+    imageClass: "transform scale-[0.85]",
     description: "Fresh and leafy lettuce harvested at peak crispness for the best culinary experience.",
   },
   {
@@ -467,6 +470,7 @@ const products = ref([
     botanicalName: "Lactuca sativa",
     category: "crop",
     image: redLettuceImg,
+    imageClass: "transform scale-[0.85]",
     description: "Vibrant and flavorful red lettuce, freshly harvested to add crispness and color to your culinary creations.",
   },
   {
@@ -477,6 +481,7 @@ const products = ref([
     botanicalName: "Brassica oleracea",
     category: "crop",
     image: cabbageImg,
+    imageClass: "transform scale-75",
     description: "Firm and dense cabbage heads grown with precision farming techniques, supplying local and regional markets.",
   },
   {
@@ -569,7 +574,7 @@ const products = ref([
     botanicalName: "Ananas comosus",
     category: "crop",
     image: pineappleImg,
-    imageClass: "transform scale-125",
+    imageClass: "transform scale-[1.75]",
     description: "Sweet MD2 and Sugarloaf pineapple plantations optimized for fresh fruit export and local juice processing plants.",
   },
   {
