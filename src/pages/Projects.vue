@@ -715,14 +715,14 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 
-import farmPic from "@/assets/img/farm-pic4.jpg";
-import farmCrops from "@/assets/img/okra1.jpg";
-import farmIrrigation from "@/assets/img/onion.jpg";
-import farmPic9 from "@/assets/img/farm-pic2.jpg";
-import farmPic1 from "@/assets/img/pepper-farm.jpg";
-import farmPic6 from "@/assets/img/catfish1.png";
+import farmPic from "@/assets/img/farm-crops.webp";
+import farmCrops from "@/assets/img/okra1.webp";
+import farmIrrigation from "@/assets/img/onion.webp";
+import farmPic9 from "@/assets/img/farm-pic2.webp";
+import farmPic1 from "@/assets/img/pepper-farm.webp";
+import farmPic6 from "@/assets/img/catfish1.webp";
 import farmPic10 from "@/assets/img/hot-pepper.webp";
-import farmPic7 from "@/assets/img/tilapia1.avif";
+import farmPic7 from "@/assets/img/tilapia_fish_new.webp";
 import farmPic3 from "@/assets/img/yam1.webp";
 import ScrollDownPage from "../components/ScrollDownPage.vue";
 

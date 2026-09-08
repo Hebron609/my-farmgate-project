@@ -18,6 +18,7 @@ module.exports = {
         },
         brand: {
           green: "#129C48",
+          "green-light": "#e6f5ec",
         },
         secondary: {
           "lively-green": "#94C93D",

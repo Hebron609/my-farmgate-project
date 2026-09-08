@@ -49,10 +49,10 @@ const years = [2010, 2014, 2020, 2026];
 const activeYear = ref(2010);
 
 
-import farmPic2 from "@/assets/img/farm-pic2.jpg"
-import farmPic6 from "@/assets/img/farm-pic6.jpg"
-import farmPic3 from "@/assets/img/farm-pic3.jpg"
-import farmPic1 from "@/assets/img/farm-pic1.jpg"
+import farmPic2 from "@/assets/img/farm-pic2.webp"
+import farmPic6 from "@/assets/img/farm-pic6.webp"
+import farmPic3 from "@/assets/img/farm-pic3.webp"
+import farmPic1 from "@/assets/img/farm-pic1.webp"
 
 const content = {
   2010: {

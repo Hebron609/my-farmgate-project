@@ -718,6 +718,17 @@ onMounted(() => {
   const { init: initHighlight } = useHighlightOnLoad();
   initHighlight();
 
+  if (window.location.hash) {
+    setTimeout(() => {
+      const el = document.querySelector(window.location.hash);
+      if (el) {
+        const HEADER_OFFSET = 90;
+        const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 450);
+  }
+
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", {

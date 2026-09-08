@@ -6,17 +6,27 @@
 
     <section class="relative w-full h-screen overflow-hidden bg-black">
       <div
-        class="absolute inset-0 bg-[url('/images/our-edge2.jpg')] bg-cover bg-center bg-no-repeat opacity-55"
+        class="absolute inset-0 bg-[url('/images/our-edge2.webp')] bg-cover bg-center bg-no-repeat opacity-55"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/30 to-black/80"
       ></div>
 
       <div
+        class="absolute w-32 h-32 border rounded-full top-20 left-10 border-green-400/50 animate-pulse"
+      ></div>
+      <div
+        class="absolute w-16 h-16 border rounded-full top-40 right-20 border-green-400/70 animate-ping"
+      ></div>
+      <div
+        class="absolute w-24 h-24 border rounded-full bottom-32 left-1/4 border-green-400/60 animate-pulse"
+      ></div>
+
+      <div
         class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
       >
         <div class="reveal-slide-up">
-          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00]" />
+          <LeafIcon class="mx-auto mb-6 h-16 w-16 text-[#F2CB00] animate-pulse" />
           <h1
             class="font-['Livvic'] text-6xl font-bold leading-tight text-white md:text-8xl lg:text-9xl tracking-tight"
           >
@@ -318,7 +328,7 @@ import farmPic8 from "@/assets/img/enduring-partnership1.webp";
 import farmPic9 from "@/assets/img/farmer-img1.avif";
 import farmPic3 from "@/assets/img/future-innovations1.webp";
 import farmPic4 from "@/assets/img/farm-pic4.webp";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 const edgeHoverSide = ref(null);
 
@@ -426,7 +436,7 @@ const galleryItems = ref([
 
 const navigateToVideo2 = () => {
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 
 const { init: initScrollReveal } = useScrollReveal({

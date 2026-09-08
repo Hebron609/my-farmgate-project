@@ -52,7 +52,7 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <div v-if="videoVariant !== 2" class="relative flex items-center">
+            <div v-if="videoVariant !== 2 && !isAuthHeader" class="relative flex items-center">
               <button
                 @click="toggleSearch"
                 class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black group"
@@ -64,8 +64,34 @@
               </button>
             </div>
 
+            <!-- Mobile Auth / Dashboard Button on Service Model page -->
+            <div v-else-if="isAuthHeader" class="relative flex items-center">
+              <a
+                v-if="!isUserAuthenticated"
+                href="/signup"
+                class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer shadow-sm"
+              >
+                <span class="flex items-center gap-1.5 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-white" />
+                  <span class="text-xs font-semibold leading-none text-white whitespace-nowrap">Get Started</span>
+                </span>
+                <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-1.5 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
+                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-black" />
+                  <span class="text-xs font-semibold leading-none whitespace-nowrap">Get Started</span>
+                </span>
+              </a>
+              <a
+                v-else
+                href="/dashboard"
+                class="flex px-3 py-1.5 backdrop-blur-md bg-[#129C48] text-white border border-[#F2CB00]/40 font-bold rounded-full text-xs items-center gap-1.5 shadow-sm"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-[#F2CB00] animate-pulse"></span>
+                <span>Dashboard</span>
+              </a>
+            </div>
+
             <a
-              v-if="videoVariant === 2"
+              v-if="videoVariant === 2 && !isAuthHeader"
               href="/marketplace"
               class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
@@ -89,7 +115,8 @@
             </a>
 
             <button
-              @click="toggleMenu"
+              type="button"
+              @click.prevent="toggleMenu"
               class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
             >
               <div :class="['hamburger', { open: isMenuOpen }]">
@@ -249,8 +276,8 @@
           />
         </a>
 
-        <div class="items-start hidden gap-6 sm:flex">
-          <div class="relative flex items-center">
+        <div class="items-center hidden gap-3 sm:flex">
+          <div v-if="!isAuthHeader" class="relative flex items-center">
             <button
               @click="toggleSearch"
               class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black group"
@@ -299,10 +326,19 @@
               >
                 <!-- Keyboard hint bar -->
                 <div
-                  v-if="hasResults"
-                  class="flex items-center justify-between px-4 py-1.5 border-b border-white/10 bg-black/20"
+                  v-if="!searchQuery"
+                  class="flex items-center justify-between px-4 py-2 text-xs border-b bg-white/10 border-white/10 text-white/60"
                 >
-                  <span class="text-[9px] text-white/30"
+                  <span>Quick search</span>
+                  <span class="px-1.5 py-0.5 rounded bg-white/10 text-[10px]"
+                    >ESC to close</span
+                  >
+                </div>
+                <div
+                  v-else
+                  class="flex items-center justify-between px-4 py-2 text-xs border-b bg-white/10 border-white/10 text-white/60"
+                >
+                  <span
                     >{{ searchResults.length }} result{{
                       searchResults.length !== 1 ? "s" : ""
                     }}</span
@@ -329,36 +365,34 @@
                     <div
                       v-for="result in group.items"
                       :key="result.id"
-                      @click="onSelectResult(result)"
-                      class="px-4 py-2.5 text-white transition-all duration-150 border-b cursor-pointer border-white/5 group"
+                      @click="selectResult(result)"
+                      class="flex items-center justify-between px-4 py-3 transition-colors border-b cursor-pointer border-white/5 last:border-0"
                       :class="
                         searchResults.indexOf(result) === activeResultIndex
                           ? 'bg-[#F2CB00] text-black'
-                          : 'hover:bg-[#F2CB00] hover:text-black'
+                          : 'hover:bg-white/15 text-white'
                       "
                     >
-                      <div
-                        class="flex items-center justify-between min-w-0 gap-3"
-                      >
+                      <div class="flex items-center justify-between w-full gap-3">
                         <div class="flex-1 min-w-0">
                           <p
-                            class="text-sm font-semibold leading-tight truncate"
+                            class="text-xs font-bold truncate"
                             :class="
                               searchResults.indexOf(result) ===
                               activeResultIndex
                                 ? 'text-black'
-                                : 'text-white'
+                                : 'text-white group-hover:text-black'
                             "
                           >
                             {{ result.title }}
                           </p>
                           <p
-                            class="text-xs mt-0.5 truncate"
+                            class="text-[10px] mt-0.5 truncate opacity-70"
                             :class="
                               searchResults.indexOf(result) ===
                               activeResultIndex
                                 ? 'text-black/60'
-                                : 'text-white/50 group-hover:text-black/60'
+                                : 'text-white/50'
                             "
                           >
                             {{ result.description }}
@@ -398,6 +432,38 @@
             </transition>
           </div>
 
+          <!-- Desktop Unified Portal Button (when on Service Model / Auth header) -->
+          <div v-else class="relative flex items-center gap-3">
+            <a
+              v-if="!isUserAuthenticated"
+              href="/signup"
+              class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
+            >
+              <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+                <font-awesome-icon :icon="['fas', 'user']" class="text-white" />
+                <span class="text-sm font-semibold leading-none text-white whitespace-nowrap">Get Started</span>
+              </span>
+              <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
+                <font-awesome-icon :icon="['fas', 'user']" class="text-black" />
+                <span class="text-sm font-semibold leading-none whitespace-nowrap">Get Started</span>
+              </span>
+            </a>
+
+            <a
+              v-else
+              href="/dashboard"
+              class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[#129C48]/85 border border-[#F2CB00]/40 rounded-4xl items-center cursor-pointer shadow-md"
+            >
+              <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+                <span class="w-2 h-2 rounded-full bg-[#F2CB00] animate-pulse"></span>
+                <span class="text-sm font-semibold leading-none text-white">My Dashboard</span>
+              </span>
+              <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
+                <span class="text-sm font-semibold leading-none">My Dashboard</span>
+              </span>
+            </a>
+          </div>
+
           <a
             href="/marketplace"
             class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
@@ -422,7 +488,8 @@
           </a>
 
           <button
-            @click="toggleMenu"
+            type="button"
+            @click.prevent="toggleMenu"
             class="relative w-8 h-8 flex items-center justify-center z-[100] cursor-pointer"
           >
             <div :class="['hamburger', { open: isMenuOpen }]">
@@ -438,18 +505,18 @@
     <transition name="fade">
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 w-full h-[100dvh] z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed"
+        class="fixed inset-0 w-full h-[100dvh] z-50 text-white bg-[#020f28] bg-cover bg-center bg-fixed overflow-y-auto"
         :style="{
           backgroundImage: `url(${patternBg})`,
           backgroundPosition: 'left center',
         }"
       >
         <div
-          class="absolute inset-0 pointer-events-none header-overlay-bg"
+          class="fixed inset-0 pointer-events-none header-overlay-bg"
         ></div>
 
         <div
-          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:py-16 xl:p-28 max-w-[1820px] mx-auto h-full space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 overflow-y-auto lg:overflow-y-visible xl:overflow-y-visible menu-container-main"
+          class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:pt-8 lg:pb-16 xl:px-28 xl:pt-16 xl:pb-28 max-w-[1820px] mx-auto space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 lg:pb-[350px] xl:pb-[350px] menu-container-main"
         >
           <div
             class="relative flex flex-col items-start mb-12 max-[360px]:mb-6 h-auto lg:w-[260px] xl:w-[260px] z-10 lg:absolute lg:left-12 lg:bottom-28 lg:mb-0 xl:absolute xl:left-12 xl:bottom-28 xl:mb-0"
@@ -570,6 +637,19 @@
                   ]"
                 >
                   Our Edge
+                </h3>
+              </a>
+            </div>
+
+            <div class="mt-0">
+              <a href="/our-offerings">
+                <h3
+                  :class="[
+                    'flex items-center text-2xl max-[360px]:text-xl font-semibold text-[#F2CB00] cursor-pointer lg:whitespace-nowrap',
+                    'mb-0',
+                  ]"
+                >
+                  Our Offerings
                 </h3>
               </a>
             </div>
@@ -972,8 +1052,9 @@
           </div>
 
           <button
-            @click="toggleMenu"
-            class="absolute text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
+            type="button"
+            @click.prevent="toggleMenu"
+            class="fixed z-50 text-3xl max-[360px]:text-2xl cursor-pointer top-6 right-6 max-[360px]:top-4 max-[360px]:right-4 lg:text-5xl hover:text-[#F2CB00]"
           >
             &times;
           </button>
@@ -1018,16 +1099,41 @@
         </div>
       </div>
     </transition>
+
+    <!-- Sleek Auth Toast Feedback -->
+    <transition name="fade">
+      <div
+        v-if="authToastMessage"
+        class="fixed z-[999999] top-24 right-6 max-w-sm px-5 py-3.5 bg-[#122417]/95 text-white rounded-2xl shadow-2xl backdrop-blur-xl border border-[#129C48]/60 flex items-center gap-3.5 transform transition-all duration-300"
+      >
+        <div class="w-2.5 h-2.5 rounded-full bg-[#F2CB00] animate-pulse shrink-0"></div>
+        <p class="text-xs font-medium leading-snug text-white/90">
+          <strong class="text-[#F2CB00] font-semibold block mb-0.5">Authentication Ready</strong>
+          {{ authToastMessage }}
+        </p>
+        <button @click="authToastMessage = ''" class="ml-auto text-white/50 hover:text-white text-xs cursor-pointer">✕</button>
+      </div>
+    </transition>
+
+    <!-- Global Authentication Modal -->
+    <AuthModal
+      :is-open="isAuthModalOpen"
+      :initial-view="authModalView"
+      @close="isAuthModalOpen = false"
+      @login-success="onAuthSuccess"
+      @register-success="onAuthSuccess"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from "vue";
 import LeafIcon from "./icons/LeafIcon.vue";
+import AuthModal from "./AuthModal.vue";
 import { useGlobalSearch } from "@/composables/useGlobalSearch";
 import patternBg from "@/assets/img/footer-bg.webp";
-import logoWhite1 from "@/assets/img/fg logo-white1.png";
-import logoWhite2 from "@/assets/img/fg logo-white2.png";
+import logoWhite1 from "@/assets/img/fg logo-white1.webp";
+import logoWhite2 from "@/assets/img/fg logo-white2.webp";
 
 const props = defineProps({
   showMobileLogo: {
@@ -1038,11 +1144,67 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  forceScrolled: {
+    type: Boolean,
+    default: false,
+  },
+  showAuth: {
+    type: Boolean,
+    default: false,
+  },
 });
 
+const emit = defineEmits(["auth-click"]);
+
+/* Authentication Header State & Handlers */
+const isAuthHeader = computed(() => {
+  if (props.showAuth) return true;
+  if (typeof window === "undefined") return false;
+  const path = window.location.pathname.toLowerCase();
+  return (
+    path.includes("service-model") ||
+    path.includes("opportunity-detail") ||
+    path.includes("login") ||
+    path.includes("signup") ||
+    path.includes("dashboard") ||
+    path.includes("invest")
+  );
+});
+
+const authToastMessage = ref("");
+let authToastTimeout = null;
+
+const showAuthToast = (message) => {
+  authToastMessage.value = message;
+  if (authToastTimeout) clearTimeout(authToastTimeout);
+  authToastTimeout = setTimeout(() => {
+    authToastMessage.value = "";
+  }, 4500);
+};
+
+const isAuthModalOpen = ref(false);
+const authModalView = ref("login");
+
+const handleAuthClick = (type) => {
+  emit("auth-click", type);
+  authModalView.value = type === "login" ? "login" : "signup";
+  isAuthModalOpen.value = true;
+};
+
+const onAuthSuccess = (data) => {
+  if (data?.user?.role === "ADMIN") {
+    showAuthToast(`Welcome Admin ${data?.user?.first_name || ""}! Redirecting to Admin Dashboard...`);
+    setTimeout(() => { if (typeof window !== "undefined") window.location.href = "/admin"; }, 1500);
+  } else {
+    showAuthToast(`Welcome ${data?.user?.first_name || "Investor"}! Accessing your portfolio dashboard...`);
+    setTimeout(() => { if (typeof window !== "undefined") window.location.href = "/dashboard"; }, 1500);
+  }
+};
+
 /* Scroll */
-const isScrolled = ref(false);
-const handleScroll = () => (isScrolled.value = window.scrollY > 20);
+const _isScrolled = ref(false);
+const handleScroll = () => (_isScrolled.value = window.scrollY > 20);
+const isScrolled = computed(() => props.forceScrolled || _isScrolled.value);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   mountShortcut();
@@ -1156,10 +1318,18 @@ const TYPE_BADGE = {
 
 const getTypeBadge = (type) => TYPE_BADGE[type] ?? "bg-white/15 text-white/60";
 
+const isUserAuthenticated = ref(false);
+
+onMounted(() => {
+  if (typeof localStorage !== "undefined") {
+    isUserAuthenticated.value = localStorage.getItem("isLoggedIn") === "true";
+  }
+});
+
 const navigateToVideo2 = () => {
   clearSearch();
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 </script>
 

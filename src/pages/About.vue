@@ -194,8 +194,8 @@ onMounted(() => {
 });
 
 // Image Imports
-import aboutUsBanner from "@/assets/img/about-us-banner.jpg";
-import farmPic9 from "@/assets/img/farm-pic9.jpg";
+import aboutUsBanner from "@/assets/img/about-us-banner.webp";
+import farmPic9 from "@/assets/img/farm-pic9.webp";
 </script>
 
 <style scoped>

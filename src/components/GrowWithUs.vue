@@ -57,6 +57,6 @@
 </template>
 
 <script setup>
-import farmPic9 from "@/assets/img/farm-pic7.jpg";
+import farmPic9 from "@/assets/img/farm-pic7.webp";
 import LeafIcon from "@/components/icons/LeafIcon.vue";
 </script>

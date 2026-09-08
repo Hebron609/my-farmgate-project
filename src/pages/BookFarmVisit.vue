@@ -13,7 +13,7 @@
         muted
         loop
         playsinline
-        poster="/images/hero-fallback.jpg"
+        poster="/images/hero-fallback.webp"
       >
         <source
           src="/videos/farm-hero-video1.m3u8"
@@ -26,7 +26,7 @@
       </video>
       <img
         v-else
-        src="/images/hero-fallback.jpg"
+        src="/images/hero-fallback.webp"
         class="absolute inset-0 z-0 object-cover w-full h-full opacity-60"
         alt="Farm background"
       />

@@ -12,7 +12,7 @@
     <div class="mx-auto text-center max-w-none">
       <!-- Illustration Placeholder -->
       <img
-        src="/images/under-construction-placeholder1.png"
+        src="/images/under-construction-placeholder1.webp"
         alt="A friendly vector illustration of a sprouting plant with gears and farming tools around it, symbolizing growth and construction in agriculture."
         class="object-contain w-[150vw] h-auto md:w-[980px] md:h-auto md:scale-100 scale-150"
       />

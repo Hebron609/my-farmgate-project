@@ -4,6 +4,7 @@ import App from "./App.vue";
 import Home from "./pages/Home.vue";
 import BookFarmVisit from "./pages/BookFarmVisit.vue";
 import OurEdge from "./pages/OurEdge.vue";
+import OurOfferings from "./pages/OurOfferings.vue";
 import { setupApp } from "./shared-setup";
 import HoneybadgerVue from "@honeybadger-io/vue";
 
@@ -16,6 +17,8 @@ const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/book-farm-visit", name: "BookFarmVisit", component: BookFarmVisit },
   { path: "/our-edge", name: "OurEdge", component: OurEdge },
+  { path: "/our-offerings", name: "OurOfferings", component: OurOfferings },
+  { path: "/product-offerings", name: "OurOfferingsAlt", component: OurOfferings },
 ];
 
 const router = createRouter({

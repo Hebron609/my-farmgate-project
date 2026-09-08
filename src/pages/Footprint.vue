@@ -251,7 +251,7 @@ const animateValue = (index, target) => {
 
 const navigateToVideo2 = () => {
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 
 onMounted(() => {

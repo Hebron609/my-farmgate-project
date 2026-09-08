@@ -294,6 +294,8 @@
         <div
           class="relative bg-white rounded-[1.5rem] shadow-2xl max-w-sm sm:max-w-md md:max-w-5xl w-full flex flex-col md:flex-row overflow-hidden max-h-[90vh]"
         >
+          <!-- Top Green Accent Bar -->
+          <div class="absolute top-0 left-0 right-0 h-2.5 bg-[#129C48] z-30 pointer-events-none"></div>
           <button
             @click="closeModal"
             class="absolute z-20 px-3 py-1 text-[10px] md:text-sm font-bold uppercase border-2 rounded-full top-4 right-4 md:top-6 md:right-6 border-stone-300 text-stone-500 bg-white/80 md:bg-transparent hover:bg-stone-100"
@@ -376,8 +378,8 @@ import LeafIcon from "../components/icons/LeafIcon.vue";
 import { TEAM_DATA } from "./teamData.js";
 import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
-import heroImage from "../assets/img/group-farm-image.jpg";
-import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.png";
+import heroImage from "../assets/img/group-farm-image.webp";
+import farmGateLogo from "@/assets/img/FARMGATE PATTERN _GREEN.webp";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,

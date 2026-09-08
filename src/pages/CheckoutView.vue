@@ -498,15 +498,15 @@ const address = ref({
 
 // Payment methods
 const mobileMoney = [
-  { id: "mtn", name: "MTN Mobile Money", image: "/images/Mtn-momo.png" },
-  { id: "telecel", name: "Telecel cash", image: "/images/Telecel-cash.png" },
-  { id: "airteltigo", name: "Airtel tigo", image: "/images/Airtel-cash.png" },
+  { id: "mtn", name: "MTN Mobile Money", image: "/images/Mtn-momo.webp" },
+  { id: "telecel", name: "Telecel cash", image: "/images/Telecel-cash.webp" },
+  { id: "airteltigo", name: "Airtel tigo", image: "/images/Airtel-cash.webp" },
 ];
 
 const cardMethods = [
-  { id: "visa", name: "Visa", image: "/images/Visa.png" },
-  { id: "amex", name: "Amex", image: "/images/Amex-Vector.png" },
-  { id: "mastercard", name: "Mastercard", image: "/images/Mastercard.png" },
+  { id: "visa", name: "Visa", image: "/images/Visa.webp" },
+  { id: "amex", name: "Amex", image: "/images/Amex-Vector.webp" },
+  { id: "mastercard", name: "Mastercard", image: "/images/Mastercard.webp" },
 ];
 
 // Computed properties

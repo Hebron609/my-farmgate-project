@@ -5,7 +5,7 @@
       <Header :videoVariant="2" />
 
       <img
-        src="/images/Marketplace-banner .png"
+        src="/images/Marketplace-banner .webp"
         class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.59] z-0"
         alt=""
       />

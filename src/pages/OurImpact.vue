@@ -92,51 +92,57 @@
             health.
           </p>
 
-          <button
-            class="relative inline-flex items-center px-4 py-4 mt-0 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit md:mt-0 reveal-slide-right"
-          >
-            <span
-              class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+          <div class="relative group/pulse w-fit mt-0 md:mt-0 reveal-slide-right">
+            <div
+              class="absolute inset-0 z-0 rounded-[12px] pointer-events-none bg-green-600 group-hover/pulse:bg-[#FCE34D] transition-colors duration-300 animate-message-pulse"
+            ></div>
+            <a
+              href="/contact#fg-contact-form"
+              class="relative z-10 inline-flex items-center px-4 py-4 overflow-hidden bg-green-700 cursor-pointer md:px-4 group rounded-[12px] w-fit"
             >
-              <span class="text-sm font-bold tracking-widest text-white"
-                >Send us a message</span
+              <span
+                class="flex items-center gap-3 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
               >
-              <svg
-                class="w-4 h-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </span>
+                <span class="text-sm font-bold tracking-widest text-white"
+                  >Send us a message</span
+                >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </span>
 
-            <span
-              class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
-            >
-              <span class="text-sm font-bold tracking-widest"
-                >Send us a message</span
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-3 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
               >
-              <svg
-                class="w-4 h-4 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </span>
-          </button>
+                <span class="text-sm font-bold tracking-widest"
+                  >Send us a message</span
+                >
+                <svg
+                  class="w-4 h-4 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
 
         <div
@@ -470,11 +476,11 @@ import Header from "@/components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import GrowWithUs from "../components/GrowWithUs.vue";
-import ImpactImg from "@/assets/img/Women-farm.jpg";
-import farmPic1 from "@/assets/img/farm-pic1.jpg";
-import farmPic2 from "@/assets/img/farm-pic2.jpg";
-import farmPic3 from "@/assets/img/farm-pic3.jpg";
-import farmPic4 from "@/assets/img/farm-pic4.jpg";
+import ImpactImg from "@/assets/img/Women-farm.webp";
+import farmPic1 from "@/assets/img/farm-pic1.webp";
+import farmPic2 from "@/assets/img/farm-pic2.webp";
+import farmPic3 from "@/assets/img/farm-pic3.webp";
+import farmPic4 from "@/assets/img/farm-pic4.webp";
 
 import africanFarmVideo from "@/assets/video/African_Farm_Video_Generation.mp4";
 import climateAnimationData from "@/assets/animations/climate-lottie.json";
@@ -495,7 +501,7 @@ const { init: initScrollReveal } = useScrollReveal({
 
 const navigateToVideo2 = () => {
   sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = "/";
+  window.location.href = "/?v=2";
 };
 
 // Initialize Lottie on mount
@@ -928,7 +934,7 @@ const sdgItems = [
     ],
     impact: 78,
     year: "2025",
-    image: "/images/E-WEB-Goal-01.png",
+    image: "/images/E-WEB-Goal-01.webp",
   },
   {
     number: 2,
@@ -953,7 +959,7 @@ const sdgItems = [
     ],
     impact: 82,
     year: "2025",
-    image: "/images/E-WEB-Goal-02.png",
+    image: "/images/E-WEB-Goal-02.webp",
   },
   {
     number: 5,
@@ -978,7 +984,7 @@ const sdgItems = [
     ],
     impact: 75,
     year: "2025",
-    image: "/images/E-WEB-Goal-05.png",
+    image: "/images/E-WEB-Goal-05.webp",
   },
   {
     number: 8,
@@ -1003,7 +1009,7 @@ const sdgItems = [
     ],
     impact: 80,
     year: "2025",
-    image: "/images/E-WEB-Goal-08.png",
+    image: "/images/E-WEB-Goal-08.webp",
   },
   {
     number: 9,
@@ -1028,7 +1034,7 @@ const sdgItems = [
     ],
     impact: 76,
     year: "2025",
-    image: "/images/E-WEB-Goal-09.png",
+    image: "/images/E-WEB-Goal-09.webp",
   },
   {
     number: 13,
@@ -1053,7 +1059,7 @@ const sdgItems = [
     ],
     impact: 88,
     year: "2025",
-    image: "/images/E-WEB-Goal-13.png",
+    image: "/images/E-WEB-Goal-13.webp",
   },
   {
     number: 17,
@@ -1078,7 +1084,7 @@ const sdgItems = [
     ],
     impact: 84,
     year: "2025",
-    image: "/images/E-WEB-Goal-17.png",
+    image: "/images/E-WEB-Goal-17.webp",
   },
 ];
 </script>
@@ -1087,5 +1093,20 @@ const sdgItems = [
 /* Ensure smooth font rendering */
 .font-livvic {
   font-family: "Livvic", sans-serif;
+}
+
+@keyframes pulseAnimateMessage {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.08, 1.25);
+    opacity: 0;
+  }
+}
+
+.animate-message-pulse {
+  animation: pulseAnimateMessage 1.2s ease-out infinite;
 }
 </style>
