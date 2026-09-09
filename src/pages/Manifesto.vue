@@ -99,7 +99,9 @@
           </div>
 
           <div class="md:max-w-xl reveal-slide-left">
-            <div class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"></div>
+            <div
+              class="h-1 w-24 bg-[#F2CB00] mb-6 md:mb-8 mx-auto md:mx-0"
+            ></div>
             <p
               class="text-lg font-light leading-relaxed text-gray-600 max-w-[90%]"
             >
@@ -192,19 +194,21 @@
         @click.self="closeExpand"
       >
         <div
-          class="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-7xl h-auto max-h-[95vh] flex flex-col md:flex-row overflow-hidden modal-content"
+          class="relative flex w-full max-w-7xl flex-col overflow-hidden rounded-[1.5rem] bg-white shadow-2xl max-h-[88dvh] md:max-h-[95vh] md:flex-row md:rounded-[2.5rem] modal-content"
           @click.stop
         >
           <!-- Top Green Accent Bar -->
-          <div class="absolute top-0 left-0 right-0 h-2.5 bg-[#129C48] z-30 pointer-events-none"></div>
+          <div
+            class="absolute top-0 left-0 right-0 h-2.5 bg-[#129C48] z-30 pointer-events-none"
+          ></div>
           <button
             @click="closeExpand"
-            class="absolute z-20 px-4 py-2 text-xs font-bold tracking-widest text-white uppercase transition-colors border rounded-full border-white/20 top-6 right-6 bg-black/50 hover:bg-black backdrop-blur-md"
+            class="absolute right-4 top-4 z-20 rounded-full border border-white/20 bg-black/50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white backdrop-blur-md transition-colors hover:bg-black sm:right-6 sm:top-6 sm:px-4 sm:py-2 sm:text-xs"
           >
             Close
           </button>
 
-          <div class="relative w-full h-64 md:w-2/5 md:h-auto shrink-0">
+          <div class="relative h-36 w-full shrink-0 sm:h-44 md:h-auto md:w-2/5">
             <div
               class="absolute inset-0 bg-[#129C48]/10 mix-blend-overlay z-10 pointer-events-none"
             ></div>
@@ -216,26 +220,29 @@
           </div>
 
           <div
-            class="flex flex-col justify-center w-full p-8 overflow-y-auto bg-white md:w-3/5 md:p-14 md:overflow-y-visible"
+            class="flex min-h-0 w-full flex-col justify-start overflow-y-auto bg-white p-5 sm:p-6 md:w-3/5 md:justify-center md:overflow-y-visible md:p-14"
           >
             <div>
-              <div class="mb-4 inline-flex items-center gap-2 text-[#129C48]">
-                <LeafIcon class="w-5 h-5" />
-                <span class="text-sm font-bold tracking-wider uppercase"
+              <div
+                class="mb-3 inline-flex items-center gap-2 text-[#129C48] sm:mb-4"
+              >
+                <LeafIcon class="h-4 w-4 sm:h-5 sm:w-5" />
+                <span
+                  class="text-xs font-bold uppercase tracking-wider sm:text-sm"
                   >Principle {{ expandedIndex + 1 }}</span
                 >
               </div>
 
               <h3
-                class="font-['Livvic'] text-3xl md:text-5xl font-bold text-black mb-6 leading-tight"
+                class="mb-4 font-['Livvic'] text-2xl font-bold leading-tight text-black sm:text-3xl md:mb-6 md:text-5xl"
               >
                 {{ manifestoPoints[expandedIndex].title }}
               </h3>
 
-              <div class="h-1.5 w-24 bg-[#F2CB00] mb-8"></div>
+              <div class="mb-5 h-1.5 w-16 bg-[#F2CB00] sm:mb-8 sm:w-24"></div>
 
               <div
-                class="space-y-4 text-lg font-light leading-relaxed text-gray-600 md:text-xl"
+                class="space-y-3 text-base font-light leading-relaxed text-gray-600 sm:text-lg md:space-y-4 md:text-xl"
                 v-html="manifestoPoints[expandedIndex].description"
               ></div>
             </div>
