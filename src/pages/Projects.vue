@@ -717,7 +717,7 @@ import LeafIcon from "../components/icons/LeafIcon.vue";
 
 import farmPic from "@/assets/img/farm-crops.webp";
 import farmCrops from "@/assets/img/okra1.webp";
-import farmIrrigation from "@/assets/img/onion.webp";
+import farmIrrigation from "@/assets/img/onion.jpg";
 import farmPic9 from "@/assets/img/farm-pic2.webp";
 import farmPic1 from "@/assets/img/pepper-farm.webp";
 import farmPic6 from "@/assets/img/catfish1.webp";
