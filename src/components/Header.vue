@@ -52,7 +52,10 @@
           </div>
 
           <div class="flex items-center gap-3">
-            <div v-if="videoVariant !== 2 && !isAuthHeader" class="relative flex items-center">
+            <div
+              v-if="videoVariant !== 2 && !isAuthHeader"
+              class="relative flex items-center"
+            >
               <button
                 @click="toggleSearch"
                 class="flex items-center justify-center p-2 transition-all rounded-full cursor-pointer bg-white/25 backdrop-blur-md hover:bg-[#F2CB00] hover:text-black group"
@@ -71,13 +74,29 @@
                 href="/signup"
                 class="flex group relative overflow-hidden px-3 py-1.5 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer shadow-sm"
               >
-                <span class="flex items-center gap-1.5 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
-                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-white" />
-                  <span class="text-xs font-semibold leading-none text-white whitespace-nowrap">Get Started</span>
+                <span
+                  class="flex items-center gap-1.5 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+                >
+                  <font-awesome-icon
+                    :icon="['fas', 'user']"
+                    class="w-3 h-3 text-white"
+                  />
+                  <span
+                    class="text-xs font-semibold leading-none text-white whitespace-nowrap"
+                    >Get Started</span
+                  >
                 </span>
-                <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-1.5 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
-                  <font-awesome-icon :icon="['fas', 'user']" class="w-3 h-3 text-black" />
-                  <span class="text-xs font-semibold leading-none whitespace-nowrap">Get Started</span>
+                <span
+                  class="absolute inset-0 flex items-center justify-center w-full h-full gap-1.5 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
+                >
+                  <font-awesome-icon
+                    :icon="['fas', 'user']"
+                    class="w-3 h-3 text-black"
+                  />
+                  <span
+                    class="text-xs font-semibold leading-none whitespace-nowrap"
+                    >Get Started</span
+                  >
                 </span>
               </a>
               <a
@@ -85,7 +104,9 @@
                 href="/dashboard"
                 class="flex px-3 py-1.5 backdrop-blur-md bg-[#129C48] text-white border border-[#F2CB00]/40 font-bold rounded-full text-xs items-center gap-1.5 shadow-sm"
               >
-                <span class="w-1.5 h-1.5 rounded-full bg-[#F2CB00] animate-pulse"></span>
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-[#F2CB00] animate-pulse"
+                ></span>
                 <span>Dashboard</span>
               </a>
             </div>
@@ -176,7 +197,10 @@
                   <div
                     class="flex items-center gap-1.5 px-4 py-2 bg-black/10 sticky top-0 z-10 border-b border-white/10"
                   >
-                    <font-awesome-icon :icon="group.icon" class="text-[10px] text-white/50" />
+                    <font-awesome-icon
+                      :icon="group.icon"
+                      class="text-[10px] text-white/50"
+                    />
                     <span
                       class="text-[9px] font-bold uppercase tracking-widest text-white/40"
                       >{{ group.label }}</span
@@ -355,7 +379,10 @@
                     <div
                       class="flex items-center gap-1.5 px-4 py-1.5 bg-black/10 sticky top-0 z-10 border-b border-white/10"
                     >
-                      <font-awesome-icon :icon="group.icon" class="text-[10px] text-white/50" />
+                      <font-awesome-icon
+                        :icon="group.icon"
+                        class="text-[10px] text-white/50"
+                      />
                       <span
                         class="text-[9px] font-bold uppercase tracking-widest text-white/40"
                         >{{ group.label }}</span
@@ -373,7 +400,9 @@
                           : 'hover:bg-white/15 text-white'
                       "
                     >
-                      <div class="flex items-center justify-between w-full gap-3">
+                      <div
+                        class="flex items-center justify-between w-full gap-3"
+                      >
                         <div class="flex-1 min-w-0">
                           <p
                             class="text-xs font-bold truncate"
@@ -439,13 +468,23 @@
               href="/signup"
               class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[rgba(253,250,250,0.26)] rounded-4xl items-center cursor-pointer"
             >
-              <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
+              <span
+                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
                 <font-awesome-icon :icon="['fas', 'user']" class="text-white" />
-                <span class="text-sm font-semibold leading-none text-white whitespace-nowrap">Get Started</span>
+                <span
+                  class="text-sm font-semibold leading-none text-white whitespace-nowrap"
+                  >Get Started</span
+                >
               </span>
-              <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
+              >
                 <font-awesome-icon :icon="['fas', 'user']" class="text-black" />
-                <span class="text-sm font-semibold leading-none whitespace-nowrap">Get Started</span>
+                <span
+                  class="text-sm font-semibold leading-none whitespace-nowrap"
+                  >Get Started</span
+                >
               </span>
             </a>
 
@@ -454,12 +493,22 @@
               href="/dashboard"
               class="flex group relative overflow-hidden px-4 py-2 backdrop-blur-md bg-[#129C48]/85 border border-[#F2CB00]/40 rounded-4xl items-center cursor-pointer shadow-md"
             >
-              <span class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full">
-                <span class="w-2 h-2 rounded-full bg-[#F2CB00] animate-pulse"></span>
-                <span class="text-sm font-semibold leading-none text-white">My Dashboard</span>
+              <span
+                class="flex items-center gap-2 transition-transform duration-300 transform translate-y-0 group-hover:-translate-y-full"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-[#F2CB00] animate-pulse"
+                ></span>
+                <span class="text-sm font-semibold leading-none text-white"
+                  >My Dashboard</span
+                >
               </span>
-              <span class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0">
-                <span class="text-sm font-semibold leading-none">My Dashboard</span>
+              <span
+                class="absolute inset-0 flex items-center justify-center w-full h-full gap-2 text-black transition-transform duration-300 transform translate-y-full bg-[#F2CB00] group-hover:translate-y-0"
+              >
+                <span class="text-sm font-semibold leading-none"
+                  >My Dashboard</span
+                >
               </span>
             </a>
           </div>
@@ -511,9 +560,7 @@
           backgroundPosition: 'left center',
         }"
       >
-        <div
-          class="fixed inset-0 pointer-events-none header-overlay-bg"
-        ></div>
+        <div class="fixed inset-0 pointer-events-none header-overlay-bg"></div>
 
         <div
           class="relative min-h-[100dvh] flex flex-col lg:flex-row lg:justify-between xl:flex-row xl:justify-between p-8 max-[360px]:p-4 md:p-8 lg:px-10 lg:pt-8 lg:pb-16 xl:px-28 xl:pt-16 xl:pb-28 max-w-[1820px] mx-auto space-y-0 xl:space-y-0 lg:gap-10 xl:gap-10 pb-32 max-[360px]:pb-28 lg:pb-[350px] xl:pb-[350px] menu-container-main"
@@ -1106,12 +1153,21 @@
         v-if="authToastMessage"
         class="fixed z-[999999] top-24 right-6 max-w-sm px-5 py-3.5 bg-[#122417]/95 text-white rounded-2xl shadow-2xl backdrop-blur-xl border border-[#129C48]/60 flex items-center gap-3.5 transform transition-all duration-300"
       >
-        <div class="w-2.5 h-2.5 rounded-full bg-[#F2CB00] animate-pulse shrink-0"></div>
+        <div
+          class="w-2.5 h-2.5 rounded-full bg-[#F2CB00] animate-pulse shrink-0"
+        ></div>
         <p class="text-xs font-medium leading-snug text-white/90">
-          <strong class="text-[#F2CB00] font-semibold block mb-0.5">Authentication Ready</strong>
+          <strong class="text-[#F2CB00] font-semibold block mb-0.5"
+            >Authentication Ready</strong
+          >
           {{ authToastMessage }}
         </p>
-        <button @click="authToastMessage = ''" class="ml-auto text-white/50 hover:text-white text-xs cursor-pointer">✕</button>
+        <button
+          @click="authToastMessage = ''"
+          class="ml-auto text-xs cursor-pointer text-white/50 hover:text-white"
+        >
+          ✕
+        </button>
       </div>
     </transition>
 
@@ -1193,11 +1249,19 @@ const handleAuthClick = (type) => {
 
 const onAuthSuccess = (data) => {
   if (data?.user?.role === "ADMIN") {
-    showAuthToast(`Welcome Admin ${data?.user?.first_name || ""}! Redirecting to Admin Dashboard...`);
-    setTimeout(() => { if (typeof window !== "undefined") window.location.href = "/admin"; }, 1500);
+    showAuthToast(
+      `Welcome Admin ${data?.user?.first_name || ""}! Redirecting to Admin Dashboard...`,
+    );
+    setTimeout(() => {
+      if (typeof window !== "undefined") window.location.href = "/admin";
+    }, 1500);
   } else {
-    showAuthToast(`Welcome ${data?.user?.first_name || "Investor"}! Accessing your portfolio dashboard...`);
-    setTimeout(() => { if (typeof window !== "undefined") window.location.href = "/dashboard"; }, 1500);
+    showAuthToast(
+      `Welcome ${data?.user?.first_name || "Investor"}! Accessing your portfolio dashboard...`,
+    );
+    setTimeout(() => {
+      if (typeof window !== "undefined") window.location.href = "/dashboard";
+    }, 1500);
   }
 };
 
@@ -1205,12 +1269,23 @@ const onAuthSuccess = (data) => {
 const _isScrolled = ref(false);
 const handleScroll = () => (_isScrolled.value = window.scrollY > 20);
 const isScrolled = computed(() => props.forceScrolled || _isScrolled.value);
+
+const resetTransientUiState = () => {
+  isMenuOpen.value = false;
+  document.body.style.overflow = "";
+  document.body.classList.remove("menu-open");
+  closeSearch();
+};
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("pagehide", resetTransientUiState);
   mountShortcut();
 });
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("pagehide", resetTransientUiState);
+  resetTransientUiState();
   unmountShortcut();
 });
 
