@@ -43,44 +43,39 @@
        
 
         <!-- Unified Search and Filter Bar -->
-        <div class="flex flex-col max-w-4xl mx-auto mb-12 overflow-hidden bg-white border border-gray-300 shadow-sm md:flex-row rounded-2xl md:rounded-full md:h-14">
+        <div class="flex flex-row items-center max-w-4xl mx-auto mb-12 overflow-hidden bg-white border border-gray-300 shadow-sm rounded-[2rem] h-14 md:h-14">
           <!-- Left Side (Search Input) -->
-          <div class="flex items-center flex-1 px-4 py-3 md:py-0">
-            <font-awesome-icon :icon="['fas', 'search']" class="w-4 h-4 mr-3 text-gray-400 shrink-0" />
+          <div class="flex items-center flex-1 px-4 h-full min-w-0">
+            <font-awesome-icon :icon="['fas', 'search']" class="w-4 h-4 mr-2 md:mr-3 text-gray-400 shrink-0" />
             <input
               type="text"
               v-model="searchQuery"
-              placeholder="All crops grown & animals raised"
-              class="flex-1 text-base text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0"
+              placeholder="Search crops & animals..."
+              class="flex-1 w-full min-w-0 text-sm md:text-base text-gray-800 placeholder-gray-400 bg-transparent border-none focus:outline-none focus:ring-0 truncate"
             />
           </div>
 
           <!-- The Divider -->
-          <div class="self-center hidden w-px h-8 bg-gray-300 md:block"></div>
+          <div class="w-px h-8 bg-gray-300 shrink-0"></div>
 
           <!-- Right Side (Category Dropdown) -->
-          <div class="relative flex items-center border-t border-gray-200 md:border-t-0 bg-gray-50 md:bg-transparent">
+          <div class="relative flex items-center h-full bg-black shrink-0">
             <select
               v-model="selectedCategory"
-              class="w-full h-full py-3 pl-6 text-base font-medium text-white bg-black border-none appearance-none cursor-pointer md:w-auto focus:outline-none focus:ring-0 pr-11 md:py-0"
+              class="h-full py-0 pl-3 md:pl-5 pr-8 md:pr-10 text-sm md:text-base font-medium text-white bg-transparent border-none appearance-none cursor-pointer focus:outline-none focus:ring-0"
             >
-              <option value="">Sort by Category</option>
+              <option value="">All Categories</option>
               <option value="Crops">Crops</option>
               <option value="Livestock">Livestock</option>
               <option value="Fishery">Fishery</option>
             </select>
             <svg
-              class="absolute w-4 h-4 text-white transition-colors -translate-y-1/2 pointer-events-none right-5 top-1/2"
+              class="absolute w-3 h-3 md:w-4 md:h-4 text-white transition-colors -translate-y-1/2 pointer-events-none right-3 md:right-4 top-1/2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M19 9l-7 7-7-7"
-              ></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
         </div>
@@ -117,8 +112,16 @@
 
             <!-- Card Body (Minimalist Product Name & Price) -->
             <div class="flex items-start justify-between px-4 py-4 bg-white">
-              <h3 class="font-['Livvic'] text-lg font-bold text-gray-800 tracking-tight">
-                {{ product.name }}
+              <h3 class="font-['Livvic'] text-lg font-bold text-gray-800 tracking-tight flex items-baseline flex-wrap gap-x-1.5">
+                <template v-if="product.name.includes('(')">
+                  <span>{{ product.name.split('(')[0].trim() }}</span>
+                  <span class="text-sm font-medium text-gray-500 tracking-normal font-montserrat">
+                    ({{ product.name.split('(')[1] }}
+                  </span>
+                </template>
+                <template v-else>
+                  {{ product.name }}
+                </template>
               </h3>
               
               <div class="flex flex-col items-end">
@@ -131,7 +134,6 @@
                     Pre-order
                   </button>
                 </div>
-                <p class="text-sm font-bold text-green-600 mt-1">{{ product.weight.replace('/', ' / ') }}</p>
               </div>
             </div>
           </article>
@@ -178,9 +180,6 @@
                 <h2 class="font-['Livvic'] text-xl font-bold text-gray-900">
                   {{ orderModal.product?.name }}
                 </h2>
-                <p class="mt-1 text-sm font-bold text-green-600">
-                  {{ orderModal.product?.weight.replace('/', ' / ') }}
-                </p>
                 <p class="mt-1 text-xs text-gray-500 font-mono">
                   Pre-order ticket: {{ orderModal.orderNumber }}
                 </p>
@@ -316,19 +315,26 @@ import livestockHeroImg from "../assets/img/livestock-banner.webp";
 import farmGatePattern from "../assets/img/FARMGATE PATTERN _GREEN.webp";
 
 // Import Product Images
-import okraImg from "../assets/img/pile-raw-fresh-okra-vegetables-transparent-background.webp";
+import okraImg from "../assets/img/okro-new.webp";
 import okra1Img from "../assets/img/ladyfinger-okra.webp";
 import onionImg from "../assets/img/onion.webp";
+import pineappleImg from "../assets/img/pineapple-new.webp";
+import sweetPotatoesImg from "../assets/img/sweet-potatoes.webp";
 import tomatoImg from "../assets/img/tomato.webp";
 import habaneroImg from "../assets/img/habanero-pepper-new.webp";
+import trueHabaneroImg from "../assets/img/true-habanero.webp";
 import chiliImg from "../assets/img/red-chili-pepper-isolated-white-background.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
-import pineappleImg from "../assets/img/pineapple.webp";
-import cassavaImg from "../assets/img/cassava.webp";
+import cassavaImg from "../assets/img/cassava-new.webp";
 import tilapiaImg from "../assets/img/tilapia.webp";
 import catfishImg from "../assets/img/catfish.webp";
 import smokableCatfishImg from "../assets/img/smokable catfish.webp";
 import pigImg from "../assets/img/pig.webp";
+import cabbageImg from "../assets/img/cabbage.webp";
+import carrotImg from "../assets/img/carrot-new.webp";
+import cucumberImg from "../assets/img/cucumber.webp";
+import lettuceImg from "../assets/img/lettuce.webp";
+import redLettuceImg from "../assets/img/red-lettuce.webp";
 
 // 1. Search & Filter State
 const searchQuery = ref("");
@@ -413,6 +419,72 @@ const proceedToOrder = () => {
 const products = ref([
   // Crop
   {
+    id: "cucumber",
+    name: "Cucumber",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Cucumis sativus",
+    category: "crop",
+    image: cucumberImg,
+    imageClass: "transform scale-75",
+    description: "Crisp and fresh cucumbers cultivated using sustainable farming practices, perfect for salads and culinary uses.",
+  },
+  {
+    id: "carrot",
+    name: "Carrot",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Daucus carota",
+    category: "crop",
+    image: carrotImg,
+    imageClass: "transform scale-110",
+    description: "Premium quality carrots grown in nutrient-rich soil, ensuring high vitamin content and excellent taste.",
+  },
+  {
+    id: "sweet-potatoes",
+    name: "Sweet Potatoes",
+    weight: "20kg/bag",
+    stock: 120,
+    botanicalName: "Ipomoea batatas",
+    category: "crop",
+    image: sweetPotatoesImg,
+    imageClass: "transform scale-90",
+    description: "Nutrient-rich, premium quality sweet potatoes cultivated using sustainable farming methods.",
+  },
+  {
+    id: "lettuce",
+    name: "Green Lettuce",
+    weight: "10kg/crate",
+    stock: 100,
+    botanicalName: "Lactuca sativa",
+    category: "crop",
+    image: lettuceImg,
+    imageClass: "transform scale-[0.85]",
+    description: "Fresh and leafy lettuce harvested at peak crispness for the best culinary experience.",
+  },
+  {
+    id: "red-lettuce",
+    name: "Red Lettuce",
+    weight: "10kg/crate",
+    stock: 100,
+    botanicalName: "Lactuca sativa",
+    category: "crop",
+    image: redLettuceImg,
+    imageClass: "transform scale-[0.85]",
+    description: "Vibrant and flavorful red lettuce, freshly harvested to add crispness and color to your culinary creations.",
+  },
+  {
+    id: "cabbage",
+    name: "Cabbage",
+    weight: "20kg/crate",
+    stock: 100,
+    botanicalName: "Brassica oleracea",
+    category: "crop",
+    image: cabbageImg,
+    imageClass: "transform scale-75",
+    description: "Firm and dense cabbage heads grown with precision farming techniques, supplying local and regional markets.",
+  },
+  {
     id: "local-okra",
     name: "Local Okra",
     weight: "20kg/crate",
@@ -455,7 +527,7 @@ const products = ref([
   },
   {
     id: "habanero-pepper",
-    name: "Habanero Pepper",
+    name: "Local Pepper (Kasoa)",
     weight: "20kg/crate",
     stock: 90,
     botanicalName: "Capsicum chinense",
@@ -463,6 +535,16 @@ const products = ref([
     image: habaneroImg,
     imageClass: "transform scale-[1.75]",
     description: "Vibrant, high-pungency habanero pepper cycles cultivated for premium spice extraction and international export grade markets.",
+  },
+  {
+    id: "true-habanero",
+    name: "Habanero Pepper",
+    weight: "10kg/box",
+    stock: 75,
+    botanicalName: "Capsicum chinense",
+    category: "crop",
+    image: trueHabaneroImg,
+    description: "Extremely hot and flavorful authentic Habanero peppers, carefully harvested at peak ripeness.",
   },
   {
     id: "chili-pepper",
@@ -476,7 +558,7 @@ const products = ref([
   },
   {
     id: "garden-eggs",
-    name: "Garden Eggs",
+    name: "Garden Eggs (African Eggplant)",
     weight: "20kg/crate",
     stock: 110,
     botanicalName: "Solanum aethiopicum",
@@ -492,6 +574,7 @@ const products = ref([
     botanicalName: "Ananas comosus",
     category: "crop",
     image: pineappleImg,
+    imageClass: "transform scale-110",
     description: "Sweet MD2 and Sugarloaf pineapple plantations optimized for fresh fruit export and local juice processing plants.",
   },
   {

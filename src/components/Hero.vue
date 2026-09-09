@@ -653,15 +653,8 @@ function closeModal() {
 }
 
 function goToServiceModel() {
-  const model = selectedOption.value?.serviceModel;
-  if (!model) {
-    closeModal();
-    return;
-  }
-
-  // Mark that we came from Video 2 so the back button restores it
-  sessionStorage.setItem("activateVideo2", "true");
-  window.location.href = `/service-model?model=${model}`;
+  closeModal();
+  window.location.href = `/`;
 }
 </script>
 
