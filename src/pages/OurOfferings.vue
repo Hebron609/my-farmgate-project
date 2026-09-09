@@ -574,7 +574,7 @@ const products = ref([
     botanicalName: "Ananas comosus",
     category: "crop",
     image: pineappleImg,
-    imageClass: "transform scale-[1.75]",
+    imageClass: "transform scale-110",
     description: "Sweet MD2 and Sugarloaf pineapple plantations optimized for fresh fruit export and local juice processing plants.",
   },
   {
