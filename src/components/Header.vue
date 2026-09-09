@@ -1323,6 +1323,7 @@ const {
   isSearchOpen,
   selectResult,
   clearSearch,
+  closeSearch,
   toggleSearch,
   handleSearchInput,
   mountShortcut,
