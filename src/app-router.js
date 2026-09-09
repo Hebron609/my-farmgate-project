@@ -11,7 +11,6 @@ const config = {
 
 const routes = [
   { path: "/", name: "Home", component: () => import("./pages/Home.vue") },
-  {
   { path: "/about", name: "About", component: () => import("./pages/About.vue") },
   {
     path: "/our-relevance",
@@ -32,6 +31,7 @@ const routes = [
   { path: "/projects", name: "Projects", component: () => import("./pages/Projects.vue") },
   { path: "/people", name: "People", component: () => import("./pages/People.vue") },
   { path: "/contact", name: "Contact", component: () => import("./pages/Contact.vue") },
+  {
     path: "/book-farm-visit",
     name: "BookFarmVisit",
     component: () => import("./pages/BookFarmVisit.vue"),
@@ -48,6 +48,28 @@ const routes = [
     component: () => import("./pages/OurOfferings.vue"),
   },
   { path: "/manifesto", name: "Manifesto", component: () => import("./pages/Manifesto.vue") },
+  { path: "/pricing", name: "Pricing", component: () => import("./pages/Pricing.vue") },
+  { path: "/privacy", name: "Privacy", component: () => import("./pages/Privacy.vue") },
+  {
+    path: "/terms",
+    name: "Terms",
+    component: () => import("./pages/TermsAndCondition.vue"),
+  },
+  {
+    path: "/schedule-call",
+    name: "ScheduleCall",
+    component: () => import("./pages/ScheduleCall.vue"),
+  },
+  {
+    path: "/service-model",
+    name: "ServiceModel",
+    component: () => import("./pages/ServiceModel.vue"),
+  },
+  {
+    path: "/opportunity-detail",
+    name: "OpportunityDetail",
+    component: () => import("./pages/OpportunityDetail.vue"),
+  },
 ];
 
 const router = createRouter({
