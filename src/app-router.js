@@ -12,6 +12,26 @@ const config = {
 const routes = [
   { path: "/", name: "Home", component: () => import("./pages/Home.vue") },
   {
+  { path: "/about", name: "About", component: () => import("./pages/About.vue") },
+  {
+    path: "/our-relevance",
+    name: "OurRelevance",
+    component: () => import("./pages/OurRelevance.vue"),
+  },
+  {
+    path: "/footprint",
+    name: "Footprint",
+    component: () => import("./pages/Footprint.vue"),
+  },
+  {
+    path: "/our-impact",
+    name: "OurImpact",
+    component: () => import("./pages/OurImpact.vue"),
+  },
+  { path: "/solutions", name: "Solutions", component: () => import("./pages/Solutions.vue") },
+  { path: "/projects", name: "Projects", component: () => import("./pages/Projects.vue") },
+  { path: "/people", name: "People", component: () => import("./pages/People.vue") },
+  { path: "/contact", name: "Contact", component: () => import("./pages/Contact.vue") },
     path: "/book-farm-visit",
     name: "BookFarmVisit",
     component: () => import("./pages/BookFarmVisit.vue"),
