@@ -902,17 +902,7 @@ const filteredSolutions = computed(() => {
 
 const carouselOffset = ref(0);
 
-const displayOrder = computed(() => {
-  const cards = filteredSolutions.value;
-  const len = cards.length;
-
-  if (len === 0) return [];
-
-  const offset = ((carouselOffset.value % len) + len) % len;
-  if (offset === 0) return cards;
-
-  return [...cards.slice(offset), ...cards.slice(0, offset)];
-});
+const displayOrder = computed(() => filteredSolutions.value);
 
 // Reset the rotation whenever filters change so the track starts from a stable order.
 watch(filteredSolutions, () => {
@@ -938,31 +928,14 @@ const getTrackStatus = (index) => {
   const len = displayOrder.value.length;
   if (len === 0) return "hidden-far-right";
 
-  if (len === 1) {
-    if (index === 0) return "active";
-    return "hidden-far-right";
-  }
+  const centerIndex = len >= 4 ? 2 : len >= 3 ? 1 : 0;
+  const activeIndex = (carouselOffset.value + centerIndex) % len;
+  const relativeIndex = (index - activeIndex + len) % len;
 
-  if (len === 2) {
-    if (index === 0) return "active";
-    if (index === 1) return "next";
-    return "hidden-far-right";
-  }
-
-  if (len === 3) {
-    if (index === 0) return "prev";
-    if (index === 1) return "active";
-    if (index === 2) return "next";
-    return "hidden-far-right";
-  }
-
-  // SYMMETRICAL 5-SLOT TRACK FOR 4+ CARDS:
-  if (index === 0) return "hidden-far-left"; // Exit/Entry point Left (-250%)
-  if (index === 1) return "prev"; // Visible Left (-105%)
-  if (index === 2) return "active"; // CENTER FOCUS (0%)
-  if (index === 3) return "next"; // Visible Right (105%)
-
-  return "hidden-far-right"; // Index 4 & 5 wait here (+250%)
+  if (relativeIndex === 0) return "active";
+  if (relativeIndex === 1) return "next";
+  if (relativeIndex === len - 1) return "prev";
+  return relativeIndex < len / 2 ? "hidden-far-right" : "hidden-far-left";
 };
 
 const handleNext = () => {
