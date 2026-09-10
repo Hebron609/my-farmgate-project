@@ -107,4 +107,11 @@ export const revealEffects = {
     interval: 120,
     easing: 'ease-out',
   },
+  scaleUp: {
+    opacity: 0,
+    scale: 0.85,
+    distance: '0px',
+    duration: 650,
+    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+  },
 };
