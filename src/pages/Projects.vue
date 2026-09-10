@@ -237,16 +237,16 @@
 
             <!-- Single Status Toggle: Active [toggle] Completed -->
             <div
-              class="order-3 flex items-center justify-center w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
+              class="flex items-center justify-center order-3 w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
             >
               <LeafIcon class="w-4 h-4 text-[#F2CB00] shrink-0" />
               <span
-                class="text-sm font-semibold text-gray-700 font-montserrat whitespace-nowrap shrink-0 mr-1 md:mr-2"
+                class="mr-1 text-sm font-semibold text-gray-700 font-montserrat whitespace-nowrap shrink-0 md:mr-2"
                 >Project status:</span
               >
 
               <span
-                class="text-[11px] sm:text-sm font-semibold text-[#129C48] font-montserrat whitespace-nowrap shrink-0 "
+                class="text-[11px] sm:text-sm font-semibold text-[#129C48] font-montserrat whitespace-nowrap shrink-0"
                 >Active</span
               >
 
@@ -257,7 +257,7 @@
                   type="checkbox"
                   class="sr-only"
                   v-model="isCompletedDraft"
-                  @change="applyFilters"
+                  @change.stop="applyFilters"
                 />
                 <div
                   :class="[
@@ -473,11 +473,13 @@
 
             <!-- Single Status Toggle: Active [toggle] Completed -->
             <div
-              class="projects-filter-status order-3 flex items-center justify-center w-full px-3 py-3 transition-colors flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
+              class="flex items-center justify-center order-3 w-full px-3 py-3 transition-colors projects-filter-status flex-nowrap md:w-auto md:flex-none md:shrink-0 gap-x-2 gap-y-0 md:px-6 md:py-0 hover:bg-gray-50"
             >
-              <LeafIcon class="hidden md:inline w-4 h-4 text-[#F2CB00] shrink-0" />
+              <LeafIcon
+                class="hidden md:inline w-4 h-4 text-[#F2CB00] shrink-0"
+              />
               <span
-                class="hidden md:inline text-xs font-semibold text-gray-700 md:text-sm font-montserrat whitespace-nowrap shrink-0 mr-1 md:mr-2"
+                class="hidden mr-1 text-xs font-semibold text-gray-700 md:inline md:text-sm font-montserrat whitespace-nowrap shrink-0 md:mr-2"
                 >Project status:</span
               >
 
@@ -495,7 +497,7 @@
                     type="checkbox"
                     class="sr-only"
                     v-model="isCompletedDraft"
-                    @change="applyFilters"
+                    @change.stop="applyFilters"
                   />
                   <div
                     :class="[
@@ -538,6 +540,8 @@
 
       <div
         class="carousel-scene relative w-full md:h-[550px] flex items-center justify-center overflow-x-clip h-[430px]"
+        @touchstart.passive="handleTouchStart"
+        @touchend="handleTouchEnd"
       >
         <!-- Empty State -->
         <div
@@ -975,6 +979,24 @@ const handlePrev = () => {
   carouselOffset.value = (carouselOffset.value - 1 + len) % len;
 };
 
+const touchStartX = ref(null);
+
+const handleTouchStart = (event) => {
+  touchStartX.value = event.changedTouches[0]?.clientX ?? null;
+};
+
+const handleTouchEnd = (event) => {
+  if (touchStartX.value === null) return;
+
+  const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX.value;
+  const distance = touchEndX - touchStartX.value;
+  touchStartX.value = null;
+
+  if (Math.abs(distance) < 45) return;
+  if (distance < 0) handleNext();
+  else handlePrev();
+};
+
 const stats = ref([
   { number: "550+", label: "Farmers Supported" },
   { number: "27+", label: "Communities Transformed" },
@@ -1285,10 +1307,19 @@ const stats = ref([
     height: 400px;
     margin-left: -160px;
   }
-  .prev,
-  .next {
+  .card-item.prev,
+  .card-item.next,
+  .card-item.hidden-far-left,
+  .card-item.hidden-far-right {
     opacity: 0;
-    transform: translateX(0) scale(0.5);
+    pointer-events: none;
+    transform: translateX(0) translateZ(0) scale(0.96);
+  }
+
+  .card-item.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) translateZ(0) scale(1);
   }
 }
 
