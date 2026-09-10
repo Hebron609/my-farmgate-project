@@ -614,49 +614,52 @@
             </div>
           </div>
 
-          <div
-            v-if="
-              getTrackStatus(trackIndex) === 'active' && displayOrder.length > 1
-            "
-            class="absolute inset-0 z-[100] flex items-center justify-between px-6 pointer-events-none transform translate-z-10"
+        </div>
+
+        <div
+          v-if="displayOrder.length > 1"
+          class="pointer-events-none absolute inset-0 z-[200] flex items-center justify-between px-3 md:px-6"
+        >
+          <button
+            type="button"
+            aria-label="Previous project"
+            @click.stop="handlePrev"
+            class="pointer-events-auto rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
           >
-            <button
-              @click.stop="handlePrev"
-              class="pointer-events-auto p-2 bg-[#0a4d3c] rounded-full text-white shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer absolute left-[-2px]"
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              @click.stop="handleNext"
-              class="pointer-events-auto p-2 bg-[#0a4d3c] rounded-full text-white shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer absolute right-[-2px] z-[100]"
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Next project"
+            @click.stop="handleNext"
+            class="pointer-events-auto rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
