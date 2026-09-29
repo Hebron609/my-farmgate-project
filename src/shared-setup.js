@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import CookieConsent from "./components/CookieConsent.vue";
 
 // Solid icons
 import {
@@ -146,28 +147,18 @@ export function setupApp(RootComponentOrApp, selector, configure) {
   // Global WhatsApp Injection
   injectWhatsAppButton();
 
-  // Global Cookiebot Consent Banner Injection
-  injectCookiebotBanner();
+  // Global Custom Cookie Banner Injection
+  injectCustomCookieBanner();
 }
 
-function injectCookiebotBanner() {
-  if (document.getElementById("Cookiebot")) return;
-
-  const cookiebotId = import.meta.env.VITE_COOKIEBOT_ID || "c0a52dfb-6aeb-475c-8975-f09b2e2d091e";
+function injectCustomCookieBanner() {
+  if (document.getElementById("custom-cookie-banner")) return;
   
-  const script = document.createElement("script");
-  script.id = "Cookiebot";
-  script.src = "https://consent.cookiebot.com/uc.js";
-  script.dataset.cbid = cookiebotId;
-  script.dataset.blockingmode = "auto";
-  script.type = "text/javascript";
-
-  // Insert script at the top of <head> to ensure early execution
-  if (document.head && document.head.firstChild) {
-    document.head.insertBefore(script, document.head.firstChild);
-  } else if (document.head) {
-    document.head.appendChild(script);
-  }
+  const mountEl = document.createElement("div");
+  mountEl.id = "custom-cookie-banner";
+  document.body.appendChild(mountEl);
+  
+  createApp(CookieConsent).mount(mountEl);
 }
 
 function injectWhatsAppButton() {

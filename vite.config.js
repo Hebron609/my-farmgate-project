@@ -114,7 +114,7 @@ export default defineConfig({
         changeOrigin: true,
         secure: true,
       },
-      "/api/unscheduled-tours": {
+      "/api/v1/unscheduled-tours": {
         target: "https://api.farmgate.africa",
         changeOrigin: true,
         secure: true,

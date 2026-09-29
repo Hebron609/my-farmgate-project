@@ -77,6 +77,16 @@ const router = createRouter({
   routes,
 });
 
+router.afterEach((to) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'page_view', {
+      page_path: to.path,
+      page_title: to.name,
+      page_location: window.location.origin + to.fullPath
+    });
+  }
+});
+
 const app = createApp(App);
 app.use(router);
 app.use(HoneybadgerVue, config);
