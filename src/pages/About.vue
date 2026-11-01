@@ -150,6 +150,41 @@
       </div>
     </section>
 
+    <!-- Strategic Partners Section -->
+    <section class="w-full px-6 py-16 bg-gray-50 md:px-12 md:py-24">
+      <div class="max-w-6xl mx-auto text-center reveal-fade">
+        <h2 class="font-['Livvic'] text-3xl md:text-5xl font-bold text-black leading-tight mb-4">
+          Our Strategic <span class="text-[#129C48]">Partners</span>
+        </h2>
+        <p class=" text-lg md:text-md text-black max-w-3xl mx-auto mb-16">
+          Collaborating to redefine the future of agriculture.
+        </p>
+        
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12 items-center justify-items-center mt-24">
+          <!-- InnoHub -->
+          <div class="flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 reveal-slide-up w-full">
+            <div class="w-56 h-32 flex items-center justify-center overflow-hidden p-6 bg-white rounded-2xl shadow-xl">
+               <img src="/images/innohub_logo.png" alt="InnoHub Partner Logo" class="object-contain w-full h-full" />
+            </div>
+          </div>
+
+          <!-- Tullow -->
+          <div class="flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 reveal-slide-up w-full" style="transition-delay: 100ms;">
+            <div class="w-56 h-32 flex items-center justify-center overflow-hidden rounded-2xl bg-[#1B355A] p-6 shadow-xl">
+               <img src="/images/tullow_logo.avif" alt="Tullow Partner Logo" class="object-contain w-auto h-auto max-w-full max-h-full" />
+            </div>
+          </div>
+
+          <!-- Butterfly Technologies -->
+          <div class="flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 reveal-slide-up w-full" style="transition-delay: 200ms;">
+            <div class="w-56 h-32 flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-tr from-[#2E1A3C] to-[#712857] shadow-xl p-2">
+               <img src="/images/butterfly_logo.png" alt="Butterfly Technologies Logo" class="object-contain w-full h-full drop-shadow-md scale-[1.7]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!--<GrowWithUs />-->
     <Footer />
   </div>

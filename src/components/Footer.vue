@@ -21,7 +21,7 @@
         <!-- Right Content -->
         <div class="relative flex flex-col h-full">
           <div
-            class="grid grid-cols-2 text-sm sm:grid-cols-3 gap-x-6 gap-y-6 sm:gap-x-10 sm:text-base"
+            class="grid grid-cols-2 text-sm sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-6 sm:gap-x-8 sm:text-base"
           >
             <FooterColumn
               title="Company"
@@ -48,6 +48,12 @@
                 { label: 'Privacy Policy', href: '/privacy' },
                 { label: 'Risk Policy', href: '/' },
                 { label: 'Cookie Preferences', action: renewCookieConsent },
+              ]"
+            />
+            <FooterColumn
+              title="Resources"
+              :items="[
+                { label: 'Gallery', href: '/gallery' },
               ]"
             />
           </div>

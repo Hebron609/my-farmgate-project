@@ -70,11 +70,26 @@ const routes = [
     name: "OpportunityDetail",
     component: () => import("./pages/OpportunityDetail.vue"),
   },
+  {
+    path: "/gallery",
+    name: "Gallery",
+    component: () => import("./pages/Gallery.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.afterEach((to) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'page_view', {
+      page_path: to.path,
+      page_title: to.name,
+      page_location: window.location.origin + to.fullPath
+    });
+  }
 });
 
 const app = createApp(App);

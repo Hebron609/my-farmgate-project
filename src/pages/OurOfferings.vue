@@ -322,7 +322,8 @@ import pineappleImg from "../assets/img/pineapple-new.webp";
 import sweetPotatoesImg from "../assets/img/sweet-potatoes.webp";
 import tomatoImg from "../assets/img/tomato.webp";
 import habaneroImg from "../assets/img/habanero-pepper-new.webp";
-import trueHabaneroImg from "../assets/img/true-habanero.webp";
+import trueHabaneroImg from "../assets/img/habanero-five.webp";
+import gingerImg from "../assets/img/fresh-ginger.webp";
 import chiliImg from "../assets/img/red-chili-pepper-isolated-white-background.webp";
 import gardenEggsImg from "../assets/img/garden-eggs Background Removed.webp";
 import cassavaImg from "../assets/img/cassava-new.webp";
@@ -419,6 +420,47 @@ const proceedToOrder = () => {
 const products = ref([
   // Crop
   {
+    id: "tomato",
+    name: "Tomato",
+    weight: "20kg/crate",
+    stock: 180,
+    botanicalName: "Solanum lycopersicum",
+    category: "crop",
+    image: tomatoImg,
+    description: "Greenhouse and open-field commercial tomato farming with guaranteed off-take from regional paste processing facilities.",
+  },
+  {
+    id: "local-okra",
+    name: "Local Okra",
+    weight: "20kg/crate",
+    stock: 150,
+    botanicalName: "Abelmoschus esculentus",
+    category: "crop",
+    image: okraImg,
+    imageClass: "transform scale-125",
+    description: "High-yielding local okra cultivation tailored for rapid domestic consumption and processing markets across West Africa.",
+  },
+  {
+    id: "onion",
+    name: "Red Onion",
+    weight: "20kg/crate",
+    stock: 200,
+    botanicalName: "Allium cepa",
+    category: "crop",
+    image: onionImg,
+    description: "Large-scale red and white bulb onion cultivation utilizing modern drip irrigation and proper post-harvest curing storage.",
+  },
+  {
+    id: "chili-pepper",
+    name: "Chili Pepper",
+    weight: "20kg/crate",
+    stock: 140,
+    botanicalName: "Capsicum annuum",
+    category: "crop",
+    image: chiliImg,
+    description: "Drought-resistant chili pepper varieties grown under precision monitoring for both dried spice and fresh culinary distributors.",
+  },
+  {
     id: "cucumber",
     name: "Cucumber",
     weight: "20kg/crate",
@@ -485,17 +527,6 @@ const products = ref([
     description: "Firm and dense cabbage heads grown with precision farming techniques, supplying local and regional markets.",
   },
   {
-    id: "local-okra",
-    name: "Local Okra",
-    weight: "20kg/crate",
-    stock: 150,
-    botanicalName: "Abelmoschus esculentus",
-    category: "crop",
-    image: okraImg,
-    imageClass: "transform scale-125",
-    description: "High-yielding local okra cultivation tailored for rapid domestic consumption and processing markets across West Africa.",
-  },
-  {
     id: "ladyfinger-okra",
     name: "Lady's Finger Okra",
     weight: "20kg/crate",
@@ -505,26 +536,7 @@ const products = ref([
     image: okra1Img,
     description: "Premium tender Lady's Finger Okra okra variety selected for high nutritional density, uniform pod growth, and strong export demand.",
   },
-  {
-    id: "onion",
-    name: "Red Onion",
-    weight: "20kg/crate",
-    stock: 200,
-    botanicalName: "Allium cepa",
-    category: "crop",
-    image: onionImg,
-    description: "Large-scale red and white bulb onion cultivation utilizing modern drip irrigation and proper post-harvest curing storage.",
-  },
-  {
-    id: "tomato",
-    name: "Tomato",
-    weight: "20kg/crate",
-    stock: 180,
-    botanicalName: "Solanum lycopersicum",
-    category: "crop",
-    image: tomatoImg,
-    description: "Greenhouse and open-field commercial tomato farming with guaranteed off-take from regional paste processing facilities.",
-  },
+
   {
     id: "habanero-pepper",
     name: "Local Pepper (Kasoa)",
@@ -547,15 +559,16 @@ const products = ref([
     description: "Extremely hot and flavorful authentic Habanero peppers, carefully harvested at peak ripeness.",
   },
   {
-    id: "chili-pepper",
-    name: "Chili Pepper",
-    weight: "20kg/crate",
-    stock: 140,
-    botanicalName: "Capsicum annuum",
+    id: "ginger",
+    name: "Ginger",
+    weight: "20kg/bag",
+    stock: 200,
+    botanicalName: "Zingiber officinale",
     category: "crop",
-    image: chiliImg,
-    description: "Drought-resistant chili pepper varieties grown under precision monitoring for both dried spice and fresh culinary distributors.",
+    image: gingerImg,
+    description: "Fresh, premium quality ginger root with robust flavor and aroma, harvested from sustainable farms.",
   },
+
   {
     id: "garden-eggs",
     name: "Garden Eggs (African Eggplant)",

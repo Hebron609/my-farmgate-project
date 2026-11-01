@@ -551,7 +551,7 @@ const fetchCalls = async () => {
 };
 
 const fetchUnscheduled = async () => {
-  const data = await authFetch('/api/unscheduled-tours', {}, getMockUnscheduled);
+  const data = await authFetch('/api/v1/unscheduled-tours', {}, getMockUnscheduled);
   if (data && Array.isArray(data.data || data)) unscheduledToursData.value = (data.data || data);
 };
 
@@ -614,7 +614,7 @@ const deleteTour = async (id) => {
 
 const deleteUnscheduled = async (id) => {
   if (!confirm('Delete this unscheduled tour request?')) return;
-  await authFetch(`/api/unscheduled-tours/${id}`, { method: 'DELETE' });
+  await authFetch(`/api/v1/unscheduled-tours/${id}`, { method: 'DELETE' });
   unscheduledToursData.value = unscheduledToursData.value.filter(t => t.id !== id);
 };
 

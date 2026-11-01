@@ -618,13 +618,13 @@
 
         <div
           v-if="displayOrder.length > 1"
-          class="pointer-events-none absolute inset-0 z-[200] flex items-center justify-between px-3 md:px-6"
+          class="pointer-events-none absolute inset-0 z-[200]"
         >
           <button
             type="button"
             aria-label="Previous project"
             @click.stop="handlePrev"
-            class="pointer-events-auto rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+            class="carousel-btn carousel-btn-prev pointer-events-auto absolute top-1/2 -translate-y-1/2 left-3 md:left-auto md:right-[calc(50%+330px)] rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer z-10"
           >
             <svg
               class="h-6 w-6"
@@ -644,7 +644,7 @@
             type="button"
             aria-label="Next project"
             @click.stop="handleNext"
-            class="pointer-events-auto rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer"
+            class="carousel-btn carousel-btn-next pointer-events-auto absolute top-1/2 -translate-y-1/2 right-3 md:right-auto md:left-[calc(50%+330px)] rounded-full bg-[#0a4d3c] p-2 text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer z-10"
           >
             <svg
               class="h-6 w-6"
@@ -1296,6 +1296,32 @@ const stats = ref([
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0) translateZ(0) scale(1);
+  }
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn-prev {
+  left: 0.75rem;
+}
+
+.carousel-btn-next {
+  right: 0.75rem;
+}
+
+@media (min-width: 769px) {
+  .carousel-btn-prev {
+    left: auto !important;
+    right: calc(50% + 305px) !important;
+  }
+
+  .carousel-btn-next {
+    right: auto !important;
+    left: calc(50% + 305px) !important;
   }
 }
 

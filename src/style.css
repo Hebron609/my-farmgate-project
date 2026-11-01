@@ -179,7 +179,9 @@ h6 {
   box-shadow: 0 8px 20px rgba(18, 156, 72, 0.6);
 }
 
-body.menu-open .whatsapp-support-global {
+body.menu-open .whatsapp-support-global,
+body.lightbox-open .whatsapp-support-global,
+body.modal-open .whatsapp-support-global {
   display: none !important;
 }
 

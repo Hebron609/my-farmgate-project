@@ -39,18 +39,20 @@
       <div
         class="absolute inset-0 z-0 w-full h-full rounded-full pointer-events-none bg-gradient-to-r from-green-800 to-[#F2CB00] animate-solid-pulse"
       ></div>
-      <a
-        href="/"
-        class="relative z-10 px-8 py-3 font-bold text-white transition-all duration-300 rounded-full shadow-xl bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 whitespace-nowrap"
+      <button
+        @click="goHome"
+        class="relative z-10 cursor-pointer px-8 py-3 font-bold text-white transition-all duration-300 rounded-full shadow-xl bg-gradient-to-r from-green-800 to-yellow-600 hover:shadow-2xl hover:scale-105 whitespace-nowrap"
       >
         Go to Homepage
-      </a>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-// No script logic needed for this static view
+const goHome = () => {
+  window.location.href = '/';
+};
 </script>
 
 <style scoped>

@@ -33,6 +33,7 @@ const cleanUrlMiddleware = () => ({
         "/dashboard":          "/investor-dashboard.html",
         "/investor-dashboard": "/investor-dashboard.html",
         "/operations-dashboard": "/operations-dashboard.html",
+        "/gallery":              "/gallery.html",
       };
       const [pathname, query] = req.url.split("?");
       if (map[pathname]) {
@@ -114,7 +115,7 @@ export default defineConfig({
         changeOrigin: true,
         secure: true,
       },
-      "/api/unscheduled-tours": {
+      "/api/v1/unscheduled-tours": {
         target: "https://api.farmgate.africa",
         changeOrigin: true,
         secure: true,
@@ -148,6 +149,7 @@ export default defineConfig({
         signup: path.resolve(__dirname, "signup.html"),
         investorDashboard: path.resolve(__dirname, "investor-dashboard.html"),
         operationsDashboard: path.resolve(__dirname, "operations-dashboard.html"),
+        gallery: path.resolve(__dirname, "gallery.html"),
       },
     },
   },
