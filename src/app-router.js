@@ -70,6 +70,11 @@ const routes = [
     name: "OpportunityDetail",
     component: () => import("./pages/OpportunityDetail.vue"),
   },
+  {
+    path: "/gallery",
+    name: "Gallery",
+    component: () => import("./pages/Gallery.vue"),
+  },
 ];
 
 const router = createRouter({

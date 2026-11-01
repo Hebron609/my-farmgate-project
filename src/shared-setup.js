@@ -52,6 +52,12 @@ import {
   faLocationDot,
   faCalendarDays,
   faLock,
+  faCamera,
+  faExpand,
+  faEye,
+  faImages,
+  faTableCellsLarge,
+  faGrip,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Brand icons
@@ -115,6 +121,12 @@ library.add(
   faLocationDot,
   faCalendarDays,
   faLock,
+  faCamera,
+  faExpand,
+  faEye,
+  faImages,
+  faTableCellsLarge,
+  faGrip,
   faGithub,
   faInstagram,
   faYoutube,
