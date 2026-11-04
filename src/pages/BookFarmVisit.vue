@@ -98,12 +98,7 @@
       <div
         class="absolute z-30 flex flex-col items-center -translate-x-1/2 scroll-indicator left-1/2 bottom-8"
       >
-        <img
-          src="/images/scroll-mouse.gif"
-          alt="Scroll down"
-          class="w-8 h-8 mb-1"
-          draggable="false"
-        />
+        <ScrollDownPage />
         <span
           class="text-xs font-bold tracking-widest text-white animate-bounce"
         >
@@ -420,6 +415,7 @@ import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import Header from "../components/Header.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
 import Footer from "../components/Footer.vue";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 
 const { init: initScrollReveal } = useScrollReveal({
   duration: 800,

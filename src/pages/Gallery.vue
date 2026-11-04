@@ -213,7 +213,7 @@
                 type="text"
                 v-model="searchQuery"
                 placeholder="Search media..."
-                class="w-full pl-8 pr-7 py-2 rounded-full text-xs text-gray-900 placeholder-gray-400 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#129C48] transition-all"
+                class="gallery-search-input w-full pl-8 pr-7 py-2 rounded-full text-base sm:text-xs text-gray-900 placeholder-gray-400 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#129C48] transition-all"
               />
               <button
                 v-if="searchQuery"
@@ -255,7 +255,7 @@
                 type="text"
                 v-model="searchQuery"
                 placeholder="Search media..."
-                class="w-full pl-8 pr-7 py-2 xl:py-1.5 rounded-full text-xs text-gray-900 placeholder-gray-400 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#129C48] transition-all"
+                class="gallery-search-input w-full pl-8 pr-7 py-2.5 xl:py-1.5 rounded-full text-base xl:text-xs text-gray-900 placeholder-gray-400 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#129C48] transition-all"
               />
               <button
                 v-if="searchQuery"
@@ -2022,5 +2022,13 @@ onUnmounted(() => {
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Prevent iOS Safari auto-zooming on focus by enforcing 16px font-size on mobile viewports */
+@media screen and (max-width: 768px) {
+  .gallery-search-input,
+  input.gallery-search-input {
+    font-size: 16px !important;
+  }
 }
 </style>

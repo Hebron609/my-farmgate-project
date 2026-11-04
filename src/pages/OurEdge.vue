@@ -41,6 +41,10 @@
           inclusive partnerships to build resilient agricultural systems that
           scale.
         </p>
+
+        <div class="absolute bottom-10">
+          <ScrollDownPage />
+        </div>
       </div>
     </section>
 
@@ -320,6 +324,7 @@ import { onMounted, ref } from "vue";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import LeafIcon from "../components/icons/LeafIcon.vue";
+import ScrollDownPage from "@/components/ScrollDownPage.vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import farmPic1 from "@/assets/img/farm-pic1.webp";
