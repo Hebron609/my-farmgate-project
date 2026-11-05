@@ -151,7 +151,7 @@
     </section>
 
     <!-- Strategic Partners Section -->
-    <section class="w-full px-6 py-16 bg-gray-50 md:px-12 md:py-24">
+    <section id="strategic-partners" class="w-full px-6 py-16 bg-gray-50 md:px-12 md:py-24 scroll-mt-24">
       <div class="max-w-6xl mx-auto text-center reveal-fade">
         <h2 class="font-['Livvic'] text-3xl md:text-5xl font-bold text-black leading-tight mb-4">
           Our Strategic <span class="text-[#129C48]">Partners</span>
@@ -191,7 +191,7 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
 import { useScrollReveal, revealEffects } from "@/composables/useScrollReveal";
 import { useHighlightOnLoad } from "@/composables/useHighlightOnLoad";
 import Header from "../components/Header.vue";
@@ -207,8 +207,24 @@ const { init: initScrollReveal } = useScrollReveal({
 
 const { init: initHighlight } = useHighlightOnLoad();
 
+function checkAndScrollToPartners() {
+  if (window.location.hash === "#strategic-partners") {
+    setTimeout(() => {
+      const el = document.getElementById("strategic-partners");
+      if (el) {
+        const HEADER_OFFSET = 90;
+        const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 250);
+  }
+}
+
 onMounted(() => {
   initHighlight();
+  checkAndScrollToPartners();
+  window.addEventListener("hashchange", checkAndScrollToPartners);
+
   const api = initScrollReveal();
   if (!api) return;
   api.reveal(".reveal-fade", { ...revealEffects.fade, duration: 900 });
@@ -226,6 +242,10 @@ onMounted(() => {
     duration: 600,
     interval: 100,
   });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("hashchange", checkAndScrollToPartners);
 });
 
 // Image Imports

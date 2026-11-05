@@ -54,6 +54,7 @@
               title="Resources"
               :items="[
                 { label: 'Gallery', href: '/gallery' },
+                { label: 'Strategic Partners', href: '/about#strategic-partners' },
               ]"
             />
           </div>

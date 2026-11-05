@@ -15,7 +15,12 @@
         >
           {{ item.label }}
         </button>
-        <a v-else :href="item.href" class="footer-underline-link">{{ item.label }}</a>
+        <a
+          v-else
+          :href="item.href"
+          @click="handleLinkClick($event, item.href)"
+          class="footer-underline-link"
+        >{{ item.label }}</a>
       </li>
     </ul>
   </div>
@@ -29,4 +34,31 @@ defineProps({
     default: () => [],
   },
 });
+
+function handleLinkClick(event, href) {
+  if (!href || !href.includes("#")) return;
+
+  const [path, hash] = href.split("#");
+  if (!hash) return;
+
+  const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+  const targetPath = path.replace(/\/$/, "") || "/";
+
+  // Check if target is current page (accounting for clean URLs and .html extensions)
+  const isCurrentPage =
+    currentPath === targetPath ||
+    currentPath === `${targetPath}.html` ||
+    `${currentPath}.html` === targetPath;
+
+  if (isCurrentPage) {
+    const el = document.getElementById(hash);
+    if (el) {
+      event.preventDefault();
+      history.pushState(null, "", href);
+      const HEADER_OFFSET = 90;
+      const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }
+}
 </script>
